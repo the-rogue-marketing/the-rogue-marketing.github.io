@@ -1,0 +1,64 @@
+title: "Rogue Marketing"
+email: areebaiqbal464@gmail.com
+timezone: UTC
+baseurl: "/"
+permalink: "/:title/"
+logo: 'assets/images/logo.png'
+favicon: 'assets/images/favicon.ico'
+author: professor-xai
+paginate: 30
+disqus: 'demowebsite'
+locale: en_us
+lang: en_us
+feed_items: 10
+feed_update_period: daily
+feed_update_frequency: 1
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+sass:
+  sass_dir: _sass
+  style: :compressed
+ganalytics: G-DQ9YLLCNZ0
+
+# Authors
+authors:
+  professor-xai:
+    name: Professor XAI
+    display_name: Professor XAI
+    avatar: 'assets/images/professor-xai.png'
+    email: aiviewz.marketing@gmail.com
+    web: https://www.aiviewz.com
+    twitter: https://x.com/professor_xai
+    description: "ML Engineer passionate about advancing AI technologies and building intelligent systems."
+  muhammad-usama:
+    name: Muhammad Usama
+    display_name: Muhammad Usama
+    avatar: 'assets/images/muhammad-usama.png'
+    email: usasrj38@gmail.com
+    web:  https://www.aiviewz.com
+    twitter: https://x.com/ai_viewz
+    description: "Digital Marketing expert focused on creating impactful online strategies."
+  naila-iqbal:
+    name: Areeba Iqbal
+    display_name: Areeba Iqbal
+    avatar: 'assets/images/areeba-iqbal.png'
+    email: areebaiqbal464@gmail.com
+    web: https://www.aiviewz.com
+    twitter: https://x.com/areeba__iqbal
+    description: "Software Engineer and Blogger specializing in developing robust and scalable generative ai applications."
+
+# Social
+social:
+  instagram: https://www.instagram.com/ai.viewz/
+  facebook: https://www.facebook.com/bootstrapstartercom-346329609045284
+  twitter:  https://x.com/ai_viewz
+
+# Plugins
+plugins: 
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-archives
