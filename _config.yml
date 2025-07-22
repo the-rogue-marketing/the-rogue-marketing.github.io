@@ -4,7 +4,7 @@ timezone: UTC
 baseurl: "/"
 permalink: "/:title/"
 logo: 'assets/images/logo.png'
-favicon: 'assets/images/favicon.ico'
+favicon: 'assets/images/favicon.png'
 author: professor-xai
 paginate: 30
 disqus: 'demowebsite'
