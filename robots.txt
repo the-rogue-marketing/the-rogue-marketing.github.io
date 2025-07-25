@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://the-rogue-marketing.github.io/sitemap.xml
