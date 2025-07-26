@@ -6,8 +6,6 @@ categories: [ ocr, tutorial, gemini ai, gemini 2.5, gemini api ]
 image: assets/images/3.jpeg
 ---
 
-# AI Viewz OCR vs. Top OCR Services: Features, Performance, and Cost Comparison
-
 Optical Character Recognition (OCR) is a transformative technology for digitizing documents, automating data extraction, and enabling seamless workflows across industries. As an ML Engineer, I’ve evaluated numerous OCR services to identify the best fit for various use cases. In this post, I compare [AI Viewz’s OCR service](https://www.aiviewz.com/services/image-to-text) and its two variants—Internal Build (using Tesseract and open-source technologies) and Gemini 2.5 Pro-powered—with leading OCR services: Google Cloud Vision API, Azure OCR, AWS Textract, Mindee OCR, Tesseract OCR, EasyOCR, DocTR, PaddleOCR, Surya OCR, and Microsoft TrOCR. The comparison focuses on features, performance, use cases, and costs, highlighting AI Viewz’s cost-effectiveness due to its token-based [Gemini API](https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini) pricing.
 
 ## Overview of AI Viewz OCR
