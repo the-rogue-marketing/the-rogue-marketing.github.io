@@ -5,7 +5,6 @@ author: professor-xai
 categories: [ gemini 2.5, gemini ai, gemini api ]
 image: assets/images/1.jpg
 ---
-# Build Everything with Gemini 2.5 Pro: Image Analysis
 
 The Gemini 2.5 Pro API, with its native multimodal processing and 1-million-token context window, excels at analyzing images for a variety of applications, including invoice OCR. Below are key use cases for image analysis with tailored prompts to help developers leverage the API effectively, powered by services like [AI Viewz Image-to-Text](https://www.aiviewz.com/services/image-to-text) and [AI Viewz Key Information Extraction](https://www.aiviewz.com/services/key-information-extraction). These examples demonstrate the model’s ability to process images alongside text, enabling tasks like object detection, image captioning, accessibility improvements, and invoice processing. Each prompt is designed to be used in [Google AI Studio](https://ai.google.dev/gemini-api/docs) or programmatically via the [Gemini API](https://ai.google.dev/gemini-api/docs) or [Vertex AI](https://cloud.google.com/vertex-ai).
 
