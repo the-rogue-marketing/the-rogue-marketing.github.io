@@ -2,8 +2,8 @@
 layout: post
 title: "Google Gemini Nano Banana Image Generation Pricing"
 author: professor-xai
-categories: [gemini,ai-image-generation,google-ai,pricing,flash-model]
-image: assets/images/gemini-nano-banana.jpg
+categories: [gemini-2.5-flash-image-preview,ai-image-generation,google-ai,pricing]
+image: assets/images/gemini-nano-banana.png
 ---
 
 You've heard the buzz. The AI world is abuzz with the latest, most efficient model yet: **Google Gemini 2.5 Flash Image Preview**. And while its text capabilities are impressive, the real headline-grabber is its native image generation, codenamed "Gemini Nano Banana" for its promised speed and flexibility.
