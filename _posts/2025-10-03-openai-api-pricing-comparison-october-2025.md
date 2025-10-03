@@ -3,7 +3,7 @@ layout: post
 title: "OpenAI API Pricing October 2025: Complete Guide to GPT-5, Realtime & Image Generation Costs"
 author: professor-xai
 categories: [ openai-api, ai-pricing, gpt-5, realtime-api, image-generation, ai-costs, api-optimization ]
-image: assets/images/openai-api-pricing.png
+image: assets/images/openai-api-pricing.jpg
 ---
 
 # OpenAI API Pricing Update: October 2025 Overview
