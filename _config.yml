@@ -1,12 +1,12 @@
 title: "Rogue Marketing"
 email: areebaiqbal464@gmail.com
 timezone: UTC
-baseurl: ""
+baseurl: "/the-rogue-marketing.github.io"
 permalink: "/:title/"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 author: professor-xai
-paginate: 30
+paginate: 15
 disqus: 'demowebsite'
 locale: en_us
 lang: en_us
@@ -58,6 +58,7 @@ social:
 # Plugins
 plugins: 
 - jekyll-paginate
+- jekyll-sitemap
 - jekyll-feed
 - jekyll-seo-tag
 - jekyll-archives
