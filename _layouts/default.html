@@ -2,94 +2,27 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="icon" href="{{ site.baseurl }}/{{site.favicon}}">
 
-<!-- Essential Meta Tags -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="{% if page.description %}{{ page.description | strip_html | truncate: 160 }}{% else %}{{ site.description | strip_html | truncate: 160 }}{% endif %}">
-<meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}">
-<meta name="author" content="{{ site.author | default: site.title }}">
-
-<!-- Open Graph Meta Tags -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="{{ page.title | default: site.title }} | {{ site.title }}">
-<meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | truncate: 160 }}{% else %}{{ site.description | strip_html | truncate: 160 }}{% endif %}">
-<meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:site_name" content="{{ site.title }}">
-{% if page.image %}
-<meta property="og:image" content="{{ page.image | absolute_url }}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-{% else %}
-<meta property="og:image" content="{{ '/assets/images/default-og-image.jpg' | absolute_url }}">
-{% endif %}
-
-<!-- Twitter Card Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ page.title | default: site.title }} | {{ site.title }}">
-<meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | truncate: 160 }}{% else %}{{ site.description | strip_html | truncate: 160 }}{% endif %}">
-{% if page.image %}
-<meta name="twitter:image" content="{{ page.image | absolute_url }}">
-{% else %}
-<meta name="twitter:image" content="{{ '/assets/images/default-og-image.jpg' | absolute_url }}">
-{% endif %}
-{% if site.social.twitter %}
-<meta name="twitter:site" content="@{{ site.social.twitter | replace: 'https://twitter.com/', '' }}">
-{% endif %}
-
-<!-- Canonical URL -->
-<link rel="canonical" href="{{ page.url | absolute_url | replace: 'index.html', '' }}">
-
-<!-- Favicon and Icons -->
-<link rel="icon" href="{{ site.baseurl }}/{{ site.favicon }}" type="image/x-icon">
-<link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
-
-<!-- Preload Critical Resources -->
-<link rel="preload" href="{{ site.baseurl }}/assets/css/theme.css" as="style">
-<link rel="preload" href="{{ site.baseurl }}/assets/js/theme.js" as="script">
-
-<!-- DNS Prefetch for External Domains -->
-<link rel="dns-prefetch" href="//www.googletagmanager.com">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "{{ site.title }}",
-  "url": "{{ site.url }}",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "{{ site.url }}/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
-
-<!-- Page Title -->
-<title>{{ page.title | default: site.title }} | {{ site.title }}</title>
+<title>{{ page.title }} | {{site.title}}</title>
 
 {% seo %}
 
-<!-- CSS -->
-<link href="{{ site.baseurl }}/assets/css/theme.css" rel="stylesheet" preload>
+<link href="{{ site.baseurl }}/assets/css/theme.css" rel="stylesheet">
 
-<!-- Custom CSS -->
+<!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
 <link href="{{ site.baseurl }}/assets/css/custom.css" rel="stylesheet">
+<!-- custom CSS end-->
     
 {% if jekyll.environment == "production" %}       
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ganalytics }}"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{site.ganalytics}}"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ site.ganalytics }}', {
-    cookie_flags: 'SameSite=None;Secure',
-    anonymize_ip: true,
-    page_title: '{{ page.title | default: site.title }}'
-  });
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '{{site.ganalytics}}');
 </script>
 {% endif %}
    
