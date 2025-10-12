@@ -101,13 +101,14 @@ In today's digital transformation era, Optical Character Recognition (OCR) has b
 - **Competitive Edge**: Google's infrastructure advantage translates to better pricing
 
 **Pricing Comparison:**
+
 | Service | Cost per 1K Pages | Cost per 1M Pages |
 |---------|-------------------|-------------------|
 | Gemini API | ~$0.50 | ~$500 |
 | AWS Textract | $1.50 | $1,500 |
 | Azure Vision | $1.50 | $1,500 |
 | Google Vision | $1.50 | $1,500 |
-| Mindee | $2-5 | $2,000-5,000 |
+| Mindee | $2-5 (varies by doc) | $2,000-5,000 |
 | NanoNets | $0.99-2.99 | $990-2,990 |
 
 ### Scalability Benefits
