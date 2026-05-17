@@ -1,4 +1,7 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /assets/js/
+Disallow: /assets/css/
 
 Sitemap: https://the-rogue-marketing.github.io/sitemap.xml
+Sitemap: https://the-rogue-marketing.github.io/feed.xml

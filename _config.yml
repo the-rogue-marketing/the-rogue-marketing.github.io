@@ -1,10 +1,13 @@
 title: "Rogue Marketing"
+description: "Bold AI & marketing insights — covering Gemini, OpenAI, Grok, Claude API pricing, AI agent development, and data-driven digital strategies."
 email: areebaiqbal464@gmail.com
+url: "https://the-rogue-marketing.github.io"
 timezone: UTC
-baseurl: "/"
+baseurl: ""
 permalink: "/:title/"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
+og_image: 'assets/images/logo.png'
 author: professor-xai
 paginate: 15
 disqus: 'demowebsite'
@@ -21,6 +24,7 @@ sass:
   sass_dir: _sass
   style: :compressed
 ganalytics: G-DQ9YLLCNZ0
+twitter_username: rogue_dynamics
 
 # Authors
 authors:
@@ -35,7 +39,7 @@ authors:
   muhammad-usama:
     name: Muhammad Usama
     display_name: Muhammad Usama
-    avatar: 'assets/images/muhammad-usama.png'
+    avatar: 'assets/images/professor-xai.png'
     email: usasrj38@gmail.com
     web:  https://www.aiviewz.com
     twitter: https://x.com/ai_viewz
@@ -43,7 +47,7 @@ authors:
   naila-iqbal:
     name: Areeba Iqbal
     display_name: Areeba Iqbal
-    avatar: 'assets/images/areeba-iqbal.png'
+    avatar: 'assets/images/professor-xai.png'
     email: areebaiqbal464@gmail.com
     web: https://www.aiviewz.com
     twitter: https://x.com/areeba__iqbal

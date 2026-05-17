@@ -3,17 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="icon" href="{{ site.baseurl }}/{{site.favicon}}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
 
 <title>{{ page.title }} | {{site.title}}</title>
+{% if page.description %}
+<meta name="description" content="{{ page.description | truncate: 160 }}">
+{% elsif page.excerpt %}
+<meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
+{% else %}
+<meta name="description" content="{{ site.description | truncate: 160 }}">
+{% endif %}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ page.title }} | {{site.title}}">
+<meta property="og:description" content="{% if page.description %}{{ page.description | truncate: 200 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 200 }}{% else %}{{ site.description | truncate: 200 }}{% endif %}">
+{% if page.image %}<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{{ page.image }}">{% elsif site.og_image %}<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{{ site.og_image }}">{% endif %}
+<meta property="og:site_name" content="{{ site.title }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+{% if site.twitter_username %}<meta name="twitter:site" content="@{{ site.twitter_username }}">{% endif %}
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{% if page.description %}{{ page.description | truncate: 200 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 200 }}{% else %}{{ site.description | truncate: 200 }}{% endif %}">
+{% if page.image %}<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{{ page.image }}">{% endif %}
+
+{% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
 
 {% seo %}
+
+<!-- Preconnect for performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="{{ site.baseurl }}/assets/css/theme.css" rel="stylesheet">
 
 <!-- custom CSS - Remove this if you don't use it or choose to customize the stylesheet with sass-->
 <link href="{{ site.baseurl }}/assets/css/custom.css" rel="stylesheet">
 <!-- custom CSS end-->
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}{{ site.baseurl }}/",
+  "description": "{{ site.description }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    {% if site.logo %}"logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}{{ site.baseurl }}/{{ site.logo }}"
+    }{% endif %}
+  }
+}
+</script>
+
+{% if page.layout == 'post' %}
+{% assign author = site.authors[page.author] %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ page.title | escape }}",
+  "description": "{% if page.description %}{{ page.description | escape }}{% else %}{{ page.excerpt | strip_html | truncate: 200 | escape }}{% endif %}",
+  {% if page.image %}"image": "{{ site.url }}{{ site.baseurl }}/{{ page.image }}",{% endif %}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
+  "author": {
+    "@type": "Person",
+    "name": "{% if author %}{{ author.display_name }}{% else %}{{ site.title }}{% endif %}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    {% if site.logo %}"logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}{{ site.baseurl }}/{{ site.logo }}"
+    }{% endif %}
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  }
+}
+</script>
+{% endif %}
     
 {% if jekyll.environment == "production" %}       
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -34,7 +115,7 @@ gtag('config', '{{site.ganalytics}}');
     
 <!-- Menu Navigation
 ================================================== -->
-<div class="navigation-wrap start-header start-style">
+<header class="navigation-wrap start-header start-style">
     <nav class="navbar navbar-expand-lg" aria-label="Main Navigation">
         <div class="container">
 
@@ -88,7 +169,7 @@ gtag('config', '{{site.ganalytics}}');
 
         </div>
       </nav>
-    </div>  
+    </header>  
 
     
 <!-- Container
@@ -99,7 +180,7 @@ gtag('config', '{{site.ganalytics}}');
 
 <!-- Footer
 ================================================== -->    
-<footer class="footer container text-center" role="contentinfo">  
+<footer class="footer container-fluid text-center" role="contentinfo">  
 
   <ul class="p-0 mb-1 small">
     {% for item in site.data.menus.footermenu %}
@@ -109,15 +190,37 @@ gtag('config', '{{site.ganalytics}}');
     {% endfor %}
     </ul>
     <div class="copyright small">
-       Copyright © {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.
+       Copyright &copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.
     </div>
 </footer>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" aria-label="Back to top">&#8593;</button>
 
 <!-- JavaScript
 ================================================== -->    
 <script src="{{ site.baseurl }}/assets/js/jquery.min.js" defer></script>   
 <script src="{{ site.baseurl }}/assets/js/bootstrap.min.js" defer></script>   
 <script src="{{ site.baseurl }}/assets/js/theme.js" defer></script>    
+
+<!-- Back to Top Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('back-to-top');
+    if (btn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
+</script>
     
 </body>
     
