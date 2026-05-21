@@ -1,0 +1,17 @@
+# LangGraph (orchestration only — does NOT require langchain LLMs)
+langgraph>=0.4.0
+langchain-core>=0.3.0
+
+# Google Gemini SDK (native, for Gemma 4)
+google-genai>=1.0.0
+
+# Web scraping
+httpx>=0.27.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+
+# Configuration
+python-dotenv>=1.0.0
+
+# CLI
+rich>=13.0.0

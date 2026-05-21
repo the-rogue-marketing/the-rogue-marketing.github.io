@@ -1,0 +1,74 @@
+name: 🤖 Autopilot Blogger Agent
+
+on:
+  schedule:
+    # Runs at 08:00 UTC (1:00 PM PKT) every Monday, Wednesday, and Friday
+    - cron: '0 8 * * 1,3,5'
+  workflow_dispatch:
+    # Allows you to manually trigger this pipeline from the GitHub Actions UI
+
+permissions:
+  contents: write  # Crucial to let the action commit generated posts back to your repo
+
+jobs:
+  run-blogger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: 📦 Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r blogger/requirements.txt
+
+      - name: 🔑 Configure Secrets & Environment
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          CREDENTIALS_JSON_BASE64: ${{ secrets.CREDENTIALS_JSON_BASE64 }}
+        run: |
+          # Write the Gemini API key to blogger/.env
+          echo "GEMINI_API_KEY=$GEMINI_API_KEY" > blogger/.env
+          echo "MODEL_NAME=gemma-4-26b-a4b-it" >> blogger/.env
+          echo "SCRAPING_MODE=live" >> blogger/.env
+          echo "NUM_ARTICLES=2" >> blogger/.env
+          echo "LOG_LEVEL=INFO" >> blogger/.env
+          
+          # Decode the Google Indexing service account key
+          if [ -n "$CREDENTIALS_JSON_BASE64" ]; then
+            echo "$CREDENTIALS_JSON_BASE64" | base64 -d > credentials.json
+            echo "✅ Google Indexing service account key loaded successfully!"
+          else
+            echo "⚠️ CREDENTIALS_JSON_BASE64 secret is missing. Auto-indexing will be skipped."
+          fi
+
+      - name: 🚀 Run Autonomous Blogger Pipeline
+        run: |
+          cd blogger
+          python main.py
+
+      - name: 💾 Commit & Push New Blog Posts
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          
+          # Add new posts and memory updates
+          git add _posts/*.md blogger/memory/topics.json
+          
+          # Check if there are any changes to commit
+          if git diff --cached --quiet; then
+            echo "No new blog posts generated this run."
+          else
+            git commit -m "🤖 [Autopilot] Auto-published new trending blog posts"
+            git push origin HEAD:${{ github.ref }}
+            echo "✅ Successfully committed and pushed new articles to your site!"
+          fi
