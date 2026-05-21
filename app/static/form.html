@@ -1,0 +1,558 @@
+---
+layout: post
+title: "Building a Form-to-WhatsApp E-commerce Order Verification Loop with Pydantic AI"
+date: 2026-05-21
+last_modified_at: 2026-05-21
+author: professor-xai
+categories: [Generative AI, Conversational Commerce, DevOps]
+image: assets/images/verification-pipeline.png
+description: "A complete developer guide to creating a multi-channel order verification loop. Form submissions trigger outbound WhatsApp confirmation agents built with Pydantic AI and FastAPI."
+keywords: "form to whatsapp automation, whatsapp booking verification agent, pydantic ai order confirmation, fastapi outbound whatsapp webhook, docker-compose uv python"
+---
+
+E-commerce businesses face persistent operational leaks due to incomplete checkouts, incorrect delivery coordinates, and fake or unverified orders. While email confirmations are standard, they suffer from notoriously low open rates, often leading to delivery delays or costly returned shipments.
+
+The most effective mitigation is an **outbound-to-inbound conversational confirmation loop**. 
+
+In this architecture, when a customer submits an online form, the backend triggers an outbound WhatsApp notification. Rather than a static message, this notification initiates an active conversational channel managed by a Pydantic AI agent. The agent confirms the delivery address, validates items, coordinates custom shipping notes, and flags the transaction as verified.
+
+This tutorial details building a complete **Form-to-WhatsApp E-commerce Verification Hub** using Pydantic AI, Gemini, FastAPI, and a shadcn-styled frontend form.
+
+---
+
+## Architectural Data Flow
+
+Here is how data flows securely across web forms, transaction databases, and conversational channels:
+
+```
+[ Web Order Form ] --- 1. Submits Order ---> [ FastAPI Backend ]
+                                                     |
+                                            2. Saves Order (Unverified)
+                                            3. Dispatches WhatsApp Outbound Template
+                                                     |
+                                         [ Customer Phone (WhatsApp) ]
+                                                     |
+                                            4. Customer Replies (Inbound)
+                                                     |
+                                            [ FastAPI Webhook ]
+                                                     |
+                                           [ Pydantic AI Agent ]
+                                            |               |
+                         [ Tool: get_order_details ]   [ Tool: verify_booking ]
+```
+
+---
+
+## Step 1: Defining State & Verification Schemas
+
+We will construct schemas representing the web submission and the active state of verification.
+
+Create `app/verify_schemas.py`:
+
+```python
+from pydantic import BaseModel, Field
+from typing import List, Optional
+from datetime import datetime
+
+
+class WebOrderSubmission(BaseModel):
+    customer_name: str = Field(..., description="Full name of the purchasing customer")
+    phone_number: str = Field(..., description="Phone number formatted with country code (e.g. +123456789)")
+    shipping_address: str = Field(..., description="Physical delivery address for shipping")
+    product_sku: str = Field(..., description="Stock keeping unit of the purchased item")
+    quantity: int = Field(default=1, description="Quantity purchased")
+    order_total: float = Field(..., description="Gross payment amount")
+
+
+class OrderVerificationState(BaseModel):
+    order_id: str = Field(..., description="Unique generated transaction identifier")
+    customer_name: str = Field(..., description="Name associated with the order")
+    phone_number: str = Field(..., description="Target contact number")
+    shipping_address: str = Field(..., description="Address to confirm")
+    product_sku: str = Field(..., description="Product SKU")
+    quantity: int = Field(..., description="Quantity purchased")
+    order_total: float = Field(..., description="Order cost")
+    is_verified: bool = Field(False, description="Verification status flag")
+    custom_delivery_notes: Optional[str] = Field(None, description="Special instructions captured by VLM")
+    verification_timestamp: Optional[datetime] = Field(None, description="Time stamp of successful confirmation")
+```
+
+---
+
+## Step 2: Implementing Pydantic AI Verification Agent
+
+The verification agent uses custom tools to search the transaction database and update the state when the customer confirms details.
+
+Create `app/verify_agent.py`:
+
+```python
+import uuid
+from dataclasses import dataclass
+from datetime import datetime
+from typing import List, Dict, Optional
+from pydantic_ai import Agent, RunContext
+from app.verify_schemas import OrderVerificationState, WebOrderSubmission
+
+# Persistent Database Emulator
+VERIFICATION_DB: Dict[str, OrderVerificationState] = {}
+
+
+@dataclass
+class VerificationDeps:
+    """Agent dependencies holding transaction reference databases."""
+    db: Dict[str, OrderVerificationState]
+    active_phone: str
+
+
+# Initialize Pydantic AI Verification Agent
+verification_agent = Agent(
+    model="google-gla:gemini-2.5-flash",
+    deps_type=VerificationDeps,
+    system_prompt=(
+        "You are an automated e-commerce transaction auditor at Rogue Shop. "
+        "Your task is to coordinate with the customer on WhatsApp to verify their recent web order. "
+        "Strictly adhere to the following workflow:\n"
+        "1. Retrieve the patient/customer order details using their phone number.\n"
+        "2. Present the shipping address and purchased item, then ask them to confirm if it is correct.\n"
+        "3. If they require changes to the shipping address, update the address in the database.\n"
+        "4. Ask if they have any specific delivery instructions (e.g., 'Leave at front gate').\n"
+        "5. Once they confirm, trigger the verification tool and send a clean confirmation message.\n"
+        "Always be polite, direct, and conversational."
+    )
+)
+
+
+@verification_agent.tool
+def get_order_details(ctx: RunContext[VerificationDeps]) -> Optional[OrderVerificationState]:
+    """Retrieve the pending, unverified order details associated with the customer's phone number."""
+    # Find matching pending order in database
+    for order in ctx.deps.db.values():
+        if order.phone_number == ctx.deps.active_phone and not order.is_verified:
+            return order
+    return None
+
+
+@verification_agent.tool
+def update_shipping_address(ctx: RunContext[VerificationDeps], new_address: str) -> str:
+    """Updates the physical shipping address associated with the order if requested by the customer."""
+    for order in ctx.deps.db.values():
+        if order.phone_number == ctx.deps.active_phone and not order.is_verified:
+            order.shipping_address = new_address
+            return f"Shipping address successfully updated to: {new_address}"
+    return "No active pending order found to update."
+
+
+@verification_agent.tool
+def verify_booking(
+    ctx: RunContext[VerificationDeps], 
+    delivery_notes: Optional[str] = None
+) -> str:
+    """
+    Flags the pending order as verified and confirmed in the database.
+    Captures any special delivery instructions.
+    """
+    for order in ctx.deps.db.values():
+        if order.phone_number == ctx.deps.active_phone and not order.is_verified:
+            order.is_verified = True
+            order.custom_delivery_notes = delivery_notes
+            order.verification_timestamp = datetime.utcnow()
+            return f"Order {order.order_id} has been verified and released to shipping."
+    return "Verification failed. No pending matching order found."
+```
+
+---
+
+## Step 3: Structuring the FastAPI Outbound & Webhook Pipelines
+
+We will implement two essential routes in our FastAPI backend:
+1. **`/api/orders/submit`:** Accepts form payloads, registers the pending transaction, and simulates sending an outbound WhatsApp message.
+2. **`/webhooks/whatsapp`:** Receives the customer's WhatsApp response, restores their database context, and executes the Pydantic AI agent loop.
+
+Create `app/verify_main.py`:
+
+```python
+import os
+import uuid
+from fastapi import FastAPI, HTTPException, Request, Response
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from pydantic import BaseModel
+from typing import List, Dict, Any
+
+from app.verify_schemas import WebOrderSubmission, OrderVerificationState
+from app.verify_agent import verification_agent, VerificationDeps, VERIFICATION_DB
+
+app = FastAPI(
+    title="Form-to-WhatsApp Verification Engine",
+    version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+
+class InboundMessagePayload(BaseModel):
+    phone_number: str
+    message_text: str
+
+
+@app.post("/api/orders/submit")
+async def submit_order_form(submission: WebOrderSubmission):
+    """
+    Receives e-commerce checkout form submissions.
+    Saves unverified order record, then simulates outbound WhatsApp dispatch.
+    """
+    try:
+        order_id = f"RQ-{uuid.uuid4().hex[:6].upper()}"
+        
+        # Save unverified transaction to database
+        new_order = OrderVerificationState(
+            order_id=order_id,
+            customer_name=submission.customer_name,
+            phone_number=submission.phone_number,
+            shipping_address=submission.shipping_address,
+            product_sku=submission.product_sku,
+            quantity=submission.quantity,
+            order_total=submission.order_total
+        )
+        
+        VERIFICATION_DB[order_id] = new_order
+
+        # Outbound notification trigger
+        # In production, dispatch Meta WhatsApp Template:
+        # requests.post("https://graph.facebook.com/v18.0/me/messages", json={...})
+        
+        outbound_alert = (
+            f"Hi {submission.customer_name}, thank you for your order at Rogue Shop!\n"
+            f"Please reply to this message to verify your delivery address: {submission.shipping_address}."
+        )
+
+        return {
+            "status": "pending_verification",
+            "order_id": order_id,
+            "simulated_whatsapp_outbound": outbound_alert
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/webhooks/whatsapp")
+async def handle_whatsapp_inbound(payload: InboundMessagePayload):
+    """
+    Receives incoming WhatsApp conversational message replies.
+    Restores contextual database loops and updates state.
+    """
+    try:
+        # Load agent context
+        deps = VerificationDeps(
+            db=VERIFICATION_DB,
+            active_phone=payload.phone_number
+        )
+
+        # Run agent loop asynchronously
+        result = await verification_agent.run(
+            payload.message_text,
+            deps=deps
+        )
+
+        # Retrieve current state of all database records
+        db_dump = [order.model_dump() for order in VERIFICATION_DB.values()]
+
+        return {
+            "phone_number": payload.phone_number,
+            "agent_reply": result.data,
+            "verification_database": db_dump
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Webhook execution failure: {str(e)}")
+
+
+@app.get("/api/orders", response_model=List[OrderVerificationState])
+async def get_all_orders():
+    """Retrieve catalog of all orders to verify state updates."""
+    return list(VERIFICATION_DB.values())
+
+
+# Mount client pages
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+
+@app.get("/")
+async def read_root():
+    return FileResponse("app/static/form.html")
+```
+
+---
+
+## Step 4: Outbound Order Form & Registry Dashboard
+
+Let us build a unified shadcn-styled web interface containing both the client checkout form and an active database registry dashboard to track verification status updates in real-time.
+
+Create `app/static/form.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rogue Shop — Checkout Verification</title>
+    <!-- Tailwind CSS with Dark System Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'rgba(148, 163, 184, 0.1)',
+                        background: '#121316',
+                        foreground: '#e6edf3',
+                        primary: '#4dc4db',
+                        accent: '#a78bfa',
+                        card: 'rgba(26, 27, 32, 0.8)'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #121316; color: #e6edf3; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header Panel -->
+    <header class="border-b border-[rgba(148,163,184,0.1)] bg-[rgba(18,19,22,0.7)] backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#4dc4db] to-[#a78bfa] flex items-center justify-center">
+                <i data-lucide="check-check" class="w-4 h-4 text-background"></i>
+            </div>
+            <div>
+                <h1 class="text-sm font-semibold tracking-tight">Rogue Shop</h1>
+                <p class="text-[10px] text-[#8b949e] uppercase tracking-wider">Checkout Verification Hub</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="text-[10px] text-emerald-500 font-semibold">Webhooks Live</span>
+        </div>
+    </header>
+
+    <!-- Workspace Grid -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- Left Side: Order Checkout Form & Mock Messenger -->
+        <div class="flex flex-col gap-6">
+            
+            <!-- Checkout Form Card -->
+            <div class="rounded-xl border border-[rgba(148,163,184,0.1)] bg-[rgba(26,27,32,0.8)] p-5">
+                <h2 class="text-xs font-semibold mb-4 flex items-center gap-2 text-[#4dc4db]">
+                    <i data-lucide="shopping-bag" class="w-4 h-4"></i> Secure E-commerce Checkout
+                </h2>
+                <div class="flex flex-col gap-3">
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-[9px] text-[#8b949e] uppercase block mb-1">Customer Name</label>
+                            <input id="form-name" type="text" value="Sarah Jenkins" class="w-full bg-[#121316] border border-[rgba(148,163,184,0.1)] rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#4dc4db]" />
+                        </div>
+                        <div>
+                            <label class="text-[9px] text-[#8b949e] uppercase block mb-1">Phone Number (WhatsApp)</label>
+                            <input id="form-phone" type="text" value="+15550199" class="w-full bg-[#121316] border border-[rgba(148,163,184,0.1)] rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#4dc4db]" />
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-[9px] text-[#8b949e] uppercase block mb-1">Shipping Address</label>
+                        <input id="form-address" type="text" value="742 Evergreen Terrace, Springfield" class="w-full bg-[#121316] border border-[rgba(148,163,184,0.1)] rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#4dc4db]" />
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div>
+                            <label class="text-[9px] text-[#8b949e] uppercase block mb-1">Item SKU</label>
+                            <input id="form-sku" type="text" value="RG-HELM-02" class="w-full bg-[#121316] border border-[rgba(148,163,184,0.1)] rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#4dc4db]" />
+                        </div>
+                        <div>
+                            <label class="text-[9px] text-[#8b949e] uppercase block mb-1">Quantity</label>
+                            <input id="form-qty" type="number" value="1" class="w-full bg-[#121316] border border-[rgba(148,163,184,0.1)] rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#4dc4db]" />
+                        </div>
+                        <div>
+                            <label class="text-[9px] text-[#8b949e] uppercase block mb-1">Total Cost ($)</label>
+                            <input id="form-total" type="number" value="89.99" class="w-full bg-[#121316] border border-[rgba(148,163,184,0.1)] rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#4dc4db]" />
+                        </div>
+                    </div>
+                    <button id="submit-order-btn" class="mt-2 bg-[#4dc4db] text-[#121316] font-semibold text-xs py-2.5 rounded-lg hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+                        Submit Order & Trigger Outbound <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Outbound Simulated WhatsApp Window -->
+            <div class="rounded-xl border border-[rgba(148,163,184,0.1)] bg-[rgba(26,27,32,0.8)] overflow-hidden flex flex-col min-h-[300px]">
+                <div class="px-4 py-3 border-b border-[rgba(148,163,184,0.1)] bg-[rgba(18,19,22,0.4)] flex justify-between items-center">
+                    <span class="text-xs font-semibold text-[#a78bfa]">WhatsApp Live Verification Simulator</span>
+                    <span class="text-[9px] text-[#8b949e]">Outbound / Inbound Sandbox</span>
+                </div>
+                <!-- Message screen container -->
+                <div id="chat-container" class="flex-1 p-4 overflow-y-auto flex flex-col gap-3 max-h-[220px]">
+                    <p class="text-[10px] text-[#8b949e] italic">No active outbound verified chat started. Submit the e-commerce form above to trigger the hook loop.</p>
+                </div>
+                <div class="p-3 border-t border-[rgba(148,163,184,0.1)] bg-[rgba(18,19,22,0.4)] flex gap-2">
+                    <input id="chat-input" type="text" placeholder="Type WhatsApp customer reply..." class="flex-1 bg-[#121316] border border-[rgba(148,163,184,0.1)] rounded-lg px-3 py-2 text-xs focus:outline-none" />
+                    <button id="chat-send-btn" class="bg-[#a78bfa] text-[#121316] font-semibold text-xs px-3 py-2 rounded-lg hover:opacity-90">Reply</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Side: Registry Database Dashboard -->
+        <div class="rounded-xl border border-[rgba(148,163,184,0.1)] bg-[rgba(26,27,32,0.8)] p-5">
+            <h2 class="text-xs font-semibold mb-4 flex items-center gap-2 text-[#a78bfa]">
+                <i data-lucide="database" class="w-4 h-4"></i> Real-time Transaction Registry
+            </h2>
+            <div id="registry-list" class="flex flex-col gap-3 max-h-[620px] overflow-y-auto">
+                <!-- Dynamic load point -->
+                <p class="text-xs text-[#8b949e] italic">Database currently empty. Register checkout orders to populate dashboard.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        const submitOrderBtn = document.getElementById('submit-order-btn');
+        const chatContainer = document.getElementById('chat-container');
+        const chatInput = document.getElementById('chat-input');
+        const chatSendBtn = document.getElementById('chat-send-btn');
+        const registryList = document.getElementById('registry-list');
+
+        // Form Fields
+        const fName = document.getElementById('form-name');
+        const fPhone = document.getElementById('form-phone');
+        const fAddress = document.getElementById('form-address');
+        const fSku = document.getElementById('form-sku');
+        const fQty = document.getElementById('form-qty');
+        const fTotal = document.getElementById('form-total');
+
+        let activePhone = '';
+
+        // Load active database registry
+        async function fetchRegistry() {
+            try {
+                const response = await fetch('/api/orders');
+                const orders = await response.json();
+                renderRegistry(orders);
+            } catch (err) {
+                console.error("Registry load error", err);
+            }
+        }
+
+        function renderRegistry(orders) {
+            if (orders.length === 0) {
+                registryList.innerHTML = `<p class="text-xs text-[#8b949e] italic">Database currently empty. Register checkout orders to populate dashboard.</p>`;
+                return;
+            }
+            registryList.innerHTML = orders.map(o => `
+                <div class="rounded-lg border ${o.is_verified ? 'border-emerald-500/20 bg-[rgba(16,185,129,0.02)]' : 'border-amber-500/20 bg-[rgba(245,158,11,0.02)]'} p-3">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-xs font-semibold text-[#e6edf3]">${o.customer_name}</span>
+                        <span class="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded ${o.is_verified ? 'bg-emerald-500/10 text-emerald-500' : 'bg-amber-500/10 text-amber-500'}">
+                            ${o.is_verified ? 'Verified & Released' : 'Pending Verification'}
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-[10px] text-[#8b949e] mt-2">
+                        <span>Order ID: ${o.order_id}</span>
+                        <span>Phone: ${o.phone_number}</span>
+                        <span>Item SKU: ${o.product_sku} (x${o.quantity})</span>
+                        <span>Total Paid: $${o.order_total.toFixed(2)}</span>
+                    </div>
+                    <p class="text-[10px] text-[#8b949e] mt-2 border-t border-[rgba(148,163,184,0.05)] pt-2">
+                        <strong>Shipping:</strong> ${o.shipping_address}
+                    </p>
+                    ${o.custom_delivery_notes ? `<p class="text-[10px] text-emerald-500/80 mt-1"><strong>Instructions:</strong> ${o.custom_delivery_notes}</p>` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Form Submit
+        submitOrderBtn.addEventListener('click', async () => {
+            const payload = {
+                customer_name: fName.value.trim(),
+                phone_number: fPhone.value.trim(),
+                shipping_address: fAddress.value.trim(),
+                product_sku: fSku.value.trim(),
+                quantity: parseInt(fQty.value),
+                order_total: parseFloat(fTotal.value)
+            };
+
+            activePhone = payload.phone_number;
+
+            try {
+                const response = await fetch('/api/orders/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await response.json();
+                
+                // Clear chat panel and load Simulated Outbound alert
+                chatContainer.innerHTML = '';
+                appendMessage('system', data.simulated_whatsapp_outbound);
+                
+                fetchRegistry();
+            } catch (err) {
+                alert("Checkout submission error.");
+            }
+        });
+
+        // Chat reply trigger
+        chatSendBtn.addEventListener('click', sendChatInbound);
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') sendChatInbound();
+        });
+
+        async function sendChatInbound() {
+            const text = chatInput.value.trim();
+            if (!text || !activePhone) return;
+
+            appendMessage('user', text);
+            chatInput.value = '';
+
+            try {
+                const response = await fetch('/webhooks/whatsapp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone_number: activePhone, message_text: text })
+                });
+                const data = await response.json();
+                appendMessage('agent', data.agent_reply);
+                renderRegistry(data.verification_database);
+            } catch (err) {
+                appendMessage('agent', 'Error processing webhook response.');
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const msg = document.createElement('div');
+            msg.className = `p-2.5 rounded-lg text-xs leading-relaxed max-w-[85%] ${
+                sender === 'system' ? 'bg-[#1a1b20] text-[#e6edf3] border border-[#a78bfa]/20' : 
+                sender === 'user' ? 'bg-[#a78bfa] text-[#121316] font-medium self-end ml-auto' : 
+                'bg-[#1a1b20] text-[#e6edf3]'
+            }`;
+            msg.textContent = text;
+            chatContainer.appendChild(msg);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Init
+        fetchRegistry();
+    </script>
+</body>
+</html>
