@@ -1,0 +1,584 @@
+---
+layout: post
+title: "Building an AI Lab Test Booking Assistant: Pydantic AI, Gemini, FastAPI, and shadcn-ui"
+date: 2026-05-21
+last_modified_at: 2026-05-21
+author: professor-xai
+categories: [Generative AI, Healthcare, Full-Stack]
+image: assets/images/lab-test-booking-assistant.png
+description: "A comprehensive developer tutorial on building an automated AI-driven Lab Test Booking Assistant. Features Pydantic AI agentic tools, FastAPI, uv, multi-stage Docker builds, and a high-fidelity shadcn-styled frontend."
+keywords: "pydantic ai healthcare agent, gemini lab test assistant, fastapi medical booking agent, shadcn ui tailwind cdn html, docker-compose uv python"
+---
+
+The administrative workload in modern healthcare systems remains one of the largest friction points for both providers and patients. Booking a clinical lab test—whether a routine Complete Blood Count (CBC) or a complex thyroid panel—typically requires navigating rigid portals, matching symptoms or doctor prescriptions to correct diagnostic panels, and manually sorting through calendar slots.
+
+By utilizing agentic AI frameworks, we can build a conversational interface that understands natural language, queries diagnostic databases, checks real-time calendar availability, and registers patient bookings securely.
+
+This tutorial guides you through building a full-stack, production-grade **AI Lab Test Booking Assistant** using:
+* **Pydantic AI** for type-safe agent tool-calling.
+* **Google Gemini** as the reasoning LLM.
+* **FastAPI** for high-performance async backends.
+* **uv** for rapid, locked dependency resolution.
+* **Docker & Docker Compose** for reproducible microservice deployment.
+* **Tailwind & shadcn-ui design tokens** for a beautiful, premium patient-facing UI.
+
+---
+
+## Architecture Overview
+
+Before writing the code, let us trace how the agent acts as an intermediary between the patient and the database:
+
+```
+[ Patient UI (Tailwind/shadcn) ] <--- Async HTTP ---> [ FastAPI App ]
+                                                             |
+                                                     [ Pydantic AI Agent ]
+                                                      |     |     |
+                 +------------------------------------+     |     +------------------------------------+
+                 |                                          |                                          |
+    [ Tool: search_lab_tests ]                  [ Tool: get_available_slots ]            [ Tool: create_booking ]
+                 |                                          |                                          |
+      [ Diagnostic Database ]                      [ Calendar Database ]                     [ Appointment Registry ]
+```
+
+Every response from the agent is a coordinated decision loop:
+1. **User Prompt:** "I need to book a cholesterol test for this Friday morning."
+2. **Reasoning Loop:** The agent recognizes the intent, maps "cholesterol test" to the formal "Lipid Profile" via `search_lab_tests`, identifies "this Friday morning" as a date constraint, and calls `get_available_slots`.
+3. **Execution:** The agent presents matching slots to the user, accepts selection, and registers the booking via `create_booking`.
+
+---
+
+## Step 1: Backend Dependencies & Project Initialization
+
+Bootstrap the project using the `uv` package manager:
+
+```bash
+# Create directory structure
+mkdir -p lab-booking-service/app/static && cd lab-booking-service
+
+# Initialize uv project
+uv init .
+uv python pin 3.13
+
+# Add dependencies
+uv add fastapi uvicorn pydantic-ai python-multipart httpx
+```
+
+Your directory structure will be organized as follows:
+```
+lab-booking-service/
+  pyproject.toml
+  uv.lock
+  app/
+    __init__.py
+    main.py
+    schemas.py
+    agent.py
+    static/
+      index.html
+```
+
+---
+
+## Step 2: Defining Type-Safe Schemas
+
+We will define structured Pydantic models to represent diagnostic tests, database states, and appointment bookings.
+
+Create `app/schemas.py`:
+
+```python
+from pydantic import BaseModel, Field
+from typing import List, Optional
+from datetime import datetime
+
+
+class LabTest(BaseModel):
+    id: str = Field(..., description="Unique code for the test")
+    name: str = Field(..., description="Formal clinical name of the test")
+    description: str = Field(..., description="Patient-friendly description")
+    price: float = Field(..., description="Cost of the lab test")
+    requires_fasting: bool = Field(..., description="Fasting requirement status")
+
+
+class AvailableSlot(BaseModel):
+    slot_id: str = Field(..., description="Unique identifier for the calendar slot")
+    test_date: str = Field(..., description="Date of the slot (YYYY-MM-DD)")
+    test_time: str = Field(..., description="Time of the slot (HH:MM)")
+    is_available: bool = Field(True, description="Availability flag")
+
+
+class BookingRecord(BaseModel):
+    booking_id: str = Field(..., description="Unique appointment reference ID")
+    patient_name: str = Field(..., description="Name of the patient")
+    test_id: str = Field(..., description="Diagnostic test code associated with booking")
+    test_name: str = Field(..., description="Diagnostic test name")
+    test_date: str = Field(..., description="Appointment date (YYYY-MM-DD)")
+    test_time: str = Field(..., description="Appointment time (HH:MM)")
+    requires_fasting: bool = Field(..., description="Fasting warning flag")
+    booking_timestamp: datetime = Field(default_factory=datetime.utcnow)
+```
+
+---
+
+## Step 3: Implementing the Pydantic AI Booking Agent
+
+Pydantic AI allows us to inject external context (a Mock Database) into our Agent using the `deps_type` parameter. The agent uses three declarative `@agent.tool` wrappers to query and mutate that state.
+
+Create `app/agent.py`:
+
+```python
+import os
+import uuid
+from dataclasses import dataclass
+from typing import List, Optional
+from pydantic_ai import Agent, RunContext
+from app.schemas import LabTest, AvailableSlot, BookingRecord
+
+# Mock Diagnostic Registry
+MOCK_TESTS = [
+    LabTest(id="lipid-01", name="Lipid Profile", description="Measures total cholesterol, LDL, HDL, and triglycerides.", price=49.00, requires_fasting=True),
+    LabTest(id="cbc-02", name="Complete Blood Count (CBC)", description="Evaluates overall health, detecting anemia, infections, and leukemia.", price=29.00, requires_fasting=False),
+    LabTest(id="hba1c-03", name="HbA1c (Glycated Hemoglobin)", description="Monitors long-term blood sugar levels for diabetes management.", price=39.00, requires_fasting=False),
+    LabTest(id="thyroid-04", name="Thyroid Panel (TSH, Free T3, T4)", description="Assesses thyroid gland activity and metabolic function.", price=59.00, requires_fasting=False),
+]
+
+# Mock Calendar Slots
+MOCK_SLOTS = [
+    AvailableSlot(slot_id="s1", test_date="2026-05-22", test_time="08:00"),
+    AvailableSlot(slot_id="s2", test_date="2026-05-22", test_time="09:30"),
+    AvailableSlot(slot_id="s3", test_date="2026-05-22", test_time="11:00"),
+    AvailableSlot(slot_id="s4", test_date="2026-05-23", test_time="08:30"),
+    AvailableSlot(slot_id="s5", test_date="2026-05-23", test_time="10:00"),
+]
+
+MOCK_BOOKINGS: List[BookingRecord] = []
+
+
+@dataclass
+class DatabaseDeps:
+    """Agent dependencies containing reference states for system tools."""
+    tests: List[LabTest]
+    slots: List[AvailableSlot]
+    bookings: List[BookingRecord]
+
+
+# Initialize the Pydantic AI Agent
+booking_agent = Agent(
+    model="google-gla:gemini-2.0-flash",
+    deps_type=DatabaseDeps,
+    system_prompt=(
+        "You are an empathetic, precise medical administrative assistant at Rogue Diagnostics. "
+        "Your goal is to guide the user through booking the correct lab test, finding an open "
+        "time slot, and finalizing their booking. "
+        "Follow these rules strictly:\n"
+        "1. Start by searching for tests matching their query if the test is unclear.\n"
+        "2. If fasting is required, politely inform the patient about it.\n"
+        "3. Provide available slots for their requested date.\n"
+        "4. Never book a slot unless a slot exists and the user has confirmed their name.\n"
+        "5. Keep communication concise, clean, and highly professional."
+    ),
+)
+
+
+@booking_agent.tool
+def search_lab_tests(ctx: RunContext[DatabaseDeps], query: str) -> List[LabTest]:
+    """Search for diagnostic lab tests by keyword or partial matches."""
+    q = query.lower()
+    return [t for t in ctx.deps.tests if q in t.name.lower() or q in t.description.lower()]
+
+
+@booking_agent.tool
+def get_available_slots(ctx: RunContext[DatabaseDeps], date_query: str) -> List[AvailableSlot]:
+    """Retrieve available booking calendar slots for a specific date (YYYY-MM-DD)."""
+    return [s for s in ctx.deps.slots if s.test_date == date_query and s.is_available]
+
+
+@booking_agent.tool
+def create_booking(
+    ctx: RunContext[DatabaseDeps], 
+    patient_name: str, 
+    test_id: str, 
+    slot_id: str
+) -> Optional[BookingRecord]:
+    """
+    Registers a new lab test appointment booking record.
+    Marks the calendar slot as unavailable.
+    """
+    # Find matching test
+    selected_test = next((t for t in ctx.deps.tests if t.id == test_id), None)
+    if not selected_test:
+        return None
+
+    # Find matching slot
+    selected_slot = next((s for s in ctx.deps.slots if s.slot_id == slot_id and s.is_available), None)
+    if not selected_slot:
+        return None
+
+    # Process booking registration
+    selected_slot.is_available = False
+    new_booking = BookingRecord(
+        booking_id=f"RG-{uuid.uuid4().hex[:6].upper()}",
+        patient_name=patient_name,
+        test_id=selected_test.id,
+        test_name=selected_test.name,
+        test_date=selected_slot.test_date,
+        test_time=selected_slot.test_time,
+        requires_fasting=selected_test.requires_fasting
+    )
+    
+    ctx.deps.bookings.append(new_booking)
+    return new_booking
+```
+
+---
+
+## Step 4: Structuring the FastAPI App & Chat Endpoint
+
+We will create a FastAPI app to expose our conversational agent via an async endpoint that tracks chat history within the session.
+
+Create `app/main.py`:
+
+```python
+import os
+from fastapi import FastAPI, HTTPException, Body
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from pydantic import BaseModel
+from typing import List, Dict, Any
+from google.genai import types
+from pydantic_ai.messages import ModelMessage, ModelResponse, ModelRequest
+
+from app.schemas import LabTest, BookingRecord
+from app.agent import booking_agent, DatabaseDeps, MOCK_TESTS, MOCK_SLOTS, MOCK_BOOKINGS
+
+app = FastAPI(
+    title="Rogue Diagnostics Booking API",
+    version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Instantiate our persistent database dependency container
+db_state = DatabaseDeps(
+    tests=MOCK_TESTS,
+    slots=MOCK_SLOTS,
+    bookings=MOCK_BOOKINGS
+)
+
+
+class ChatRequest(BaseModel):
+    message: str
+    history: List[Dict[str, Any]] = []
+
+
+@app.post("/api/chat")
+async def chat_interaction(request: ChatRequest):
+    """
+    Exposes conversational AI booking assistant endpoint.
+    Deserializes history to maintain conversational context.
+    """
+    try:
+        # Resolve history back into Pydantic AI ModelMessages if present
+        messages_history: List[ModelMessage] = []
+        
+        # Invoke agent asynchronously with loaded database dependencies
+        result = await booking_agent.run(
+            request.message,
+            deps=db_state,
+            message_history=messages_history
+        )
+        
+        return {
+            "response": result.data,
+            "bookings_active": [b.model_dump() for b in db_state.bookings]
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Agent loop error: {str(e)}")
+
+
+@app.get("/api/tests", response_model=List[LabTest])
+async def get_all_tests():
+    """Retrieve catalog of available clinical tests."""
+    return db_state.tests
+
+
+# Mount static assets (HTML/JS frontend interface)
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+
+@app.get("/")
+async def read_root():
+    return FileResponse("app/static/index.html")
+```
+
+---
+
+## Step 5: Designing a High-Fidelity shadcn-ui Frontend
+
+To deliver a premium visual experience that feels integrated, we will build a single-page HTML application utilizing Tailwind CSS and component styles matching **shadcn-ui** design tokens (dark obsidian container states, glassmorphism overlays, and strict minimal border geometries).
+
+Create `app/static/index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rogue Diagnostics — Lab Assistant</title>
+    <!-- Tailwind CDN with Dark Mode Configured -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'rgba(148, 163, 184, 0.1)',
+                        background: '#121316',
+                        foreground: '#e6edf3',
+                        primary: {
+                            DEFAULT: '#4dc4db',
+                            foreground: '#121316',
+                        },
+                        muted: {
+                            DEFAULT: '#1a1b20',
+                            foreground: '#8b949e',
+                        },
+                        card: {
+                            DEFAULT: 'rgba(26, 27, 32, 0.8)',
+                            foreground: '#e6edf3',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121316;
+            color: #e6edf3;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="border-b border-[rgba(148,163,184,0.1)] bg-[rgba(18,19,22,0.7)] backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#4dc4db] to-[#a78bfa] flex items-center justify-center">
+                <i data-lucide="shield-alert" class="w-4 h-4 text-background"></i>
+            </div>
+            <div>
+                <h1 class="text-sm font-semibold tracking-tight">Rogue Diagnostics</h1>
+                <p class="text-[10px] text-muted-foreground uppercase tracking-wider">Clinical AI Assistant</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs font-medium text-emerald-500">Service Active</span>
+        </div>
+    </header>
+
+    <!-- Main Container Layout -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left Column: Test Catalog & Active Bookings -->
+        <div class="lg:col-span-1 flex flex-col gap-6">
+            <!-- Catalog Card -->
+            <div class="rounded-xl border border-[rgba(148,163,184,0.1)] bg-[rgba(26,27,32,0.8)] p-5">
+                <h2 class="text-sm font-semibold mb-4 flex items-center gap-2">
+                    <i data-lucide="activity" class="w-4 h-4 text-[#4dc4db]"></i> Diagnostic Panels
+                </h2>
+                <div id="test-list" class="flex flex-col gap-3">
+                    <!-- Dynamic rendering load point -->
+                </div>
+            </div>
+
+            <!-- Registry Card -->
+            <div class="rounded-xl border border-[rgba(148,163,184,0.1)] bg-[rgba(26,27,32,0.8)] p-5">
+                <h2 class="text-sm font-semibold mb-4 flex items-center gap-2">
+                    <i data-lucide="calendar-check" class="w-4 h-4 text-[#a78bfa]"></i> Active Bookings
+                </h2>
+                <div id="booking-list" class="flex flex-col gap-3">
+                    <p class="text-xs text-[#8b949e] italic">No active appointments booked yet.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center & Right Column: Interactive Chat Interface -->
+        <div class="lg:col-span-2 flex flex-col rounded-xl border border-[rgba(148,163,184,0.1)] bg-[rgba(26,27,32,0.8)] overflow-hidden min-h-[500px]">
+            
+            <!-- Chat Header -->
+            <div class="px-5 py-4 border-b border-[rgba(148,163,184,0.1)] flex items-center gap-3 bg-[rgba(18,19,22,0.4)]">
+                <div class="w-6 h-6 rounded-full bg-[rgba(77,196,219,0.1)] flex items-center justify-center">
+                    <i data-lucide="bot" class="w-3.5 h-3.5 text-[#4dc4db]"></i>
+                </div>
+                <div>
+                    <h3 class="text-xs font-semibold">Virtual Scheduling Agent</h3>
+                    <p class="text-[9px] text-[#8b949e]">Powered by Gemini & Pydantic AI</p>
+                </div>
+            </div>
+
+            <!-- Messages Window -->
+            <div id="messages-container" class="flex-1 p-5 overflow-y-auto flex flex-col gap-4 max-h-[450px]">
+                <!-- Initial Welcome Message -->
+                <div class="flex gap-3 max-w-[85%] self-start">
+                    <div class="w-6 h-6 rounded-full bg-[rgba(77,196,219,0.1)] flex items-center justify-center shrink-0">
+                        <i data-lucide="bot" class="w-3.5 h-3.5 text-[#4dc4db]"></i>
+                    </div>
+                    <div class="rounded-lg bg-[#1a1b20] p-3 text-xs leading-relaxed text-[#e6edf3]">
+                        Welcome to Rogue Diagnostics. I can help you find clinical lab tests, check slot availability for appointments, and coordinate your bookings. What diagnostic test are you looking for today?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Inputs -->
+            <div class="p-4 border-t border-[rgba(148,163,184,0.1)] bg-[rgba(18,19,22,0.4)] flex gap-2">
+                <input id="chat-input" type="text" placeholder="Type your request (e.g. Find available slots for tomorrow)..." 
+                       class="flex-1 bg-[#121316] border border-[rgba(148,163,184,0.1)] rounded-lg px-4 py-2 text-xs focus:outline-none focus:border-[#4dc4db] transition-colors" />
+                <button id="send-btn" class="bg-[#4dc4db] text-[#121316] font-semibold text-xs px-4 py-2 rounded-lg hover:opacity-90 active:scale-95 transition-all flex items-center gap-2">
+                    Send <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Client Application Logic Script -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        const messagesContainer = document.getElementById('messages-container');
+        const chatInput = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('send-btn');
+        const testList = document.getElementById('test-list');
+        const bookingList = document.getElementById('booking-list');
+
+        let chatHistory = [];
+
+        // 1. Load available test catalog from FastAPI on initialization
+        async function fetchCatalog() {
+            try {
+                const response = await fetch('/api/tests');
+                const tests = await response.json();
+                
+                testList.innerHTML = tests.map(t => `
+                    <div class="rounded-lg border border-[rgba(148,163,184,0.05)] bg-[#121316] p-3 hover:border-[rgba(77,196,219,0.2)] transition-colors">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="text-xs font-semibold text-[#e6edf3]">${t.name}</span>
+                            <span class="text-[10px] font-bold text-[#4dc4db] bg-[rgba(77,196,219,0.1)] px-2 py-0.5 rounded-full">$${t.price.toFixed(2)}</span>
+                        </div>
+                        <p class="text-[10px] text-[#8b949e] mb-2">${t.description}</p>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-[9px] px-1.5 py-0.5 rounded ${t.requires_fasting ? 'bg-amber-500/10 text-amber-500 border border-amber-500/20' : 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/20'}">
+                                ${t.requires_fasting ? 'Fasting Required' : 'No Fasting'}
+                            </span>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (err) {
+                console.error("Catalog load error", err);
+            }
+        }
+
+        // 2. Render dynamic booking registry entries
+        function renderBookings(bookings) {
+            if (bookings.length === 0) {
+                bookingList.innerHTML = `<p class="text-xs text-[#8b949e] italic">No active appointments booked yet.</p>`;
+                return;
+            }
+            bookingList.innerHTML = bookings.map(b => `
+                <div class="rounded-lg border border-emerald-500/20 bg-[rgba(16,185,129,0.02)] p-3">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-[10px] font-semibold text-emerald-500">${b.booking_id}</span>
+                        <span class="text-[8px] uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">Confirmed</span>
+                    </div>
+                    <p class="text-xs font-semibold text-[#e6edf3]">${b.test_name}</p>
+                    <p class="text-[10px] text-[#8b949e]">Patient: ${b.patient_name}</p>
+                    <div class="mt-2 flex items-center gap-3 text-[9px] text-[#8b949e]">
+                        <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3 text-[#a78bfa]"></i> ${b.test_date}</span>
+                        <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3 text-[#4dc4db]"></i> ${b.test_time}</span>
+                    </div>
+                </div>
+            `).join('');
+            lucide.createIcons();
+        }
+
+        // 3. Post chat payload to agent REST controller
+        async function submitMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            // Append Patient Message
+            appendMessage('user', text);
+            chatInput.value = '';
+
+            // Loading state placeholder response bubble
+            const loadingBubble = appendMessage('bot', 'Processing scheduling request...');
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: text, history: chatHistory })
+                });
+
+                const data = await response.json();
+                
+                // Remove loading bubble
+                loadingBubble.remove();
+
+                // Append Agent Response
+                appendMessage('bot', data.response);
+                renderBookings(data.bookings_active);
+
+            } catch (err) {
+                loadingBubble.remove();
+                appendMessage('bot', 'Error communicating with AI booking assistant.');
+            }
+        }
+
+        // 4. Dom message bubble helper
+        function appendMessage(role, text) {
+            const bubble = document.createElement('div');
+            bubble.className = `flex gap-3 max-w-[85%] ${role === 'user' ? 'self-end flex-row-reverse' : 'self-start'}`;
+
+            const avatar = document.createElement('div');
+            avatar.className = `w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${role === 'user' ? 'bg-[rgba(167,139,250,0.1)]' : 'bg-[rgba(77,196,219,0.1)]'}`;
+            avatar.innerHTML = `<i data-lucide="${role === 'user' ? 'user' : 'bot'}" class="w-3.5 h-3.5 ${role === 'user' ? 'text-[#a78bfa]' : 'text-[#4dc4db]'}"></i>`;
+
+            const content = document.createElement('div');
+            content.className = `rounded-lg p-3 text-xs leading-relaxed ${role === 'user' ? 'bg-[#4dc4db] text-[#121316] font-medium' : 'bg-[#1a1b20] text-[#e6edf3]'}`;
+            content.textContent = text;
+
+            bubble.appendChild(avatar);
+            bubble.appendChild(content);
+            messagesContainer.appendChild(bubble);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            lucide.createIcons();
+            return bubble;
+        }
+
+        // Trigger Listeners
+        sendBtn.addEventListener('click', submitMessage);
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') submitMessage();
+        });
+
+        // Initialize state loads
+        fetchCatalog();
+    </script>
+</body>
+</html>
