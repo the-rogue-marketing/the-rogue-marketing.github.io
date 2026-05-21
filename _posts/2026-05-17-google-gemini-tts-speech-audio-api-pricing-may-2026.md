@@ -14,7 +14,7 @@ Google now offers speech AI through **multiple different services**, each with i
 
 ---
 
-## 🗣️ The Google Speech AI Landscape
+## The Google Speech AI Landscape
 
 Google's speech capabilities are split across three distinct services:
 
@@ -29,7 +29,7 @@ Let's break each one down.
 
 ---
 
-## 🎙️ Gemini TTS Models — Text-to-Speech
+## Gemini TTS Models — Text-to-Speech
 
 ### Gemini 3.1 Flash TTS (Preview)
 
@@ -44,7 +44,7 @@ The latest and most capable TTS model. Supports 70+ languages, multi-speaker syn
 | **Batch Input** | **$0.50** |
 | **Batch Output** | **$10.00** |
 
-> 💡 **Token-to-seconds conversion:** Audio output tokens correspond to **25 tokens per second**. This means 1 million output tokens = ~11 hours of audio.
+> **Token-to-seconds conversion:** Audio output tokens correspond to **25 tokens per second**. This means 1 million output tokens = ~11 hours of audio.
 
 #### Real-World Cost Example
 
@@ -73,7 +73,7 @@ A more cost-efficient option, optimized for lower latency.
 | **Batch Input** | **$0.075** |
 | **Batch Output** | **$3.00** |
 
-> 🎯 **Best for:** High-volume TTS at lower cost. At $6/M output tokens, a 10-minute narration costs only **~$0.09** — 3× cheaper than 3.1 Flash TTS.
+> **Best for:** High-volume TTS at lower cost. At $6/M output tokens, a 10-minute narration costs only **~$0.09** — 3× cheaper than 3.1 Flash TTS.
 
 ---
 
@@ -92,7 +92,7 @@ The premium TTS option — more natural outputs and easier-to-steer prompts.
 
 ---
 
-## 📊 TTS Model Comparison at a Glance
+## TTS Model Comparison at a Glance
 
 | Model | Input/1M | Output/1M | 10-min Cost | Best For |
 | :--- | :--- | :--- | :--- | :--- |
@@ -102,7 +102,7 @@ The premium TTS option — more natural outputs and easier-to-steer prompts.
 
 ---
 
-## 🔴 Gemini Live API — Real-Time Voice
+## Gemini Live API — Real-Time Voice
 
 For real-time, bidirectional audio conversations (think: voice assistants, customer service bots).
 
@@ -122,11 +122,11 @@ For real-time, bidirectional audio conversations (think: voice assistants, custo
 - **Multimodal:** Supports audio + video input for "see and speak" applications
 - **Acoustic awareness:** Detects tone, emotion, and ambient sounds
 
-> ⚠️ **Cost warning:** A 1-hour voice conversation would cost approximately **$1.80 in audio input** + **$72 in audio output**. Design your agent to keep responses concise!
+> **Cost warning:** A 1-hour voice conversation would cost approximately **$1.80 in audio input** + **$72 in audio output**. Design your agent to keep responses concise!
 
 ---
 
-## 🎧 Gemini Audio Understanding — Speech-to-Analysis
+## Gemini Audio Understanding — Speech-to-Analysis
 
 Instead of traditional STT, Gemini can directly **analyze, summarize, and reason** about audio content using its multimodal capabilities.
 
@@ -140,7 +140,7 @@ Instead of traditional STT, Gemini can directly **analyze, summarize, and reason
 
 ---
 
-## 📝 Google Cloud Speech-to-Text (Chirp) — Traditional STT
+## Google Cloud Speech-to-Text (Chirp) — Traditional STT
 
 For dedicated, high-accuracy transcription, Google Cloud's STT API remains the best option.
 
@@ -158,7 +158,7 @@ For dedicated, high-accuracy transcription, Google Cloud's STT API remains the b
 
 ---
 
-## 🧮 Full Cost Comparison: All Speech Services
+## Full Cost Comparison: All Speech Services
 
 **Scenario:** Process 1 hour of audio content
 
@@ -172,7 +172,7 @@ For dedicated, high-accuracy transcription, Google Cloud's STT API remains the b
 
 ---
 
-## ✅ Key Takeaways
+## Key Takeaways
 
 1. **Gemini 2.5 Flash TTS** is the cheapest option at **$0.09 per 10 minutes** of speech
 2. **Gemini 3.1 Flash TTS** offers the best quality-to-cost ratio for natural speech

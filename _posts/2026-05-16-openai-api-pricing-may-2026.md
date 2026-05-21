@@ -14,7 +14,7 @@ OpenAI's model lineup has evolved dramatically in 2026. From the cost-efficient 
 
 ---
 
-## 🏗️ The OpenAI Model Lineup
+## The OpenAI Model Lineup
 
 | Model | Role | Best For |
 | :--- | :--- | :--- |
@@ -27,9 +27,9 @@ OpenAI's model lineup has evolved dramatically in 2026. From the cost-efficient 
 
 ---
 
-## 💰 Core Model Pricing (Per 1 Million Tokens)
+## Core Model Pricing (Per 1 Million Tokens)
 
-### 🚀 GPT-4.1 Family
+### GPT-4.1 Family
 
 The GPT-4.1 series is OpenAI's workhorse for production applications, featuring a massive **1 million token context window**.
 
@@ -39,11 +39,11 @@ The GPT-4.1 series is OpenAI's workhorse for production applications, featuring 
 | **GPT-4.1 Mini** | ~$0.40 | ~$1.60 | 1,000,000 |
 | **GPT-4.1 Nano** | **$0.10** | **$0.40** | 1,000,000 |
 
-> 💡 **GPT-4.1 Nano** at $0.10/M input is OpenAI's answer to budget-conscious developers. Perfect for classification, tagging, and simple content generation at massive scale.
+> **GPT-4.1 Nano** at $0.10/M input is OpenAI's answer to budget-conscious developers. Perfect for classification, tagging, and simple content generation at massive scale.
 
 ---
 
-### 🧠 o3 Reasoning Models
+### o3 Reasoning Models
 
 Following an **80% price reduction** in early 2026, the o3 series is now much more accessible:
 
@@ -56,7 +56,7 @@ Following an **80% price reduction** in early 2026, the o3 series is now much mo
 
 ---
 
-### ⭐ GPT-5.5 Series (Frontier)
+### GPT-5.5 Series (Frontier)
 
 The newest and most capable models, released April 2026:
 
@@ -70,7 +70,7 @@ The newest and most capable models, released April 2026:
 
 ---
 
-## 🛠️ Built-in Tools & Add-ons
+## Built-in Tools & Add-ons
 
 ### Web Search
 
@@ -90,7 +90,7 @@ The newest and most capable models, released April 2026:
 
 ---
 
-## 🎨 Image Generation API
+## Image Generation API
 
 | Quality Level | Price per Image |
 | :--- | :--- |
@@ -100,7 +100,7 @@ The newest and most capable models, released April 2026:
 
 ---
 
-## 🎯 Cost Optimization Strategies
+## Cost Optimization Strategies
 
 ### 1. Prompt Caching — Save 50–90%
 Repeated input context is automatically cached. Cached tokens can cost as little as **$0.025/M** for GPT-4.1 (vs. $2.00 standard).
@@ -113,7 +113,7 @@ Don't use GPT-4.1 when GPT-4.1 Nano will do. For simple tasks, Nano is **20x che
 
 ---
 
-## 📊 Quick Cost Comparison
+## Quick Cost Comparison
 
 **Scenario:** Process 1 million customer support tickets (avg. 200 tokens input, 100 tokens output each):
 
@@ -125,7 +125,7 @@ Don't use GPT-4.1 when GPT-4.1 Nano will do. For simple tasks, Nano is **20x che
 
 ---
 
-## ✅ Key Takeaways
+## Key Takeaways
 
 1. **GPT-4.1 Nano** is the best value for high-volume simple tasks
 2. **o3** is now affordable after the 80% price cut — great for reasoning tasks

@@ -23,9 +23,9 @@ Unlike models that were primarily trained on text and later had image or audio c
 
 ### What does this mean for your application?
 
-*   **Seamless Reasoning:** Your application can analyze a user-uploaded image, read the text within it, and respond in context, all in a single API call.
-*   **Complex Instruction Sets:** Build AI agents that can analyze a technical diagram (image), read the accompanying user manual (text), and process a support call recording (audio) to diagnose an issue.
-*   **Efficiency:** The unified architecture simplifies your code base, as you are not managing separate models or pipelines for different data types.
+* **Seamless Reasoning:** Your application can analyze a user-uploaded image, read the text within it, and respond in context, all in a single API call.
+* **Complex Instruction Sets:** Build AI agents that can analyze a technical diagram (image), read the accompanying user manual (text), and process a support call recording (audio) to diagnose an issue.
+* **Efficiency:** The unified architecture simplifies your code base, as you are not managing separate models or pipelines for different data types.
 
 **The result:** Applications built on Gemini can handle the complexity of the real world with a coherence and reasoning capability that current text-first models struggle to match.
 
@@ -57,8 +57,8 @@ Gemini can be **grounded** with Google Search, meaning its responses can be veri
 
 Developers can natively connect Gemini to:
 
-*   **Google BigQuery:** Analyze massive structured datasets in real-time by using natural language queries.
-*   **Google Workspace:** Build internal enterprise applications that summarize documents, craft emails, and extract insights directly from user data in Docs, Sheets, and Drive.
+* **Google BigQuery:** Analyze massive structured datasets in real-time by using natural language queries.
+* **Google Workspace:** Build internal enterprise applications that summarize documents, craft emails, and extract insights directly from user data in Docs, Sheets, and Drive.
 
 This data advantage allows you to build AI applications that are not just intelligent, but also **authoritative** and **contextually relevant** to the user's immediate environment.
 
@@ -68,9 +68,9 @@ This data advantage allows you to build AI applications that are not just intell
 
 Google has placed a massive emphasis on making the Gemini API accessible and pleasant to use for every developer, regardless of their machine learning background.
 
-*   **Google AI Studio:** A powerful, browser-based environment for rapid prototyping, prompt engineering, and parameter tweaking. Test and iterate on your prompts without writing a single line of code.
-*   **Comprehensive SDKs:** First-class SDKs are available for all major languages, including Python, Node.js, and Android/Kotlin, ensuring smooth integration into any stack.
-*   **Cost Efficiency (Pro Models):** The Pro series of the Gemini API offers top-tier performance at highly competitive pricing, ensuring that you don't have to compromise on intelligence to manage your budget, even at high volume.
+* **Google AI Studio:** A powerful, browser-based environment for rapid prototyping, prompt engineering, and parameter tweaking. Test and iterate on your prompts without writing a single line of code.
+* **Comprehensive SDKs:** First-class SDKs are available for all major languages, including Python, Node.js, and Android/Kotlin, ensuring smooth integration into any stack.
+* **Cost Efficiency (Pro Models):** The Pro series of the Gemini API offers top-tier performance at highly competitive pricing, ensuring that you don't have to compromise on intelligence to manage your budget, even at high volume.
 
 ---
 

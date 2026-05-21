@@ -18,7 +18,7 @@ In this guide, we will break down the structural limitations of long-context mod
 
 ---
 
-## 🛑 The Long-Context Fallacy: Attention Dilution and Financial Reality
+## The Long-Context Fallacy: Attention Dilution and Financial Reality
 
 Before building an architecture that dumps 1,000 PDFs directly into a Gemini or Grok API, we must analyze the two critical constraints: **attention mechanics** and **operating costs**.
 
@@ -30,7 +30,7 @@ When you ask a model to synthesize information, identify trends, or perform comp
 ### 2. The Financial and Latency Equation
 Let's run the actual economics as of **May 2026**. Querying a large-context model with 1 million tokens is expensive and introduces substantial latency:
 
-| Metric | 🔵 Google Gemini 3.1 Pro (1M Context) | 🟢 OpenAI GPT-4.1 (1M Context) | 🟠 xAI Grok 4.20 (2M Context) |
+| Metric |  Google Gemini 3.1 Pro (1M Context) |  OpenAI GPT-4.1 (1M Context) |  xAI Grok 4.20 (2M Context) |
 | :--- | :--- | :--- | :--- |
 | **Cost per Query (Uncached)** | **$2.00** | $2.00 | $4.00 |
 | **Cost per Query (Cached)** | **$0.20** | $0.50 | $0.40 |
@@ -45,7 +45,7 @@ RAG remains the ultimate architectural pattern for optimizing cost, speed, and a
 
 ---
 
-## 🏗️ The Hybrid RAG Architecture: Dense, Sparse, and Graph
+## The Hybrid RAG Architecture: Dense, Sparse, and Graph
 
 To build a retrieval system that beats massive context windows, we must combine three distinct retrieval layers into a unified pipeline:
 
@@ -88,7 +88,7 @@ To build a retrieval system that beats massive context windows, we must combine 
 
 ---
 
-## 🛠️ Python Implementation: Designing the Hybrid Retriever
+## Python Implementation: Designing the Hybrid Retriever
 
 Below is a complete, production-ready Python pipeline that merges semantic vector search, BM25, and a **Cross-Encoder Re-ranker** (such as Cohere Rerank v4 or BGE-Reranker-Large) to reduce a million-token raw dataset down to a highly optimized, high-density context.
 
@@ -161,33 +161,33 @@ class AdvancedHybridRetriever:
 # Example Usage
 # retriever = AdvancedHybridRetriever()
 # retriever.fit([
-#     "Enterprise policy states that all JWT tokens must expire within 15 minutes.",
-#     "To configure the database cluster, update the pool_size variable in db.yaml.",
-#     "Our network architecture utilizes hybrid sparse-dense routing tables.",
-#     "Contact the DevOps channel for issues regarding AWS IAM permission mismatches."
+# "Enterprise policy states that all JWT tokens must expire within 15 minutes.",
+# "To configure the database cluster, update the pool_size variable in db.yaml.",
+# "Our network architecture utilizes hybrid sparse-dense routing tables.",
+# "Contact the DevOps channel for issues regarding AWS IAM permission mismatches."
 # ])
 #
 # top_hits = retriever.retrieve("How long are JWT tokens valid for?", top_k=3, rerank_k=2)
 # for doc, score in top_hits:
-#     print(f"[{score:.4f}] {doc}")
+# print(f"[{score:.4f}] {doc}")
 ```
 
 ---
 
-## 🎯 The Verdict: When to Use RAG vs. Brute-Force Long Context
+## The Verdict: When to Use RAG vs. Brute-Force Long Context
 
 Long context and RAG are not mutually exclusive. In fact, **they are highly synergistic.** The most sophisticated AI architectures in production use them together:
 
 * **Use Brute-Force Long Context (100K+ tokens) when:**
-  - You are doing exploratory analysis on a single, coherent codebase or book.
-  - Latency is not a priority (e.g., offline processing, batch jobs, background code generation).
-  - You are executing rare, non-repetitive analytical tasks.
+ - You are doing exploratory analysis on a single, coherent codebase or book.
+ - Latency is not a priority (e.g., offline processing, batch jobs, background code generation).
+ - You are executing rare, non-repetitive analytical tasks.
 
 * **Use Hybrid RAG (filtering down to <10K high-density tokens) when:**
-  - You need **low-latency responses (<1 second)** in an interactive UI.
-  - You are scaling the application to millions of users and need to keep **API costs minimized**.
-  - You are searching across an ever-expanding, vast enterprise data ecosystem.
-  - You need to guarantee **exact key matching** (e.g., database IDs, hardware part numbers) alongside semantic intent.
+ - You need **low-latency responses (<1 second)** in an interactive UI.
+ - You are scaling the application to millions of users and need to keep **API costs minimized**.
+ - You are searching across an ever-expanding, vast enterprise data ecosystem.
+ - You need to guarantee **exact key matching** (e.g., database IDs, hardware part numbers) alongside semantic intent.
 
 By placing a robust, hybrid retrieval layer in front of your large-context models, you get the best of both worlds: the extreme reasoning ability of flagship models like Gemini 3.1 Pro, operating at the lightning speed and rock-bottom costs of small-context executions.
 

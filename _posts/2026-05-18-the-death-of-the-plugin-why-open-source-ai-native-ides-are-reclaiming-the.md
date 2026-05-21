@@ -82,9 +82,9 @@ When you use a proprietary AI editor, you are entering into a Faustian bargain. 
 
 Open-source AI editors offer three massive advantages:
 
-1.  **Data Sovereignty:** You can point your IDE at a local LLM (using tools like Ollama or vLLM). Your code never leaves your machine. Your secrets stay secret.
-2.  **Customization:** Every team has a different way of doing things. An open-source editor allows you to write custom 'agents' or context-retrieval rules that align with your specific stack—whether you're building a realtime backend with PocketBase or a massive distributed system in Go.
-3.  **The Feedback Loop:** The best tools are built by the people who use them. When a developer finds a way to better index a specific type of file, they can submit a PR. The intelligence of the IDE evolves with the community.
+1. **Data Sovereignty:** You can point your IDE at a local LLM (using tools like Ollama or vLLM). Your code never leaves your machine. Your secrets stay secret.
+2. **Customization:** Every team has a different way of doing things. An open-source editor allows you to write custom 'agents' or context-retrieval rules that align with your specific stack—whether you're building a realtime backend with PocketBase or a massive distributed system in Go.
+3. **The Feedback Loop:** The best tools are built by the people who use them. When a developer finds a way to better index a specific type of file, they can submit a PR. The intelligence of the IDE evolves with the community.
 
 ## The Developer's New Role: From Writer to Architect
 

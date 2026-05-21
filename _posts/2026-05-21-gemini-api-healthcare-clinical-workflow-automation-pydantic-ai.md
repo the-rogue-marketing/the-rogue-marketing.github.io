@@ -18,7 +18,7 @@ In this guide, we will build a production-grade clinical workflow automation sys
 
 ---
 
-## 🛠️ The Modern Tech Stack: Why Pydantic AI, FastAPI, and uv?
+## The Modern Tech Stack: Why Pydantic AI, FastAPI, and uv?
 
 Before we write code, let's understand why this specific stack is the standard for LLM applications in 2026:
 
@@ -29,7 +29,7 @@ Before we write code, let's understand why this specific stack is the standard f
 
 ---
 
-## 🏗️ Bootstrapping the Medical Tech Workspace with `uv`
+## Bootstrapping the Medical Tech Workspace with `uv`
 
 First, let's initialize our application directory and install our production dependencies using `uv`. 
 
@@ -52,13 +52,13 @@ This sets up a clean virtual environment and lockfile in seconds, ensuring compl
 
 ---
 
-## 📐 Designing the Medical Data Schemas
+## Designing the Medical Data Schemas
 
 Clinical documents must adhere to strict formatting. A **SOAP note** is divided into four highly specific sections:
-*   **Subjective:** The patient's history, symptoms, and subjective experience.
-*   **Objective:** The doctor's physical findings, vital signs, and lab results.
-*   **Assessment:** The diagnosis or differential diagnoses.
-*   **Plan:** The treatment strategy, medications, follow-up tests, and education.
+* **Subjective:** The patient's history, symptoms, and subjective experience.
+* **Objective:** The doctor's physical findings, vital signs, and lab results.
+* **Assessment:** The diagnosis or differential diagnoses.
+* **Plan:** The treatment strategy, medications, follow-up tests, and education.
 
 Additionally, we need to extract **ICD-11 (International Classification of Diseases)** codes and **SNOMED-CT** clinical terms to ensure billing and electronic health record (EHR) compatibility.
 
@@ -108,7 +108,7 @@ class SOAPClinicalNote(BaseModel):
 
 ---
 
-## 🤖 Implementing the Clinical Agent in Pydantic AI
+## Implementing the Clinical Agent in Pydantic AI
 
 Now we will build the core AI reasoning agent. We will configure **Pydantic AI** to run our structured agent loop using `Gemini 3.1 Pro`. 
 
@@ -171,7 +171,7 @@ class ClinicalAgentService:
 
 ---
 
-## 🌐 Exposing the Web API with FastAPI
+## Exposing the Web API with FastAPI
 
 Now let's build our web interface in `app/main.py`. We'll set up standard FastAPI asynchronous routes, apply validation error handling, and add security and HIPAA data practices.
 
@@ -246,21 +246,21 @@ if __name__ == "__main__":
 
 ---
 
-## 🔒 HIPAA Alignment & Enterprise Zero-Data Retention Guidelines
+## HIPAA Alignment & Enterprise Zero-Data Retention Guidelines
 
 If you are building medical systems, **compliance is not optional**. You must secure all Protected Health Information (PHI) under HIPAA laws.
 
 When using the Gemini API in a clinical environment:
 
-1.  **Enterprise Tiers:** Do not use the standard public Gemini API tiers. You must use **Vertex AI** (Google Cloud Platform) to access Gemini. Vertex AI provides strict **Business Associate Agreements (BAA)**, guaranteeing that your data is fully isolated in your Google Cloud Tenant.
-2.  **Zero-Data Retention (ZDR):** Google Cloud guarantees that data sent to Vertex AI model endpoints is *never* persisted on disk, is *never* used to train or refine Google's base foundation models, and is processed entirely in ephemeral RAM context windows.
-3.  **Local Encryption at Rest & In-Transit:**
+1. **Enterprise Tiers:** Do not use the standard public Gemini API tiers. You must use **Vertex AI** (Google Cloud Platform) to access Gemini. Vertex AI provides strict **Business Associate Agreements (BAA)**, guaranteeing that your data is fully isolated in your Google Cloud Tenant.
+2. **Zero-Data Retention (ZDR):** Google Cloud guarantees that data sent to Vertex AI model endpoints is *never* persisted on disk, is *never* used to train or refine Google's base foundation models, and is processed entirely in ephemeral RAM context windows.
+3. **Local Encryption at Rest & In-Transit:**
     *   Always serve your FastAPI endpoints behind strictly configured TLS 1.3 (HTTPS).
     *   If you store transcripts or generated SOAP notes in an intermediate database (e.g., PostgreSQL), use column-level encryption (with tools like `cryptography` AES-256-GCM) so that data remains encrypted at rest, even if your primary database credentials are leaked.
 
 ---
 
-## 🚀 Running and Testing Your Clinical Engine
+## Running and Testing Your Clinical Engine
 
 You can start your local development server with the following command:
 
@@ -276,7 +276,7 @@ Try posting the following payload to your `/api/v1/compile-soap` route:
 
 ```json
 {
-  "transcript": "Doctor: Hello, John. How have you been since our last visit? Patient: To be honest, doctor, my knee has been killing me. The pain started about 4 days ago after I slipped on the driveway. It's a dull ache right in the front of my left knee. It gets much worse when I climb stairs. I'd rate the pain a 6 out of 10. Doctor: Understood. Let's do an exam. The left knee shows mild swelling and tenderness along the anterior patellar border. No ligament instability. Flexion is limited to 110 degrees due to tightness, extension is full. I also checked your vitals earlier, blood pressure was great at 118 over 76, temperature is 98.4. Let's get an X-ray to rule out any patellar fracture. I want you to take Ibuprofen 400 milligrams twice daily with food for the next 5 days, and please avoid heavy lifting or running until we get the results. Patient: Okay, I will do that."
+ "transcript": "Doctor: Hello, John. How have you been since our last visit? Patient: To be honest, doctor, my knee has been killing me. The pain started about 4 days ago after I slipped on the driveway. It's a dull ache right in the front of my left knee. It gets much worse when I climb stairs. I'd rate the pain a 6 out of 10. Doctor: Understood. Let's do an exam. The left knee shows mild swelling and tenderness along the anterior patellar border. No ligament instability. Flexion is limited to 110 degrees due to tightness, extension is full. I also checked your vitals earlier, blood pressure was great at 118 over 76, temperature is 98.4. Let's get an X-ray to rule out any patellar fracture. I want you to take Ibuprofen 400 milligrams twice daily with food for the next 5 days, and please avoid heavy lifting or running until we get the results. Patient: Okay, I will do that."
 }
 ```
 

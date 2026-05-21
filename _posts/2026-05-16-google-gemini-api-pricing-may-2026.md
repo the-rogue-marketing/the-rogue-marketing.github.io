@@ -16,7 +16,7 @@ This guide breaks down every Gemini model's pricing as of **May 2026** in plain 
 
 ---
 
-## 🏗️ The Gemini Model Lineup at a Glance
+## The Gemini Model Lineup at a Glance
 
 Think of the Gemini family as a car dealership — each tier serves a different driver:
 
@@ -31,9 +31,9 @@ Think of the Gemini family as a car dealership — each tier serves a different 
 
 ---
 
-## 💰 Complete Pricing Breakdown (Per 1 Million Tokens)
+## Complete Pricing Breakdown (Per 1 Million Tokens)
 
-### 🧠 Gemini 3.1 Pro — The Flagship Powerhouse
+### Gemini 3.1 Pro — The Flagship Powerhouse
 
 **Best for:** Complex coding tasks, multi-step reasoning, advanced research, agentic workflows with 1M token context.
 
@@ -42,11 +42,11 @@ Think of the Gemini family as a car dealership — each tier serves a different 
 | **Input** | **$2.00** | **$4.00** |
 | **Output** | **$12.00** | **$24.00** |
 
-> 💡 **Pro tip:** Gemini 3.1 Pro doubles in cost when your prompt exceeds 200,000 tokens. Keep prompts concise or use context caching to avoid the premium.
+> **Pro tip:** Gemini 3.1 Pro doubles in cost when your prompt exceeds 200,000 tokens. Keep prompts concise or use context caching to avoid the premium.
 
 ---
 
-### ⚡ Gemini 3 Flash — The Smart All-Rounder
+### Gemini 3 Flash — The Smart All-Rounder
 
 **Best for:** Chatbots, content generation, summarization, and any task where you need speed + intelligence at a fair price.
 
@@ -55,11 +55,11 @@ Think of the Gemini family as a car dealership — each tier serves a different 
 | **Input (text/image/video)** | **$0.50** |
 | **Output** | **$3.00** |
 
-✅ **Flat pricing** — no long-context surcharge. This makes Flash ideal for applications with variable prompt lengths.
+ **Flat pricing** — no long-context surcharge. This makes Flash ideal for applications with variable prompt lengths.
 
 ---
 
-### 💡 Gemini 3.1 Flash-Lite — The Budget Champion
+### Gemini 3.1 Flash-Lite — The Budget Champion
 
 **Best for:** Processing millions of simple tasks — classification, tagging, extraction — where cost is the #1 priority.
 
@@ -72,7 +72,7 @@ At just **$0.25 per million input tokens**, Flash-Lite is one of the cheapest pr
 
 ---
 
-### 📦 Legacy Models (Still Available)
+### Legacy Models (Still Available)
 
 These Gemini 2.5 models remain fully supported and are excellent choices for existing applications:
 
@@ -82,11 +82,11 @@ These Gemini 2.5 models remain fully supported and are excellent choices for exi
 | **Gemini 2.5 Flash** | $0.30 | $2.50 | Flat pricing |
 | **Gemini 2.5 Flash-Lite** | $0.10 | $0.40 | Cheapest option available |
 
-> 🎯 **Gemini 2.5 Flash-Lite** at **$0.10/M input** remains the absolute cheapest model in Google's lineup — perfect for ultra-high-volume workloads.
+> **Gemini 2.5 Flash-Lite** at **$0.10/M input** remains the absolute cheapest model in Google's lineup — perfect for ultra-high-volume workloads.
 
 ---
 
-## 🎯 Cost Optimization Strategies
+## Cost Optimization Strategies
 
 ### 1. Context Caching — Save Up to 90%
 Cache frequently used system prompts, large documents, or reference materials. Cached tokens cost as little as **10% of the standard input price**.
@@ -99,7 +99,7 @@ Flash and Flash-Lite models offer a generous **free tier** for prototyping — p
 
 ---
 
-## 📊 Real-World Cost Comparison
+## Real-World Cost Comparison
 
 **Scenario:** Summarize a 100,000-word document (≈133K tokens input) and generate a 1,000-word summary (≈1,333 tokens output):
 
@@ -112,7 +112,7 @@ Flash and Flash-Lite models offer a generous **free tier** for prototyping — p
 
 ---
 
-## ✅ Key Takeaways
+## Key Takeaways
 
 1. **Gemini 3.1 Pro** is the smartest model — use it for your hardest problems
 2. **Gemini 3 Flash** is the sweet spot for most production apps

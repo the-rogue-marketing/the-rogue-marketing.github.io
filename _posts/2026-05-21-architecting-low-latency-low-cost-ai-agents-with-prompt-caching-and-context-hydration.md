@@ -16,7 +16,7 @@ In this guide, we will bypass the high-level hand-waving and dive deep into the 
 
 ---
 
-## 🏎️ The Physics of Agent Latency: TTFT vs. Queue Times
+## The Physics of Agent Latency: TTFT vs. Queue Times
 
 To optimize agent speed, we must first break down the components of an LLM API response. Total response latency ($L_{total}$) is defined by the following equation:
 
@@ -41,7 +41,7 @@ An agent taking 18 seconds just to *start* thinking is unusable in interactive a
 
 ---
 
-## 🧠 Deep-Dive into Prompt Caching: Automatic vs. Explicit
+## Deep-Dive into Prompt Caching: Automatic vs. Explicit
 
 Prompt caching allows LLM providers to store the Key-Value (KV) states of your prompt’s prefix in fast memory. If a subsequent request matches that exact prefix, the model skips processing those tokens entirely, reducing both cost and $T_{ttft}$ by **up to 90%**.
 
@@ -63,26 +63,26 @@ Here is the exact cost impact of utilizing prompt caching across flagship models
 
 | Provider | Model | Input Cost / 1M (Uncached) | Input Cost / 1M (Cached) | Savings % | Minimum Cache Size |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 🔵 Google | **Gemini 3.1 Pro** | $2.00 | **$0.20** | **90%** | 32,768 tokens |
-| 🟣 Anthropic | **Claude Sonnet 4.6** | $3.00 | **$0.30** | **90%** | 1,024 tokens |
-| 🟢 OpenAI | **GPT-4.1** | $2.00 | **$0.50** | **75%** | 1,024 tokens |
+|  Google | **Gemini 3.1 Pro** | $2.00 | **$0.20** | **90%** | 32,768 tokens |
+|  Anthropic | **Claude Sonnet 4.6** | $3.00 | **$0.30** | **90%** | 1,024 tokens |
+|  OpenAI | **GPT-4.1** | $2.00 | **$0.50** | **75%** | 1,024 tokens |
 
 ---
 
-## 🛠️ Dynamic Context Hydration: AST-Driven Compilation
+## Dynamic Context Hydration: AST-Driven Compilation
 
 To maximize cache hits, the layout of your prompt must be **strictly structured**. LLM prompt caching requires an *exact character-by-character match of the prefix*. If you change a single character at the beginning of your prompt, the entire cache is invalidated.
 
 Therefore, the prompt must be structured from **most static to most dynamic**:
 
 ```text
-[STATIC PREFIX]       -> System Prompt, Core Constraints, Tool Definitions (Always Caches)
+[STATIC PREFIX] -> System Prompt, Core Constraints, Tool Definitions (Always Caches)
        ↓
 [SEMI-STATIC CONTEXT] -> Core Database Schemas, API Specs, Directory Structures (Slow Invalidation)
        ↓
-[DYNAMIC HYDRATION]  -> Relevant Code Snippets, Specific Error Logs (High Invalidation)
+[DYNAMIC HYDRATION] -> Relevant Code Snippets, Specific Error Logs (High Invalidation)
        ↓
-[FULLY DYNAMIC]       -> The Current User Query, Ephemeral Agent State (Never Caches)
+[FULLY DYNAMIC] -> The Current User Query, Ephemeral Agent State (Never Caches)
 ```
 
 Instead of injecting files blindly, a production-grade agent compiler parses the target codebase using an **Abstract Syntax Tree (AST)** to extract *only* the specific function or class definitions needed for the current task, leaving the rest untouched.
@@ -150,16 +150,16 @@ class ASTContextCompiler:
 # Example Usage
 # compiler = ASTContextCompiler("/path/to/my/app")
 # prompt_payload = compiler.compile_prompt(
-#     system_prompt="You are a senior refactoring assistant.",
-#     schema_context="table users { id int, email text }",
-#     dependencies=[("services/auth.py", "verify_jwt_token")],
-#     query="Add support for HS256 algorithm to the verify function."
+# system_prompt="You are a senior refactoring assistant.",
+# schema_context="table users { id int, email text }",
+# dependencies=[("services/auth.py", "verify_jwt_token")],
+# query="Add support for HS256 algorithm to the verify function."
 # )
 ```
 
 ---
 
-## 🏗️ Lightweight State Management: Replacing Heavy Frameworks
+## Lightweight State Management: Replacing Heavy Frameworks
 
 Popular multi-agent frameworks (such as LangGraph or CrewAI) are excellent for prototyping. However, in low-latency production applications, they add significant architectural overhead. They hide state transitions behind complex directed graphs, introduce massive class inheritance hierarchies, and add unnecessary token bloat.
 
@@ -248,16 +248,16 @@ class AgentStateMachine:
 # machine = AgentStateMachine()
 #
 # def planner_handler(context):
-#     # Prompt LLM, generate steps
-#     context["plan"] = ["step_1", "step_2"]
-#     return "EXECUTING", context
+# # Prompt LLM, generate steps
+# context["plan"] = ["step_1", "step_2"]
+# return "EXECUTING", context
 #
 # def executor_handler(context):
-#     # Execute step, check if completed
-#     if len(context["plan"]) > 0:
-#         context["plan"].pop(0)
-#         return "EXECUTING", context
-#     return "COMPLETED", context
+# # Execute step, check if completed
+# if len(context["plan"]) > 0:
+# context["plan"].pop(0)
+# return "EXECUTING", context
+# return "COMPLETED", context
 #
 # machine.register_state("PLANNING", planner_handler)
 # machine.register_state("EXECUTING", executor_handler)
@@ -268,7 +268,7 @@ class AgentStateMachine:
 
 ---
 
-## 🚀 The Production Agent Blueprint
+## The Production Agent Blueprint
 
 By combining these three strategies—**structured prompt caching, dynamic AST context compilation, and a low-latency state machine**—you transition your AI applications from slow, expensive, brittle scripts into highly responsive, industrial-grade systems.
 

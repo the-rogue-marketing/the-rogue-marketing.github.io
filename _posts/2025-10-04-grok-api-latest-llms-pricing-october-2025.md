@@ -12,31 +12,31 @@ image: assets/images/grok-api-pricing-october-2025.jpg
 
 xAI's Grok API continues to evolve with new models and pricing structures designed to meet diverse developer needs. This comprehensive guide covers everything you need to know about Grok API pricing as of October 2025.
 
-## 🚀 New Model Releases
+## New Model Releases
 
 ### Grok 4 Fast Series
 xAI has introduced two new cost-efficient reasoning models:
 
-**grok-4-fast-reasoning**  
-- **Capabilities**: Advanced reasoning with lightning-fast performance  
-- **Context Window**: 2,000,000 tokens  
-- **Pricing**: $0.20 per million input tokens · $0.50 per million output tokens  
-- **Rate Limits**: 4M tokens per minute · 480 requests per minute  
+**grok-4-fast-reasoning** 
+- **Capabilities**: Advanced reasoning with lightning-fast performance 
+- **Context Window**: 2,000,000 tokens 
+- **Pricing**: $0.20 per million input tokens · $0.50 per million output tokens 
+- **Rate Limits**: 4M tokens per minute · 480 requests per minute 
 
-**grok-4-fast-non-reasoning**  
-- **Capabilities**: Cost-optimized non-reasoning variant  
-- **Context Window**: 2,000,000 tokens  
-- **Pricing**: $0.20 per million input tokens · $0.50 per million output tokens  
-- **Rate Limits**: 4M tokens per minute · 480 requests per minute  
+**grok-4-fast-non-reasoning** 
+- **Capabilities**: Cost-optimized non-reasoning variant 
+- **Context Window**: 2,000,000 tokens 
+- **Pricing**: $0.20 per million input tokens · $0.50 per million output tokens 
+- **Rate Limits**: 4M tokens per minute · 480 requests per minute 
 
 ### Specialized Coding Model
-**grok-code-fast-1**  
-- **Description**: Lightning-fast reasoning model built for agentic coding  
-- **Context Window**: 256,000 tokens  
-- **Pricing**: $0.20 per million input tokens · $1.50 per million output tokens  
-- **Rate Limits**: 2M tokens per minute · 480 requests per minute  
+**grok-code-fast-1** 
+- **Description**: Lightning-fast reasoning model built for agentic coding 
+- **Context Window**: 256,000 tokens 
+- **Pricing**: $0.20 per million input tokens · $1.50 per million output tokens 
+- **Rate Limits**: 2M tokens per minute · 480 requests per minute 
 
-## 📊 Complete Model Pricing Table
+## Complete Model Pricing Table
 
 ### Language Models
 
@@ -53,18 +53,18 @@ xAI has introduced two new cost-efficient reasoning models:
 
 ### Image Generation Models
 
-**grok-2-image-1212**  
-- **Pricing**: $0.07 per image  
-- **Rate Limit**: 300 images per minute  
+**grok-2-image-1212** 
+- **Pricing**: $0.07 per image 
+- **Rate Limit**: 300 images per minute 
 
-## 🔍 Search Features Pricing
+## Search Features Pricing
 
 ### Live Search
 - **Cost**: $25 per 1,000 sources requested
 - **Billing**: Each source used (Web, X, News, RSS) counts as one request
 - **Examples**:
-  - 1 source: $0.025
-  - 4 sources: $0.10
+ - 1 source: $0.025
+ - 4 sources: $0.10
 - **Tracking**: Check `response.usage.num_sources_used` in API response
 
 ### Documents Search
@@ -72,7 +72,7 @@ xAI has introduced two new cost-efficient reasoning models:
 - **File Storage**: Free
 - **Collections Storage**: Free
 
-## ⚡ Grok 4 Important Updates
+## Grok 4 Important Updates
 
 ### Key Differences from Grok 3
 - **Reasoning Model Only**: Grok 4 operates exclusively as a reasoning model with no non-reasoning mode
@@ -83,7 +83,7 @@ xAI has introduced two new cost-efficient reasoning models:
 - **Grok 3 & Grok 4**: Both models have knowledge up to November 2024
 - **Realtime Information**: Requires Live Search integration for current events
 
-## 💡 Model Capabilities & Features
+## Model Capabilities & Features
 
 ### Input/Output Modalities
 - **Text-to-Text (T→T)**: All current models support text input and output
@@ -101,7 +101,7 @@ xAI has introduced two new cost-efficient reasoning models:
 - **Cached Prompt Tokens**: Automatic caching reduces costs for repeated prompts
 - **Usage Tracking**: Monitor cached token consumption in the "usage" object
 
-## 🎯 Best Practices for Cost Optimization
+## Best Practices for Cost Optimization
 
 1. **Use Cached Prompts**: Enable automatic caching for repeated requests
 2. **Choose Appropriate Model**: Select based on task complexity and budget
@@ -109,7 +109,7 @@ xAI has introduced two new cost-efficient reasoning models:
 4. **Leverage Context Windows**: Use larger context models for complex conversations
 5. **Consider Grok 4 Fast**: New models offer significant cost savings for reasoning tasks
 
-## 📈 Pricing Summary
+## Pricing Summary
 
 The October 2025 pricing introduces significant improvements in cost-efficiency, particularly with the new Grok 4 Fast series offering reasoning capabilities at substantially lower prices compared to previous generations.
 

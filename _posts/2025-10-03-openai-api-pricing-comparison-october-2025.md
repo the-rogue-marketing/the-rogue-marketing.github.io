@@ -56,7 +56,7 @@ Precise, high-fidelity image generation and editing:
 
 *Image output costs*:
 - Low quality: ~$0.01 per square image
-- Medium quality: ~$0.04 per square image  
+- Medium quality: ~$0.04 per square image 
 - High quality: ~$0.17 per square image
 
 *\*available via the Responses API*

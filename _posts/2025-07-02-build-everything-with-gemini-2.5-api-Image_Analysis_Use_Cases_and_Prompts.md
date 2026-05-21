@@ -129,24 +129,24 @@ When building invoice OCR solutions with [AI Viewz Image-to-Text](https://www.ai
 ### Gemini API (via Google AI Studio)
 - **Overview**: A developer-friendly API for multimodal tasks, accessible via Google AI Studio with a free tier for testing.
 - **Pros**:
-  - **Ease of Use**: Google AI Studio’s no-code interface is ideal for prototyping invoice OCR prompts, such as extracting text or structured data from invoices.
-  - **Cost-Effective**: Free tier in supported regions suits small-scale projects or startups like AI Viewz.
-  - **Direct Multimodal Support**: Gemini 2.5 Pro processes invoice images directly, enabling tasks like text extraction or key data extraction (e.g., invoice number, total) with simple prompts.
-  - **Integration**: Supports client-side SDKs (Python, JavaScript) and Firebase for mobile/web apps, aligning with AI Viewz’s customer-facing services.
+ - **Ease of Use**: Google AI Studio’s no-code interface is ideal for prototyping invoice OCR prompts, such as extracting text or structured data from invoices.
+ - **Cost-Effective**: Free tier in supported regions suits small-scale projects or startups like AI Viewz.
+ - **Direct Multimodal Support**: Gemini 2.5 Pro processes invoice images directly, enabling tasks like text extraction or key data extraction (e.g., invoice number, total) with simple prompts.
+ - **Integration**: Supports client-side SDKs (Python, JavaScript) and Firebase for mobile/web apps, aligning with AI Viewz’s customer-facing services.
 - **Cons**:
-  - **Rate Limits**: Free tier has restrictive limits; paid tier requires cost management for high-volume invoice processing.
-  - **Limited Enterprise Features**: Lacks advanced tools like model tuning or managed endpoints.
+ - **Rate Limits**: Free tier has restrictive limits; paid tier requires cost management for high-volume invoice processing.
+ - **Limited Enterprise Features**: Lacks advanced tools like model tuning or managed endpoints.
 - **Best For**: Rapid prototyping, small to medium-sized businesses, or testing invoice OCR workflows.
 
 ### Vertex AI
 - **Overview**: A managed platform on Google Cloud for deploying and scaling AI models, including Gemini 2.5 Pro, with enterprise-grade features.
 - **Pros**:
-  - **Scalability**: Supports high-volume invoice processing with managed endpoints, ideal for enterprise clients.
-  - **Advanced Features**: Offers Model Optimizer, grounding, and region-specific data processing for compliance (e.g., EU data residency).
-  - **Integration**: Seamlessly integrates with Google Cloud services (e.g., BigQuery, Cloud Storage) for complex workflows.
+ - **Scalability**: Supports high-volume invoice processing with managed endpoints, ideal for enterprise clients.
+ - **Advanced Features**: Offers Model Optimizer, grounding, and region-specific data processing for compliance (e.g., EU data residency).
+ - **Integration**: Seamlessly integrates with Google Cloud services (e.g., BigQuery, Cloud Storage) for complex workflows.
 - **Cons**:
-  - **Complexity**: Requires a Google Cloud account and more setup than Google AI Studio.
-  - **Cost**: Token-based pricing may be higher for small-scale use compared to Gemini API’s free tier.
+ - **Complexity**: Requires a Google Cloud account and more setup than Google AI Studio.
+ - **Cost**: Token-based pricing may be higher for small-scale use compared to Gemini API’s free tier.
 - **Best For**: Enterprise deployments, high-volume invoice OCR, or applications requiring advanced customization.
 
 ### Recommendation
@@ -154,13 +154,13 @@ For AI Viewz’s invoice OCR use cases, start with the [Gemini API](https://ai.g
 
 ## Notes for Developers
 - **API Setup**: Obtain an API key from [Google AI Studio](https://ai.google.dev/gemini-api/docs) for the Gemini API or set up a Google Cloud project for [Vertex AI](https://cloud.google.com/vertex-ai). Install the `google-generativeai` Python package for Gemini API:
-  ```python
-  from google import genai
-  genai.configure(api_key="YOUR_API_KEY")
-  model = genai.GenerativeModel("gemini-2.5-pro")
-  response = model.generate_content([prompt, image])
-  print(response.text)
-  ```
+ ```python
+ from google import genai
+ genai.configure(api_key="YOUR_API_KEY")
+ model = genai.GenerativeModel("gemini-2.5-pro")
+ response = model.generate_content([prompt, image])
+ print(response.text)
+ ```
 - **Image Handling**: Upload images directly in Google AI Studio or pass as Base64-encoded strings or file paths in API requests. Ensure invoices are clear and correctly rotated for optimal OCR results.
 - **Multimodal Inputs**: Combine text prompts with invoice images for precise control. Place text prompts after image data in the API request’s content array.
 - **Thinking Budget**: For invoice OCR tasks, disable thinking by setting `thinking_budget=0` to improve accuracy, as recommended by Google.

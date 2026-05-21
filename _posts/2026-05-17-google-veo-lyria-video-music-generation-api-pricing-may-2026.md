@@ -16,7 +16,7 @@ This guide covers the exact pricing for every Veo and Lyria model available in M
 
 ---
 
-## 🎬 Veo — AI Video Generation
+## Veo — AI Video Generation
 
 Google's Veo family generates videos from text or image prompts. The latest **Veo 3.1** includes native audio generation — dialogue, sound effects, and ambient sounds synchronized to the visuals.
 
@@ -33,7 +33,7 @@ Google's Veo family generates videos from text or image prompts. The latest **Ve
 
 ---
 
-## 💰 Veo Pricing (Per Second of Video)
+## Veo Pricing (Per Second of Video)
 
 | Model Tier | Price per Second | 8-sec Video | 15-sec Video |
 | :--- | :--- | :--- | :--- |
@@ -45,7 +45,7 @@ Google's Veo family generates videos from text or image prompts. The latest **Ve
 | **Veo 3 Standard (with audio)** | **~$0.75** | ~$6.00 | ~$11.25 |
 | **Veo 2** | **~$0.35** | ~$2.80 | ~$5.25 |
 
-> 💡 **Cost tip:** Use **Veo 3.1 Lite** ($0.05–$0.08/sec) for drafts and storyboarding, then upgrade to **Standard** for the final render. This can cut your iteration costs by 80%.
+> **Cost tip:** Use **Veo 3.1 Lite** ($0.05–$0.08/sec) for drafts and storyboarding, then upgrade to **Standard** for the final render. This can cut your iteration costs by 80%.
 
 ### Important Notes
 
@@ -55,7 +55,7 @@ Google's Veo family generates videos from text or image prompts. The latest **Ve
 
 ---
 
-## 🎵 Lyria 3 — AI Music Generation
+## Lyria 3 — AI Music Generation
 
 Google's **Lyria 3** family generates music from text prompts. Unlike per-second pricing, Lyria uses a **flat fee per generation**.
 
@@ -68,14 +68,14 @@ Google's **Lyria 3** family generates music from text prompts. Unlike per-second
 
 ---
 
-## 💰 Lyria 3 Pricing (Per Generation)
+## Lyria 3 Pricing (Per Generation)
 
 | Model | Price per Generation | Max Duration | Per-Second Cost |
 | :--- | :--- | :--- | :--- |
 | **Lyria 3 Clip** | **$0.04** | ~30 seconds | ~$0.0013/sec |
 | **Lyria 3 Pro** | **$0.08** | ~3 minutes | ~$0.0004/sec |
 
-> 🔥 **Incredible value:** At **$0.08 per 3-minute song**, Lyria 3 Pro is by far the cheapest AI music generation service available. You can generate 1,000 full songs for just $80.
+> **Incredible value:** At **$0.08 per 3-minute song**, Lyria 3 Pro is by far the cheapest AI music generation service available. You can generate 1,000 full songs for just $80.
 
 ### Lyria 3 Pro Features
 
@@ -86,7 +86,7 @@ Google's **Lyria 3** family generates music from text prompts. Unlike per-second
 
 ---
 
-## 📊 Veo vs. Competitors: How Does Google Compare?
+## Veo vs. Competitors: How Does Google Compare?
 
 | Provider | Model | Cost for 8-sec Video |
 | :--- | :--- | :--- |
@@ -100,7 +100,7 @@ Google's **Lyria 3** family generates music from text prompts. Unlike per-second
 
 ---
 
-## 📊 Lyria vs. Competitors: Music Generation Costs
+## Lyria vs. Competitors: Music Generation Costs
 
 | Provider | Cost per Song | Max Duration |
 | :--- | :--- | :--- |
@@ -111,7 +111,7 @@ Google's **Lyria 3** family generates music from text prompts. Unlike per-second
 
 ---
 
-## 🧮 Real-World Cost Scenarios
+## Real-World Cost Scenarios
 
 ### Scenario 1: Create a 60-second social media ad
 
@@ -142,19 +142,19 @@ Google's **Lyria 3** family generates music from text prompts. Unlike per-second
 
 ---
 
-## 🔧 Access & Availability
+## Access & Availability
 
 | Service | Free Tier | Paid Required | Platform |
 | :--- | :--- | :--- | :--- |
-| **Veo 3.1** | ❌ | ✅ | Gemini API, Vertex AI |
-| **Veo 3** | ❌ | ✅ | Gemini API, Vertex AI |
-| **Veo 2** | ❌ | ✅ | Gemini API, Vertex AI |
-| **Lyria 3 Clip** | Limited | ✅ | Gemini API, AI Studio |
-| **Lyria 3 Pro** | Limited | ✅ | Gemini API, AI Studio |
+| **Veo 3.1** |  |  | Gemini API, Vertex AI |
+| **Veo 3** |  |  | Gemini API, Vertex AI |
+| **Veo 2** |  |  | Gemini API, Vertex AI |
+| **Lyria 3 Clip** | Limited |  | Gemini API, AI Studio |
+| **Lyria 3 Pro** | Limited |  | Gemini API, AI Studio |
 
 ---
 
-## ✅ Key Takeaways
+## Key Takeaways
 
 1. **Veo 3.1 Lite** ($0.05–$0.08/sec) is the budget choice for video generation
 2. **Veo 3.1 Standard** delivers the highest quality with native audio at ~$0.40–$0.75/sec

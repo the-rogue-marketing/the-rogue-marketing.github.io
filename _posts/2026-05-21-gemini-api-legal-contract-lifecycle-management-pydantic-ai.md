@@ -18,7 +18,7 @@ In this guide, we will walk through building an enterprise-grade **Contract Audi
 
 ---
 
-## 🛠️ Setting up the Legal Workspace with `uv`
+## Setting up the Legal Workspace with `uv`
 
 First, let's bootstrap our isolated Python environment using Astrid's ultra-fast package manager, `uv`. 
 
@@ -41,12 +41,12 @@ touch app/main.py app/models/schemas.py app/services/legal_agents.py
 
 ---
 
-## ⚖️ Designing the Legal Contract Schemas
+## Designing the Legal Contract Schemas
 
 To ensure absolute validation precision, our Pydantic schemas must map the typical high-risk clauses in commercial agreements:
-1.  **Indemnification Limit:** The monetary cap on liability and indemnities (expressed in USD or multiplier of fees).
-2.  **Governing Law:** The state or nation's jurisdiction under which disputes are adjudicated (often restricted by corporate playbooks to specific states like Delaware or New York).
-3.  **Redline Anomalies:** Specific identified clauses that violate our corporate playbook guidelines, along with proposed redlined text.
+1. **Indemnification Limit:** The monetary cap on liability and indemnities (expressed in USD or multiplier of fees).
+2. **Governing Law:** The state or nation's jurisdiction under which disputes are adjudicated (often restricted by corporate playbooks to specific states like Delaware or New York).
+3. **Redline Anomalies:** Specific identified clauses that violate our corporate playbook guidelines, along with proposed redlined text.
 
 Let's write these schemas in `app/models/schemas.py`:
 
@@ -83,12 +83,12 @@ class FinalAuditReport(BaseModel):
 
 ---
 
-## 🤖 Implementing the Cooperative Multi-Agent Pipeline
+## Implementing the Cooperative Multi-Agent Pipeline
 
 To achieve the highest level of review precision, we will design two specialized agents that execute in series:
 
-1.  **The Extractor Agent:** Built to parse unstructured contract text and output a highly detailed, structured `ExtractionReport` schema.
-2.  **The Auditor Agent:** Takes the output of the Extractor Agent, reads the corporate Playbook Guidelines, and identifies specific non-compliant rules, producing a list of `RedlineItem` instances.
+1. **The Extractor Agent:** Built to parse unstructured contract text and output a highly detailed, structured `ExtractionReport` schema.
+2. **The Auditor Agent:** Takes the output of the Extractor Agent, reads the corporate Playbook Guidelines, and identifies specific non-compliant rules, producing a list of `RedlineItem` instances.
 
 Let's write this agent orchestration inside `app/services/legal_agents.py`:
 
@@ -188,7 +188,7 @@ class ContractAuditService:
 
 ---
 
-## 🌐 Exposing the Web API with FastAPI
+## Exposing the Web API with FastAPI
 
 Now let's build our API layer in `app/main.py`. This route receives the contract text, runs our cooperative multi-agent legal service, and returns the strictly validated, audit-logged final report.
 
@@ -263,17 +263,17 @@ if __name__ == "__main__":
 
 ---
 
-## 🔒 Enterprise Production Hardening & Document Redlining Safety
+## Enterprise Production Hardening & Document Redlining Safety
 
 When deploying agentic architectures to enterprise corporate counsel departments, follow these best practices:
 
-1.  **VPC-Locked Deployment & Private Routing:** Legal agreements contain high-security, proprietary corporate information. Ensure your FastAPI endpoints run within highly secure networks, using Vertex AI's VPC private IP services to ensure your documents never traverse the public internet.
-2.  **Hallucination Prevention with Grounded RAG:** Contracts contain dense, nested clauses. Before redlining, verify that all extracted clauses are grounded strictly against the source text. In Pydantic AI, you can easily implement validator functions (`@field_validator`) that cross-reference the extracted clause's exact text against the raw contract payload to ensure zero character modification during the extraction phase.
-3.  **Optimize Multi-Agent Prompt Caching:** Since Agent 1 (Extraction) and Agent 2 (Auditing) read the exact same raw contract text (often 50K+ tokens), ensure your API configuration is using **Gemini 3.1 Pro's Prompt Caching** framework. By caching the contract text prefix once, the second agent's KV cache is instantly matched, reducing latency by up to 90% and slashing token costs.
+1. **VPC-Locked Deployment & Private Routing:** Legal agreements contain high-security, proprietary corporate information. Ensure your FastAPI endpoints run within highly secure networks, using Vertex AI's VPC private IP services to ensure your documents never traverse the public internet.
+2. **Hallucination Prevention with Grounded RAG:** Contracts contain dense, nested clauses. Before redlining, verify that all extracted clauses are grounded strictly against the source text. In Pydantic AI, you can easily implement validator functions (`@field_validator`) that cross-reference the extracted clause's exact text against the raw contract payload to ensure zero character modification during the extraction phase.
+3. **Optimize Multi-Agent Prompt Caching:** Since Agent 1 (Extraction) and Agent 2 (Auditing) read the exact same raw contract text (often 50K+ tokens), ensure your API configuration is using **Gemini 3.1 Pro's Prompt Caching** framework. By caching the contract text prefix once, the second agent's KV cache is instantly matched, reducing latency by up to 90% and slashing token costs.
 
 ---
 
-## 🚀 Running and Testing the Legal Tech Engine
+## Running and Testing the Legal Tech Engine
 
 You can start the FastAPI legal engine locally:
 
@@ -289,12 +289,12 @@ Post this contract payload to your `/api/v1/audit-contract` endpoint:
 
 ```json
 {
-  "contract_text": "MUTUAL SERVICES AGREEMENT. This Mutual Services Agreement is entered into on this 12th day of February, 2026, by and between ACME Corporation, a company incorporated in the State of California, and BetaLink Services. Section 4. Termination. Either party may terminate this agreement at any time for convenience, with or without cause, upon giving the other party fifteen (15) days prior written notice of such termination. Section 9. Limitation of Liability. EXCEPT FOR A PARTY'S INTELLECTUAL PROPERTY INFRINGEMENT OR GROSS NEGLIGENCE, IN NO EVENT SHALL EITHER PARTY'S TOTAL AGGREGATE LIABILITY UNDER THIS AGREEMENT EXCEED THE SUM OF TEN THOUSAND DOLLARS ($10,000). Section 14. Governing Law. This Agreement shall be governed by, interpreted, and construed in accordance with the laws of the State of California, without regard to its conflict of law principles."
+ "contract_text": "MUTUAL SERVICES AGREEMENT. This Mutual Services Agreement is entered into on this 12th day of February, 2026, by and between ACME Corporation, a company incorporated in the State of California, and BetaLink Services. Section 4. Termination. Either party may terminate this agreement at any time for convenience, with or without cause, upon giving the other party fifteen (15) days prior written notice of such termination. Section 9. Limitation of Liability. EXCEPT FOR A PARTY'S INTELLECTUAL PROPERTY INFRINGEMENT OR GROSS NEGLIGENCE, IN NO EVENT SHALL EITHER PARTY'S TOTAL AGGREGATE LIABILITY UNDER THIS AGREEMENT EXCEED THE SUM OF TEN THOUSAND DOLLARS ($10,000). Section 14. Governing Law. This Agreement shall be governed by, interpreted, and construed in accordance with the laws of the State of California, without regard to its conflict of law principles."
 }
 ```
 
 The cooperative agent loop will execute:
-1.  **The Extractor Agent** will parse the agreement and extract the 15-day termination notice, the $10,000 liability cap, and the California governing law.
-2.  **The Auditor Agent** will cross-reference these findings against the Corporate Legal Playbook. It will flag the California governing law (flagged as WARNING), flag the 15-day convenience notice (flagged as WARNING since it is less than 30 days), and propose exact, professional redline text to correct both issues to Delaware law and a 30-day notice, returning a highly structured, valid `FinalAuditReport` in milliseconds.
+1. **The Extractor Agent** will parse the agreement and extract the 15-day termination notice, the $10,000 liability cap, and the California governing law.
+2. **The Auditor Agent** will cross-reference these findings against the Corporate Legal Playbook. It will flag the California governing law (flagged as WARNING), flag the 15-day convenience notice (flagged as WARNING since it is less than 30 days), and propose exact, professional redline text to correct both issues to Delaware law and a 30-day notice, returning a highly structured, valid `FinalAuditReport` in milliseconds.
 
 *Are you building automated redlining engines or legal multi-agent frameworks? Let's discuss legal evaluation benchmarks, compliance guardrails, and data isolation parameters in the comments below!*

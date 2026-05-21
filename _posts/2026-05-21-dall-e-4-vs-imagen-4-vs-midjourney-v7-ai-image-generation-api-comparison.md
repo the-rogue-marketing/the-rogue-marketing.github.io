@@ -18,7 +18,7 @@ In this guide, we will put DALL-E 4, Imagen 4, and Midjourney v7 side by side. W
 
 ---
 
-## 💰 The Pricing Showdown: Cost Per Image Generation
+## The Pricing Showdown: Cost Per Image Generation
 
 Programmatic visual generation is billed on a **per-image basis**. The cost scales based on output resolution (Standard vs. HD quality) and aspect ratio configurations.
 
@@ -26,43 +26,43 @@ Here is the exact pricing comparison as of **May 2026**:
 
 | Provider | Model | Resolution (Standard) | Cost per Image (Standard) | Resolution (HD / Ultra) | Cost per Image (HD / Ultra) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 🟢 OpenAI | **DALL-E 4** | 1024 × 1024 | **$0.040** | 1792 × 1024 (HD) | **$0.080** |
-| 🔵 Google | **Imagen 4** | 1024 × 1024 | **$0.030** | 2048 × 2048 (Pro) | **$0.050** |
-| ⛵ Midjourney | **Midjourney v7** | 1024 × 1024 | **$0.050** | 2048 × 1024 (Ultra) | **$0.090** |
+|  OpenAI | **DALL-E 4** | 1024 × 1024 | **$0.040** | 1792 × 1024 (HD) | **$0.080** |
+|  Google | **Imagen 4** | 1024 × 1024 | **$0.030** | 2048 × 2048 (Pro) | **$0.050** |
+|  Midjourney | **Midjourney v7** | 1024 × 1024 | **$0.050** | 2048 × 1024 (Ultra) | **$0.090** |
 
 ### Strategic Value Takeaways
-*   **Cheapest Option:** **Imagen 4** is the undisputed price leader, offering high-fidelity 1K square outputs at just **$0.03 per image**. 
-*   **Creative Premium:** **Midjourney v7** is the most expensive but is widely recognized as the industry gold standard for photographic realism, stylistic nuances, and complex atmospheric lighting.
-*   **Dynamic Utility:** **DALL-E 4** offers the strongest conversational alignment and seamless integration within Chat GPT workflows.
+* **Cheapest Option:** **Imagen 4** is the undisputed price leader, offering high-fidelity 1K square outputs at just **$0.03 per image**. 
+* **Creative Premium:** **Midjourney v7** is the most expensive but is widely recognized as the industry gold standard for photographic realism, stylistic nuances, and complex atmospheric lighting.
+* **Dynamic Utility:** **DALL-E 4** offers the strongest conversational alignment and seamless integration within Chat GPT workflows.
 
 ---
 
-## 🎨 Feature Comparison: Text, Prompting, and Style
+## Feature Comparison: Text, Prompting, and Style
 
 While pricing defines your operating budget, model capabilities determine your production output quality:
 
 ### 1. Text Rendering within Images
-*   **DALL-E 4:** Excellent. It handles complex sentences, specific spelling constraints, and typographic layouts cleanly, making it perfect for automated ad banner production.
-*   **Imagen 4:** Very Strong. Google's training methodology gives it extreme precision when rendering short, high-contrast labels, product names, and logo placements.
-*   **Midjourney v7:** Moderate to Strong. While drastically improved over legacy v5/v6 models, it still occasionally produces spelling anomalies in dense paragraphs, preferring stylization over literal text mapping.
+* **DALL-E 4:** Excellent. It handles complex sentences, specific spelling constraints, and typographic layouts cleanly, making it perfect for automated ad banner production.
+* **Imagen 4:** Very Strong. Google's training methodology gives it extreme precision when rendering short, high-contrast labels, product names, and logo placements.
+* **Midjourney v7:** Moderate to Strong. While drastically improved over legacy v5/v6 models, it still occasionally produces spelling anomalies in dense paragraphs, preferring stylization over literal text mapping.
 
 ### 2. Prompt Adherence (System Alignment)
-*   **DALL-E 4:** Best-in-class. Thanks to its tight conversational grounding, it rarely skips any prompt instructions, even when passed complex, paragraph-long scene descriptions containing multiple active characters.
-*   **Imagen 4:** Strong. It aligns precisely with physical camera descriptions (e.g., lens specification, ISO values, specific lighting conditions like 'golden hour').
-*   **Midjourney v7:** Stylistically Dominant. It prefers aesthetic beauty. If your prompt describes a highly detailed, clinically cluttered room, Midjourney may simplify it to ensure the final output looks stunningly balanced.
+* **DALL-E 4:** Best-in-class. Thanks to its tight conversational grounding, it rarely skips any prompt instructions, even when passed complex, paragraph-long scene descriptions containing multiple active characters.
+* **Imagen 4:** Strong. It aligns precisely with physical camera descriptions (e.g., lens specification, ISO values, specific lighting conditions like 'golden hour').
+* **Midjourney v7:** Stylistically Dominant. It prefers aesthetic beauty. If your prompt describes a highly detailed, clinically cluttered room, Midjourney may simplify it to ensure the final output looks stunningly balanced.
 
 ### 3. Aspect Ratio Versatility
 All three providers natively support custom aspect ratio shifts (e.g., vertical `9:16` for mobile social ads, `16:9` for desktop displays, and classic `1:1` squares) without causing pixel distortion or character stretching.
 
 ---
 
-## 🛠️ Production-Grade Asynchronous Python Pipeline
+## Production-Grade Asynchronous Python Pipeline
 
 For digital marketing platforms executing dynamic asset variation testing (A/B testing ad creatives programmatically), waiting for image generations sequentially is a massive performance bottleneck. Image generations typically take 3 to 7 seconds to complete.
 
 By using **`asyncio`** and **`aiohttp`** in Python, we can trigger calls to DALL-E 4, Imagen 4, and Midjourney v7 concurrently, cutting our total execution time to the speed of the single slowest API.
 
-### 📦 Installation with `uv`
+### Installation with `uv`
 Initialize your package workspace:
 
 ```bash
@@ -71,7 +71,7 @@ cd creative-pipeline
 uv add aiohttp google-genai openai
 ```
 
-### 🐍 The Asynchronous Generation Code
+### The Asynchronous Generation Code
 Here is the production-grade, concurrency-optimized Python script:
 
 ```python
@@ -200,21 +200,21 @@ if __name__ == "__main__":
 
 ---
 
-## 🎯 The Final Verdict: Which Creative API Fits Your Pipeline?
+## The Final Verdict: Which Creative API Fits Your Pipeline?
 
 Every image generation API has a highly specific sweet spot within automated developer workflows:
 
-1.  **Choose Google Imagen 4 if:**
+1. **Choose Google Imagen 4 if:**
     *   You are running **high-volume production loops** where cost optimization is your primary metric ($0.03/image is the cheapest in the industry).
     *   Your pipeline runs entirely on **Google Cloud / Vertex AI** architectures, benefiting from integrated enterprise IAM security.
     *   You require highly accurate, clean, short typographic labels on physical product mockups.
 
-2.  **Choose OpenAI DALL-E 4 if:**
+2. **Choose OpenAI DALL-E 4 if:**
     *   You require **absolute prompt adherence** and conversational feedback (zero skipped prompt variables).
     *   You need complex, multiple-sentence text layers cleanly rendered onto ad creatives or book covers.
     *   You are already deeply integrated within the OpenAI GPT developer ecosystem.
 
-3.  **Choose Midjourney v7 if:**
+3. **Choose Midjourney v7 if:**
     *   Your primary goal is **high-end visual aesthetics**, cinematic lighting, and photographic realism.
     *   You are generating assets for digital art databases, architectural mockups, or premium editorial designs where cost is secondary to visual impact.
 

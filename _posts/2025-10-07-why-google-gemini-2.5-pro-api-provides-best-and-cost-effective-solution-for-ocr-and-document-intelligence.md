@@ -14,7 +14,7 @@ In today's digital transformation era, Optical Character Recognition (OCR) has b
 
 ## Overview of OCR API Providers
 
-### 🤖 Mindee OCR API
+### Mindee OCR API
 
 **Key Features:**
 - **Document-Specific Models**: Pre-trained models for invoices, receipts, passports, license plates
@@ -23,17 +23,17 @@ In today's digital transformation era, Optical Character Recognition (OCR) has b
 - **Real-time Processing**: Low latency for high-volume applications
 - **Data Enrichment**: Additional context and validation for extracted data
 - **Endpoint Variety**: 
-  - `/documents/invoice/v1`
-  - `/documents/receipt/v1`
-  - `/documents/passport/v1`
-  - Custom document endpoints
+ - `/documents/invoice/v1`
+ - `/documents/receipt/v1`
+ - `/documents/passport/v1`
+ - Custom document endpoints
 
 **Pricing Structure:**
 - Pay-per-document model
 - Volume discounts available
 - Custom pricing for enterprise needs
 
-### 🧠 NanoNets OCR API
+### NanoNets OCR API
 
 **Key Features:**
 - **AI-Powered OCR**: Machine learning models that improve with usage
@@ -54,7 +54,7 @@ In today's digital transformation era, Optical Character Recognition (OCR) has b
 - Pay-per-page model
 - Custom enterprise plans
 
-### ☁️ Azure Computer Vision OCR
+### Azure Computer Vision OCR
 
 **Features:**
 - **Read API**: Advanced OCR capabilities for various document types
@@ -67,7 +67,7 @@ In today's digital transformation era, Optical Character Recognition (OCR) has b
 - $1.50 per 1,000 transactions (first 1M monthly)
 - Volume discounts available
 
-### 🌐 AWS Textract
+### AWS Textract
 
 **Features:**
 - **Intelligent Document Processing**: Goes beyond simple text extraction
@@ -79,7 +79,7 @@ In today's digital transformation era, Optical Character Recognition (OCR) has b
 - $0.0015 per page (first 1M pages)
 - Additional costs for analysis features
 
-### 🔍 Google Vision API
+### Google Vision API
 
 **Features:**
 - **Document AI**: Specialized document processing
@@ -90,7 +90,7 @@ In today's digital transformation era, Optical Character Recognition (OCR) has b
 **Pricing:**
 - $1.50 per 1,000 pages (first 1M monthly)
 
-## 💡 The Game Changer: Gemini API OCR
+## The Game Changer: Gemini API OCR
 
 ### Why Gemini API is Revolutionizing OCR Costs
 
@@ -128,28 +128,28 @@ In today's digital transformation era, Optical Character Recognition (OCR) has b
 - Advanced security and compliance
 - Detailed usage analytics
 
-## 📊 Detailed Feature Comparison
+## Detailed Feature Comparison
 
 ### Accuracy and Performance
 
 | Feature | Mindee | NanoNets | AWS Textract | Gemini API |
 |---------|---------|-----------|--------------|------------|
 | General Text Accuracy | 95%+ | 94%+ | 96%+ | 95%+ |
-| Document-specific Models | ✅ Excellent | ✅ Excellent | ⚠️ Limited | ⚠️ Basic |
-| Handwriting Recognition | ✅ Good | ✅ Good | ✅ Excellent | ✅ Good |
-| Table Extraction | ✅ Good | ✅ Excellent | ✅ Excellent | ⚠️ Basic |
-| Custom Training | ✅ Excellent | ✅ Excellent | ❌ No | ❌ No |
+| Document-specific Models |  Excellent |  Excellent |  Limited |  Basic |
+| Handwriting Recognition |  Good |  Good |  Excellent |  Good |
+| Table Extraction |  Good |  Excellent |  Excellent |  Basic |
+| Custom Training |  Excellent |  Excellent |  No |  No |
 
 ### Integration and Developer Experience
 
 | Aspect | Mindee | NanoNets | Gemini API |
 |--------|---------|-----------|------------|
-| API Documentation | ✅ Excellent | ✅ Good | ✅ Excellent |
-| SDK Availability | ✅ Multiple | ✅ Limited | ✅ Multiple |
-| Free Tier | ✅ Limited | ✅ Generous | ✅ Available |
+| API Documentation |  Excellent |  Good |  Excellent |
+| SDK Availability |  Multiple |  Limited |  Multiple |
+| Free Tier |  Limited |  Generous |  Available |
 | Setup Time | 15-30 mins | 10-20 mins | 5-15 mins |
 
-## 🚀 Implementation Example: Gemini API OCR
+## Implementation Example: Gemini API OCR
 
 ```python
 import google.generativeai as genai
@@ -180,7 +180,7 @@ extracted_text = extract_text_with_gemini("document.jpg")
 print(extracted_text)
 ```
 
-## 💰 Cost Analysis: Real-World Scenario
+## Cost Analysis: Real-World Scenario
 
 **Scenario:** Processing 100,000 documents per month
 
@@ -193,7 +193,7 @@ print(extracted_text)
 
 **Savings with Gemini API:** **60-80%** compared to traditional OCR services
 
-## 🎯 When to Choose Which Solution
+## When to Choose Which Solution
 
 ### Choose Mindee When:
 - You need document-specific models (invoices, receipts)
@@ -216,7 +216,7 @@ print(extracted_text)
 - Advanced document analysis features needed
 - Enterprise security requirements
 
-## 🔮 Future Outlook
+## Future Outlook
 
 The OCR landscape is rapidly evolving with:
 - **AI-powered enhancements** improving accuracy
@@ -224,7 +224,7 @@ The OCR landscape is rapidly evolving with:
 - **Cost reductions** across all providers
 - **Specialized vertical solutions** emerging
 
-## ✅ Conclusion
+## Conclusion
 
 While specialized providers like Mindee and NanoNets offer excellent document-specific capabilities and custom training options, **Gemini API emerges as the clear winner for cost-sensitive applications** requiring high-volume OCR processing.
 

@@ -14,9 +14,9 @@ xAI's Grok models have become one of the most compelling options for developers 
 
 ---
 
-## 💰 API Pricing (Per 1 Million Tokens)
+## API Pricing (Per 1 Million Tokens)
 
-### 🧠 Grok 4.20 — The Flagship
+### Grok 4.20 — The Flagship
 
 | Cost Type | Price per 1M Tokens |
 | :--- | :--- |
@@ -26,7 +26,7 @@ xAI's Grok models have become one of the most compelling options for developers 
 
 **Context window: 2,000,000 tokens** — the largest in the industry. Process entire codebases, books, or months of conversation in a single request.
 
-### ⚡ Grok 4.3 — The Sweet Spot
+### Grok 4.3 — The Sweet Spot
 
 | Cost Type | Price per 1M Tokens |
 | :--- | :--- |
@@ -36,7 +36,7 @@ xAI's Grok models have become one of the most compelling options for developers 
 
 **Context window: 1,000,000 tokens.** Nearly as capable as 4.20 at roughly **60% less cost** on output tokens.
 
-### 🚀 Grok 4.1 Fast — The Budget Rocket
+### Grok 4.1 Fast — The Budget Rocket
 
 | Cost Type | Price per 1M Tokens |
 | :--- | :--- |
@@ -48,7 +48,7 @@ xAI's Grok models have become one of the most compelling options for developers 
 
 ---
 
-## 🔍 Search & Tools Pricing
+## Search & Tools Pricing
 
 ### Live Search
 
@@ -70,13 +70,13 @@ Billing: $25.00 per 1,000 sources requested.
 
 ---
 
-## 🎁 Free API Credits
+## Free API Credits
 
 xAI offers up to **$175/month** in free promotional credits through data-sharing programs — perfect for startups testing the platform.
 
 ---
 
-## 📊 Real-World Cost Example
+## Real-World Cost Example
 
 **Scenario:** 10,000 chatbot conversations/day (500 tokens in, 200 tokens out):
 
@@ -88,7 +88,7 @@ xAI offers up to **$175/month** in free promotional credits through data-sharing
 
 ---
 
-## ✅ Key Takeaways
+## Key Takeaways
 
 1. **Grok 4.1 Fast** at $0.20/M input is among the cheapest reasoning models available
 2. **2M token context windows** are the largest in the industry

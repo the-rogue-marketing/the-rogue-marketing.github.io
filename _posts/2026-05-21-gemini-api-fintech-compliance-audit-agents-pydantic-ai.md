@@ -18,7 +18,7 @@ In this guide, we will write a production-grade, end-to-end agentic audit system
 
 ---
 
-## 🏗️ Bootstrapping the Fintech Service with `uv`
+## Bootstrapping the Fintech Service with `uv`
 
 First, let's set up our virtual environment and package dependencies using Astrid's ultra-fast package manager, `uv`. 
 
@@ -41,12 +41,12 @@ This guarantees an isolated, lightning-fast execution environment with strict ve
 
 ---
 
-## 📊 Designing the Financial Audit Schemas
+## Designing the Financial Audit Schemas
 
 To pass regulatory scrutiny, a financial compliance audit must provide more than a simple "pass/fail" rating. It must detail:
-1.  **Risk Profile:** Exact numerical risk assessment (0.0 to 1.0) and regulatory confidence scores.
-2.  **Identified Violations:** Cross-references to specific regulatory acts (e.g., Sarbanes-Oxley, Dodd-Frank, SEC Rule 10b-5).
-3.  **Audit Trail/Explainability:** The exact textual excerpts that triggered the flag, and the reasoning behind it.
+1. **Risk Profile:** Exact numerical risk assessment (0.0 to 1.0) and regulatory confidence scores.
+2. **Identified Violations:** Cross-references to specific regulatory acts (e.g., Sarbanes-Oxley, Dodd-Frank, SEC Rule 10b-5).
+3. **Audit Trail/Explainability:** The exact textual excerpts that triggered the flag, and the reasoning behind it.
 
 Let's model these parameters inside `app/models/schemas.py`:
 
@@ -78,7 +78,7 @@ class ComplianceAuditReport(BaseModel):
 
 ---
 
-## 🤖 Building the Audit Agent with Pydantic AI Dependency Injection
+## Building the Audit Agent with Pydantic AI Dependency Injection
 
 A production-grade agent cannot run in isolation. It needs to read data from local relational databases, check current stock prices, and verify internal regulatory databases.
 
@@ -154,7 +154,7 @@ class ComplianceAgentService:
 
 ---
 
-## 🌐 Serving the Financial Audit Pipeline with FastAPI
+## Serving the Financial Audit Pipeline with FastAPI
 
 Now let's build our async API layer in `app/main.py`. This route receives the filing text, sets up mock dependency clients (simulating our databases), routes the execution to our Pydantic AI agent, and returns the strictly validated, audit-logged report.
 
@@ -250,17 +250,17 @@ if __name__ == "__main__":
 
 ---
 
-## 🔒 Production Hardening & Regulatory Data isolation
+## Production Hardening & Regulatory Data isolation
 
 Deploying LLMs into financial infrastructures requires high security:
 
-1.  **VPC Enclaves:** Run your FastAPI microservice entirely within isolated networks (e.g. AWS VPC, GCP VPC Service Controls). The service should communicate with Vertex AI endpoints using private IP routing (Private Service Connect), ensuring zero exposure to the public internet.
-2.  **Audit Trail Logging:** Store every single agent tool call, input prompt, and intermediate output in a write-once-read-many (WORM) database. This guarantees a complete audit log, critical when internal compliance decisions are challenged by regulatory commissions.
-3.  **Handling Token Overflow on Large Filings:** SEC 10-K filings can span 200,000+ words (nearly 300K tokens). Ensure your system utilizes **Gemini 3.1 Pro's Prompt Caching** to cache the baseline filing text, saving up to 90% in cost when multiple separate compliance agents (e.g. tax, operations, insider-trading) scan the same document simultaneously.
+1. **VPC Enclaves:** Run your FastAPI microservice entirely within isolated networks (e.g. AWS VPC, GCP VPC Service Controls). The service should communicate with Vertex AI endpoints using private IP routing (Private Service Connect), ensuring zero exposure to the public internet.
+2. **Audit Trail Logging:** Store every single agent tool call, input prompt, and intermediate output in a write-once-read-many (WORM) database. This guarantees a complete audit log, critical when internal compliance decisions are challenged by regulatory commissions.
+3. **Handling Token Overflow on Large Filings:** SEC 10-K filings can span 200,000+ words (nearly 300K tokens). Ensure your system utilizes **Gemini 3.1 Pro's Prompt Caching** to cache the baseline filing text, saving up to 90% in cost when multiple separate compliance agents (e.g. tax, operations, insider-trading) scan the same document simultaneously.
 
 ---
 
-## 🚀 Validating and Testing the Fintech Pipeline
+## Validating and Testing the Fintech Pipeline
 
 Run your financial compliance server locally:
 
@@ -276,7 +276,7 @@ Post this text payload to the `/api/v1/audit-filing` route:
 
 ```json
 {
-  "filing_text": "SEC FORM 10-K. ACME INDUSTRIES CO. FISCAL YEAR ENDED DECEMBER 31, 2025. Item 1A. Risk Factors. We face intense market competition. Additionally, we are currently under active investigation by the Securities and Exchange Commission (SEC) regarding certain stock options grants issued to our executive leadership team in early 2024. While we believe our compensation policies are compliant, an adverse finding could lead to material fines and restitution demands. Cash and cash equivalents decreased by 42% to $120M in FY2025 compared to $206M in FY2024, primarily driven by our patellar-design tooling acquisitions. We have mapped ticker ACMI to verify current operations. Item 3. Legal Proceedings. On March 14, 2025, a class-action lawsuit was filed against us in the Delaware Court of Chancery alleging breach of fiduciary duty by our directors in connection with the patellar tooling acquisitions. The plaintiffs seek damages of $45 million."
+ "filing_text": "SEC FORM 10-K. ACME INDUSTRIES CO. FISCAL YEAR ENDED DECEMBER 31, 2025. Item 1A. Risk Factors. We face intense market competition. Additionally, we are currently under active investigation by the Securities and Exchange Commission (SEC) regarding certain stock options grants issued to our executive leadership team in early 2024. While we believe our compensation policies are compliant, an adverse finding could lead to material fines and restitution demands. Cash and cash equivalents decreased by 42% to $120M in FY2025 compared to $206M in FY2024, primarily driven by our patellar-design tooling acquisitions. We have mapped ticker ACMI to verify current operations. Item 3. Legal Proceedings. On March 14, 2025, a class-action lawsuit was filed against us in the Delaware Court of Chancery alleging breach of fiduciary duty by our directors in connection with the patellar tooling acquisitions. The plaintiffs seek damages of $45 million."
 }
 ```
 

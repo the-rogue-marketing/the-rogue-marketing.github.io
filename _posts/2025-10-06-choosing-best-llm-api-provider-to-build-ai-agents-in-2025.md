@@ -57,8 +57,8 @@ Gemini's strength lies in its native multimodal design and deep integration with
 | **Developer Tools** | Access to models via Google AI Studio and Vertex AI provides a flexible platform for both rapid prototyping and enterprise-scale ML operations (MLOps). | You need a flexible platform to manage and deploy custom or fine-tuned models within a high-performance cloud environment. |
 
 **Verdict:** Choose an Enterprise Titan if you need security, compliance, and deep integration with existing software.
-*   **Azure AI:** If you live in Microsoft Teams, Office, and Azure.
-*   **Google Gemini:** If you live in Google Workspace, use large datasets, and need native multimodal power.
+* **Azure AI:** If you live in Microsoft Teams, Office, and Azure.
+* **Google Gemini:** If you live in Google Workspace, use large datasets, and need native multimodal power.
 
 ---
 

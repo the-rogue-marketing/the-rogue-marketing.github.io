@@ -36,9 +36,9 @@ So, whether your prompt generates a minimalist logo or a photorealistic landscap
 **Example Scenario:**
 You run a campaign generating 10,000 unique product concept images.
 
-*   **Input Cost:** ~$0.003
-*   **Output Cost:** $0.039 per image
-*   **Total Cost:** 10,000 images * $0.039 = **$390**
+* **Input Cost:** ~$0.003
+* **Output Cost:** $0.039 per image
+* **Total Cost:** 10,000 images * $0.039 = **$390**
 
 For high-quality, unique imagery at that scale, the cost is remarkably competitive.
 
@@ -46,9 +46,9 @@ For high-quality, unique imagery at that scale, the cost is remarkably competiti
 
 Before you start building your entire business model on it, remember two key points from the preview:
 
-1.  **It's a Preview:** The models "may change before becoming stable." So, the quality and pricing are subject to adjustment.
-2.  **Rate Limits:** Preview models have "more restrictive rate limits," so high-volume applications will have to wait for the stable release.
-3.  **Data Usage:** In the **Free Tier**, your data can be used "to improve our products." This is switched off in the **Paid Tier**, ensuring your proprietary prompts and generated images remain your own.
+1. **It's a Preview:** The models "may change before becoming stable." So, the quality and pricing are subject to adjustment.
+2. **Rate Limits:** Preview models have "more restrictive rate limits," so high-volume applications will have to wait for the stable release.
+3. **Data Usage:** In the **Free Tier**, your data can be used "to improve our products." This is switched off in the **Paid Tier**, ensuring your proprietary prompts and generated images remain your own.
 
 ## Ready to Try It?
 
