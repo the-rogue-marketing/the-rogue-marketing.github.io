@@ -1,0 +1,589 @@
+---
+layout: post
+title: "Architecting Multi-Document KYC Pipelines: Gemini OCR and LangGraph"
+date: 2026-05-21
+last_modified_at: 2026-05-21
+author: professor-xai
+categories: [Generative AI, Workflow Automation, Security]
+image: assets/images/kyc-workflow.png
+description: "A complete developer guide to building a stateful multi-document KYC extraction pipeline. Integrates Gemini vision OCR, LangGraph workflow state machines, and FastAPI."
+keywords: "langgraph document extraction workflow, gemini ocr kyc pipeline, fastapi passport license parser, identity verification agent python, docker-compose uv python"
+---
+
+Identity verification (Know Your Customer or KYC) is a critical compliance check in fintech, travel, healthcare, and sharing-economy platforms. Extracting data from identity documents—such as passports and driver's licenses—typically requires chaining multiple complex systems: document classification, specialized OCR, key-value extraction, and custom validation heuristics.
+
+Chaining these systems in a robust, stateful manner is challenging. Documents might be uploaded upside down, suffer from low lighting, or turn out to be completely incorrect document types.
+
+By combining the native multimodal vision capabilities of **Google Gemini** with **LangGraph** (a framework for building stateful, multi-actor applications), we can build an automated **KYC Document Processing Pipeline**. 
+
+This pipeline classifies uploaded identity documents, routes them to document-specific extraction nodes, performs validation audits (checking for expiration dates), and outputs verified identity structures.
+
+This tutorial guides you through building this system using LangGraph, Gemini, FastAPI, uv, and Docker Compose.
+
+---
+
+## Stateful Workflow Pipeline Design
+
+Traditional linear workflows break down when processing complex, variable documents. By utilizing LangGraph, we can represent our KYC process as a stateful, directed graph that supports conditional routing:
+
+```
+                      +-------------------+
+                      |   [ Upload Doc ]  |
+                      +---------+---------+
+                                |
+                     +----------v-----------+
+                     |  Node: Classify Doc  |
+                     +----------+-----------+
+                                |
+                   (Is Passport? / Is License?)
+                                |
+             +------------------+------------------+
+             |                                     |
+   +---------v----------+                +---------v----------+
+   | Node: Ext Passport |                |  Node: Ext License |
+   +---------+----------+                +---------+----------+
+             |                                     |
+             +------------------+------------------+
+                                |
+                     +----------v-----------+
+                     |  Node: Validate KYC  |
+                     +----------+-----------+
+                                |
+                       +--------v--------+
+                       |  [ Final State ]|
+                       +-----------------+
+```
+
+The pipeline state is maintained in a centralized state class (`KYCState`) as it transitions between nodes.
+
+---
+
+## Step 1: Defining KYC State & Extraction Schemas
+
+Create the schemas in `app/kyc_schemas.py`:
+
+```python
+from pydantic import BaseModel, Field
+from typing import Optional, List
+from enum import Enum
+
+
+class DocumentType(str, Enum):
+    PASSPORT = "passport"
+    LICENSE = "driver_license"
+    UNKNOWN = "unknown"
+
+
+# Structured extraction schema for Passports
+class PassportDetails(BaseModel):
+    passport_number: str = Field(..., description="Unique passport identifier")
+    given_names: str = Field(..., description="First and middle names")
+    surname: str = Field(..., description="Last name or family name")
+    date_of_birth: str = Field(..., description="Birthdate formatted as YYYY-MM-DD")
+    nationality: str = Field(..., description="Country of citizenship")
+    expiry_date: str = Field(..., description="Expiration date formatted as YYYY-MM-DD")
+    mrz_code: Optional[str] = Field(None, description="Machine-readable zone text at bottom")
+
+
+# Structured extraction schema for Driver's Licenses
+class LicenseDetails(BaseModel):
+    license_number: str = Field(..., description="Unique license identifier")
+    full_name: str = Field(..., description="Full name of licensee")
+    date_of_birth: str = Field(..., description="Birthdate formatted as YYYY-MM-DD")
+    expiry_date: str = Field(..., description="Expiration date formatted as YYYY-MM-DD")
+    license_class: Optional[str] = Field(None, description="Class of vehicles permitted (e.g. 'Class C')")
+    address: Optional[str] = Field(None, description="Physical address listed on license")
+
+
+# The shared state dictionary representing LangGraph transactional context
+class KYCState(BaseModel):
+    image_bytes: bytes = Field(..., description="Uploaded raw document image")
+    media_type: str = Field(..., description="MIME type of the image")
+    document_type: DocumentType = DocumentType.UNKNOWN
+    passport_data: Optional[PassportDetails] = None
+    license_data: Optional[LicenseDetails] = None
+    is_valid: bool = False
+    validation_errors: List[str] = Field(default_factory=list)
+```
+
+---
+
+## Step 2: Constructing the LangGraph Workflow State Machine
+
+Now we define our processing nodes and orchestrate them using LangGraph. We use Pydantic AI agents internally inside the nodes to perform the targeted extraction using `google-gla:gemini-2.5-flash`.
+
+Create `app/kyc_workflow.py`:
+
+```python
+from typing import Dict, Any, Literal
+from langgraph.graph import StateGraph, END
+from pydantic_ai import Agent, BinaryContent
+from datetime import datetime
+
+from app.kyc_schemas import KYCState, DocumentType, PassportDetails, LicenseDetails
+
+
+# 1. Initialize Pydantic AI Agents
+classifier_agent = Agent(
+    model="google-gla:gemini-2.5-flash",
+    result_type=DocumentType,
+    system_prompt=(
+        "You are an identity document classification expert. "
+        "Analyze the provided image and classify if it is a passport, "
+        "a driver_license, or unknown."
+    )
+)
+
+passport_extractor = Agent(
+    model="google-gla:gemini-2.5-flash",
+    result_type=PassportDetails,
+    system_prompt=(
+        "You are a passport parsing specialist. "
+        "Extract all details from the passport image into the structured schema."
+    )
+)
+
+license_extractor = Agent(
+    model="google-gla:gemini-2.5-flash",
+    result_type=LicenseDetails,
+    system_prompt=(
+        "You are a driver's license parsing specialist. "
+        "Extract all details from the driver's license image into the structured schema."
+    )
+)
+
+
+# 2. Define Graph Nodes
+async def classify_document_node(state: KYCState) -> Dict[str, Any]:
+    """Classifies the uploaded image document type."""
+    result = await classifier_agent.run(
+        [
+            "Classify this identity document image.",
+            BinaryContent(data=state.image_bytes, media_type=state.media_type)
+        ]
+    )
+    return {"document_type": result.output}
+
+
+async def extract_passport_node(state: KYCState) -> Dict[str, Any]:
+    """Extracts passport metadata from the image."""
+    result = await passport_extractor.run(
+        [
+            "Extract structured passport details from this image.",
+            BinaryContent(data=state.image_bytes, media_type=state.media_type)
+        ]
+    )
+    return {"passport_data": result.output}
+
+
+async def extract_license_node(state: KYCState) -> Dict[str, Any]:
+    """Extracts license details from the image."""
+    result = await license_extractor.run(
+        [
+            "Extract structured license details from this image.",
+            BinaryContent(data=state.image_bytes, media_type=state.media_type)
+        ]
+    )
+    return {"license_data": result.output}
+
+
+async def validate_kyc_node(state: KYCState) -> Dict[str, Any]:
+    """Audits the extracted metadata checking for expiration limits."""
+    errors = []
+    is_valid = True
+    current_date = datetime.utcnow().date()
+
+    expiry_str = None
+    if state.document_type == DocumentType.PASSPORT and state.passport_data:
+        expiry_str = state.passport_data.expiry_date
+    elif state.document_type == DocumentType.LICENSE and state.license_data:
+        expiry_str = state.license_data.expiry_date
+
+    if expiry_str:
+        try:
+            expiry_date = datetime.strptime(expiry_str, "%Y-%m-%d").date()
+            if expiry_date < current_date:
+                is_valid = False
+                errors.append(f"Document has expired on {expiry_str}")
+        except Exception:
+            is_valid = False
+            errors.append(f"Invalid date format: {expiry_str}")
+    else:
+        is_valid = False
+        errors.append("No valid expiration date could be found on the document.")
+
+    return {"is_valid": is_valid, "validation_errors": errors}
+
+
+# 3. Define Routing Logic
+def route_by_document_type(state: KYCState) -> Literal["passport", "driver_license", "unknown"]:
+    """Conditional router mapping document classification to extraction nodes."""
+    if state.document_type == DocumentType.PASSPORT:
+        return "passport"
+    elif state.document_type == DocumentType.LICENSE:
+        return "driver_license"
+    return "unknown"
+
+
+# 4. Build the LangGraph Workflow
+workflow = StateGraph(KYCState)
+
+# Add Node definitions
+workflow.add_node("classify", classify_document_node)
+workflow.add_node("extract_passport", extract_passport_node)
+workflow.add_node("extract_license", extract_license_node)
+workflow.add_node("validate", validate_kyc_node)
+
+# Configure Entry Point
+workflow.set_entry_point("classify")
+
+# Configure Conditional Routing
+workflow.add_conditional_edges(
+    "classify",
+    route_by_document_type,
+    {
+        "passport": "extract_passport",
+        "driver_license": "extract_license",
+        "unknown": END
+    }
+)
+
+# Connect remaining edges
+workflow.add_edge("extract_passport", "validate")
+workflow.add_edge("extract_license", "validate")
+workflow.add_edge("validate", END)
+
+# Compile Workflow Graph
+kyc_pipeline = workflow.compile()
+```
+
+---
+
+## Step 3: Setting Up the FastAPI Gateway
+
+Create `app/kyc_main.py`:
+
+```python
+import os
+from fastapi import FastAPI, HTTPException, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+from app.kyc_schemas import KYCState, DocumentType
+from app.kyc_workflow import kyc_pipeline
+
+app = FastAPI(
+    title="Stateful KYC Pipeline Hub",
+    version="1.0.0"
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
+
+ALLOWED_IMAGES = {"image/jpeg", "image/png", "image/webp"}
+
+
+@app.post("/api/v1/kyc/verify")
+async def verify_identity_document(file: UploadFile = File(...)):
+    """
+    KYC document verification pipeline.
+    Runs LangGraph workflow asynchronously, returning state verification maps.
+    """
+    if file.content_type not in ALLOWED_IMAGES:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Unsupported format: {file.content_type}. Use JPEG, PNG, or WebP."
+        )
+
+    try:
+        image_bytes = await file.read()
+        
+        # Initialize Graph State
+        initial_state = KYCState(
+            image_bytes=image_bytes,
+            media_type=file.content_type
+        )
+
+        # Execute Graph Workflow Pipeline
+        final_state = await kyc_pipeline.ainvoke(initial_state)
+
+        # Prepare clean response schema payload
+        response = {
+            "document_type": final_state.document_type.value,
+            "is_valid": final_state.is_valid,
+            "validation_errors": final_state.validation_errors,
+            "extraction_results": None
+        }
+
+        if final_state.document_type == DocumentType.PASSPORT:
+            response["extraction_results"] = final_state.passport_data.model_dump() if final_state.passport_data else None
+        elif final_state.document_type == DocumentType.LICENSE:
+            response["extraction_results"] = final_state.license_data.model_dump() if final_state.license_data else None
+
+        return response
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Pipeline execution failed: {str(e)}")
+
+
+# Serve static pages
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+
+@app.get("/")
+async def read_root():
+    return FileResponse("app/static/kyc.html")
+```
+
+---
+
+## Step 4: High-Fidelity shadcn-ui Dashboard
+
+Create `app/static/kyc.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rogue Verify — KYC Pipeline</title>
+    <!-- Tailwind CSS with Dark System Configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'rgba(148, 163, 184, 0.1)',
+                        background: '#121316',
+                        foreground: '#e6edf3',
+                        primary: '#4dc4db',
+                        accent: '#a78bfa',
+                        card: 'rgba(26, 27, 32, 0.8)',
+                        muted: '#1a1b20'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #121316; color: #e6edf3; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header Panel -->
+    <header class="border-b border-[rgba(148,163,184,0.1)] bg-[rgba(18,19,22,0.7)] backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#4dc4db] to-[#a78bfa] flex items-center justify-center">
+                <i data-lucide="fingerprint" class="w-4 h-4 text-background"></i>
+            </div>
+            <div>
+                <h1 class="text-sm font-semibold tracking-tight">Rogue Verify</h1>
+                <p class="text-[10px] text-[#8b949e] uppercase tracking-wider">Stateful KYC Dashboard</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-[#4dc4db] animate-pulse"></span>
+                <span class="text-[10px] font-semibold text-[#4dc4db]">LangGraph Compiled</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Workspace Grid -->
+    <main class="flex-1 max-w-7xl w-full mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left Column: Upload Dropzone -->
+        <div class="lg:col-span-1 flex flex-col gap-6">
+            <div class="rounded-xl border border-[rgba(148,163,184,0.1)] bg-[rgba(26,27,32,0.8)] p-5">
+                <h2 class="text-xs font-semibold mb-4 flex items-center gap-2 text-[#4dc4db]">
+                    <i data-lucide="image" class="w-4 h-4"></i> Identity Document Image
+                </h2>
+                <div id="dropzone" class="border-2 border-dashed border-[rgba(148,163,184,0.1)] rounded-lg p-10 flex flex-col items-center justify-center gap-3 hover:border-[#4dc4db]/30 cursor-pointer transition-all">
+                    <i data-lucide="upload" class="w-8 h-8 text-[#8b949e]"></i>
+                    <p class="text-xs text-[#e6edf3] text-center">Upload Passport or Driver's License</p>
+                    <p class="text-[10px] text-[#8b949e]">JPEG, PNG, WebP up to 10MB</p>
+                    <input type="file" id="file-input" class="hidden" accept="image/jpeg,image/png,image/webp" />
+                </div>
+                <!-- File Preview -->
+                <div id="file-preview-container" class="hidden mt-4 p-3 rounded-lg bg-[#121316] border border-[rgba(148,163,184,0.05)] flex items-center justify-between">
+                    <span id="file-name" class="text-xs text-[#8b949e]">passport.jpg</span>
+                    <button id="remove-file" class="text-rose-500 hover:text-rose-400 text-xs"><i data-lucide="x" class="w-4 h-4"></i></button>
+                </div>
+                <button id="run-pipeline-btn" class="mt-4 w-full bg-[#4dc4db] text-[#121316] font-semibold text-xs py-3 rounded-lg hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    Execute LangGraph Pipeline <i data-lucide="play" class="w-4 h-4"></i>
+                </button>
+            </div>
+
+            <!-- Pipeline Status Node Visualizer -->
+            <div class="rounded-xl border border-[rgba(148,163,184,0.1)] bg-[rgba(26,27,32,0.8)] p-5">
+                <h3 class="text-xs font-semibold mb-4 text-[#a78bfa]">Active Workflow Pipeline States</h3>
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center gap-3 text-xs text-[#8b949e]" id="node-classify">
+                        <div class="w-5 h-5 rounded-full border border-[rgba(148,163,184,0.1)] flex items-center justify-center text-[10px]">1</div>
+                        <span>Document Classification</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs text-[#8b949e]" id="node-extract">
+                        <div class="w-5 h-5 rounded-full border border-[rgba(148,163,184,0.1)] flex items-center justify-center text-[10px]">2</div>
+                        <span>Multimodal VLM Extraction</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-xs text-[#8b949e]" id="node-validate">
+                        <div class="w-5 h-5 rounded-full border border-[rgba(148,163,184,0.1)] flex items-center justify-center text-[10px]">3</div>
+                        <span>Validity Compliance Auditing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Extraction Output Visualizer (2 Columns Wide) -->
+        <div class="lg:col-span-2 flex flex-col rounded-xl border border-[rgba(148,163,184,0.1)] bg-[rgba(26,27,32,0.8)] overflow-hidden min-h-[500px]">
+            
+            <div class="px-5 py-4 border-b border-[rgba(148,163,184,0.1)] bg-[rgba(18,19,22,0.4)] flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-2.5 h-2.5 rounded-full bg-[#4dc4db]"></div>
+                    <span class="text-xs font-semibold">Extracted Metadata Verification</span>
+                </div>
+                <div class="flex gap-2">
+                    <span id="badge-doc-type" class="text-[9px] uppercase tracking-wider bg-[rgba(148,163,184,0.05)] px-2 py-0.5 rounded border border-[rgba(148,163,184,0.1)]">N/A</span>
+                    <span id="badge-kyc-status" class="text-[9px] uppercase tracking-wider bg-[rgba(148,163,184,0.05)] px-2 py-0.5 rounded border border-[rgba(148,163,184,0.1)]">Unprocessed</span>
+                </div>
+            </div>
+
+            <!-- JSON Output Screen -->
+            <div class="flex-1 p-5 bg-[#121316] overflow-y-auto max-h-[500px]">
+                <pre id="output-block" class="text-[11px] text-[#8b949e] leading-relaxed select-all">Upload an identity document scan and run the LangGraph pipeline to verify credentials.</pre>
+            </div>
+            
+        </div>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('file-input');
+        const filePreviewContainer = document.getElementById('file-preview-container');
+        const fileName = document.getElementById('file-name');
+        const removeFile = document.getElementById('remove-file');
+        const runPipelineBtn = document.getElementById('run-pipeline-btn');
+        const outputBlock = document.getElementById('output-block');
+
+        // Node indicators
+        const nClassify = document.getElementById('node-classify');
+        const nExtract = document.getElementById('node-extract');
+        const nValidate = document.getElementById('node-validate');
+
+        // Badges
+        const bDocType = document.getElementById('badge-doc-type');
+        const bKycStatus = document.getElementById('badge-kyc-status');
+
+        let selectedFile = null;
+
+        // Dropzone interactions
+        dropzone.addEventListener('click', () => fileInput.click());
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropzone.classList.add('border-[#4dc4db]/50');
+        });
+        dropzone.addEventListener('dragleave', () => {
+            dropzone.classList.remove('border-[#4dc4db]/50');
+        });
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropzone.classList.remove('border-[#4dc4db]/50');
+            if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+        });
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length) handleFile(fileInput.files[0]);
+        });
+
+        function handleFile(file) {
+            selectedFile = file;
+            fileName.textContent = file.name;
+            filePreviewContainer.classList.remove('hidden');
+            dropzone.classList.add('hidden');
+        }
+
+        removeFile.addEventListener('click', () => {
+            selectedFile = null;
+            filePreviewContainer.classList.add('hidden');
+            dropzone.classList.remove('hidden');
+            fileInput.value = '';
+            resetState();
+        });
+
+        function resetState() {
+            nClassify.className = "flex items-center gap-3 text-xs text-[#8b949e]";
+            nExtract.className = "flex items-center gap-3 text-xs text-[#8b949e]";
+            nValidate.className = "flex items-center gap-3 text-xs text-[#8b949e]";
+            bDocType.textContent = 'N/A';
+            bKycStatus.textContent = 'Unprocessed';
+            bDocType.className = "text-[9px] uppercase tracking-wider bg-[rgba(148,163,184,0.05)] px-2 py-0.5 rounded border border-[rgba(148,163,184,0.1)]";
+            bKycStatus.className = "text-[9px] uppercase tracking-wider bg-[rgba(148,163,184,0.05)] px-2 py-0.5 rounded border border-[rgba(148,163,184,0.1)]";
+            outputBlock.textContent = "Upload an identity document scan and run the LangGraph pipeline to verify credentials.";
+        }
+
+        // Run Pipeline
+        runPipelineBtn.addEventListener('click', async () => {
+            if (!selectedFile) return alert("Please upload an identity document image.");
+            
+            resetState();
+            outputBlock.textContent = "Executing LangGraph pipeline: Node classify document started...";
+            nClassify.className = "flex items-center gap-3 text-xs text-[#4dc4db] font-semibold";
+
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+
+            try {
+                // Classifying complete trigger visual step
+                setTimeout(() => {
+                    nExtract.className = "flex items-center gap-3 text-xs text-[#4dc4db] font-semibold";
+                    outputBlock.textContent = "Executing LangGraph pipeline: Node classify complete. Node extraction started...";
+                }, 1000);
+
+                setTimeout(() => {
+                    nValidate.className = "flex items-center gap-3 text-xs text-[#4dc4db] font-semibold";
+                    outputBlock.textContent = "Executing LangGraph pipeline: Node extraction complete. Node validation started...";
+                }, 2000);
+
+                const response = await fetch('/api/v1/kyc/verify', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                outputBlock.textContent = JSON.stringify(data, null, 2);
+
+                // Set final node states
+                nClassify.className = "flex items-center gap-3 text-xs text-emerald-500 font-semibold";
+                nExtract.className = "flex items-center gap-3 text-xs text-emerald-500 font-semibold";
+                nValidate.className = "flex items-center gap-3 text-xs text-emerald-500 font-semibold";
+
+                bDocType.textContent = data.document_type;
+                bDocType.className = "text-[9px] uppercase tracking-wider bg-[rgba(77,196,219,0.1)] text-[#4dc4db] px-2 py-0.5 rounded border border-[#4dc4db]/20";
+
+                bKycStatus.textContent = data.is_valid ? 'KYC Verified' : 'KYC Refused';
+                bKycStatus.className = `text-[9px] uppercase tracking-wider px-2 py-0.5 rounded border ${
+                    data.is_valid ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : 'bg-rose-500/10 text-rose-500 border-rose-500/20'
+                }`;
+
+            } catch (err) {
+                resetState();
+                outputBlock.textContent = "Pipeline execution broke. Please check standard logs.";
+            }
+        });
+    </script>
+</body>
+</html>
