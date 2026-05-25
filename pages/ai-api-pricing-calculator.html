@@ -1,0 +1,309 @@
+---
+layout: default
+title: "AI API Pricing Calculator 2026 — Compare Gemini, OpenAI, Grok & Claude Costs"
+description: "Free interactive calculator to estimate AI API costs across Google Gemini, OpenAI GPT, xAI Grok, and Anthropic Claude. Supports text, image, audio & video token estimation."
+permalink: /ai-api-pricing-calculator/
+keywords: "ai api pricing calculator, openai cost calculator, gemini api cost estimator, grok api pricing, claude api cost, llm token calculator, ai cost comparison tool"
+faq:
+  - question: "How much does 1 million tokens cost on different AI APIs?"
+    answer: "Costs vary significantly by provider and model. Budget models like Gemini 2.5 Flash-Lite cost $0.10/1M input tokens, while flagship models like GPT-5.5 Pro cost $5.00/1M input tokens. Use our calculator above to compare exact costs for your specific use case."
+  - question: "How many tokens does an image consume when sent to an AI API?"
+    answer: "Token consumption varies by provider. Google Gemini uses 258 tokens per image tile (768×768px). OpenAI charges 85 tokens for low-detail images and 765+ tokens for high-detail. Anthropic Claude estimates roughly (width×height)/750 tokens per image."
+  - question: "How are audio and video tokens calculated for AI APIs?"
+    answer: "Google Gemini processes audio at 32 tokens per second and video at 263 tokens per second. Most other providers (OpenAI, Claude, Grok) do not natively support audio/video input through their standard text APIs — they use separate endpoints with per-minute pricing."
+  - question: "Which AI API is the cheapest for high-volume text processing?"
+    answer: "For high-volume simple tasks, Gemini 2.5 Flash-Lite ($0.10/1M input) and GPT-4.1 Nano ($0.10/1M input) are the cheapest options. Grok 4.1 Fast at $0.20/1M input is also very competitive with a massive 2M token context window."
+  - question: "How can I reduce my AI API costs by 50-90%?"
+    answer: "Use Prompt Caching to save up to 90% on repeated input context, and the Batch API (available on most providers) to save 50% on non-urgent workloads. Combining both strategies can reduce costs by up to 95%."
+  - question: "What is the best AI model for coding and complex reasoning?"
+    answer: "For coding, GPT-4.1 and Gemini 3.1 Pro offer the best balance of capability and cost. For maximum reasoning, o3-Pro ($20/$80 per 1M tokens) and Claude Opus 4.7 ($5/$25) are top choices, though significantly more expensive."
+---
+
+<style>
+/* Calculator-specific styles */
+.calc-hero{background:linear-gradient(135deg,#18191d 0%,#1a1540 50%,#18191d 100%);border-radius:16px;padding:3rem 2.5rem;position:relative;overflow:hidden;border:1px solid var(--border-subtle);margin-bottom:2rem;text-align:center}
+.calc-hero::before{content:'';position:absolute;top:-40%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(77,196,219,.12) 0%,transparent 70%);pointer-events:none;animation:heroPulse 6s ease-in-out infinite alternate}
+.calc-hero h1{font-size:2.4rem;font-weight:800;background:linear-gradient(135deg,#f1f5f9,#06b6d4,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.75rem;position:relative;z-index:2}
+.calc-hero p{color:var(--text-secondary);font-size:1.1rem;max-width:700px;margin:0 auto;position:relative;z-index:2}
+.calc-hero .badge-row{display:flex;gap:8px;justify-content:center;margin-top:1rem;flex-wrap:wrap;position:relative;z-index:2}
+.calc-hero .badge-item{background:rgba(77,196,219,.1);border:1px solid rgba(77,196,219,.2);padding:4px 14px;border-radius:50px;color:var(--accent-cyan);font-size:.78rem;font-weight:500}
+.calc-container{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+@media(max-width:900px){.calc-container{grid-template-columns:1fr}}
+.calc-panel{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px;padding:1.75rem;backdrop-filter:blur(10px)}
+.calc-panel h2{font-size:1.15rem;font-weight:700;color:var(--text-primary);margin-bottom:1.25rem;display:flex;align-items:center;gap:8px}
+.calc-panel h2 .emoji{font-size:1.3rem}
+#provider-tabs{display:flex;gap:6px;margin-bottom:1.25rem;flex-wrap:wrap}
+.calc-provider-tab{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:10px;padding:8px 14px;cursor:pointer;display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:500;color:var(--text-secondary);transition:all .25s ease;flex:1;justify-content:center;min-width:0}
+.calc-provider-tab:hover{border-color:var(--border-glow);color:var(--text-primary)}
+.calc-provider-tab.active{background:rgba(77,196,219,.1);border-color:var(--accent-cyan);color:var(--accent-cyan);box-shadow:0 0 12px rgba(77,196,219,.15)}
+.provider-icon{font-size:1rem}.provider-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.calc-group{margin-bottom:1rem}
+.calc-group label{display:block;font-size:.82rem;font-weight:600;color:var(--text-secondary);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+.calc-group select,.calc-group input[type="number"]{width:100%;background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:10px;padding:10px 14px;color:var(--text-primary);font-size:.95rem;font-family:'Inter',sans-serif;transition:all .25s ease;-moz-appearance:textfield}
+.calc-group input::-webkit-outer-spin-button,.calc-group input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.calc-group select:focus,.calc-group input:focus{border-color:var(--accent-cyan);box-shadow:0 0 0 3px rgba(77,196,219,.12);outline:none}
+.calc-group select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238b949e' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.calc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc-section-title{font-size:.78rem;font-weight:700;color:var(--accent-purple);text-transform:uppercase;letter-spacing:.8px;margin:1.25rem 0 .75rem;padding-top:.75rem;border-top:1px solid var(--border-subtle);display:flex;align-items:center;gap:6px}
+.calc-toggle{display:flex;align-items:center;gap:10px;padding:8px 0}
+.calc-toggle input[type="checkbox"]{width:18px;height:18px;accent-color:var(--accent-cyan);cursor:pointer}
+.calc-toggle label{font-size:.88rem;color:var(--text-secondary);cursor:pointer;font-weight:500}
+.calc-toggle .savings-tag{background:rgba(52,211,153,.1);color:var(--accent-green);padding:2px 8px;border-radius:50px;font-size:.72rem;font-weight:600;margin-left:4px}
+.multimodal-note{font-size:.75rem;color:var(--accent-amber);margin-top:2px;display:none}
+/* Results Panel */
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem}
+.result-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:12px;padding:14px;text-align:center;transition:all .3s ease}
+.result-card:hover{border-color:var(--border-glow);transform:translateY(-2px)}
+.result-card .rc-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.6px;color:var(--text-muted);font-weight:600;margin-bottom:4px}
+.result-card .rc-value{font-size:1.4rem;font-weight:800;background:linear-gradient(135deg,#4dc4db,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.result-card.highlight{border-color:var(--accent-cyan);background:rgba(77,196,219,.05)}
+.result-card.highlight .rc-value{font-size:1.6rem}
+.token-breakdown{margin-bottom:1.25rem}
+.token-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border-subtle);font-size:.88rem}
+.token-row:last-child{border-bottom:none}
+.token-row .t-label{color:var(--text-secondary);display:flex;align-items:center;gap:6px}
+.token-row .t-label .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.token-row .t-value{color:var(--text-primary);font-weight:600;font-variant-numeric:tabular-nums}
+.token-row.total-row{padding-top:8px;margin-top:4px;border-top:2px solid var(--border-glow)}
+.token-row.total-row .t-label{color:var(--text-primary);font-weight:700}
+.token-row.total-row .t-value{color:var(--accent-cyan);font-weight:800;font-size:1rem}
+.calc-context-bar{background:var(--bg-secondary);border-radius:8px;height:8px;overflow:hidden;margin:6px 0}
+.calc-context-fill{height:100%;background:var(--gradient-primary);border-radius:8px;transition:width .4s ease;width:0}
+.calc-context-fill.warning{background:linear-gradient(90deg,#f59e0b,#ef4444)}
+.context-text{font-size:.75rem;color:var(--text-muted);text-align:right}
+#long-context-warning{display:none;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:10px;padding:10px 14px;font-size:.82rem;color:var(--accent-amber);margin-top:8px}
+#savings-pct{font-size:.82rem;color:var(--accent-green);font-weight:500;text-align:center;margin:8px 0}
+/* Compare Button */
+#compare-btn{width:100%;background:linear-gradient(135deg,#a78bfa,#4dc4db);border:none;border-radius:12px;padding:14px;color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:all .3s ease;margin-top:.5rem;font-family:'Inter',sans-serif}
+#compare-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(77,196,219,.3)}
+/* Comparison Table */
+#comparison-section{display:none;margin-bottom:2rem}
+.comp-table-wrap{overflow-x:auto;background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:16px}
+.comp-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.comp-table th{background:rgba(77,196,219,.06);color:var(--accent-cyan);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.4px;padding:12px 14px;text-align:left;border-bottom:2px solid var(--border-glow);white-space:nowrap;position:sticky;top:0}
+.comp-table td{padding:10px 14px;color:var(--text-secondary);border-bottom:1px solid var(--border-subtle)}
+.comp-table tr:hover{background:rgba(77,196,219,.03)}
+.comp-table .num{text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.comp-table .cost-cell{color:var(--text-primary);font-weight:700}
+.cheapest-row{background:rgba(52,211,153,.06) !important}
+.cheapest-row td{color:var(--accent-green) !important}
+.cheapest-row .cost-cell{color:var(--accent-green) !important;font-size:1rem}
+.tier-badge{display:inline-block;padding:1px 8px;border-radius:50px;font-size:.68rem;font-weight:600;margin-left:6px;text-transform:uppercase}
+.tier-flagship{background:rgba(167,139,250,.15);color:var(--accent-purple)}
+.tier-balanced{background:rgba(77,196,219,.15);color:var(--accent-cyan)}
+.tier-budget{background:rgba(52,211,153,.15);color:var(--accent-green)}
+.tier-reasoning{background:rgba(251,191,36,.15);color:var(--accent-amber)}
+.tier-legacy{background:rgba(139,148,158,.15);color:var(--text-muted)}
+/* FAQ section */
+.calc-faq{margin-top:2rem}
+.calc-faq h2{font-size:1.5rem;font-weight:800;color:var(--text-primary);margin-bottom:1.25rem;text-align:center}
+.faq-item{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:12px;margin-bottom:10px;overflow:hidden;transition:all .3s ease}
+.faq-item:hover{border-color:var(--border-glow)}
+.faq-q{padding:14px 18px;cursor:pointer;font-weight:600;font-size:.95rem;color:var(--text-primary);display:flex;justify-content:space-between;align-items:center}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--accent-cyan);transition:transform .3s ease}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 18px}
+.faq-item.open .faq-a{max-height:300px;padding:0 18px 14px}
+.faq-a p{color:var(--text-secondary);font-size:.9rem;line-height:1.7;margin:0}
+.calc-footer{text-align:center;color:var(--text-muted);font-size:.82rem;margin-top:2rem;padding:1.5rem;background:var(--bg-card);border-radius:12px;border:1px solid var(--border-subtle)}
+.calc-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:1.5rem}
+.calc-link-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:10px;padding:10px 18px;font-size:.85rem;color:var(--text-secondary) !important;transition:all .25s ease;text-decoration:none !important}
+.calc-link-card:hover{border-color:var(--accent-cyan);color:var(--accent-cyan) !important;transform:translateY(-2px)}
+</style>
+
+<!-- Hero -->
+<div class="calc-hero">
+  <h1>AI API Pricing Calculator</h1>
+  <p>Estimate costs across <strong>Google Gemini</strong>, <strong>OpenAI</strong>, <strong>xAI Grok</strong> & <strong>Anthropic Claude</strong>. Supports text, images, audio & video.</p>
+  <div class="badge-row">
+    <span class="badge-item">🔷 7 Gemini Models</span>
+    <span class="badge-item">🟢 7 OpenAI Models</span>
+    <span class="badge-item">⚡ 3 Grok Models</span>
+    <span class="badge-item">🟠 3 Claude Models</span>
+    <span class="badge-item">📷 Image Tokens</span>
+    <span class="badge-item">🎵 Audio Tokens</span>
+    <span class="badge-item">🎬 Video Tokens</span>
+  </div>
+</div>
+
+<!-- Calculator -->
+<div class="calc-container">
+  <!-- INPUT PANEL -->
+  <div class="calc-panel">
+    <h2><span class="emoji">⚙️</span> Configure Your Workload</h2>
+
+    <!-- Provider Tabs -->
+    <div id="provider-tabs"></div>
+
+    <!-- Model Selector -->
+    <div class="calc-group">
+      <label for="model-select">Model</label>
+      <select id="model-select"></select>
+    </div>
+
+    <!-- Text Input -->
+    <div class="calc-section-title">📝 Text Input</div>
+    <div class="calc-row">
+      <div class="calc-group">
+        <label for="input-words">Input Words (prompt)</label>
+        <input type="number" id="input-words" value="500" min="0" max="10000000" step="100">
+      </div>
+      <div class="calc-group">
+        <label for="output-words">Output Words (response)</label>
+        <input type="number" id="output-words" value="200" min="0" max="10000000" step="100">
+      </div>
+    </div>
+
+    <!-- Image Input -->
+    <div class="calc-section-title">📷 Image Input</div>
+    <div class="calc-row">
+      <div class="calc-group">
+        <label for="image-count">Number of Images</label>
+        <input type="number" id="image-count" value="0" min="0" max="100" step="1">
+      </div>
+      <div class="calc-group">
+        <label for="image-resolution">Image Resolution</label>
+        <select id="image-resolution"></select>
+      </div>
+    </div>
+
+    <!-- Audio Input -->
+    <div id="audio-group">
+      <div class="calc-section-title">🎵 Audio Input</div>
+      <div class="calc-group">
+        <label for="audio-minutes">Audio Duration (minutes)</label>
+        <input type="number" id="audio-minutes" value="0" min="0" max="600" step="0.5">
+      </div>
+      <div class="multimodal-note" id="audio-note">⚠ This provider does not natively support audio input via the standard API.</div>
+    </div>
+
+    <!-- Video Input -->
+    <div id="video-group">
+      <div class="calc-section-title">🎬 Video Input</div>
+      <div class="calc-group">
+        <label for="video-minutes">Video Duration (minutes)</label>
+        <input type="number" id="video-minutes" value="0" min="0" max="120" step="0.5">
+      </div>
+      <div class="multimodal-note" id="video-note">⚠ This provider does not natively support video input via the standard API.</div>
+    </div>
+
+    <!-- Request Volume -->
+    <div class="calc-section-title">🔁 Request Volume</div>
+    <div class="calc-group">
+      <label for="requests-per-day">API Requests Per Day</label>
+      <input type="number" id="requests-per-day" value="100" min="1" max="10000000" step="10">
+    </div>
+
+    <!-- Optimizations -->
+    <div class="calc-section-title">💡 Cost Optimizations</div>
+    <div class="calc-toggle">
+      <input type="checkbox" id="use-cache">
+      <label for="use-cache">Enable Prompt Caching <span class="savings-tag">Save up to 90%</span></label>
+    </div>
+    <div class="calc-toggle">
+      <input type="checkbox" id="use-batch">
+      <label for="use-batch">Use Batch API (24h turnaround) <span class="savings-tag">Save 50%</span></label>
+    </div>
+  </div>
+
+  <!-- RESULTS PANEL -->
+  <div class="calc-panel">
+    <h2><span class="emoji">📊</span> Cost Estimate</h2>
+
+    <!-- Cost Cards -->
+    <div class="result-grid">
+      <div class="result-card highlight">
+        <div class="rc-label">Per Request</div>
+        <div class="rc-value" id="cost-per-request">$0.00</div>
+      </div>
+      <div class="result-card">
+        <div class="rc-label">Daily Cost</div>
+        <div class="rc-value" id="cost-daily">$0.00</div>
+      </div>
+      <div class="result-card">
+        <div class="rc-label">Monthly Cost</div>
+        <div class="rc-value" id="cost-monthly">$0.00</div>
+      </div>
+      <div class="result-card">
+        <div class="rc-label">Yearly Cost</div>
+        <div class="rc-value" id="cost-yearly">$0.00</div>
+      </div>
+    </div>
+
+    <div id="savings-pct">No optimizations applied</div>
+
+    <!-- Token Breakdown -->
+    <h2 style="margin-top:1.5rem"><span class="emoji">🔢</span> Token Breakdown</h2>
+    <div class="token-breakdown">
+      <div class="token-row"><span class="t-label"><span class="dot" style="background:#4dc4db"></span>Text Input Tokens</span><span class="t-value" id="text-input-tokens">0</span></div>
+      <div class="token-row"><span class="t-label"><span class="dot" style="background:#a78bfa"></span>Text Output Tokens</span><span class="t-value" id="text-output-tokens">0</span></div>
+      <div class="token-row"><span class="t-label"><span class="dot" style="background:#f472b6"></span>Image Tokens</span><span class="t-value" id="image-tokens-display">0</span></div>
+      <div class="token-row"><span class="t-label"><span class="dot" style="background:#34d399"></span>Audio Tokens</span><span class="t-value" id="audio-tokens-display">0</span></div>
+      <div class="token-row"><span class="t-label"><span class="dot" style="background:#fbbf24"></span>Video Tokens</span><span class="t-value" id="video-tokens-display">0</span></div>
+      <div class="token-row total-row"><span class="t-label">Total Input Tokens</span><span class="t-value" id="total-input-tokens">0</span></div>
+      <div class="token-row total-row"><span class="t-label">Total Output Tokens</span><span class="t-value" id="total-output-tokens">0</span></div>
+      <div class="token-row total-row"><span class="t-label">Grand Total Tokens</span><span class="t-value" id="total-all-tokens">0</span></div>
+    </div>
+
+    <!-- Context Window Usage -->
+    <h2><span class="emoji">📏</span> Context Window Usage</h2>
+    <div class="calc-context-bar"><div class="calc-context-fill" id="context-bar"></div></div>
+    <div class="context-text" id="context-usage-text">0 / 0 tokens (0%)</div>
+    <div id="long-context-warning">⚠️ Your input exceeds 200K tokens — long-context pricing applies (2× standard rates) for this model.</div>
+
+    <!-- Compare Button -->
+    <button id="compare-btn">⚡ Compare All Models</button>
+  </div>
+</div>
+
+<!-- Comparison Table -->
+<div id="comparison-section">
+  <div class="calc-panel" style="margin-bottom:0">
+    <h2><span class="emoji">⚡</span> All Models Compared (Sorted by Cost)</h2>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Provider</th>
+            <th>Model</th>
+            <th>Total Tokens</th>
+            <th>Per Request</th>
+            <th>Daily</th>
+            <th>Monthly</th>
+            <th>+ Caching</th>
+            <th>+ Batch</th>
+          </tr>
+        </thead>
+        <tbody id="comparison-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="calc-faq">
+  <h2>Frequently Asked Questions</h2>
+  {% for item in page.faq %}
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q">{{ item.question }}</div>
+    <div class="faq-a"><p>{{ item.answer }}</p></div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Internal Links -->
+<div class="calc-links">
+  <a href="/google-gemini-api-pricing-may-2026/" class="calc-link-card">📘 Gemini Pricing Guide</a>
+  <a href="/openai-api-pricing-may-2026/" class="calc-link-card">📗 OpenAI Pricing Guide</a>
+  <a href="/grok-xai-api-pricing-may-2026/" class="calc-link-card">📙 Grok Pricing Guide</a>
+  <a href="/ai-model-pricing-comparison-gemini-openai-grok-claude-2026/" class="calc-link-card">📊 Full Comparison Guide</a>
+</div>
+
+<!-- Footer note -->
+<div class="calc-footer">
+  <p>Prices sourced from official provider documentation as of <strong>May 2026</strong>. Token estimates are approximations — actual billing may vary based on tokenizer, image compression, and model-specific processing. Always verify with official pricing pages before production deployment.</p>
+</div>
+
+{% include faq-schema.html %}
+
+<script src="{{ site.baseurl }}/assets/js/calculator.js" defer></script>

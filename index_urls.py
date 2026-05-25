@@ -22,6 +22,22 @@ SITE_URL = "https://the-rogue-marketing.github.io"
 # All blog post URLs to index
 URLS = [
     # New May 2026 posts
+    f"{SITE_URL}/ai-api-pricing-calculator/",
+    f"{SITE_URL}/the-0-10-ai-models-guide-to-cheap-llm-apis/",
+    f"{SITE_URL}/how-to-cut-your-ai-api-bill-by-90-percent/",
+    f"{SITE_URL}/gemini-vs-gpt-vs-grok-vs-claude-api-cost-comparison/",
+    f"{SITE_URL}/ai-api-free-tiers-compared/",
+    f"{SITE_URL}/building-cheap-ai-chatbot-gemini-flash-lite/",
+    f"{SITE_URL}/i-built-the-same-app-with-5-ai-apis-costs/",
+    f"{SITE_URL}/grok-4-3-vs-gemini-3-1-pro-vs-claude-4-6/",
+    f"{SITE_URL}/migrating-from-openai-to-gemini-step-by-step/",
+    f"{SITE_URL}/build-ai-agent-under-10-dollars-deepseek-gemini/",
+    f"{SITE_URL}/google-gemini-3-5-flash-worth-the-upgrade/",
+    f"{SITE_URL}/openai-price-drop-breaking-down-gpt-5-5/",
+    f"{SITE_URL}/deepseek-vs-major-ai-apis-benchmark/",
+    f"{SITE_URL}/ai-api-rate-limits-explained/",
+    f"{SITE_URL}/the-ai-price-war-racing-to-zero/",
+    f"{SITE_URL}/claude-4-6-opus-launched-pricing-performance/",
     f"{SITE_URL}/google-gemini-api-pricing-may-2026/",
     f"{SITE_URL}/openai-api-pricing-may-2026/",
     f"{SITE_URL}/grok-xai-api-pricing-may-2026/",

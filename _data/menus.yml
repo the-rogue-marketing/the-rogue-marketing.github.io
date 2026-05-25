@@ -7,6 +7,9 @@ topmenu:
 - title: Blog
   url: "categories/"
 
+- title: API Calculator
+  url: "ai-api-pricing-calculator/"
+
 - title: About
   url: "about/"
 
