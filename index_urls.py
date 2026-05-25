@@ -22,6 +22,7 @@ SITE_URL = "https://the-rogue-marketing.github.io"
 # All blog post URLs to index
 URLS = [
     # New May 2026 posts
+    f"{SITE_URL}/google-gemini-api-ocr-guide-pydantic-ai/",
     f"{SITE_URL}/ai-api-pricing-calculator/",
     f"{SITE_URL}/the-0-10-ai-models-guide-to-cheap-llm-apis/",
     f"{SITE_URL}/how-to-cut-your-ai-api-bill-by-90-percent/",
