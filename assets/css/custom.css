@@ -385,11 +385,18 @@ ul.tags li a:hover {
 
 /* ===== Sidebar ===== */
 .sidebar { color: var(--text-secondary); }
-.sidebar h5 span {
+.sidebar h3 {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+}
+.sidebar h3 span {
     background: var(--bg-primary) !important;
     color: var(--text-primary) !important;
 }
-.sidebar h5:before {
+.sidebar h3:before {
     background-color: var(--border-subtle) !important;
 }
 .sidebar-section {

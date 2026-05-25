@@ -1,10 +1,10 @@
 <div class="sidebar sticky-top">        
     <div class="sidebar-section">
-        <h5><span>Newsletter</span></h5>
+        <h3><span>Newsletter</span></h3>
         {% include newsletter.html %}
     </div>
     <div class="sidebar-section">
-        <h5><span>Popular Categories</span></h5>
+        <h3><span>Popular Categories</span></h3>
         <div class="category-pills">
             {% assign categories = site.categories | sort %}
             {% for category in categories %}

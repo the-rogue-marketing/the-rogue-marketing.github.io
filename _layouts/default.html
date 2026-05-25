@@ -6,34 +6,6 @@
 <meta name="theme-color" content="#0a0e1a">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="icon" href="{{ site.baseurl }}/{{site.favicon}}">
-<link rel="canonical" href="{{ page.url | absolute_url }}">
-
-<title>{{ page.title }} | {{site.title}}</title>
-{% if page.description %}
-<meta name="description" content="{{ page.description | truncate: 160 }}">
-{% elsif page.excerpt %}
-<meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}">
-{% else %}
-<meta name="description" content="{{ site.description | truncate: 160 }}">
-{% endif %}
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-<meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:title" content="{{ page.title }} | {{site.title}}">
-<meta property="og:description" content="{% if page.description %}{{ page.description | truncate: 200 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 200 }}{% else %}{{ site.description | truncate: 200 }}{% endif %}">
-{% if page.image %}<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{{ page.image }}">{% elsif site.og_image %}<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{{ site.og_image }}">{% endif %}
-<meta property="og:site_name" content="{{ site.title }}">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-{% if site.twitter_username %}<meta name="twitter:site" content="@{{ site.twitter_username }}">{% endif %}
-<meta name="twitter:title" content="{{ page.title }}">
-<meta name="twitter:description" content="{% if page.description %}{{ page.description | truncate: 200 }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 200 }}{% else %}{{ site.description | truncate: 200 }}{% endif %}">
-{% if page.image %}<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{{ page.image }}">{% endif %}
-
-{% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
-
 {% seo %}
 
 <!-- Preconnect for performance -->
