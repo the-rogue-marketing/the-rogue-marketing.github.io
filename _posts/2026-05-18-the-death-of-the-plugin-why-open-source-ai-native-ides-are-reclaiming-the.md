@@ -4,6 +4,7 @@ date: 2026-05-18
 category: dev
 tags: ["opensource", "ai", "programming", "developer-experience", "ide"]
 summary: "We are moving past the era of 'autocomplete on steroids.' This post explores why the next generation of development tools isn't just adding AI as a feature, but rebuilding the entire IDE around the concept of agentic, open-source intelligence."
+image: assets/images/local-cpu-llm-architecture.png
 generated: true
 ---
 
