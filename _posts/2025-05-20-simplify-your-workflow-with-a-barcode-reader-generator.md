@@ -4,6 +4,7 @@ title: "Simplify Your Workflow with a Barcode Reader & Generator"
 author: professor-xai
 categories: [ barcode-reader, barcode-generator, qrcode-generator, qrcode-reader,qrcode api, barcode api ]
 image: assets/images/3.jpeg
+noindex: true
 ---
 
 

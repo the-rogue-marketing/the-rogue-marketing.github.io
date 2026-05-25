@@ -1,0 +1,32 @@
+{% if page.layout == 'post' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "headline": {{ page.title | jsonify }},
+  {% if page.image %}"image": [
+    "{{ page.image | absolute_url }}"
+  ],{% endif %}
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.authors[page.author].display_name | default: 'Professor XAI' }}",
+    "url": "{{ site.authors[page.author].web | default: site.url }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.title }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.logo | absolute_url }}"
+    }
+  },
+  "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }}
+}
+</script>
+{% endif %}

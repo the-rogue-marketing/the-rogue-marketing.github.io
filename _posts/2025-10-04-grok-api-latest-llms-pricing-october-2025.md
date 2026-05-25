@@ -4,6 +4,7 @@ title: "Grok Latest APIs and LLMs Pricing October 2025"
 author: professor-xai
 categories: [grok,grok-api,llm, api, ai-agents, cost,pricing]
 image: assets/images/grok-api-pricing-october-2025.jpg
+noindex: true
 ---
 
 # Grok API Pricing October 2025: Complete Guide to Models, Features, and Costs

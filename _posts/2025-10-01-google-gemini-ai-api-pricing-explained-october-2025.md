@@ -4,6 +4,7 @@ title: "Google Gemini API Pricing Explained: Your Simple Guide to Costs"
 author: professor-xai
 categories: [gemini, ai-api, google-ai, pricing, flash-model]
 image: assets/images/google-gemini-ai-api-pricing.png
+noindex: true
 ---
 
 Navigating the cost of AI APIs can be confusing. Google's Gemini family has many models, each with its own price tag. This guide breaks down the latest Gemini API pricing in simple terms, so you can pick the right model for your project without breaking the bank.
