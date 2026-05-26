@@ -106,6 +106,8 @@ To run a reliable, enterprise-ready OCR engine, you must guarantee that the mode
 
 To solve this, we will use **PydanticAI**, the official agent framework built by the creators of Pydantic. PydanticAI wraps the LLM call, automatically injects formatting guidelines, catches syntax errors, and validates the model response in real-time.
 
+![Multimodal Invoice Parser Diagram]({{ site.baseurl }}/assets/images/multimodal-invoice-parser.png)
+
 ### System Prerequisites
 Ensure you have the required packages installed in your local environment:
 ```bash
