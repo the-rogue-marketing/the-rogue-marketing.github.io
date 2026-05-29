@@ -149,12 +149,12 @@
     <h3 class="lead-magnet-title">{{ lm_title }}</h3>
     <p class="lead-magnet-desc">{{ lm_desc }}</p>
     
-    <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" class="validate" target="_blank" novalidate>
+    <form action="{{ site.mailchimp.action_url }}" method="post" class="validate" target="_blank" novalidate>
         <div class="lead-magnet-form">
             <input type="email" value="" name="EMAIL" class="required email lead-magnet-input" placeholder="Enter your developer email address" required>
             <!-- bot signups protection -->
             <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                <input type="text" name="b_8aeb20a530e124561927d3bd8_8c3d2d214b" tabindex="-1" value="">
+                <input type="text" name="{{ site.mailchimp.bot_field }}" tabindex="-1" value="">
             </div>
             <input type="submit" value="{{ lm_button }}" name="subscribe" class="lead-magnet-submit">
         </div>
