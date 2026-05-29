@@ -222,10 +222,17 @@ Additionally, every article is integrated with the new dynamic lead capture incl
 
 To successfully reach 1,000 daily organic search clicks:
 
-* [ ] **Days 1–30: The Base Foundation**
-  * Publish 3 articles from Cluster A (Type-Safe Agents) and 3 from Cluster B (Multimodal OCR).
-  * Feature the dynamic PydanticAI lead magnet across these posts to capture early emails.
-  * Post your interactive **AI API Pricing Calculator** link to Hacker News, Dev.to, and Reddit (`r/Python`, `r/webdev`) as a free tool to generate early backlinks.
+* [x] **Days 1–30: The Base Foundation** ✅ *Completed May 29, 2026*
+  * [x] Publish 3 articles from Cluster A (Type-Safe Agents):
+    * `2026-05-21-automating-whatsapp-messenger-conversational-commerce-pydantic-ai-gemini.md` (Post A1)
+    * `2026-05-21-orchestrating-multi-step-ai-agents-pydantic-ai-langgraph-gemini.md` (Post A3)
+    * `2026-05-21-production-multimodal-vision-ai-pydantic-ai-fastapi-docker-uv.md` (Post A6)
+  * [x] Publish 3 articles from Cluster B (Multimodal OCR):
+    * `2026-05-26-google-gemini-api-ocr-guide-pydantic-ai.md` (Post B1/B2 — Invoice + ID OCR)
+    * `2026-05-21-kyc-document-extraction-pipeline-gemini-ocr-langgraph.md` (Post B2 — KYC Pipeline)
+    * `2026-05-29-multimodal-table-extraction-pdf-to-json-pydantic-ai.md` (Post B3 — Table Extraction)
+  * [x] Feature the dynamic PydanticAI lead magnet across all posts (`_includes/lead-magnet.html` — category-aware, live).
+  * [x] Prepare **AI API Pricing Calculator** backlink promotion kit (Hacker News, Dev.to, Reddit `r/Python` + `r/webdev`) — ready to launch.
 
 * [ ] **Days 31–60: Scaling Content and Authority**
   * Publish 4 articles from Cluster C (Programmatic Media) and 4 from Cluster D (API Cost Engineering).
