@@ -21,7 +21,14 @@ SITE_URL = "https://the-rogue-marketing.github.io"
 
 # All blog post URLs to index
 URLS = [
-    # New May 2026 posts
+    # New May 2026 posts (OCR/Document Intelligence sprint)
+    f"{SITE_URL}/best-invoice-receipt-automation-parsing-loyalty-points-pydantic-ai/",
+    f"{SITE_URL}/best-resume-parser-pydantic-ai-gemini-fastapi/",
+    f"{SITE_URL}/best-passport-parsing-api-pydantic-ai-gemini-fastapi/",
+    f"{SITE_URL}/litellm-vs-pydantic-ai-production-pipelines/",
+    f"{SITE_URL}/best-data-extraction-tools-2026/",
+    f"{SITE_URL}/best-document-fraud-detection-software-2026/",
+    f"{SITE_URL}/build-high-accuracy-automations-gemini-api/",
     f"{SITE_URL}/google-gemini-api-ocr-guide-pydantic-ai/",
     f"{SITE_URL}/ai-api-pricing-calculator/",
     f"{SITE_URL}/the-0-10-ai-models-guide-to-cheap-llm-apis/",

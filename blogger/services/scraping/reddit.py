@@ -13,7 +13,7 @@ from utils.mock_data import get_mock_reddit
 
 logger = logging.getLogger(__name__)
 
-SUBREDDITS = ["programming", "worldnews", "MachineLearning"]
+SUBREDDITS = ["programming", "MachineLearning", "LocalLLaMA", "Python", "rust"]
 
 HEADERS = {
     "User-Agent": (

@@ -82,33 +82,35 @@ def storage_agent(state: dict) -> dict:
 
 
 def _build_markdown(article: dict, date: str) -> str:
-    """Build a complete markdown file with front matter."""
+    """Build a complete markdown file with Jekyll front matter."""
     title = article.get("title", "Untitled")
-    summary = article.get("summary", "")
+    description = article.get("description", article.get("summary", ""))
     body = article.get("body", "")
     tags = article.get("tags", [])
     category = article.get("category", "general")
+    keywords = article.get("keywords", ", ".join(tags))
+    image = article.get("image", "assets/images/gemini-ocr-pydantic-ai.webp")
 
-    # YAML-style front matter
-    tags_str = ", ".join(f'"{tag}"' for tag in tags)
+    # Map category and tags to Jekyll categories
+    categories = list(dict.fromkeys([category] + tags))
+    categories_str = ", ".join(categories)
 
     front_matter = f"""---
+layout: post
 title: "{title}"
-date: {date}
-category: {category}
-tags: [{tags_str}]
-summary: "{summary}"
-generated: true
+description: "{description}"
+author: professor-xai
+categories: [{categories_str}]
+image: {image}
+featured: false
+last_modified_at: {date}
+keywords: "{keywords}"
 ---
 
 """
 
     # Full markdown document
     content = front_matter
-
-    if summary:
-        content += f"> {summary}\n\n"
-
     content += body
     content += "\n"
 

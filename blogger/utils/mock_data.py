@@ -221,6 +221,5 @@ def get_all_mock_data() -> list[dict]:
     data = []
     data.extend(get_mock_github_trending())
     data.extend(get_mock_hacker_news())
-    data.extend(get_mock_news())
     data.extend(get_mock_reddit())
     return data

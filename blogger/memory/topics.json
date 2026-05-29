@@ -79,8 +79,14 @@
         "built"
       ],
       "used_at": "2026-05-18T19:25:44.651480+00:00"
+    },
+    {
+      "title": "Beyond Linear Chains: Building Production-Grade Agentic Workflows with LangGraph",
+      "category": "python",
+      "keywords": [],
+      "used_at": "2026-05-29T17:15:31.791998+00:00"
     }
   ],
   "created_at": "2026-04-24T01:58:21.152500+00:00",
-  "updated_at": "2026-05-18T19:25:44.651594+00:00"
+  "updated_at": "2026-05-29T17:15:31.792138+00:00"
 }

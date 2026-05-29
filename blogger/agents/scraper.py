@@ -55,11 +55,7 @@ def scraper_agent(state: dict) -> dict:
         except Exception as e:
             logger.error(f"Hacker News scraping failed completely: {e}")
 
-        try:
-            news_data = scrape_news_sites()
-            raw_data.extend(news_data)
-        except Exception as e:
-            logger.error(f"News sites scraping failed completely: {e}")
+
 
         try:
             reddit_data = scrape_reddit()
