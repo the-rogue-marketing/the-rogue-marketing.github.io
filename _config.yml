@@ -70,5 +70,5 @@ plugins:
 # Mailchimp Lead Capture & Newsletter Integration
 # Replace the action_url and bot_field below with your own Mailchimp embedded form values.
 mailchimp:
-  action_url: "https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b"
-  bot_field: "b_8aeb20a530e124561927d3bd8_8c3d2d214b"
+  action_url: "https://github.us16.list-manage.com/subscribe/post?u=594962e31a5d467d5754c22fe&amp;id=1404b2fe19&amp;f_id=00c097e1f0"
+  bot_field: "b_594962e31a5d467d5754c22fe_1404b2fe19"
