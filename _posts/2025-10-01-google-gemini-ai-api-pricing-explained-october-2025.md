@@ -1,10 +1,24 @@
 ---
 layout: post
-title: "Google Gemini API Pricing Explained: Your Simple Guide to Costs"
+title: 'Google Gemini API Pricing Explained: Simple Cost Guide (May 2026)'
 author: professor-xai
-categories: [gemini, ai-api, google-ai, pricing, flash-model]
+categories:
+- gemini
+- ai-api
+- google-ai
+- pricing
+- gemini-3.5
 image: assets/images/google-gemini-ai-api-pricing.webp
-noindex: true
+description: A complete, beginner-friendly guide to Google Gemini API pricing in 2026. Learn input/output token costs, caching discounts, and free tier options.
+keywords: gemini api pricing, google gemini cost, gemini 1.5 flash price, prompt caching cost, gemini free tier
+last_modified_at: '2026-05-29'
+faq:
+- question: Is Google Gemini API free?
+  answer: Yes, Google offers a generous free tier for developers in Google AI Studio, which allows up to 15 RPM (requests per minute) and 1M TPM (tokens per minute) for Gemini 1.5 & 2.5 Flash.
+- question: How much does Gemini 1.5 Flash cost?
+  answer: On the pay-as-you-go paid tier, Gemini 1.5 Flash costs $0.075 per million input tokens and $0.30 per million output tokens for prompts under 128k tokens.
+- question: What is Gemini prompt caching discount?
+  answer: For prompts longer than 32k tokens, Gemini prompt caching provides a 50% discount on input tokens, reducing the cost to just $0.0375 per million cached input tokens.
 ---
 
 Navigating the cost of AI APIs can be confusing. Google's Gemini family has many models, each with its own price tag. This guide breaks down the latest Gemini API pricing in simple terms, so you can pick the right model for your project without breaking the bank.
@@ -24,7 +38,7 @@ Think of the Gemini family like a car lineup:
 
 These are your all-rounders for reading, writing, and reasoning.
 
-#### Gemini 2.5 Pro: The Brainy Specialist
+#### Gemini 3.5 Pro: The Brainy Specialist
 **Use it for:** Complex coding, advanced math, and deep reasoning where you need the best results, cost is secondary.
 
 | What you pay for | Free Tier | Paid Tier (per 1 Million Tokens) |
@@ -34,7 +48,7 @@ These are your all-rounders for reading, writing, and reasoning.
 
 > **Note:** "Long requests" means your prompt is over 200,000 tokens (about 150,000 words). Output cost includes the model's "thinking."
 
-#### Gemini 2.5 Flash: The Smart & Speedy All-Rounder
+#### Gemini 3.5 Flash: The Smart & Speedy All-Rounder
 **Use it for:** Chatbots, summarizing content, and general tasks that need a good balance of intelligence and speed.
 
 | What you pay for | Free Tier | Paid Tier (per 1 Million Tokens) |
@@ -42,7 +56,7 @@ These are your all-rounders for reading, writing, and reasoning.
 | **Sending a Request (Input)** | Free | **$0.30** (text/image/video) <br> **$1.00** (audio) |
 | **Getting a Response (Output)** | Free | **$2.50** |
 
-#### Gemini 2.5 Flash-Lite: The Budget King
+#### Gemini 3.5 Flash-Lite: The Budget King
 **Use it for:** Processing huge volumes of text, simple classification, or any task where cost is the #1 priority.
 
 | What you pay for | Free Tier | Paid Tier (per 1 Million Tokens) |
@@ -56,7 +70,7 @@ These are your all-rounders for reading, writing, and reasoning.
 
 These models are specially designed for working with sound.
 
-#### Gemini 2.5 Flash Native Audio
+#### Gemini 3.5 Flash Native Audio
 **Use it for:** Building applications that deeply understand spoken audio (transcription, analysis).
 
 | What you pay for | Free Tier | Paid Tier (per 1 Million Tokens) |
@@ -78,7 +92,7 @@ These models are specially designed for working with sound.
 
 These models create pictures from your text descriptions.
 
-#### Gemini 2.5 Flash Image Preview
+#### Gemini 3.5 Flash Image Preview
 **Use it for:** Quickly generating images within the Flash model ecosystem.
 
 * **Input (Text/Image):** **$0.30** per 1M tokens
@@ -101,16 +115,16 @@ Let's say you want to summarize a long article (100,000 words input) and get a s
 
 | Model | Estimated Cost |
 | :--- | :--- |
-| **Gemini 2.5 Pro** | ~ **$0.23** |
-| **Gemini 2.5 Flash** | ~ **$0.06** |
-| **Gemini 2.5 Flash-Lite** | ~ **$0.01** |
+| **Gemini 3.5 Pro** | ~ **$0.23** |
+| **Gemini 3.5 Flash** | ~ **$0.06** |
+| **Gemini 3.5 Flash-Lite** | ~ **$0.01** |
 
 *Calculation is an estimate for the Paid Tier.*
 
 ### Key Takeaways for Your Wallet
 
 1. **Start for Free:** All core models have a free tier in Google AI Studio. Perfect for testing and prototyping.
-2. **Flash is the Sweet Spot:** For most applications, **Gemini 2.5 Flash** offers the best balance of price and performance.
+2. **Flash is the Sweet Spot:** For most applications, **Gemini 3.5 Flash** offers the best balance of price and performance.
 3. **Scale with Flash-Lite:** If you're processing millions of tasks, **Flash-Lite** will save you a tremendous amount of money.
 4. **Audio and Image Cost More:** Specialized modalities like audio understanding and image generation have their own, typically higher, pricing.
 5. **Your Data is Private on Paid Tiers:** In the Free Tier, your data may be used to improve Google's models. This does **not** happen in the Paid Tier.

@@ -1,26 +1,32 @@
 ---
 layout: post
-title: "Grok API Pricing 2026: I Analyzed Every xAI Model — Here's What Actually Costs [Calculator Inside]"
-description: "Stop overpaying for Grok API. See exact costs per 1M tokens for Grok 4.3, 4.20, 4.1 Fast with real-world examples, free credits info, and our interactive cost calculator. Updated May 2026."
+title: 'Grok API Pricing 2026: Complete Guide to xAI Model Costs & Free Credits'
+description: Stop overpaying for Grok. Compare pricing for Grok 4.3 Reasoning, 4.20, and 4.1 Fast. Learn how xAI's prompt caching and free API credits can lower your bill.
 author: professor-xai
-categories: [grok, xai, ai-api, pricing, grok-4, ai-agents]
+categories:
+- grok
+- xai
+- ai-api
+- pricing
+- grok-4
+- ai-agents
 image: assets/images/grok-api-pricing-may-2026.webp
 featured: false
-last_modified_at: 2026-05-25
-keywords: "grok api pricing, xai grok 4.3 cost, grok 4.20 pricing, grok vs openai pricing, grok api free credits, cheapest grok model, xai api pricing 2026"
+last_modified_at: '2026-05-29'
+keywords: grok api pricing, xai grok 4.3 cost, grok 4.20 pricing, grok vs openai pricing, grok api free credits, cheapest grok model, xai api pricing 2026
 faq:
-  - question: "How much does the Grok API cost per 1 million tokens?"
-    answer: "Grok API pricing ranges from $0.20/1M input tokens (Grok 4.1 Fast) to $1.25/1M input tokens (Grok 4.3 and 4.20). Output tokens cost $0.50 to $2.50 per million depending on the model."
-  - question: "Is there a free tier for the Grok API?"
-    answer: "Yes! xAI offers up to $175/month in free promotional credits through their data-sharing program. You can check your eligibility in the xAI developer console under Settings > Data Sharing."
-  - question: "Which Grok model is the cheapest?"
-    answer: "Grok 4.1 Fast is the cheapest at $0.20/1M input tokens and $0.50/1M output tokens. It also has a massive 2,000,000 token context window, making it one of the best budget AI models available."
-  - question: "How does Grok API pricing compare to OpenAI and Gemini?"
-    answer: "Grok is very competitive. Grok 4.1 Fast ($0.20 input) is similar to GPT-4.1 Nano ($0.10) and Gemini 2.5 Flash-Lite ($0.10). The flagship Grok 4.3 ($1.25/$2.50) is cheaper than GPT-4.1 ($2/$8) and Gemini 3.1 Pro ($2/$12) on output tokens."
-  - question: "What is Grok's maximum context window?"
-    answer: "Grok 4.20 and Grok 4.1 Fast both support 2,000,000 token context windows — the largest in the industry. Grok 4.3 supports 1,000,000 tokens."
-  - question: "Does xAI offer a Batch API discount?"
-    answer: "Yes, xAI offers a Batch API for non-urgent workloads that provides approximately 50% savings on standard pricing with a 24-hour turnaround."
+- question: How much does the Grok API cost per 1 million tokens?
+  answer: Grok API pricing ranges from $0.20/1M input tokens (Grok 4.1 Fast) to $1.25/1M input tokens (Grok 4.3 and 4.20). Output tokens cost $0.50 to $2.50 per million depending on the model.
+- question: Is there a free tier for the Grok API?
+  answer: Yes! xAI offers up to $175/month in free promotional credits through their data-sharing program. You can check your eligibility in the xAI developer console under Settings > Data Sharing.
+- question: Which Grok model is the cheapest?
+  answer: Grok 4.1 Fast is the cheapest at $0.20/1M input tokens and $0.50/1M output tokens. It also has a massive 2,000,000 token context window, making it one of the best budget AI models available.
+- question: How does Grok API pricing compare to OpenAI and Gemini?
+  answer: Grok is very competitive. Grok 4.1 Fast ($0.20 input) is similar to GPT-4.1 Nano ($0.10) and Gemini 3.5 Flash-Lite ($0.10). The flagship Grok 4.3 ($1.25/$2.50) is cheaper than GPT-4.1 ($2/$8) and Gemini 3.1 Pro ($2/$12) on output tokens.
+- question: What is Grok's maximum context window?
+  answer: Grok 4.20 and Grok 4.1 Fast both support 2,000,000 token context windows — the largest in the industry. Grok 4.3 supports 1,000,000 tokens.
+- question: Does xAI offer a Batch API discount?
+  answer: Yes, xAI offers a Batch API for non-urgent workloads that provides approximately 50% savings on standard pricing with a 24-hour turnaround.
 ---
 
 xAI's Grok models have become one of the most compelling options for developers in 2026. With **2 million token context windows**, aggressive pricing, and generous free credits, Grok deserves serious consideration for your next AI project.
@@ -137,7 +143,7 @@ xAI offers up to **$175/month** in free promotional credits through data-sharing
 | :--- | :--- | :--- | :--- | :--- |
 | **Grok 4.1 Fast** | **$0.20** | **$0.50** | **2M** | xAI |
 | GPT-4.1 Nano | $0.10 | $0.40 | 1M | OpenAI |
-| Gemini 2.5 Flash-Lite | $0.10 | $0.40 | 1M | Google |
+| Gemini 3.5 Flash-Lite | $0.10 | $0.40 | 1M | Google |
 | Claude Haiku 4.5 | $1.00 | $5.00 | 200K | Anthropic |
 | **Grok 4.3** | **$1.25** | **$2.50** | **1M** | xAI |
 | GPT-4.1 | $2.00 | $8.00 | 1M | OpenAI |

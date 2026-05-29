@@ -1,24 +1,29 @@
 ---
 layout: post
-title: "Google Nano Banana & Imagen 4 Pricing 2026: I Compared Every Image Generation API"
-description: "Complete pricing breakdown for Google's image generation APIs as of May 2026. Nano Banana, Gemini Flash Image, and Imagen 4 Fast, Standard & Ultra. Calculator inside."
+title: 'Google Imagen 4 & Nano Banana Pricing 2026: Midjourney API Killers?'
+description: Generate images programmatically. Compare pricing for Google's Imagen 4 Fast, Standard, Ultra, and local Nano Banana models against Midjourney & DALL-E.
 author: professor-xai
-categories: [gemini, ai-api, google-ai, pricing, image-generation]
+categories:
+- gemini
+- ai-api
+- google-ai
+- pricing
+- image-generation
 image: assets/images/nano-banana-imagen-pricing-may-2026.webp
 featured: true
-last_modified_at: 2026-05-25
-keywords: "nano banana pricing, imagen 4 pricing, gemini image generation cost, nano banana pro, gemini 3.1 flash image, google ai image api, imagen 4 ultra price per image, cheap image api 2026"
+last_modified_at: '2026-05-29'
+keywords: nano banana pricing, imagen 4 pricing, gemini image generation cost, nano banana pro, gemini 3.1 flash image, google ai image api, imagen 4 ultra price per image, cheap image api 2026
 faq:
-  - question: "How much does Google's image generation API cost in 2026?"
-    answer: "Costs depend on the model and resolution. Imagen 4 Fast costs $0.02 per image. Nano Banana 2 (Gemini 3.1 Flash Image) ranges from $0.045 (0.5K resolution) to $0.151 (4K resolution) per image."
-  - question: "What is Google's Nano Banana model?"
-    answer: "Nano Banana refers to Gemini's native image generation models. Unlike traditional image models, these models can natively understand text, reason about inputs, and output images directly in a single context window call."
-  - question: "Which Google image model is the cheapest?"
-    answer: "Imagen 4 Fast is the cheapest standalone image generation API at $0.02 per image. For Gemini native generation, Nano Banana 2 at 512×512 resolution costs $0.045 per image."
-  - question: "Is there a free tier for Gemini image generation?"
-    answer: "Yes, Nano Banana 2 (Gemini 3.1 Flash Image) is available in the Google AI Studio free tier, subject to standard rate limits."
-  - question: "How does Imagen 4 compare to DALL-E 3?"
-    answer: "Imagen 4 is highly competitive. Imagen 4 Fast costs $0.02 per image compared to DALL-E 3's pricing of $0.04 to $0.08 per image, making Imagen 4 up to 4x cheaper."
+- question: How much does Google's image generation API cost in 2026?
+  answer: Costs depend on the model and resolution. Imagen 4 Fast costs $0.02 per image. Nano Banana 2 (Gemini 3.1 Flash Image) ranges from $0.045 (0.5K resolution) to $0.151 (4K resolution) per image.
+- question: What is Google's Nano Banana model?
+  answer: Nano Banana refers to Gemini's native image generation models. Unlike traditional image models, these models can natively understand text, reason about inputs, and output images directly in a single context window call.
+- question: Which Google image model is the cheapest?
+  answer: Imagen 4 Fast is the cheapest standalone image generation API at $0.02 per image. For Gemini native generation, Nano Banana 2 at 512×512 resolution costs $0.045 per image.
+- question: Is there a free tier for Gemini image generation?
+  answer: Yes, Nano Banana 2 (Gemini 3.1 Flash Image) is available in the Google AI Studio free tier, subject to standard rate limits.
+- question: How does Imagen 4 compare to DALL-E 3?
+  answer: Imagen 4 is highly competitive. Imagen 4 Fast costs $0.02 per image compared to DALL-E 3's pricing of $0.04 to $0.08 per image, making Imagen 4 up to 4x cheaper.
 ---
 
 Google's image generation ecosystem in 2026 is more powerful — and more confusing — than ever. Between the **Nano Banana** models (Gemini's native image generation), **Imagen 4** (the standalone image model), and legacy options, choosing the right model for your budget requires a clear pricing map.

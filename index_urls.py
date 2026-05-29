@@ -22,6 +22,7 @@ SITE_URL = "https://the-rogue-marketing.github.io"
 # All blog post URLs to index
 URLS = [
     # New May 2026 posts (OCR/Document Intelligence sprint)
+    f"{SITE_URL}/beyond-linear-chains-engineering-robust-agentic-workflows-with-langgraph/",
     f"{SITE_URL}/best-invoice-receipt-automation-parsing-loyalty-points-pydantic-ai/",
     f"{SITE_URL}/best-resume-parser-pydantic-ai-gemini-fastapi/",
     f"{SITE_URL}/best-passport-parsing-api-pydantic-ai-gemini-fastapi/",

@@ -1,12 +1,25 @@
 ---
 layout: post
-title: "Build Everything with Gemini 2.5 Pro: Image Analysis"
+title: 'Build Everything with Gemini 3.5 Pro: Advanced OCR & Vision Prompts (2026)'
+description: Unlock multimodal power. A developer guide with copy-paste prompts and Python code for Gemini 3.5 Pro image analysis, object detection, and layout parsing.
 author: professor-xai
-categories: [ gemini 2.5, gemini ai, gemini api ]
+categories:
+- gemini-3.5-pro
+- gemini-ai
+- gemini-api
 image: assets/images/1.jpeg
+keywords: gemini 3.5 pro vision, gemini image analysis prompts, multimodal ocr code, object detection gemini, vision model tutorial
+last_modified_at: '2026-05-29'
+faq:
+- question: What is Gemini 3.5 Pro context window for images?
+  answer: Gemini 3.5 Pro features a massive context window of 1 million tokens, allowing developers to upload multiple high-resolution images or complete PDF documents simultaneously for visual analysis.
+- question: Can Gemini 3.5 Pro extract text layout and bounding boxes?
+  answer: Yes, Gemini 3.5 Pro can return normalized coordinates (typically from 0 to 1000) for bounding boxes of detected objects, segments, or paragraphs of text inside an image, providing structured layout parsing.
+- question: How do you disable thinking for Gemini OCR?
+  answer: Google recommends disabling thinking (setting thinking_budget=0 in the API configuration) for deterministic text extraction and OCR tasks to achieve higher layout parsing accuracy and reduce latency.
 ---
 
-The Gemini 2.5 Pro API, with its native multimodal processing and 1-million-token context window, excels at analyzing images for a variety of applications, including invoice OCR. Below are key use cases for image analysis with tailored prompts to help developers leverage the API effectively, powered by services like [AI Viewz Image-to-Text](https://www.aiviewz.com/services/image-to-text) and [AI Viewz Key Information Extraction](https://www.aiviewz.com/services/key-information-extraction). These examples demonstrate the model’s ability to process images alongside text, enabling tasks like object detection, image captioning, accessibility improvements, and invoice processing. Each prompt is designed to be used in [Google AI Studio](https://ai.google.dev/gemini-api/docs) or programmatically via the [Gemini API](https://ai.google.dev/gemini-api/docs) or [Vertex AI](https://cloud.google.com/vertex-ai).
+The Gemini 3.5 Pro API, with its native multimodal processing and 1-million-token context window, excels at analyzing images for a variety of applications, including invoice OCR. Below are key use cases for image analysis with tailored prompts to help developers leverage the API effectively, powered by services like [AI Viewz Image-to-Text](https://www.aiviewz.com/services/image-to-text) and [AI Viewz Key Information Extraction](https://www.aiviewz.com/services/key-information-extraction). These examples demonstrate the model’s ability to process images alongside text, enabling tasks like object detection, image captioning, accessibility improvements, and invoice processing. Each prompt is designed to be used in [Google AI Studio](https://ai.google.dev/gemini-api/docs) or programmatically via the [Gemini API](https://ai.google.dev/gemini-api/docs) or [Vertex AI](https://cloud.google.com/vertex-ai).
 
 ## Use Cases and Prompts
 
@@ -124,14 +137,14 @@ Upload an image of an invoice. Extract structured data in JSON format: { "invoic
 
 ## Choosing Between Gemini API and Vertex AI for Invoice OCR
 
-When building invoice OCR solutions with [AI Viewz Image-to-Text](https://www.aiviewz.com/services/image-to-text) or [AI Viewz Key Information Extraction](https://www.aiviewz.com/services/key-information-extraction), developers can access Gemini 2.5 Pro through either the [Gemini API](https://ai.google.dev/gemini-api/docs) via Google AI Studio or [Vertex AI](https://cloud.google.com/vertex-ai) on Google Cloud. Here’s a comparison to help decide which is best for your needs:
+When building invoice OCR solutions with [AI Viewz Image-to-Text](https://www.aiviewz.com/services/image-to-text) or [AI Viewz Key Information Extraction](https://www.aiviewz.com/services/key-information-extraction), developers can access Gemini 3.5 Pro through either the [Gemini API](https://ai.google.dev/gemini-api/docs) via Google AI Studio or [Vertex AI](https://cloud.google.com/vertex-ai) on Google Cloud. Here’s a comparison to help decide which is best for your needs:
 
 ### Gemini API (via Google AI Studio)
 - **Overview**: A developer-friendly API for multimodal tasks, accessible via Google AI Studio with a free tier for testing.
 - **Pros**:
  - **Ease of Use**: Google AI Studio’s no-code interface is ideal for prototyping invoice OCR prompts, such as extracting text or structured data from invoices.
  - **Cost-Effective**: Free tier in supported regions suits small-scale projects or startups like AI Viewz.
- - **Direct Multimodal Support**: Gemini 2.5 Pro processes invoice images directly, enabling tasks like text extraction or key data extraction (e.g., invoice number, total) with simple prompts.
+ - **Direct Multimodal Support**: Gemini 3.5 Pro processes invoice images directly, enabling tasks like text extraction or key data extraction (e.g., invoice number, total) with simple prompts.
  - **Integration**: Supports client-side SDKs (Python, JavaScript) and Firebase for mobile/web apps, aligning with AI Viewz’s customer-facing services.
 - **Cons**:
  - **Rate Limits**: Free tier has restrictive limits; paid tier requires cost management for high-volume invoice processing.
@@ -139,7 +152,7 @@ When building invoice OCR solutions with [AI Viewz Image-to-Text](https://www.ai
 - **Best For**: Rapid prototyping, small to medium-sized businesses, or testing invoice OCR workflows.
 
 ### Vertex AI
-- **Overview**: A managed platform on Google Cloud for deploying and scaling AI models, including Gemini 2.5 Pro, with enterprise-grade features.
+- **Overview**: A managed platform on Google Cloud for deploying and scaling AI models, including Gemini 3.5 Pro, with enterprise-grade features.
 - **Pros**:
  - **Scalability**: Supports high-volume invoice processing with managed endpoints, ideal for enterprise clients.
  - **Advanced Features**: Offers Model Optimizer, grounding, and region-specific data processing for compliance (e.g., EU data residency).
@@ -150,16 +163,19 @@ When building invoice OCR solutions with [AI Viewz Image-to-Text](https://www.ai
 - **Best For**: Enterprise deployments, high-volume invoice OCR, or applications requiring advanced customization.
 
 ### Recommendation
-For AI Viewz’s invoice OCR use cases, start with the [Gemini API](https://ai.google.dev/gemini-api/docs) in Google AI Studio to prototype and test prompts like those above. Its no-code interface and free tier make it ideal for developing and refining solutions for [AI Viewz Image-to-Text](https://www.aiviewz.com/services/image-to-text) and [AI Viewz Key Information Extraction](https://www.aiviewz.com/services/key-information-extraction). Transition to [Vertex AI](https://cloud.google.com/vertex-ai) if scaling to enterprise clients or requiring advanced features like model tuning or data residency compliance. Both platforms support Gemini 2.5 Pro, so prompts can be reused seamlessly.
+For AI Viewz’s invoice OCR use cases, start with the [Gemini API](https://ai.google.dev/gemini-api/docs) in Google AI Studio to prototype and test prompts like those above. Its no-code interface and free tier make it ideal for developing and refining solutions for [AI Viewz Image-to-Text](https://www.aiviewz.com/services/image-to-text) and [AI Viewz Key Information Extraction](https://www.aiviewz.com/services/key-information-extraction). Transition to [Vertex AI](https://cloud.google.com/vertex-ai) if scaling to enterprise clients or requiring advanced features like model tuning or data residency compliance. Both platforms support Gemini 3.5 Pro, so prompts can be reused seamlessly.
 
 ## Notes for Developers
 - **API Setup**: Obtain an API key from [Google AI Studio](https://ai.google.dev/gemini-api/docs) for the Gemini API or set up a Google Cloud project for [Vertex AI](https://cloud.google.com/vertex-ai). Install the `google-generativeai` Python package for Gemini API:
  ```python
  from google import genai
- genai.configure(api_key="YOUR_API_KEY")
- model = genai.GenerativeModel("gemini-2.5-pro")
- response = model.generate_content([prompt, image])
- print(response.text)
+
+  client = genai.Client(api_key="YOUR_API_KEY")
+  response = client.models.generate_content(
+      model="gemini-3.5-pro",
+      contents=[image, prompt]
+  )
+  print(response.text)
  ```
 - **Image Handling**: Upload images directly in Google AI Studio or pass as Base64-encoded strings or file paths in API requests. Ensure invoices are clear and correctly rotated for optimal OCR results.
 - **Multimodal Inputs**: Combine text prompts with invoice images for precise control. Place text prompts after image data in the API request’s content array.

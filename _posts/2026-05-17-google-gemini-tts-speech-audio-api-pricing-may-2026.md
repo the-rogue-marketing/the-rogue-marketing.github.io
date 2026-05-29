@@ -1,24 +1,30 @@
 ---
 layout: post
-title: "Google Gemini TTS & Speech AI Pricing 2026: The Complete Guide [Audio Token Calculator]"
-description: "Complete pricing guide for Google's speech and audio APIs as of May 2026. Gemini 3.1 Flash TTS, 2.5 Flash/Pro TTS, Live API, and Google Cloud STT Chirp."
+title: 'Google Gemini TTS & Speech AI Pricing 2026: Cheaper than ElevenLabs?'
+description: Is Gemini TTS the best ElevenLabs alternative? Check our complete pricing guide for Gemini 3.5 Pro TTS, Flash audio tokens, and Google Cloud Chirp.
 author: professor-xai
-categories: [gemini, ai-api, google-ai, pricing, text-to-speech, speech-ai]
+categories:
+- gemini
+- ai-api
+- google-ai
+- pricing
+- text-to-speech
+- speech-ai
 image: assets/images/gemini-tts-speech-pricing-may-2026.webp
 featured: false
-last_modified_at: 2026-05-25
-keywords: "gemini tts pricing, gemini text to speech cost, google ai speech api, gemini 3.1 flash tts, gemini live api pricing, google stt pricing, chirp speech to text, audio api pricing"
+last_modified_at: '2026-05-29'
+keywords: gemini tts pricing, gemini text to speech cost, google ai speech api, gemini 3.1 flash tts, gemini live api pricing, google stt pricing, chirp speech to text, audio api pricing
 faq:
-  - question: "How much does Gemini's Text-to-Speech (TTS) cost?"
-    answer: "Gemini 2.5 Flash TTS costs $0.15/1M input text tokens and $6.00/1M output audio tokens (approx. $0.09 per 10 minutes of audio). Gemini 3.1 Flash TTS costs $1.00/1M input and $20.00/1M output tokens (approx. $0.31 per 10 minutes)."
-  - question: "How many tokens are used per second of audio output?"
-    answer: "For Gemini TTS and Live API models, audio output corresponds to a rate of 25 tokens per second. This means 1 million output tokens yields approximately 11 hours of audio."
-  - question: "What is the cheapest way to generate text-to-speech using Google APIs?"
-    answer: "Gemini 2.5 Flash TTS is the cheapest option at $6.00 per million output audio tokens. Additionally, the Batch API offers a 50% discount, bringing the cost down to $3.00/1M."
-  - question: "How much does the Gemini Live API cost?"
-    answer: "The real-time bidirectional Gemini Live API costs $1.00/1M input tokens (both text and audio) and $20.00/1M output tokens for audio outputs ($6.00/1M for text outputs)."
-  - question: "How does Gemini Audio transcription compare to Google Cloud Speech-to-Text?"
-    answer: "Traditional Google Cloud STT (Chirp) costs $0.016 per minute. Gemini Audio Understanding is billed at standard Flash rates ($0.50/$3.00 per 1M tokens), which can be much cheaper for short summaries or Q&A."
+- question: How much does Gemini's Text-to-Speech (TTS) cost?
+  answer: Gemini 3.5 Flash TTS costs $0.15/1M input text tokens and $6.00/1M output audio tokens (approx. $0.09 per 10 minutes of audio). Gemini 3.1 Flash TTS costs $1.00/1M input and $20.00/1M output tokens (approx. $0.31 per 10 minutes).
+- question: How many tokens are used per second of audio output?
+  answer: For Gemini TTS and Live API models, audio output corresponds to a rate of 25 tokens per second. This means 1 million output tokens yields approximately 11 hours of audio.
+- question: What is the cheapest way to generate text-to-speech using Google APIs?
+  answer: Gemini 3.5 Flash TTS is the cheapest option at $6.00 per million output audio tokens. Additionally, the Batch API offers a 50% discount, bringing the cost down to $3.00/1M.
+- question: How much does the Gemini Live API cost?
+  answer: The real-time bidirectional Gemini Live API costs $1.00/1M input tokens (both text and audio) and $20.00/1M output tokens for audio outputs ($6.00/1M for text outputs).
+- question: How does Gemini Audio transcription compare to Google Cloud Speech-to-Text?
+  answer: Traditional Google Cloud STT (Chirp) costs $0.016 per minute. Gemini Audio Understanding is billed at standard Flash rates ($0.50/$3.00 per 1M tokens), which can be much cheaper for short summaries or Q&A.
 ---
 
 Google now offers voice and speech capabilities through **multiple distinct services**, each with its own specialized API architecture and cost calculation method. 
@@ -65,22 +71,22 @@ Suppose you want to generate a 10-minute podcast narration (~6,000 words input, 
 
 ---
 
-### B. Gemini 2.5 Flash TTS (Preview)
+### B. Gemini 3.5 Flash TTS (Preview)
 A highly cost-effective, low-latency speech synthesis option designed for high-velocity user interfaces.
-- **Model ID:** `gemini-2.5-flash-preview-tts`
+- **Model ID:** `gemini-3.5-flash-preview-tts`
 
 | Cost Type | Price per 1 Million Tokens | Batch API (50% Off) |
 | :--- | :--- | :--- |
 | **Input (text)** | **$0.15** | $0.075 |
 | **Output (audio)** | **$6.00** | $3.000 |
 
-At just $6.00 per million output tokens, a 10-minute narration costs only **$0.09**—making Gemini 2.5 Flash TTS one of the most budget-friendly high-fidelity speech generation models on the market.
+At just $6.00 per million output tokens, a 10-minute narration costs only **$0.09**—making Gemini 3.5 Flash TTS one of the most budget-friendly high-fidelity speech generation models on the market.
 
 ---
 
-### C. Gemini 2.5 Pro TTS (Preview)
+### C. Gemini 3.5 Pro TTS (Preview)
 Google's premium voice synthesis option. It provides highly natural prosody, variable speed adjustments, and better emotional steering.
-- **Model ID:** `gemini-2.5-pro-preview-tts`
+- **Model ID:** `gemini-3.5-pro-preview-tts`
 
 | Cost Type | Price per 1 Million Tokens | Batch API (50% Off) |
 | :--- | :--- | :--- |

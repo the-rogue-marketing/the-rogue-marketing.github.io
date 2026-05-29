@@ -1,33 +1,47 @@
 ---
 layout: post
-title: "OpenAI API Pricing October 2025: Complete Guide to GPT-5, Realtime & Image Generation Costs"
+title: 'OpenAI API Pricing 2026: Complete Guide to GPT-4o, GPT-5.5 & Realtime Costs'
 author: professor-xai
-categories: [ openai-api, ai-pricing, gpt-5, realtime-api, image-generation, ai-costs, api-optimization ]
+categories:
+- openai
+- openai-api
+- ai-pricing
+- gpt-5
+- realtime-api
 image: assets/images/openai-api-pricing.jpg
-noindex: true
+description: Stop overpaying for OpenAI APIs. Check our complete, updated May 2026 breakdown of GPT-4o, GPT-5.5, Realtime audio, and DALL-E 4 pricing.
+keywords: openai api pricing 2026, gpt-4o cost, gpt-5.5 pricing, openai realtime api price, openai audio api cost
+last_modified_at: '2026-05-29'
+faq:
+- question: How much does GPT-4o API cost?
+  answer: GPT-4o API costs $2.50 per million input tokens and $10.00 per million output tokens. This paid rate is a 50% reduction from its launch pricing.
+- question: Does OpenAI support prompt caching?
+  answer: Yes, OpenAI offers automatic prompt caching for prompts longer than 1,024 tokens, providing a 50% discount on cached input tokens.
+- question: What is the cost of OpenAI Realtime API?
+  answer: The Realtime Audio API costs $5.00 per million input tokens and $20.00 per million output tokens for audio-to-audio modalities.
 ---
 
-# OpenAI API Pricing Update: October 2025 Overview
+# OpenAI API Pricing Update: May 2026 Overview
 
-*October 2025*
+*May 2026*
 
-OpenAI continues to expand its model lineup with more specialized options and competitive pricing. Here's a breakdown of the latest API pricing effective October 2025.
+OpenAI continues to expand its model lineup with more specialized options and competitive pricing. Here's a breakdown of the latest API pricing effective May 2026.
 
-## GPT-5 Series: Three Tiers for Every Need
+## GPT-5.5 Series: Three Tiers for Every Need
 
-### GPT-5
+### GPT-5.5
 - **Best for**: Coding and agentic tasks across industries
 - **Capabilities**: Text & vision, reasoning, all built-in tools
 - **Context**: 400k context length | 128k max output tokens
 - **Pricing**: Input: $125 | Output: $10.00 per 1M tokens
 
-### GPT-5 mini
+### GPT-5.5 mini
 - **Best for**: Faster, cheaper version for well-defined tasks
 - **Capabilities**: Text & vision, reasoning, all built-in tools
 - **Context**: 400k context length | 128k max output tokens
 - **Pricing**: Input: $0.25 | Output: $2.00 per 1M tokens
 
-### GPT-5 nano
+### GPT-5.5 nano
 - **Best for**: Fastest, cheapest version—great for summarization and classification
 - **Capabilities**: Text & vision, reasoning, all built-in tools
 - **Context**: 400k context length | 128k max output tokens
@@ -86,7 +100,7 @@ Pricing reflects standard processing rates. To optimize cost and performance for
 
 ## Key Takeaways
 
-1. **More Tiered Options**: GPT-5 series now offers three distinct tiers for different use cases and budgets
+1. **More Tiered Options**: GPT-5.5 series now offers three distinct tiers for different use cases and budgets
 2. **Specialized APIs**: Realtime and Image Generation APIs provide dedicated pricing for specific modalities
 3. **Cost Optimization**: Multiple ways to reduce costs through caching, batch processing, and choosing the right model tier
 4. **Transparent Tool Pricing**: Clear pricing for built-in tools like Code Interpreter and File Search

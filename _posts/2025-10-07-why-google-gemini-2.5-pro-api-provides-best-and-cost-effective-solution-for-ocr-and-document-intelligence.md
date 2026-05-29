@@ -1,13 +1,23 @@
 ---
 layout: post
-title: "Why Google Gemini API Provides best and cost effective solution for ocr and document intelligence?"
+title: "Gemini Pro API for OCR & Document Intelligence: Best & Cheapest OCR (2026)"
+description: "Looking for the best OCR API in 2026? Read why Google Gemini Pro beats AWS Textract, Azure, Mindee, and NanoNets on cost, speed, and accuracy."
 author: professor-xai
-categories: [gemini-2.5-pro,document-ai,google-ai,pricing,gemini ocr api]
+categories: [gemini-3.5-pro, document-ai, google-ai, pricing, gemini ocr api]
 image: assets/images/gemini-ocr-api.jpg
+keywords: "gemini ocr api, best ocr api 2026, cheapest ocr api, document intelligence, aws textract vs gemini, mindee ocr, nanonets pricing"
+last_modified_at: 2026-05-29
+faq:
+  - question: "Is Google Gemini API good for OCR?"
+    answer: "Yes, Google Gemini Pro and Flash models are excellent for OCR. Because they are native multimodal LLMs, they can parse text, tables, and document structures directly from images without requiring separate OCR engines."
+  - question: "How much does Gemini OCR API cost?"
+    answer: "Using Gemini 1.5 Flash, the cost is approximately $0.075 per million input tokens, which translates to about $0.15 to $0.50 per 1,000 pages depending on text density. This is 60% to 90% cheaper than traditional OCR services like AWS Textract or Microsoft Azure."
+  - question: "Does Gemini OCR API support tables and handwriting?"
+    answer: "Yes, Gemini is highly proficient at handwriting recognition and table extraction. By prompting the model to return data in JSON format, developers can directly extract structured table data without complex post-processing."
 ---
 
 
-### OCR API Showdown 2025: Comparing Mindee, NanoNets, Azure, AWS, Google Vision & Why Gemini Wins on Cost
+### OCR API Showdown 2026: Comparing Mindee, NanoNets, Azure, AWS, Google Vision & Why Gemini Wins on Cost
 
 
 In today's digital transformation era, Optical Character Recognition (OCR) has become essential for businesses dealing with documents, invoices, receipts, and various text extraction needs. With multiple cloud providers and specialized services offering OCR solutions, choosing the right one can be challenging. Let's dive deep into the major players and discover why Google's Gemini API might be the most cost-effective solution.
@@ -152,26 +162,30 @@ In today's digital transformation era, Optical Character Recognition (OCR) has b
 ## Implementation Example: Gemini API OCR
 
 ```python
-import google.generativeai as genai
 import base64
-import requests
+from google import genai
+from google.genai import types
 
 def extract_text_with_gemini(image_path):
-    # Configure Gemini API
-    genai.configure(api_key='your-api-key')
+    # Initialize modern Google GenAI Client
+    # Ensure GEMINI_API_KEY environment variable is set
+    client = genai.Client()
     
-    # Read and encode image
+    # Read image bytes
     with open(image_path, "rb") as image_file:
-        image_data = base64.b64encode(image_file.read()).decode('utf-8')
+        image_bytes = image_file.read()
     
-    # Create the model
-    model = genai.GenerativeModel('gemini-pro-vision')
-    
-    # Generate content
-    response = model.generate_content([
-        "Extract all text from this image accurately. Return only the extracted text without any additional commentary.",
-        {"mime_type": "image/jpeg", "data": image_data}
-    ])
+    # Generate content using gemini-3.5-flash
+    response = client.models.generate_content(
+        model='gemini-3.5-flash',
+        contents=[
+            types.Part.from_bytes(
+                data=image_bytes,
+                mime_type='image/jpeg'
+            ),
+            "Extract all text from this image accurately. Return only the extracted text without any additional commentary."
+        ]
+    )
     
     return response.text
 
