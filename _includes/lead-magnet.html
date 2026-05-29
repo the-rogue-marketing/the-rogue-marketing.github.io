@@ -1,0 +1,162 @@
+{% assign has_ocr = false %}
+{% assign has_pricing = false %}
+{% assign has_audio = false %}
+{% assign has_video = false %}
+
+{% for cat in page.categories %}
+  {% assign lower_cat = cat | downcase %}
+  {% if lower_cat contains 'ocr' or lower_cat contains 'pydantic' %}
+    {% assign has_ocr = true %}
+  {% elsif lower_cat contains 'price' or lower_cat contains 'cost' or lower_cat contains 'pricing' or lower_cat contains 'calculator' %}
+    {% assign has_pricing = true %}
+  {% elsif lower_cat contains 'voice' or lower_cat contains 'audio' or lower_cat contains 'speech' or lower_cat contains 'sound' or lower_cat contains 'tts' or lower_cat contains 'stt' %}
+    {% assign has_audio = true %}
+  {% elsif lower_cat contains 'video' or lower_cat contains 'media' or lower_cat contains 'reel' or lower_cat contains 'short' or lower_cat contains 'veo' %}
+    {% assign has_video = true %}
+  {% endif %}
+{% endfor %}
+
+{% if has_ocr %}
+  {% assign lm_title = "Download the Complete PydanticAI Document Parser Blueprint" %}
+  {% assign lm_desc = "Get the complete, type-safe invoice and ID card parsing codebase in Python + a ready-to-run Docker environment. 100% free." %}
+  {% assign lm_badge = "FREE CODE TEMPLATE" %}
+  {% assign lm_button = "Get Free Template" %}
+{% elif has_audio %}
+  {% assign lm_title = "Get the Gemini Live WebSocket Audio Starter Boilerplate" %}
+  {% assign lm_desc = "A production-grade Voice AI FastAPI backend and real-time HTML/JS sandbox template to jumpstart your audio agent projects." %}
+  {% assign lm_badge = "FREE BOILERPLATE" %}
+  {% assign lm_button = "Get Starter Code" %}
+{% elif has_video %}
+  {% assign lm_title = "Download the Headless Video Automation Pipeline Code" %}
+  {% assign lm_desc = "The Python/FFmpeg template with caption overlays and custom transitions to programmatically generate social media reels & shorts." %}
+  {% assign lm_badge = "DEVELOPER TOOLKIT" %}
+  {% assign lm_button = "Get Video Engine Code" %}
+{% elif has_pricing %}
+  {% assign lm_title = "Download the 2026 AI API Cost Optimization Spreadsheet" %}
+  {% assign lm_desc = "A complete, ready-to-use template to model, calculate, and project your API bills for Gemini, OpenAI, Grok, and Claude." %}
+  {% assign lm_badge = "EXCEL / SHEETS TEMPLATE" %}
+  {% assign lm_button = "Get Free Spreadsheet" %}
+{% else %}
+  {% assign lm_title = "Get Weekly AI Architect Cost & Strategy Updates" %}
+  {% assign lm_desc = "Join 14,000+ developers receiving weekly, data-driven cost-reduction blueprints and production-ready agent guidelines." %}
+  {% assign lm_badge = "WEEKLY NEWSLETTER" %}
+  {% assign lm_button = "Subscribe Free" %}
+{% endif %}
+
+<style>
+.lead-magnet-card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: 2.25rem !important;
+    margin: 3rem 0 2rem 0 !important;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-card) !important;
+    transition: var(--transition) !important;
+}
+.lead-magnet-card:hover {
+    border-color: var(--border-glow) !important;
+    box-shadow: var(--shadow-hover) !important;
+}
+.lead-magnet-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(37,99,235,0.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+.lead-magnet-badge {
+    display: inline-block;
+    background: rgba(37, 99, 235, 0.08);
+    color: var(--accent-cyan);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+.lead-magnet-title {
+    font-size: 1.45rem !important;
+    font-weight: 800 !important;
+    color: var(--text-primary) !important;
+    margin-top: 0 !important;
+    margin-bottom: 0.75rem !important;
+    line-height: 1.3 !important;
+}
+.lead-magnet-desc {
+    font-size: 0.95rem !important;
+    color: var(--text-secondary) !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.6 !important;
+}
+.lead-magnet-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+.lead-magnet-input {
+    flex: 1;
+    background: var(--bg-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius) !important;
+    padding: 12px 16px !important;
+    font-size: 0.92rem !important;
+    font-family: inherit;
+    transition: var(--transition) !important;
+}
+.lead-magnet-input:focus {
+    border-color: #94a3b8 !important;
+    box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.05) !important;
+    outline: none;
+}
+.lead-magnet-submit {
+    background: var(--gradient-primary) !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    padding: 12px 28px !important;
+    border-radius: var(--radius) !important;
+    font-size: 0.92rem !important;
+    cursor: pointer;
+    transition: var(--transition) !important;
+    white-space: nowrap;
+}
+.lead-magnet-submit:hover {
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15) !important;
+    transform: translateY(-1px);
+}
+@media (max-width: 600px) {
+    .lead-magnet-form {
+        flex-direction: column;
+    }
+    .lead-magnet-submit {
+        width: 100%;
+        text-align: center;
+    }
+}
+</style>
+
+<!-- Dynamic Lead Capture Card -->
+<div class="lead-magnet-card">
+    <span class="lead-magnet-badge">{{ lm_badge }}</span>
+    <h3 class="lead-magnet-title">{{ lm_title }}</h3>
+    <p class="lead-magnet-desc">{{ lm_desc }}</p>
+    
+    <form action="https://wowthemes.us11.list-manage.com/subscribe/post?u=8aeb20a530e124561927d3bd8&amp;id=8c3d2d214b" method="post" class="validate" target="_blank" novalidate>
+        <div class="lead-magnet-form">
+            <input type="email" value="" name="EMAIL" class="required email lead-magnet-input" placeholder="Enter your developer email address" required>
+            <!-- bot signups protection -->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                <input type="text" name="b_8aeb20a530e124561927d3bd8_8c3d2d214b" tabindex="-1" value="">
+            </div>
+            <input type="submit" value="{{ lm_button }}" name="subscribe" class="lead-magnet-submit">
+        </div>
+    </form>
+</div>
