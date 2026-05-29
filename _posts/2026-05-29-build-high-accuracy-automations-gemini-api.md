@@ -463,5 +463,3 @@ Gemini 3.5 Flash has made high-accuracy document automation accessible to every 
 Deploy the unified FastAPI application with Docker, point it at LiteLLM for multi-provider routing, and you have a document automation suite that replaces $15,000/month enterprise SaaS platforms.
 
 *Explore more Gemini-powered automation: [invoice parsing for loyalty programs](/best-invoice-receipt-automation-parsing-loyalty-points-pydantic-ai/), [resume parsing](/best-resume-parser-pydantic-ai-gemini-fastapi/), and [document fraud detection](/best-document-fraud-detection-software-2026/).*
-
-{% include lead-magnet.html %}

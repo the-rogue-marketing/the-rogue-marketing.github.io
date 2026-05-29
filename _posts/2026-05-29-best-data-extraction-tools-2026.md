@@ -389,5 +389,3 @@ The data extraction landscape in 2026 has bifurcated into two clear paths:
 The right choice depends on your team's technical capabilities and volume requirements. But the economics are undeniable: multimodal vision AI has made document intelligence accessible to every organization, at any scale.
 
 *Explore our specialized extraction guides: [invoice parsing for loyalty programs](/best-invoice-receipt-automation-parsing-loyalty-points-pydantic-ai/), [resume parsing](/best-resume-parser-pydantic-ai-gemini-fastapi/), and [passport KYC verification](/best-passport-parsing-api-pydantic-ai-gemini-fastapi/).*
-
-{% include lead-magnet.html %}

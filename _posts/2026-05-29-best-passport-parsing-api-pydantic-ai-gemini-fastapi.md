@@ -643,5 +643,3 @@ Commercial KYC verification platforms charge $1–$5 per passport verification. 
 The system deploys as a secure Docker-Compose stack with read-only containers, in-memory processing, and zero persistent storage of identity documents.
 
 *Building a complete KYC pipeline? Check our [invoice parser for loyalty programs](/best-invoice-receipt-automation-parsing-loyalty-points-pydantic-ai/) and [document fraud detection system](/best-document-fraud-detection-software-2026/).*
-
-{% include lead-magnet.html %}

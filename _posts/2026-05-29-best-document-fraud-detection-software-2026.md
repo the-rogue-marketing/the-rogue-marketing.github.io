@@ -511,5 +511,3 @@ Enterprise platforms like **Rossum** and **Onfido** offer comprehensive, turnkey
 The code in this guide gives you a production-ready foundation. Deploy it, customize the fraud detection rules for your specific document types, and build an AI-powered defense against the fastest-growing category of financial crime.
 
 *Strengthen your document pipeline: explore our [invoice automation guide](/best-invoice-receipt-automation-parsing-loyalty-points-pydantic-ai/), [passport KYC verification](/best-passport-parsing-api-pydantic-ai-gemini-fastapi/), and [complete data extraction tools comparison](/best-data-extraction-tools-2026/).*
-
-{% include lead-magnet.html %}

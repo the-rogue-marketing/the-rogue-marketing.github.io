@@ -653,5 +653,3 @@ Building a custom invoice and receipt automation parser for loyalty points is no
 The complete stack — containerized with Docker-Compose and managed with Astral UV — deploys in a single `docker compose up` command.
 
 *Building loyalty receipt parsers at scale? Explore our [complete Gemini OCR guide](/google-gemini-api-ocr-guide-pydantic-ai/) and [multimodal table extraction tutorial](/multimodal-table-extraction-pdf-to-json-pydantic-ai/) for advanced extraction patterns.*
-
-{% include lead-magnet.html %}

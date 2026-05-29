@@ -593,5 +593,3 @@ Commercial resume parsing APIs charge $0.10–$0.25 per resume while struggling 
 The complete system deploys in minutes with `docker compose up`, includes automatic model failover via LiteLLM, and outputs strictly typed JSON that integrates directly with any ATS database.
 
 *Need to parse identity documents alongside resumes? Check out our [passport parsing API guide](/best-passport-parsing-api-pydantic-ai-gemini-fastapi/) and [KYC document pipeline tutorial](/kyc-document-extraction-pipeline-gemini-ocr-langgraph/).*
-
-{% include lead-magnet.html %}

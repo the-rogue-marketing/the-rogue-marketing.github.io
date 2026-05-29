@@ -500,5 +500,3 @@ Minimal. LiteLLM adds ~5ms of routing overhead per request when running as a loc
 The most robust production pipelines in 2026 use both: Pydantic AI agents make their LLM calls through a LiteLLM proxy, getting the best of both worlds — **bulletproof infrastructure** and **type-safe application logic**.
 
 *Ready to build with this architecture? See our [invoice parsing tutorial](/best-invoice-receipt-automation-parsing-loyalty-points-pydantic-ai/), [resume parser guide](/best-resume-parser-pydantic-ai-gemini-fastapi/), and [passport KYC API](/best-passport-parsing-api-pydantic-ai-gemini-fastapi/) — all built with LiteLLM + Pydantic AI.*
-
-{% include lead-magnet.html %}
