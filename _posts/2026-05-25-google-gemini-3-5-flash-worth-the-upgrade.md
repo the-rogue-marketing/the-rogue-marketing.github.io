@@ -4,7 +4,7 @@ title: "Google's New Gemini 3.5 Flash: Is It Worth the Upgrade? [Cost Analysis]"
 description: "Google just launched Gemini 3.5 Flash. I performed a full cost analysis, benchmark study, and review to see if you should upgrade. Calculator inside."
 author: professor-xai
 categories: [gemini, ai-api, pricing, newsjacking, benchmarks]
-image: assets/images/gemini-3-5-flash-review.png
+image: assets/images/gemini-3-5-flash-review.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "gemini 3.5 flash review, gemini 3.5 vs 3.1, gemini 3.5 flash pricing, cheap ai model 2026, google ai studio upgrade, model benchmarks"

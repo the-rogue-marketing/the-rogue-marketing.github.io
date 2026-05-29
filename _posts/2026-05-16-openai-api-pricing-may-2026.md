@@ -4,7 +4,7 @@ title: "OpenAI API Pricing 2026: The $0.10 Model Nobody Talks About [Full GPT-5.
 description: "Complete OpenAI API pricing for May 2026. GPT-5.5 Pro, GPT-4.1 Nano at $0.10/1M tokens, o3 reasoning models, Batch API savings, and real cost examples. Free calculator included."
 author: professor-xai
 categories: [openai, ai-api, gpt-5, pricing, ai-agents, reasoning-models]
-image: assets/images/openai-api-pricing-may-2026.png
+image: assets/images/openai-api-pricing-may-2026.webp
 featured: false
 last_modified_at: 2026-05-25
 keywords: "openai api pricing 2026, gpt-4.1 cost, o3 pricing, gpt-5.5 api cost, openai batch api, openai reasoning model pricing, cheapest openai model"

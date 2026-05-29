@@ -4,7 +4,7 @@ title: "OpenAI Just Dropped Prices Again: Breaking Down the GPT-5.5 Updates [202
 description: "OpenAI announced a major price cut across all API models, including GPT-5.5. I analyzed the price cuts and what it means for SaaS startup margins."
 author: professor-xai
 categories: [openai, pricing, newsjacking, cost-optimization]
-image: assets/images/openai-price-drop-gpt5-5.png
+image: assets/images/openai-price-drop-gpt5-5.webp
 featured: false
 last_modified_at: 2026-05-25
 keywords: "openai price drop 2026, gpt 5.5 pricing update, cheap openai api, gpt-5.5 vs gpt-4o cost, reduce openai API cost"

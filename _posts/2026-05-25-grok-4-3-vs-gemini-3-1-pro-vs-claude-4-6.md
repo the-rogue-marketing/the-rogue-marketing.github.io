@@ -4,7 +4,7 @@ title: "Grok 4.3 vs Gemini 3.1 Pro vs Claude 4.6: Which Flagship API Wins? [2026
 description: "Detailed comparison of flagship developer APIs: xAI Grok 4.3, Google Gemini 3.1 Pro, and Anthropic Claude Sonnet 4.6. Benchmarks, costs, and coder features."
 author: professor-xai
 categories: [grok, gemini, claude, comparison, coding-models]
-image: assets/images/flagship-developer-api-showdown.png
+image: assets/images/flagship-developer-api-showdown.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "grok vs gemini vs claude, best ai model for coding, grok 4.3 pricing, gemini 3.1 pro developer, claude sonnet 4.6 api cost, coding llm comparison"

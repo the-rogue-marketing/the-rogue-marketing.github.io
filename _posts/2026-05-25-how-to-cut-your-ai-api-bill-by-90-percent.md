@@ -4,7 +4,7 @@ title: "How to Cut Your AI API Bill by 90% (Prompt Caching + Batch API Guide)"
 description: "Why pay full price for AI APIs? I'll show you how to combine Prompt Caching and Batch APIs to slash up to 90% off OpenAI, Gemini, and Claude costs."
 author: professor-xai
 categories: [ai-api, cost-optimization, gemini, openai, claude, developers]
-image: assets/images/cut-ai-api-bill-2026.png
+image: assets/images/cut-ai-api-bill-2026.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "reduce ai api cost, prompt caching tutorial, batch api openai, gemini context caching, claude prompt caching, cheap llm api guide"

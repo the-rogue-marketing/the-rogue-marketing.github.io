@@ -4,7 +4,7 @@ title: "Architecting Low-Latency, Low-Cost AI Agents: Prompt Caching, Context Hy
 description: "A production-grade engineering deep-dive on building highly responsive, cost-effective autonomous agents using prompt caching, AST-driven context hydration, and lightweight custom state machines."
 author: professor-xai
 categories: [ai-api, ai-agents, engineering, optimization]
-image: assets/images/low-latency-ai-agent-architecture.png
+image: assets/images/low-latency-ai-agent-architecture.webp
 featured: true
 last_modified_at: 2026-05-21
 keywords: "ai agent architecture 2026, prompt caching tutorial, gemini context caching api, reduce llm api latency, low cost ai agents, custom multi agent framework python, state management for ai agents"

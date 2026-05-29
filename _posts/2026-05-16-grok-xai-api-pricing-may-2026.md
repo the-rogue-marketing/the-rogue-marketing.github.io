@@ -4,7 +4,7 @@ title: "Grok API Pricing 2026: I Analyzed Every xAI Model — Here's What Actual
 description: "Stop overpaying for Grok API. See exact costs per 1M tokens for Grok 4.3, 4.20, 4.1 Fast with real-world examples, free credits info, and our interactive cost calculator. Updated May 2026."
 author: professor-xai
 categories: [grok, xai, ai-api, pricing, grok-4, ai-agents]
-image: assets/images/grok-api-pricing-may-2026.png
+image: assets/images/grok-api-pricing-may-2026.webp
 featured: false
 last_modified_at: 2026-05-25
 keywords: "grok api pricing, xai grok 4.3 cost, grok 4.20 pricing, grok vs openai pricing, grok api free credits, cheapest grok model, xai api pricing 2026"

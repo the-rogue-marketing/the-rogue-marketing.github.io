@@ -3,7 +3,7 @@ layout: post
 title: "Beyond the Hype: How Gemini's AI API is Ushering in a New Era of HealthcareI"
 author: professor-xai
 categories: [gemini-2.5-api,gemini-ai,healthcare,clinical-documentation,healthcare-innovation]
-image: assets/images/gemini-api-usecases.png
+image: assets/images/gemini-api-usecases.webp
 ---
 
 You've heard the buzzwords: Artificial Intelligence, Large Language Models, Generative AI. They promise to revolutionize every industry, but in healthcare—a field where lives are on the line and regulations are stringent—the conversation moves from "what's possible" to "what's practical and safe."

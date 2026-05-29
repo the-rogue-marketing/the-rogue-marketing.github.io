@@ -4,7 +4,7 @@ title: "Google Veo & Lyria API Pricing May 2026: Video Generation & AI Music Com
 description: "Complete pricing guide for Google's video and music generation APIs as of May 2026 — Veo 3.1, Veo 3, Veo 2 video generation and Lyria 3 Clip & Pro music generation with real-world cost examples."
 author: professor-xai
 categories: [gemini, ai-api, google-ai, pricing, video-generation, music-generation]
-image: assets/images/veo-lyria-media-pricing-may-2026.png
+image: assets/images/veo-lyria-media-pricing-may-2026.webp
 featured: true
 last_modified_at: 2026-05-17
 keywords: "veo 3.1 pricing, veo 3 api cost, lyria 3 pricing, google ai video generation, google ai music generation, veo api per second cost, lyria 3 pro pricing"

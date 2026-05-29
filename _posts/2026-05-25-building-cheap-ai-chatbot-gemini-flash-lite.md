@@ -4,7 +4,7 @@ title: "Building a $5/Month AI Chatbot: Complete Guide with Gemini Flash-Lite"
 description: "Stop spending hundreds on GPT-4 support bots. I'll show you how to build a production chatbot running on Gemini Flash-Lite for less than $5/month. Code inside."
 author: professor-xai
 categories: [gemini, tutorials, ai-chatbot, python, cost-optimization]
-image: assets/images/cheap-chatbot-tutorial-2026.png
+image: assets/images/cheap-chatbot-tutorial-2026.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "cheap ai chatbot tutorial, gemini flash lite tutorial, reduce chatbot cost, build a support bot, python ai chatbot code"

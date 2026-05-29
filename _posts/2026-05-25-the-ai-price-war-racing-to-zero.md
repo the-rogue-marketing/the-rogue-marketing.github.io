@@ -4,7 +4,7 @@ title: "The AI Price War: How Grok, Gemini, and OpenAI Are Racing to $0"
 description: "In 2023, LLM API inputs cost $20.00. In 2026, they cost $0.10. I analyzed how architectural gains and competition are driving AI pricing to zero."
 author: professor-xai
 categories: [ai-api, industry-trends, price-war, developers]
-image: assets/images/ai-price-war-2026.png
+image: assets/images/ai-price-war-2026.webp
 featured: false
 last_modified_at: 2026-05-25
 keywords: "ai price war 2026, ai api getting cheaper, cheap llm api, pricing trends, openai price cuts, gemini vs openai cost"

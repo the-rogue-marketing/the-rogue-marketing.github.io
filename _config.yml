@@ -5,9 +5,9 @@ url: "https://the-rogue-marketing.github.io"
 timezone: UTC
 baseurl: ""
 permalink: "/:title/"
-logo: 'assets/images/logo.png'
+logo: 'assets/images/logo.webp'
 favicon: 'assets/images/favicon.ico'
-og_image: 'assets/images/logo.png'
+og_image: 'assets/images/logo.webp'
 author: professor-xai
 paginate: 15
 disqus: 'demowebsite'

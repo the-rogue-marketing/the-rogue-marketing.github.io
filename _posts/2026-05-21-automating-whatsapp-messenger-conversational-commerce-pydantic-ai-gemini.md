@@ -5,7 +5,7 @@ date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
 categories: [Generative AI, Conversational Commerce, Full-Stack]
-image: assets/images/conversational-commerce.png
+image: assets/images/conversational-commerce.webp
 description: "A complete developer guide to building a conversational e-commerce and food ordering system for WhatsApp and Messenger using Pydantic AI, Gemini API, and FastAPI webhook architectures."
 keywords: "whatsapp ordering bot gemini, conversational commerce pydantic ai, fastapi whatsapp cloud api webhook, ai restaurant booking system python, docker-compose uv python"
 ---

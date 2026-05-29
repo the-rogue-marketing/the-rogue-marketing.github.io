@@ -4,7 +4,7 @@ title: "Programmatic Social Syndication: Automating LinkedIn Content Pipelines w
 description: "A comprehensive developer guide to building a type-safe content syndication pipeline using Python, PydanticAI, and the Gemini API to programmatically generate and publish high-CTR LinkedIn articles."
 author: professor-xai
 categories: [social-automation, python, pydantic-ai, generative-ai]
-image: assets/images/programmatic-social-syndication.png
+image: assets/images/programmatic-social-syndication.webp
 featured: true
 last_modified_at: 2026-05-29
 keywords: "how to automate linkedin posts, python linkedin automation, pydanticai agent tutorial, programmatic content creation, generative ai content pipeline"

@@ -4,7 +4,7 @@ title: "Google Gemini TTS & Speech AI Pricing 2026: The Complete Guide [Audio To
 description: "Complete pricing guide for Google's speech and audio APIs as of May 2026. Gemini 3.1 Flash TTS, 2.5 Flash/Pro TTS, Live API, and Google Cloud STT Chirp."
 author: professor-xai
 categories: [gemini, ai-api, google-ai, pricing, text-to-speech, speech-ai]
-image: assets/images/gemini-tts-speech-pricing-may-2026.png
+image: assets/images/gemini-tts-speech-pricing-may-2026.webp
 featured: false
 last_modified_at: 2026-05-25
 keywords: "gemini tts pricing, gemini text to speech cost, google ai speech api, gemini 3.1 flash tts, gemini live api pricing, google stt pricing, chirp speech to text, audio api pricing"

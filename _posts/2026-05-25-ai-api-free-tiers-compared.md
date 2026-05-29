@@ -4,7 +4,7 @@ title: "AI API Free Tiers Compared: How Much Can You Build for $0? [2026]"
 description: "Who says AI development has to be expensive? I compared the free tiers and promotional credits of Gemini, OpenAI, Grok, and Claude. Calculator inside."
 author: professor-xai
 categories: [ai-api, free-credits, gemini, openai, grok, claude]
-image: assets/images/ai-api-free-tiers-2026.png
+image: assets/images/ai-api-free-tiers-2026.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "free ai api, gemini free tier vs openai free, free llm credits, grok api free credits, build ai for free, startup ai credits"

@@ -5,7 +5,7 @@ date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
 categories: [Generative AI, Local LLMs, DevOps]
-image: assets/images/local-cpu-llm-architecture.png
+image: assets/images/local-cpu-llm-architecture.webp
 description: "An in-depth guide on running and serving lightweight open-source LLMs like Phi-4-mini, SmolLM3, and Qwen locally on CPU. Learn GGUF optimization, llama-cpp-python configurations, and FastAPI wrapper patterns."
 keywords: "local llm cpu only, llama.cpp python tutorial, serve llm locally no gpu, lightweight open source llms 2026, ollama cpu optimization"
 ---

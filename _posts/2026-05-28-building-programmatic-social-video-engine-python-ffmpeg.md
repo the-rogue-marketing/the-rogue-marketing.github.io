@@ -4,7 +4,7 @@ title: "Building a Programmatic Social Video Engine: Automating Reels and Shorts
 description: "A complete, production-grade guide to building a high-performance video rendering pipeline using Python and raw FFmpeg to programmatically create vertical shorts with custom kinetic subtitle overlays."
 author: professor-xai
 categories: [video-automation, python, ffmpeg, media-automation]
-image: assets/images/programmatic-video-engine.png
+image: assets/images/programmatic-video-engine.webp
 featured: true
 last_modified_at: 2026-05-28
 keywords: "programmatic video generation, python ffmpeg video automation, automated reels renderer, auto generate shorts python, video rendering pipeline developer"

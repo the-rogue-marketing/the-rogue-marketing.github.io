@@ -4,7 +4,7 @@ title: "Gemini API Pricing 2026: Free Tier vs Paid — I Calculated the Real Cos
 description: "Complete Google Gemini API pricing for May 2026. Gemini 3.5 Flash, 3.1 Pro, Flash-Lite compared with real cost examples for chatbots, document processing, and more. Free calculator included."
 author: professor-xai
 categories: [gemini, ai-api, google-ai, pricing, gemini-3]
-image: assets/images/gemini-api-pricing-may-2026.png
+image: assets/images/gemini-api-pricing-may-2026.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "gemini api pricing, gemini 3.1 pro cost, gemini flash pricing, google ai api, gemini api free tier, gemini 3 flash cost per token, gemini 3.5 flash pricing, cheapest gemini model"

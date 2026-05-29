@@ -5,7 +5,7 @@ date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
 categories: [Generative AI, Healthcare, Full-Stack]
-image: assets/images/lab-test-booking-assistant.png
+image: assets/images/lab-test-booking-assistant.webp
 description: "A comprehensive developer tutorial on building an automated AI-driven Lab Test Booking Assistant. Features Pydantic AI agentic tools, FastAPI, uv, multi-stage Docker builds, and a high-fidelity shadcn-styled frontend."
 keywords: "pydantic ai healthcare agent, gemini lab test assistant, fastapi medical booking agent, shadcn ui tailwind cdn html, docker-compose uv python"
 ---

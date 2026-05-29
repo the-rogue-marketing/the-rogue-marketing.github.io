@@ -4,7 +4,7 @@ title: "AI API Rate Limits Explained: Why Your App Keeps Failing [And the Fix]"
 description: "Is your AI app throwing 429 Too Many Requests errors? I explained standard rate limit rules for OpenAI, Gemini, and Claude, and how to implement retry queues."
 author: professor-xai
 categories: [ai-api, error-handling, engineering, developers]
-image: assets/images/ai-api-rate-limit-fixes.png
+image: assets/images/ai-api-rate-limit-fixes.webp
 featured: false
 last_modified_at: 2026-05-25
 keywords: "api rate limits openai gemini, ai api throttling fix, 429 error code llm, exponential backoff python, rate limit headers, handle rate limits"

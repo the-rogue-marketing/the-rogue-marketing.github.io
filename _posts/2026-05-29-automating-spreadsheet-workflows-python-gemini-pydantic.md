@@ -4,7 +4,7 @@ title: "Automating Spreadsheet Workflows: High-Speed Excel Data Parsing & Valida
 description: "A complete, production-ready guide to building a type-safe spreadsheet automation system in Python that utilizes Gemini and Pydantic to parse, clean, and validate messy Excel rows."
 author: professor-xai
 categories: [excel-automation, python, pydantic-ai, productivity-hacks]
-image: assets/images/automating-spreadsheet-workflows.png
+image: assets/images/automating-spreadsheet-workflows.webp
 featured: true
 last_modified_at: 2026-05-29
 keywords: "how to automate excel sheets, python excel parsing, openpyxl pydantic validator, spreadsheet automation, structured excel parsing llm"

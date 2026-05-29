@@ -4,7 +4,7 @@ title: "Migrating from OpenAI to Gemini: Step-by-Step Guide (Save 70% on API Cos
 description: "How to migrate your production app from OpenAI to Gemini with just 2 lines of code using Google's OpenAI-compatible endpoint. Save up to 70% on tokens."
 author: professor-xai
 categories: [gemini, openai, migration, tutorials, cost-optimization]
-image: assets/images/openai-to-gemini-migration.png
+image: assets/images/openai-to-gemini-migration.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "switch from openai to gemini, openai alternative cheaper, migrate openai to gemini, gemini openai compatibility, save api cost"

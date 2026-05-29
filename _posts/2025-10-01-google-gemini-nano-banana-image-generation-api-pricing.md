@@ -3,7 +3,7 @@ layout: post
 title: "Google Gemini Nano Banana Image Generation Pricing"
 author: professor-xai
 categories: [gemini-2.5-flash-image-preview,ai-image-generation,google-ai,pricing]
-image: assets/images/gemini-nano-banana.png
+image: assets/images/gemini-nano-banana.webp
 noindex: true
 ---
 

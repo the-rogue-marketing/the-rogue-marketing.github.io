@@ -4,7 +4,7 @@ title: "Agentic Financial Compliance: SEC Filing Audits with Gemini 3.1 Pro, Pyd
 description: "A comprehensive developer guide to building automated fintech compliance auditing engines and SEC filing parsers using Gemini 3.1 Pro, Pydantic AI, and FastAPI."
 author: professor-xai
 categories: [ai-api, fintech, pydantic-ai, fastapi]
-image: assets/images/gemini-api-usecases.png
+image: assets/images/gemini-api-usecases.webp
 featured: true
 last_modified_at: 2026-05-21
 keywords: "fintech ai compliance agent, pydantic ai fintech tutorial, sec filings analysis gemini api, automated credit risk llm, fastapi fintech microservices"

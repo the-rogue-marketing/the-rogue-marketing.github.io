@@ -5,7 +5,7 @@ date: 2026-05-21
 last_modified_at: 2026-05-26
 author: professor-xai
 categories: [Generative AI, Voice AI, API Development]
-image: assets/images/gemini-audio-api-architecture.png
+image: assets/images/gemini-audio-api-architecture.webp
 description: "A comprehensive developer guide to building native Speech-to-Text (STT) and Text-to-Speech (TTS) pipelines using the Gemini API, WebSockets, and Python google-genai SDK."
 keywords: "gemini text to speech api, gemini speech to text, native audio llm, google-genai audio python, local audio microservice, websockets live api"
 ---

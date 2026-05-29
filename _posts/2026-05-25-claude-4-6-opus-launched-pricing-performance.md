@@ -4,7 +4,7 @@ title: "Claude 4.6 Opus Just Launched: Here's How It Stacks Up [2026]"
 description: "Anthropic just dropped Claude 4.6 Opus. I reviewed its benchmarks, evaluated the $5.00/$25.00 API pricing, and compared it to GPT-5.5. Calculator inside."
 author: professor-xai
 categories: [claude, ai-api, pricing, newsjacking, benchmarks]
-image: assets/images/claude-4-6-opus-launch.png
+image: assets/images/claude-4-6-opus-launch.webp
 featured: false
 last_modified_at: 2026-05-25
 keywords: "claude 4.6 pricing, claude opus review, anthropic api cost, claude 4.6 vs gpt-5.5, best coding llm 2026, logic model benchmarks"

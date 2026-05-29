@@ -4,7 +4,7 @@ title: "AI API Pricing Comparison 2026: Gemini vs OpenAI vs Grok vs Claude [Cost
 description: "Direct side-by-side comparison of AI API pricing from Google Gemini, OpenAI, xAI Grok, and Anthropic Claude as of May 2026. Find the cheapest API for your startup."
 author: professor-xai
 categories: [ai-api, pricing, gemini, openai, grok, claude, comparison]
-image: assets/images/ai-model-comparison-may-2026.png
+image: assets/images/ai-model-comparison-may-2026.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "ai api pricing comparison 2026, gemini vs openai vs grok vs claude, cheapest ai api, best ai model value, llm cost comparison 2026, startup ai api cost"

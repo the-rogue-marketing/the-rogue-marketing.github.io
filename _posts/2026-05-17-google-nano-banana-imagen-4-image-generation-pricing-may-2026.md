@@ -4,7 +4,7 @@ title: "Google Nano Banana & Imagen 4 Pricing 2026: I Compared Every Image Gener
 description: "Complete pricing breakdown for Google's image generation APIs as of May 2026. Nano Banana, Gemini Flash Image, and Imagen 4 Fast, Standard & Ultra. Calculator inside."
 author: professor-xai
 categories: [gemini, ai-api, google-ai, pricing, image-generation]
-image: assets/images/nano-banana-imagen-pricing-may-2026.png
+image: assets/images/nano-banana-imagen-pricing-may-2026.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "nano banana pricing, imagen 4 pricing, gemini image generation cost, nano banana pro, gemini 3.1 flash image, google ai image api, imagen 4 ultra price per image, cheap image api 2026"

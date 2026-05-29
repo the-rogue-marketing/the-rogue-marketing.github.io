@@ -4,7 +4,7 @@ title: "Multimodal Table Extraction: Converting Complex Financial PDF Tables to 
 description: "Learn why bounding-box OCR tools fail at financial tables and build a 100% accurate, type-safe PDF-to-JSON table extractor using Google Gemini and PydanticAI in Python."
 author: professor-xai
 categories: [ocr, python, pydantic-ai, fintech]
-image: assets/images/multimodal-table-extraction.png
+image: assets/images/multimodal-table-extraction.webp
 featured: true
 last_modified_at: 2026-05-29
 keywords: "convert pdf table to json llm, multimodal table extraction, pdf tables to json python, pydantic ai table parser, gemini pdf tables"

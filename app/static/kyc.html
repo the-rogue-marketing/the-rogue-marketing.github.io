@@ -5,7 +5,7 @@ date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
 categories: [Generative AI, Workflow Automation, Security]
-image: assets/images/kyc-workflow.png
+image: assets/images/kyc-workflow.webp
 description: "A complete developer guide to building a stateful multi-document KYC extraction pipeline. Integrates Gemini vision OCR, LangGraph workflow state machines, and FastAPI."
 keywords: "langgraph document extraction workflow, gemini ocr kyc pipeline, fastapi passport license parser, identity verification agent python, docker-compose uv python"
 ---

@@ -4,7 +4,7 @@ title: "How to Build an AI Agent Under $10/Month Using DeepSeek + Gemini"
 description: "AI agents don't have to be budget killers. Learn how to combine DeepSeek-R1 for cheap reasoning and Gemini Flash-Lite for fast tool use under $10/month."
 author: professor-xai
 categories: [ai-agents, deepseek, gemini, tutorials, budget-ai]
-image: assets/images/cheap-ai-agent-tutorial.png
+image: assets/images/cheap-ai-agent-tutorial.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "build ai agent cheap, deepseek tutorial, multi model ai agent, cheap reasoning model, gemini agent tool call, micro budget ai development"

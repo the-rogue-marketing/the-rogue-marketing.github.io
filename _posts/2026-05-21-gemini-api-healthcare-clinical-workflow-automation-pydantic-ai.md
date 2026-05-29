@@ -4,7 +4,7 @@ title: "Clinical Workflow Automation: Building HIPAA-Aligned Systems with Gemini
 description: "A comprehensive, production-grade guide to building clinical SOAP note generators and ICD-11 coding systems using Gemini 3.1 Pro, Pydantic AI, FastAPI, and uv."
 author: professor-xai
 categories: [ai-api, healthcare, pydantic-ai, fastapi]
-image: assets/images/healthcare-clinical-workflow.png
+image: assets/images/healthcare-clinical-workflow.webp
 featured: true
 last_modified_at: 2026-05-21
 keywords: "healthcare ai automation, gemini api medical soap notes, pydantic ai healthcare tutorial, fastapi icd 11 medical coding, hipaa compliant llm workflow"

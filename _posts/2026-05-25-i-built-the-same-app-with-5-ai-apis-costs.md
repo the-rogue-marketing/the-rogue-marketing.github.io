@@ -4,7 +4,7 @@ title: "I Built the Same App with 5 Different AI APIs — Here's What Each One C
 description: "I built a real-world document parsing SaaS with Google Gemini, OpenAI, Claude, and Grok. Here is the exact cost comparison from 100,000 runs."
 author: professor-xai
 categories: [ai-api, performance, case-study, cost-comparison]
-image: assets/images/real-world-api-cost-comparison.png
+image: assets/images/real-world-api-cost-comparison.webp
 featured: true
 last_modified_at: 2026-05-25
 keywords: "ai api real world cost, which ai api is cheapest for chatbot, document parsing cost, openai vs gemini real cost, compare api bills"

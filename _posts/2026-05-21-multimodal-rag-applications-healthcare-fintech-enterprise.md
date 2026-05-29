@@ -5,7 +5,7 @@ date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
 categories: [Generative AI, Architecture, Enterprise]
-image: assets/images/multimodal-rag-architecture.png
+image: assets/images/multimodal-rag-architecture.webp
 description: "An in-depth analysis of Multimodal Retrieval-Augmented Generation (Multimodal RAG) architectures and their high-impact applications in healthcare, fintech, insurtech, and legal workflows."
 keywords: "multimodal rag architecture, vision rag healthcare, fintech document intelligence, VLM retrieval augmented generation, gemini vision RAG"
 ---

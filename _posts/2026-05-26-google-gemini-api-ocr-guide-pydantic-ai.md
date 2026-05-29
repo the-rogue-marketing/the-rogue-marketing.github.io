@@ -4,7 +4,7 @@ title: "Google Gemini OCR: The Death of Traditional Document AI? [PydanticAI Gui
 description: "Why pay $50 per 1,000 pages for traditional OCR? Learn how to build a 99.6% cheaper invoice and ID document OCR using Google Gemini API and PydanticAI in Python."
 author: professor-xai
 categories: [gemini, ocr, pydantic-ai, python, pricing]
-image: assets/images/gemini-ocr-pydantic-ai.png
+image: assets/images/gemini-ocr-pydantic-ai.webp
 featured: true
 last_modified_at: 2026-05-26
 keywords: "gemini api ocr, document ai vs gemini, pydantic ai tutorial, invoice ocr python, cheap ocr api, parse passports gemini"
@@ -106,7 +106,7 @@ To run a reliable, enterprise-ready OCR engine, you must guarantee that the mode
 
 To solve this, we will use **PydanticAI**, the official agent framework built by the creators of Pydantic. PydanticAI wraps the LLM call, automatically injects formatting guidelines, catches syntax errors, and validates the model response in real-time.
 
-![Multimodal Invoice Parser Diagram]({{ site.baseurl }}/assets/images/multimodal-invoice-parser.png)
+![Multimodal Invoice Parser Diagram]({{ site.baseurl }}/assets/images/multimodal-invoice-parser.webp)
 
 ### System Prerequisites
 Ensure you have the required packages installed in your local environment:

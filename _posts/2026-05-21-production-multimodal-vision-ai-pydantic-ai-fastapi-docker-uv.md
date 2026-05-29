@@ -5,7 +5,7 @@ date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
 categories: [Generative AI, Vision AI, DevOps]
-image: assets/images/pydantic-ai-vision-docker-architecture.png
+image: assets/images/pydantic-ai-vision-docker-architecture.webp
 description: "A step-by-step engineering guide to building a production-grade multimodal vision application using Pydantic AI structured agents, FastAPI, Docker multi-stage builds, and the uv package manager."
 keywords: "pydantic ai vision llm, multimodal ai fastapi docker, pydantic ai image analysis, uv python docker best practices, structured vision extraction"
 ---

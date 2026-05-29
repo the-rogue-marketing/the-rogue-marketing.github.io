@@ -5,7 +5,7 @@ date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
 categories: [Generative AI, Local LLMs, Vision AI]
-image: assets/images/local-multimodal-llm-architecture.png
+image: assets/images/local-multimodal-llm-architecture.webp
 description: "An engineering guide to running and optimizing local vision-language models (VLMs) on consumer CPU and GPU hardware. Learn quantization, memory offloading, and FastAPI integration."
 keywords: "local vision language models, run vlms locally, llama 3.2 vision gguf, qwen2.5-vl local optimization, ollama vision api python"
 ---

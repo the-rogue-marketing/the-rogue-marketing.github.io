@@ -4,7 +4,7 @@ title: "Beyond Vector Search: Hybrid RAG Architectures for Million-Token Context
 description: "A highly technical, production-grade analysis of hybrid dense/sparse retrieval, Graph RAG, and how to optimize retrieval density in the era of million-token LLMs like Gemini 3.1 Pro."
 author: professor-xai
 categories: [ai-api, rag, retrieval, optimization]
-image: assets/images/hybrid-rag-vs-long-context.png
+image: assets/images/hybrid-rag-vs-long-context.webp
 featured: true
 last_modified_at: 2026-05-21
 keywords: "hybrid rag architecture, long context llm vs rag, graph rag tutorial, needle in a haystack llm 2026, colbert dense retrieval, rag cost optimization gemini"

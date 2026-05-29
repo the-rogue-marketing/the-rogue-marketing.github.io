@@ -3,7 +3,7 @@ layout: post
 title: "Google Gemini API Pricing Explained: Your Simple Guide to Costs"
 author: professor-xai
 categories: [gemini, ai-api, google-ai, pricing, flash-model]
-image: assets/images/google-gemini-ai-api-pricing.png
+image: assets/images/google-gemini-ai-api-pricing.webp
 noindex: true
 ---
 

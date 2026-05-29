@@ -4,7 +4,7 @@ title: "DALL-E 4 vs. Imagen 4 vs. Midjourney v7: Flagship Image Generation API C
 description: "A comprehensive developer and digital marketer's guide comparing flagship image generation APIs as of May 2026. Explore DALL-E 4, Imagen 4, and Midjourney v7 pricing, features, and async Python code."
 author: professor-xai
 categories: [ai-api, pricing, image-generation, creative-tech]
-image: assets/images/nano-banana-imagen-pricing-may-2026.png
+image: assets/images/nano-banana-imagen-pricing-may-2026.webp
 featured: true
 last_modified_at: 2026-05-21
 keywords: "dall-e 4 pricing, imagen 4 api cost, midjourney v7 api, best image generation api 2026, ai image api comparison"
