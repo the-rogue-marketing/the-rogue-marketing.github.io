@@ -1,20 +1,126 @@
 ---
 layout: page
-title: Contact
+title: Contact Us
 permalink: "/contact/"
 comments: false
 ---
 
-<form action="https://formspree.io/{{site.email}}" method="POST">    
-<p class="mb-4">Thank you for your interest in getting in touch with us. Please send your message here. We will reply as soon as possible!</p>
-<div class="form-group row">
-<div class="col-md-6">
-<input class="form-control" type="text" name="name" placeholder="Name*" required>
+<style>
+.contact-container {
+    max-width: 650px;
+    margin: 2rem auto;
+    text-align: center;
+}
+.contact-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+.contact-card:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-hover);
+}
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 70%);
+    pointer-events: none;
+}
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-cyan), #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.contact-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+.contact-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2.25rem;
+}
+.contact-btn {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 14px 36px;
+    border-radius: var(--radius);
+    text-decoration: none !important;
+    transition: var(--transition);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+}
+.contact-btn:hover {
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+    transform: translateY(-2px);
+}
+.contact-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+.contact-social-links {
+    margin-top: 0.75rem;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.contact-social-link {
+    color: var(--text-secondary) !important;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+.contact-social-link:hover {
+    color: var(--accent-cyan) !important;
+}
+</style>
+
+<div class="contact-container">
+    <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <h2 class="contact-title">Get in Touch</h2>
+        <p class="contact-desc">
+            Have a technical question, partnership proposal, or want to discuss AI integrations? We'd love to hear from you. Click below to open our secure contact portal.
+        </p>
+        
+        <a href="https://us16.list-manage.com/contact-form?u=594962e31a5d467d5754c22fe&form_id=d42d2ff25f7cb5b8752e7cde7453fb22" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="contact-btn">
+            Open Secure Contact Form
+        </a>
+        
+        <div class="contact-footer">
+            <p class="mb-1">You can also follow our official channels for the latest AI Dynamics releases:</p>
+            <div class="contact-social-links">
+                {% if site.social.twitter %}
+                <a href="{{ site.social.twitter }}" target="_blank" rel="noopener" class="contact-social-link">𝕏 Twitter</a>
+                {% endif %}
+                {% if site.social.facebook %}
+                <a href="{{ site.social.facebook }}" target="_blank" rel="noopener" class="contact-social-link">Facebook</a>
+                {% endif %}
+                {% if site.social.instagram %}
+                <a href="{{ site.social.instagram }}" target="_blank" rel="noopener" class="contact-social-link">Instagram</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
-<div class="col-md-6">
-<input class="form-control" type="email" name="_replyto" placeholder="E-mail Address*" required>
-</div>
-</div>
-<textarea rows="8" class="form-control mb-3" name="message" placeholder="Message*" required></textarea>    
-<input class="btn btn-dark" type="submit" value="Send">
-</form>
