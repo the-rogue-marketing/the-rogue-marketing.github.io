@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Google Gemini API Pricing Explained: Simple Cost Guide (May 2026)'
+title: 'Google Gemini API Pricing Explained: Simple Cost Guide (June 2026)'
 author: professor-xai
 categories:
 - gemini
@@ -11,7 +11,7 @@ categories:
 image: assets/images/google-gemini-ai-api-pricing.webp
 description: A complete, beginner-friendly guide to Google Gemini API pricing in 2026. Learn input/output token costs, caching discounts, and free tier options.
 keywords: gemini api pricing, google gemini cost, gemini 1.5 flash price, prompt caching cost, gemini free tier
-last_modified_at: '2026-05-29'
+last_modified_at: '2026-06-03'
 faq:
 - question: Is Google Gemini API free?
   answer: Yes, Google offers a generous free tier for developers in Google AI Studio, which allows up to 15 RPM (requests per minute) and 1M TPM (tokens per minute) for Gemini 1.5 & 2.5 Flash.

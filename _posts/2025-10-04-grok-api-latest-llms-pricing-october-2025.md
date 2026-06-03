@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Grok API Pricing 2026: Complete xAI Models & Live Search Cost Guide'
+title: 'xAI Grok API Pricing Explained — Complete Models & Live Search Cost Guide (2026)'
 author: professor-xai
 categories:
 - grok
@@ -11,7 +11,7 @@ categories:
 image: assets/images/grok-api-pricing-october-2025.jpg
 description: See how much xAI's Grok API costs in 2026. A detailed guide to Grok 4, Grok 3 Mini, Live Search queries, and image generation pricing.
 keywords: grok api pricing 2026, xai api cost, grok 4 reasoning price, grok live search cost, cheapest reasoning llm
-last_modified_at: '2026-05-29'
+last_modified_at: '2026-06-03'
 faq:
 - question: How much does Grok 4 Fast cost?
   answer: Grok 4 Fast reasoning and non-reasoning models are priced at $0.20 per million input tokens and $0.50 per million output tokens.
@@ -21,11 +21,11 @@ faq:
   answer: Yes, Grok vision models support JPG and PNG image uploads up to 20MiB in size for multimodal context processing.
 ---
 
-# Grok API Pricing May 2026: Complete Guide to Models, Features, and Costs
+# Grok API Pricing June 2026: Complete Guide to Models, Features, and Costs
 
-*May 2026*
+*June 2026*
 
-xAI's Grok API continues to evolve with new models and pricing structures designed to meet diverse developer needs. This comprehensive guide covers everything you need to know about Grok API pricing as of May 2026.
+xAI's Grok API continues to evolve with new models and pricing structures designed to meet diverse developer needs. This comprehensive guide covers everything you need to know about Grok API pricing as of June 2026.
 
 ## New Model Releases
 
@@ -126,7 +126,7 @@ xAI has introduced two new cost-efficient reasoning models:
 
 ## Pricing Summary
 
-The May 2026 pricing introduces significant improvements in cost-efficiency, particularly with the new Grok 4 Fast series offering reasoning capabilities at substantially lower prices compared to previous generations.
+The June 2026 pricing introduces significant improvements in cost-efficiency, particularly with the new Grok 4 Fast series offering reasoning capabilities at substantially lower prices compared to previous generations.
 
 For the most up-to-date pricing and detailed specifications, always check the official xAI Console and API documentation.
 

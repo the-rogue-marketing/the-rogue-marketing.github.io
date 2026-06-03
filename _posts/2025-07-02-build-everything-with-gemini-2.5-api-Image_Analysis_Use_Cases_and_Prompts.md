@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Build Everything with Gemini 3.5 Pro: Advanced OCR & Vision Prompts (2026)'
-description: Unlock multimodal power. A developer guide with copy-paste prompts and Python code for Gemini 3.5 Pro image analysis, object detection, and layout parsing.
+title: "Gemini 3.5 Pro & 2.5 API Vision Prompts — Bounding Boxes, Advanced OCR & Use Cases"
+description: "Advanced developer guide with copy-paste prompts and Python code for Gemini 3.5 Pro and Gemini 2.5 API image analysis, layout parsing, bounding box coordinates, and OCR."
 author: professor-xai
 categories:
 - gemini-3.5-pro
@@ -9,7 +9,7 @@ categories:
 - gemini-api
 image: assets/images/1.jpeg
 keywords: gemini 3.5 pro vision, gemini image analysis prompts, multimodal ocr code, object detection gemini, vision model tutorial
-last_modified_at: '2026-05-29'
+last_modified_at: '2026-06-03'
 faq:
 - question: What is Gemini 3.5 Pro context window for images?
   answer: Gemini 3.5 Pro features a massive context window of 1 million tokens, allowing developers to upload multiple high-resolution images or complete PDF documents simultaneously for visual analysis.

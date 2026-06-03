@@ -27,6 +27,9 @@ footermenu:
 - title: Categories
   url: "categories/"
 
+- title: API Calculator
+  url: "ai-api-pricing-calculator/"
+
 - title: Privacy Policy
   url: "privacy-policy/"
 

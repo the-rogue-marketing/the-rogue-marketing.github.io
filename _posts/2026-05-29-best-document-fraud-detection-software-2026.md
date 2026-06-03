@@ -6,7 +6,7 @@ author: professor-xai
 categories: [ocr, python, pydantic-ai, fintech]
 image: assets/images/verification-pipeline.webp
 featured: true
-last_modified_at: 2026-05-29
+last_modified_at: 2026-06-03
 keywords: "best document fraud detection software 2026, ai document forgery detection, verify tampered pdf, invoice fraud detection api, fake document detector, ocr fraud detection python, document verification software, forged document detection, ai invoice verification, document authenticity checker"
 ---
 

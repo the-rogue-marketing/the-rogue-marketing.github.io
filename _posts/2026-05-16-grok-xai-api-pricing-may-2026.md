@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Grok API Pricing 2026: Complete Guide to xAI Model Costs & Free Credits'
-description: Stop overpaying for Grok. Compare pricing for Grok 4.3 Reasoning, 4.20, and 4.1 Fast. Learn how xAI's prompt caching and free API credits can lower your bill.
+title: 'xAI Grok API Pricing June 2026 — Per-Million-Token Costs, Free Credits & Calculator'
+description: 'Official xAI Grok API pricing for June 2026. Grok 4.3 at $1.25/1M, Grok 4.1 Fast at $0.20/1M tokens. Free $175/mo credits, 2M context windows, batch discounts, and interactive cost calculator.'
 author: professor-xai
 categories:
 - grok
@@ -12,7 +12,7 @@ categories:
 - ai-agents
 image: assets/images/grok-api-pricing-may-2026.webp
 featured: false
-last_modified_at: '2026-05-29'
+last_modified_at: '2026-06-03'
 keywords: grok api pricing, xai grok 4.3 cost, grok 4.20 pricing, grok vs openai pricing, grok api free credits, cheapest grok model, xai api pricing 2026
 faq:
 - question: How much does the Grok API cost per 1 million tokens?

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How to Automate WhatsApp & Instagram Messages: Building Type-Safe Chat Agents"
-description: "A complete, hands-on developer tutorial to building automated message-reply engines for WhatsApp and Instagram in Python using PydanticAI and the Gemini API."
+title: "How to Automate WhatsApp & Instagram Replies with AI — Automated Lead Response & Chat Agents"
+description: "Build an automated WhatsApp and Instagram messaging platform that handles lead response, order tracking, and customer support. Full Python tutorial with PydanticAI, Gemini API, and Meta Business API."
 author: professor-xai
 categories: [social-automation, python, pydantic-ai, voice-ai]
 image: assets/images/automating-whatsapp-instagram-replies.webp

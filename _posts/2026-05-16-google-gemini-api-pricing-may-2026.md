@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Gemini API Pricing 2026: Free Tier vs Paid — I Calculated the Real Cost for 10 Use Cases"
-description: "Complete Google Gemini API pricing for May 2026. Gemini 3.5 Flash, 3.1 Pro, Flash-Lite compared with real cost examples for chatbots, document processing, and more. Free calculator included."
+title: "Google Gemini API Pricing June 2026 — Official Per-Million-Token Rates, Free Tier & Calculator"
+description: "Complete Google Gemini API pricing for June 2026. Gemini 3.5 Flash $1.50, 3.1 Pro $2.00, Flash-Lite $0.10 per 1M tokens. Compare costs across 18 models with our free interactive calculator."
 author: professor-xai
 categories: [gemini, ai-api, google-ai, pricing, gemini-3]
 image: assets/images/gemini-api-pricing-may-2026.webp
 featured: true
-last_modified_at: 2026-05-25
+last_modified_at: 2026-06-03
 keywords: "gemini api pricing, gemini 3.1 pro cost, gemini flash pricing, google ai api, gemini api free tier, gemini 3 flash cost per token, gemini 3.5 flash pricing, cheapest gemini model"
 faq:
   - question: "How much does the Google Gemini API cost per 1 million tokens?"

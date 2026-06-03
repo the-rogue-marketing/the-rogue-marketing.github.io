@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Optimizing Local Multimodal LLMs: Running Vision-Language Models on Consumer Hardware"
+title: "Optimizing Local Multimodal LLMs — Running Vision-Language Models on CPU and GPU"
 date: 2026-05-21
-last_modified_at: 2026-05-21
+last_modified_at: 2026-06-03
 author: professor-xai
 categories: [Generative AI, Local LLMs, Vision AI]
 image: assets/images/local-multimodal-llm-architecture.webp

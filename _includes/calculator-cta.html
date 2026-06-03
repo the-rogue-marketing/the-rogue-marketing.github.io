@@ -1,0 +1,92 @@
+{% assign show_calculator_cta = false %}
+{% for cat in page.categories %}
+  {% if cat == 'pricing' or cat == 'ai-api' or cat == 'gemini' or cat == 'grok' or cat == 'openai' or cat == 'xai' or cat == 'google-ai' %}
+    {% assign show_calculator_cta = true %}
+  {% endif %}
+{% endfor %}
+
+{% if show_calculator_cta %}
+<div class="calculator-cta-banner" id="calculator-cta">
+  <div class="cta-inner">
+    <div class="cta-icon">🧮</div>
+    <div class="cta-text">
+      <strong>Calculate Your AI API Costs</strong>
+      <span>Compare 30+ models instantly — Gemini, OpenAI, Grok & Claude</span>
+    </div>
+    <a href="/ai-api-pricing-calculator/" class="cta-button">Open Calculator →</a>
+  </div>
+</div>
+
+<style>
+.calculator-cta-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 10px;
+  padding: 1px;
+  margin: 2rem 0;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.calculator-cta-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+}
+.cta-inner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.cta-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+.cta-text {
+  flex: 1;
+  min-width: 0;
+}
+.cta-text strong {
+  display: block;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.cta-text span {
+  color: #94a3b8;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+.cta-button {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+.cta-button:hover {
+  background: #f1f5f9 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+@media (max-width: 640px) {
+  .cta-inner {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  .cta-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+{% endif %}

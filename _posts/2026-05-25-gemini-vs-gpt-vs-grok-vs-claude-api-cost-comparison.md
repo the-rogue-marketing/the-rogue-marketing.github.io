@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Gemini vs GPT-5.5 vs Grok vs Claude: Complete API Cost Calculator [2026]"
+title: "Gemini vs GPT vs Grok vs Claude API Cost Comparison — 2026 Calculator"
 description: "Direct side-by-side developer pricing comparison of Google Gemini, OpenAI GPT-5.5/4.1, xAI Grok 4.3, and Claude Sonnet. Find the cheapest API for your startup."
 author: professor-xai
 categories: [ai-api, pricing, gemini, openai, grok, claude, comparison]
 image: assets/images/gemini-vs-gpt-vs-grok-vs-claude-comparison.webp
 featured: true
-last_modified_at: 2026-05-25
+last_modified_at: 2026-06-03
 keywords: "gemini vs gpt api cost, cheapest ai api 2026, openai vs claude api cost, grok vs gemini api, startup llm cost comparison"
 faq:
   - question: "Which major AI API is the cheapest overall?"

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 'Google Gemini TTS & Speech AI Pricing 2026: Cheaper than ElevenLabs?'
-description: Is Gemini TTS the best ElevenLabs alternative? Check our complete pricing guide for Gemini 3.5 Pro TTS, Flash audio tokens, and Google Cloud Chirp.
+title: 'Google Gemini TTS & Speech API Pricing June 2026 — Gemini 3.1 Flash, 3.5 Pro TTS & Live API Costs'
+description: 'Complete Gemini TTS pricing for June 2026. Gemini 3.5 Flash TTS at $6/1M output tokens, 3.1 Flash TTS at $20/1M, Live API at $1/1M input. 32x cheaper than OpenAI Realtime. Free cost calculator.'
 author: professor-xai
 categories:
 - gemini
@@ -12,7 +12,7 @@ categories:
 - speech-ai
 image: assets/images/gemini-tts-speech-pricing-may-2026.webp
 featured: false
-last_modified_at: '2026-05-29'
+last_modified_at: '2026-06-03'
 keywords: gemini tts pricing, gemini text to speech cost, google ai speech api, gemini 3.1 flash tts, gemini live api pricing, google stt pricing, chirp speech to text, audio api pricing
 faq:
 - question: How much does Gemini's Text-to-Speech (TTS) cost?

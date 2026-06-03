@@ -6,7 +6,7 @@ author: professor-xai
 categories: [ocr, python, pydantic-ai]
 image: assets/images/gemini-ocr-pydantic-ai.webp
 featured: true
-last_modified_at: 2026-05-29
+last_modified_at: 2026-06-03
 keywords: "gemini 3.5 flash automations, image to excel api gemini, bank statement converter python, pdf to excel api python, gemini ocr api, high accuracy document conversion, image to spreadsheet converter, pdf table extraction api, gemini flash document processing, automated data entry api"
 ---
 
