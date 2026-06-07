@@ -10,7 +10,10 @@ Usage:
 
 import argparse
 import json
+import os
+import re
 import sys
+import yaml
 
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -19,59 +22,80 @@ SCOPES = ["https://www.googleapis.com/auth/indexing"]
 
 SITE_URL = "https://the-rogue-marketing.github.io"
 
-# All blog post URLs to index
-URLS = [
-    # New May 2026 posts (OCR/Document Intelligence sprint)
-    f"{SITE_URL}/beyond-linear-chains-engineering-robust-agentic-workflows-with-langgraph/",
-    f"{SITE_URL}/best-invoice-receipt-automation-parsing-loyalty-points-pydantic-ai/",
-    f"{SITE_URL}/best-resume-parser-pydantic-ai-gemini-fastapi/",
-    f"{SITE_URL}/best-passport-parsing-api-pydantic-ai-gemini-fastapi/",
-    f"{SITE_URL}/litellm-vs-pydantic-ai-production-pipelines/",
-    f"{SITE_URL}/best-data-extraction-tools-2026/",
-    f"{SITE_URL}/best-document-fraud-detection-software-2026/",
-    f"{SITE_URL}/build-high-accuracy-automations-gemini-api/",
-    f"{SITE_URL}/google-gemini-api-ocr-guide-pydantic-ai/",
-    f"{SITE_URL}/ai-api-pricing-calculator/",
-    f"{SITE_URL}/the-0-10-ai-models-guide-to-cheap-llm-apis/",
-    f"{SITE_URL}/how-to-cut-your-ai-api-bill-by-90-percent/",
-    f"{SITE_URL}/gemini-vs-gpt-vs-grok-vs-claude-api-cost-comparison/",
-    f"{SITE_URL}/ai-api-free-tiers-compared/",
-    f"{SITE_URL}/building-cheap-ai-chatbot-gemini-flash-lite/",
-    f"{SITE_URL}/i-built-the-same-app-with-5-ai-apis-costs/",
-    f"{SITE_URL}/grok-4-3-vs-gemini-3-1-pro-vs-claude-4-6/",
-    f"{SITE_URL}/migrating-from-openai-to-gemini-step-by-step/",
-    f"{SITE_URL}/build-ai-agent-under-10-dollars-deepseek-gemini/",
-    f"{SITE_URL}/google-gemini-3-5-flash-worth-the-upgrade/",
-    f"{SITE_URL}/openai-price-drop-breaking-down-gpt-5-5/",
-    f"{SITE_URL}/deepseek-vs-major-ai-apis-benchmark/",
-    f"{SITE_URL}/ai-api-rate-limits-explained/",
-    f"{SITE_URL}/the-ai-price-war-racing-to-zero/",
-    f"{SITE_URL}/claude-4-6-opus-launched-pricing-performance/",
-    f"{SITE_URL}/google-gemini-api-pricing-may-2026/",
-    f"{SITE_URL}/openai-api-pricing-may-2026/",
-    f"{SITE_URL}/grok-xai-api-pricing-may-2026/",
-    f"{SITE_URL}/ai-model-pricing-comparison-gemini-openai-grok-claude-2026/",
-    f"{SITE_URL}/google-nano-banana-imagen-4-image-generation-pricing-may-2026/",
-    f"{SITE_URL}/google-gemini-tts-speech-audio-api-pricing-may-2026/",
-    f"{SITE_URL}/google-veo-lyria-video-music-generation-api-pricing-may-2026/",
-    # Older posts (re-index)
-    f"{SITE_URL}/google-gemini-ai-api-pricing-explained-october-2025/",
-    f"{SITE_URL}/openai-api-pricing-comparison-october-2025/",
-    f"{SITE_URL}/grok-api-latest-llms-pricing-october-2025/",
-    f"{SITE_URL}/choosing-best-llm-api-provider-to-build-ai-agents-in-2025/",
-    f"{SITE_URL}/why-is-google-gemini-api-the-best-choice-to-begin-generative-ai-journey-in-2025/",
-    f"{SITE_URL}/why-google-gemini-2.5-pro-api-provides-best-and-cost-effective-solution-for-ocr-and-document-intelligence/",
-    f"{SITE_URL}/top-use-cases-of-google-gemini-ai-in-healthcare-industry/",
-    f"{SITE_URL}/build-everything-with-gemini-2.5-api-Image_Analysis_Use_Cases_and_Prompts/",
-    f"{SITE_URL}/generative-ai-gemini-vs-other-api-providers-cost-comparison/",
-    f"{SITE_URL}/comparison-of-google-ocr-vs-aws-and-azure-ocr-apis-cost-and-speed-comparison/",
-    f"{SITE_URL}/openai-api-updates-and-pricing-october-2025/",
-    f"{SITE_URL}/top-llm-api-provider-to-build-ai-applications-and-ai-agents/",
-    f"{SITE_URL}/google-gemini-nano-banana-image-generation-api-pricing/",
-    f"{SITE_URL}/simplify-your-workflow-with-a-barcode-reader-generator/",
-    # Homepage
-    f"{SITE_URL}/",
-]
+def get_all_site_urls():
+    urls = {SITE_URL + "/"}
+    
+    # 1. Parse posts
+    posts_dir = "_posts"
+    if os.path.exists(posts_dir):
+        for filename in os.listdir(posts_dir):
+            if not filename.endswith((".md", ".html")):
+                continue
+            path = os.path.join(posts_dir, filename)
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                match = re.match(r"^---\s*\n(.*?)\n---\s*\n", content, re.DOTALL)
+                permalink = None
+                if match:
+                    frontmatter = yaml.safe_load(match.group(1))
+                    if isinstance(frontmatter, dict):
+                        permalink = frontmatter.get("permalink")
+                
+                if not permalink:
+                    m = re.match(r"^\d{4}-\d{2}-\d{2}-(.*)\.(?:md|html)$", filename)
+                    if m:
+                        title_slug = m.group(1)
+                        permalink = f"/{title_slug}/"
+                    else:
+                        title_slug = os.path.splitext(filename)[0]
+                        permalink = f"/{title_slug}/"
+                
+                if permalink:
+                    permalink = str(permalink)
+                    if not permalink.startswith("/"):
+                        permalink = "/" + permalink
+                    if not permalink.endswith("/"):
+                        permalink = permalink + "/"
+                    urls.add(SITE_URL + permalink)
+            except Exception as e:
+                print(f"⚠️ Error parsing post {filename}: {e}")
+
+    # 2. Parse pages
+    pages_dir = "pages"
+    if os.path.exists(pages_dir):
+        for filename in os.listdir(pages_dir):
+            if not filename.endswith((".md", ".html")):
+                continue
+            path = os.path.join(pages_dir, filename)
+            try:
+                with open(path, "r", encoding="utf-8") as f:
+                    content = f.read()
+                match = re.match(r"^---\s*\n(.*?)\n---\s*\n", content, re.DOTALL)
+                permalink = None
+                if match:
+                    frontmatter = yaml.safe_load(match.group(1))
+                    if isinstance(frontmatter, dict):
+                        permalink = frontmatter.get("permalink")
+                
+                if not permalink:
+                    slug = os.path.splitext(filename)[0]
+                    permalink = f"/{slug}/"
+                
+                if permalink:
+                    permalink = str(permalink)
+                    if not permalink.startswith("/"):
+                        permalink = "/" + permalink
+                    if not permalink.endswith("/"):
+                        permalink = permalink + "/"
+                    urls.add(SITE_URL + permalink)
+            except Exception as e:
+                print(f"⚠️ Error parsing page {filename}: {e}")
+
+    return sorted(list(urls))
+
+URLS = get_all_site_urls()
+
 
 
 def submit_url(service, url, action="URL_UPDATED"):
