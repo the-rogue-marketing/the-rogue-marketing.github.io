@@ -8,8 +8,14 @@ image: assets/images/automating-business-with-ai.webp
 featured: true
 last_modified_at: 2026-05-29
 keywords: "how to automate business with ai, b2b saas ai integration, secure tool execution python, pydanticai agent database, token tracking stripe api"
+faq:
+  - question: "How can B2B SaaS companies integrate AI automation?"
+    answer: "Build a type-safe AI automation layer using PydanticAI for structured LLM interactions, FastAPI for the API gateway, and implement secure tool execution patterns. This layer sits between your SaaS application and LLM providers, handling authentication, rate limiting, and token tracking."
+  - question: "How do I track AI API costs per customer in a multi-tenant SaaS?"
+    answer: "Implement middleware that counts input and output tokens per API call, associates usage with tenant IDs, and stores consumption in PostgreSQL. Integrate with Stripe's metered billing to charge customers based on actual AI token usage."
+  - question: "What is secure tool execution in AI agents?"
+    answer: "Secure tool execution validates all LLM-generated tool calls against a whitelist, sanitizes parameters to prevent injection attacks, enforces per-tenant rate limits, and logs all tool invocations for audit. PydanticAI's type system prevents the LLM from calling unauthorized database operations."
 ---
-
 When transitioning an AI project from a local developer prototype to a commercial B2B SaaS application in **May 2026**, developers run into a critical security and operational wall. 
 
 It is easy to let an AI model query database columns or generate text in a terminal. However, letting an autonomous agent execute real business operations—such as charging customer credit cards on Stripe, modifying CRM records in HubSpot, or sending transactional emails to clients—is extremely risky. Without strict security containers, LLMs are vulnerable to **prompt injection attacks**, where malicious inputs trick the model into calling unauthorized APIs or burning thousands of dollars of API tokens.

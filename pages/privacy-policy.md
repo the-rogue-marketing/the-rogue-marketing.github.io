@@ -1,9 +1,11 @@
 ---
 layout: page
 title: Privacy Policy
+description: "Read the Rogue Marketing privacy policy — how we collect, use, and protect your data when browsing our AI insights and API pricing content."
 permalink: /privacy-policy/
 comments: false
 ---
+
 
 ### Information that is gathered from visitors
 In common with other websites, log files are stored on the web server saving details such as the visitor's IP address, browser type, referring page and time of visit.

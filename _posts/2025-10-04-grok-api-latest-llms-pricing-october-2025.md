@@ -12,6 +12,8 @@ image: assets/images/grok-api-pricing-october-2025.jpg
 description: See how much xAI's Grok API costs in 2026. A detailed guide to Grok 4, Grok 3 Mini, Live Search queries, and image generation pricing.
 keywords: grok api pricing 2026, xai api cost, grok 4 reasoning price, grok live search cost, cheapest reasoning llm
 last_modified_at: '2026-06-03'
+canonical_url: "https://the-rogue-marketing.github.io/grok-xai-api-pricing-may-2026/"
+noindex: true
 faq:
 - question: How much does Grok 4 Fast cost?
   answer: Grok 4 Fast reasoning and non-reasoning models are priced at $0.20 per million input tokens and $0.50 per million output tokens.

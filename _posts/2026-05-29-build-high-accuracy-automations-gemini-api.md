@@ -8,8 +8,14 @@ image: assets/images/gemini-ocr-pydantic-ai.webp
 featured: true
 last_modified_at: 2026-06-03
 keywords: "gemini 3.5 flash automations, image to excel api gemini, bank statement converter python, pdf to excel api python, gemini ocr api, high accuracy document conversion, image to spreadsheet converter, pdf table extraction api, gemini flash document processing, automated data entry api"
+faq:
+  - question: "What kind of automations can I build with Gemini 3.5 Flash?"
+    answer: "Gemini 3.5 Flash powers image-to-Excel converters, bank statement parsers, PDF-to-spreadsheet pipelines, receipt scanners, and document classification systems. Its multimodal vision processes images and PDFs natively at $0.30/1M tokens."
+  - question: "How accurate is Gemini for document-to-spreadsheet conversion?"
+    answer: "Gemini 3.5 Flash achieves 95-99% accuracy for structured document conversion when combined with PydanticAI validation schemas. The AI extracts tabular data, preserves column relationships, and outputs clean Excel files via openpyxl."
+  - question: "Can Gemini parse bank statements automatically?"
+    answer: "Yes. Gemini's vision model reads bank statement PDFs or images, extracts transaction data (date, description, amount, balance), and outputs structured data. PydanticAI validates amounts and dates, catching OCR errors before they enter your financial system."
 ---
-
 Google Gemini 3.5 Flash has become the default choice for high-accuracy document automation in 2026. Its multimodal vision capabilities process images, PDFs, and scanned documents with **97–99% extraction accuracy** at a fraction of the cost of legacy OCR solutions.
 
 In this guide, we build **three production-ready automation APIs** that solve the most common document conversion requests in enterprise workflows:

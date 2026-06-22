@@ -8,8 +8,14 @@ image: assets/images/hybrid-rag-vs-long-context.webp
 featured: true
 last_modified_at: 2026-05-21
 keywords: "hybrid rag architecture, long context llm vs rag, graph rag tutorial, needle in a haystack llm 2026, colbert dense retrieval, rag cost optimization gemini"
+faq:
+  - question: "Should I use RAG or long-context LLMs for my application?"
+    answer: "Use long-context LLMs when your dataset fits within the context window and freshness matters less. Use RAG when you need to search across millions of documents, require real-time updates, or need to minimize token costs. Hybrid approaches combining both often yield the best results."
+  - question: "What is hybrid RAG and when should I use it?"
+    answer: "Hybrid RAG combines vector similarity search with keyword/BM25 search and optionally feeds results into a long-context LLM for final synthesis. Use it when you need high recall across large document collections while maintaining contextual understanding."
+  - question: "How much does it cost to run RAG vs long-context queries?"
+    answer: "RAG with Gemini Flash typically costs $0.01-0.05 per query (small retrieved chunks). Long-context queries with 500K tokens cost $0.50-1.25 per query on Gemini Pro. RAG is 10-50x cheaper but may miss nuanced cross-document relationships."
 ---
-
 With the arrival of Google’s **Gemini 3.1 Pro** and xAI's **Grok 4.20** offering context windows of 1 to 2 million tokens, a common narrative has emerged in the developer community: *\"RAG (Retrieval-Augmented Generation) is dead. Why bother indexing documents when you can dump your entire corpus directly into the model's context?\"*
 
 While this "brute force context" approach is tempting for basic prototyping, it falls apart under the realities of production engineering. The truth is that **RAG is not dead; it has evolved.** In the era of massive context windows, RAG has transitioned from a simple tool for *finding* data to an essential architecture for *filtering, structuring, and optimizing* information density.

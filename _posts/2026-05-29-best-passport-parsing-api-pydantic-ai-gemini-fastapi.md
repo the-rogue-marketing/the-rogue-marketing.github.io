@@ -8,8 +8,14 @@ image: assets/images/passport-parsing-api.webp
 featured: true
 last_modified_at: 2026-05-29
 keywords: "best passport parsing api, passport ocr python gemini, pydantic ai passport parsing, passport verification api, kyc automation api 2026, mrz parser python, identity document ocr, fastapi passport parser, automated kyc verification, passport data extraction"
+faq:
+  - question: "How accurate is AI passport parsing compared to traditional OCR?"
+    answer: "Gemini-based passport parsing achieves 97-99% accuracy on the bio-page, including MRZ (Machine Readable Zone) validation. Traditional OCR tools like Tesseract achieve 85-92% on passports due to security features, holograms, and varied fonts that confuse character-level recognition."
+  - question: "Does AI passport parsing include MRZ validation?"
+    answer: "Yes. The PydanticAI schema includes MRZ checksum validation, cross-referencing extracted fields (name, nationality, date of birth, passport number) against the MRZ code to catch extraction errors and detect potential document tampering."
+  - question: "Can this passport parser detect fraudulent documents?"
+    answer: "The system includes basic fraud detection by validating field consistency (MRZ vs visual fields), checking date logic, and flagging anomalies. For advanced fraud detection (pixel analysis, security feature verification), additional forensic analysis layers are recommended."
 ---
-
 Know Your Customer (KYC) compliance is the backbone of modern fintech, banking, and insurance operations. Every new account opening, loan application, and insurance policy requires **identity document verification** — and at the center of KYC sits the **passport bio-page**: the single most universally accepted identity document worldwide.
 
 Yet passport parsing remains one of the most challenging document intelligence problems. Photo IDs suffer from **glare artifacts**, **skewed scanning angles**, **laminate reflections**, and the critical **Machine Readable Zone (MRZ)** — two lines of tightly packed characters that encode identity data with mathematically computed check digits.

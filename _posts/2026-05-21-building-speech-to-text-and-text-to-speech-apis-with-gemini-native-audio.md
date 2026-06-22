@@ -8,8 +8,14 @@ categories: [Generative AI, Voice AI, API Development]
 image: assets/images/gemini-audio-api-architecture.webp
 description: "A comprehensive developer guide to building native Speech-to-Text (STT) and Text-to-Speech (TTS) pipelines using the Gemini API, WebSockets, and Python google-genai SDK."
 keywords: "gemini text to speech api, gemini speech to text, native audio llm, google-genai audio python, local audio microservice, websockets live api"
+faq:
+  - question: "How does Gemini Native Audio work for speech-to-text?"
+    answer: "Gemini processes audio natively at 32 tokens per second, understanding speech directly from the audio waveform without a separate transcription step. This enables richer understanding of tone, context, and multiple speakers compared to traditional ASR systems."
+  - question: "How much does Gemini text-to-speech API cost?"
+    answer: "Gemini Flash Preview TTS costs $0.50/1M input tokens and $10.00/1M output tokens. Gemini Pro Preview TTS is $1.00/$20.00 per million tokens. Both support multiple voices and languages with natural-sounding speech synthesis."
+  - question: "Is Gemini audio API better than OpenAI Whisper?"
+    answer: "Gemini's native audio processing understands context, tone, and semantic meaning alongside transcription, while Whisper focuses purely on accurate text transcription. For applications needing audio understanding beyond text, Gemini is more capable. For pure transcription at scale, Whisper at $0.006/min remains cost-effective."
 ---
-
 Traditionally, building voice-enabled applications required developer teams to glue together multiple disconnected services. You had to capture user speech, transcribe it using a Speech-to-Text (STT) model like Whisper, pass the text to a Large Language Model (LLM) to generate a response, and then convert that response back to audio using a third-party Text-to-Speech (TTS) engine.
 
 This modular pipeline has three major flaws:

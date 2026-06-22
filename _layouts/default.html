@@ -45,38 +45,38 @@
 }
 </script>
 
-{% if page.layout == 'post' %}
-{% assign author = site.authors[page.author] %}
+{% include faq-schema.html %}
+{% include breadcrumb-schema.html %}
+
+<!-- SiteNavigationElement Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ page.title | escape }}",
-  "description": "{% if page.description %}{{ page.description | escape }}{% else %}{{ page.excerpt | strip_html | truncate: 200 | escape }}{% endif %}",
-  {% if page.image %}"image": "{{ site.url }}{{ site.baseurl }}/{{ page.image }}",{% endif %}
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{% if page.last_modified_at %}{{ page.last_modified_at | date_to_xmlschema }}{% else %}{{ page.date | date_to_xmlschema }}{% endif %}",
-  "author": {
-    "@type": "Person",
-    "name": "{% if author %}{{ author.display_name }}{% else %}{{ site.title }}{% endif %}"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{ site.title }}",
-    {% if site.logo %}"logo": {
-      "@type": "ImageObject",
-      "url": "{{ site.url }}{{ site.baseurl }}/{{ site.logo }}"
-    }{% endif %}
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  }
+  "@type": "SiteNavigationElement",
+  "name": ["Home", "Blog", "API Calculator", "About", "Contact"],
+  "url": [
+    "{{ site.url }}{{ site.baseurl }}/",
+    "{{ site.url }}{{ site.baseurl }}/categories/",
+    "{{ site.url }}{{ site.baseurl }}/ai-api-pricing-calculator/",
+    "{{ site.url }}{{ site.baseurl }}/about/",
+    "{{ site.url }}{{ site.baseurl }}/contact/"
+  ]
 }
 </script>
-{% endif %}
 
-{% include faq-schema.html %}
+<!-- Pagination rel=prev/next -->
+{% if paginator %}
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+    <link rel="prev" href="{{ site.url }}{{ site.baseurl }}/">
+    {% else %}
+    <link rel="prev" href="{{ site.url }}{{ site.baseurl }}/page{{ paginator.previous_page }}/">
+    {% endif %}
+  {% endif %}
+  {% if paginator.next_page %}
+    <link rel="next" href="{{ site.url }}{{ site.baseurl }}/page{{ paginator.next_page }}/">
+  {% endif %}
+{% endif %}
     
 {% if jekyll.environment == "production" %}       
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -89,7 +89,7 @@ gtag('config', '{{site.ganalytics}}');
 </script>
 {% endif %}
    
-</head>   
+</head>
     
 {% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{% endcapture %}
 <body class="{{ layout }}">

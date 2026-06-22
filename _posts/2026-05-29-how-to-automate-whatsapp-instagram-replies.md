@@ -8,8 +8,14 @@ image: assets/images/automating-whatsapp-instagram-replies.webp
 featured: true
 last_modified_at: 2026-05-29
 keywords: "how to automate whatsapp messages, how to automate instagram messages, python automated replies instagram, whatsapp business api chat agent, conversational ai script"
+faq:
+  - question: "Can I automate replies on WhatsApp and Instagram simultaneously?"
+    answer: "Yes. Use Meta's Business API which provides a unified webhook for both WhatsApp and Instagram messages. Build a single PydanticAI agent backend that handles messages from both platforms, with platform-specific response formatting for each channel."
+  - question: "How do I set up WhatsApp Business API for automated replies?"
+    answer: "Register on Meta Business Platform, create a WhatsApp Business Account, configure a webhook URL pointing to your FastAPI server, and verify the webhook with Meta's challenge token. The API sends incoming messages to your webhook, where your AI agent generates and sends replies."
+  - question: "What is the cost of automating WhatsApp and Instagram messages?"
+    answer: "WhatsApp Cloud API is free for the first 1,000 conversations/month. Instagram messaging API is included with a verified Meta Business account. AI processing costs with Gemini Flash-Lite are $0.10/1M tokens, making total costs under $50/month for most small businesses."
 ---
-
 Customer support and lead qualification have shifted heavily toward social messaging channels. In **May 2026**, B2B and B2C brands alike are looking to automate their chats on **WhatsApp Business** and **Instagram Direct Messages**.
 
 However, standard automated chat solutions (like ManyChat or rigid decision trees) are incredibly frustrating for users. If a customer types a slightly complex question or changes the subject mid-flow, these bots break, default to *"Sorry, I didn't understand that,"* or loop endlessly.

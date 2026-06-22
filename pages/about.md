@@ -1,9 +1,11 @@
 ---
 layout: page
 title: About Rogue Marketing
+description: "Rogue Marketing delivers bold AI insights, API pricing benchmarks, and data-driven digital marketing strategies. Meet the team behind fearless tech content."
 permalink: "/about/"
 image: assets/images/rogue-marketing-hero.png
 ---
+
 
 At **Rogue Marketing**, we break the mold of traditional marketing to deliver bold, innovative strategies that drive real results. We're not your average agency—we're a team of creative rebels, data-driven strategists, and storytellers dedicated to helping your brand stand out in a crowded digital world.
 

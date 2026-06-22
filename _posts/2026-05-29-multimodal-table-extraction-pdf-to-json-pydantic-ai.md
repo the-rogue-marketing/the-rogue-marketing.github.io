@@ -8,8 +8,14 @@ image: assets/images/multimodal-table-extraction.webp
 featured: true
 last_modified_at: 2026-05-29
 keywords: "convert pdf table to json llm, multimodal table extraction, pdf tables to json python, pydantic ai table parser, gemini pdf tables"
+faq:
+  - question: "Why do traditional OCR tools fail at table extraction?"
+    answer: "Bounding-box OCR tools extract text position-by-position, losing the semantic relationship between columns and rows. When tables have merged cells, multi-line entries, or complex headers, traditional tools produce garbled output. Multimodal LLMs understand table structure visually."
+  - question: "How does Gemini extract tables from PDFs?"
+    answer: "Gemini processes PDF pages as images using its native vision capabilities, understanding the visual layout of tables including headers, columns, merged cells, and footnotes. PydanticAI then validates the extracted data against a typed schema, ensuring structural integrity."
+  - question: "What accuracy does AI table extraction achieve compared to traditional tools?"
+    answer: "Gemini + PydanticAI achieves 95-99% structural accuracy on complex financial tables, compared to 60-80% for traditional OCR tools like Tabula or Camelot. The key advantage is handling irregular layouts, merged cells, and multi-page tables that break rule-based extractors."
 ---
-
 Financial statements, invoice summaries, and tax sheets share a common structural element that keeps developers awake at night: **hierarchical data tables**. 
 
 When B2B SaaS platforms need to parse columns of quarterly expenses or asset valuations from a PDF, they typically rely on programmatic table extractors like `pdfplumber`, `Camelot`, or traditional Optical Character Recognition (OCR) engines like **AWS Textract Tables**.

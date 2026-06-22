@@ -12,6 +12,8 @@ image: assets/images/openai-api-pricing.jpg
 description: Stop overpaying for OpenAI APIs. Check our complete, updated May 2026 breakdown of GPT-4o, GPT-5.5, Realtime audio, and DALL-E 4 pricing.
 keywords: openai api pricing 2026, gpt-4o cost, gpt-5.5 pricing, openai realtime api price, openai audio api cost
 last_modified_at: '2026-05-29'
+canonical_url: "https://the-rogue-marketing.github.io/openai-api-pricing-may-2026/"
+noindex: true
 faq:
 - question: How much does GPT-4o API cost?
   answer: GPT-4o API costs $2.50 per million input tokens and $10.00 per million output tokens. This paid rate is a 50% reduction from its launch pricing.

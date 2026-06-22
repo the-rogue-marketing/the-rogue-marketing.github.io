@@ -8,8 +8,14 @@ image: assets/images/low-latency-ai-agent-architecture.webp
 featured: true
 last_modified_at: 2026-05-21
 keywords: "ai agent architecture 2026, prompt caching tutorial, gemini context caching api, reduce llm api latency, low cost ai agents, custom multi agent framework python, state management for ai agents"
+faq:
+  - question: "What is prompt caching and how does it reduce AI API costs?"
+    answer: "Prompt caching stores frequently used system prompts and context in server memory, so repeat requests don't re-process the same tokens. This can reduce input costs by up to 90% on providers like Google Gemini and Anthropic Claude."
+  - question: "What is context hydration in AI agent architecture?"
+    answer: "Context hydration is the technique of pre-loading relevant information into a cached context window before the user query arrives. This minimizes latency by eliminating the need to fetch and inject context at request time."
+  - question: "How do I build a low-latency AI agent for production?"
+    answer: "Combine prompt caching for repeated context, tiered model routing (cheap models for simple tasks, expensive for complex), and asynchronous batch processing for non-interactive workloads. This architecture can achieve sub-200ms response times at 10x lower cost."
 ---
-
 Building autonomous AI agents that operate reliably in production is one of the hardest software engineering challenges of **May 2026**. It is easy to write a quick loop that calls the Gemini 3.1 Pro or Claude Sonnet 4.6 API. However, building an agentic loop that handles complex, multi-turn reasoning across hundreds of steps *without* breaking the bank or taking minutes to respond requires a completely different architectural blueprint.
 
 In this guide, we will bypass the high-level hand-waving and dive deep into the actual engineering mechanics of building production-grade, high-performance AI agents. We will explore the physics of LLM latency, the under-the-hood reality of prompt caching, dynamic context hydration strategies, and how to build a highly responsive, custom state machine in Python.

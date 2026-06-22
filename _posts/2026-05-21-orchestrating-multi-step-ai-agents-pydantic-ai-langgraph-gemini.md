@@ -8,8 +8,14 @@ image: assets/images/llm-api-providers.jpg
 featured: true
 last_modified_at: 2026-05-21
 keywords: "langgraph pydantic ai tutorial, multi step ai agents, gemini api agent orchestration, stateful ai workflows python, pydantic ai langgraph integration"
+faq:
+  - question: "How do I build a multi-step AI agent with PydanticAI?"
+    answer: "Define structured input/output schemas using Pydantic models, create individual agent nodes with specific tools and system prompts, and orchestrate them using LangGraph's state machine to manage conversation flow, tool calls, and conditional branching between agent steps."
+  - question: "What is LangGraph and how does it differ from LangChain?"
+    answer: "LangGraph is a framework for building stateful, cyclic agent workflows as directed graphs. Unlike LangChain's linear chains, LangGraph supports conditional branching, loops, and parallel execution — essential for production agents that need retry logic and human-in-the-loop checkpoints."
+  - question: "Which LLM is best for multi-agent orchestration?"
+    answer: "Google Gemini 3.5 Flash offers the best balance of cost ($0.30/1M tokens), speed, and tool-calling reliability for agent orchestration. For complex reasoning steps within the pipeline, upgrade specific nodes to Gemini Pro or GPT-4.1."
 ---
-
 When building simple autonomous systems, single-agent loops are highly effective. A single agent (such as a Pydantic AI agent) is wrapped with tools, passed a prompt, and left to execute in a self-correcting loop until it achieves its objective.
 
 However, as business logic grows in complexity, single-agent systems inevitably break down. When an application requires a highly structured, multi-step workflow—such as researching a topic, compiling a technical draft, auditing it against rigorous editorial guidelines, and conditionally looping back to the research phase if it fails review—a single agent is prone to "context drift," tool confusion, and loop traps.
