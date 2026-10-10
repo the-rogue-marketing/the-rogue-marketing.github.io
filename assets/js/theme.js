@@ -35,7 +35,7 @@
     
     })(jQuery);
 
-// Blank Target External Links
+// Blank Target External Links (with security and performance rel attributes)
 $(document.links).filter(function() {
-return this.hostname != window.location.hostname;
-}).attr('target', '_blank');
+    return this.hostname && this.hostname !== window.location.hostname;
+}).attr("target", "_blank").attr("rel", "noopener noreferrer");

@@ -5,7 +5,7 @@
 {% if read_time == 0 %}{% assign read_time = 1 %}{% endif %}
 <div class="card" id="post-{{ post.title | slugify }}">
     <a href="{{ post.url | absolute_url }}">
-        {% if post.image %} <img class="rounded mb-0" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}" loading="lazy"> {% endif %}
+        {% if post.image %} <img class="rounded mb-0" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}" loading="lazy" decoding="async" width="600" height="338"> {% endif %}
     </a>
     <div class="card-block">
         <h2 class="card-title h4 serif-font"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
