@@ -26,7 +26,8 @@ def get_all_site_urls():
     urls = {SITE_URL + "/"}
     
     # 1. Parse posts
-    posts_dir = "_posts"
+    repo_root = os.path.dirname(os.path.abspath(__file__))
+    posts_dir = os.path.join(repo_root, "_posts")
     if os.path.exists(posts_dir):
         for filename in os.listdir(posts_dir):
             if not filename.endswith((".md", ".html")):
@@ -62,7 +63,7 @@ def get_all_site_urls():
                 print(f"⚠️ Error parsing post {filename}: {e}")
 
     # 2. Parse pages
-    pages_dir = "pages"
+    pages_dir = os.path.join(repo_root, "pages")
     if os.path.exists(pages_dir):
         for filename in os.listdir(pages_dir):
             if not filename.endswith((".md", ".html")):
