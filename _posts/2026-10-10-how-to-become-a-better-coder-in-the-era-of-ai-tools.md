@@ -4,7 +4,7 @@ title: "How to Become a Better Coder in the Era of AI Coding Tools: Architecture
 description: "When AI writes 80% of lines of code, what makes a 10x engineer? Why deep understanding of system design, domain invariants, and code review discipline matters more than typing speed."
 author: professor-xai
 categories: ["software-engineering", "career", "ai-coding"]
-image: assets/images/flagship-developer-api-showdown.webp
+image: assets/images/ai-coding-agents.webp
 featured: true
 last_modified_at: 2026-10-10
 keywords: "how to become a better coder with ai, software engineering in the age of ai, programming skills 2026, senior developer skills ai era, code review discipline"

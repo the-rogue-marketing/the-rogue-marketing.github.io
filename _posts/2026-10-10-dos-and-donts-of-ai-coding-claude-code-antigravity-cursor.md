@@ -4,7 +4,7 @@ title: "Do's and Don'ts of AI Coding: The Battle-Tested Guide for Claude Code, A
 description: "Practical tactical rules for using modern autonomous coding agents. Avoid context window pollution, file destruction, silent test deletions, and prompt exhaustion."
 author: professor-xai
 categories: ["ai-coding", "developer-tools", "best-practices"]
-image: assets/images/ai-model-comparison-may-2026.webp
+image: assets/images/ai-coding-agents.webp
 featured: true
 last_modified_at: 2026-10-10
 keywords: "dos and donts of ai coding, claude code best practices, antigravity ai tips, cursor ai mistakes to avoid, autonomous agent coding rules"

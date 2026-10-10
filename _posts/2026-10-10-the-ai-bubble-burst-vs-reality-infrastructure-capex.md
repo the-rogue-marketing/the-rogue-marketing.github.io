@@ -4,7 +4,7 @@ title: "The AI Bubble: $600 Billion in GPU Capex vs. Real Revenue — Are We Fac
 description: "An exhaustive financial and engineering autopsy of the 2026 AI infrastructure bubble. Analyzing hyperscaler capex, token depreciation, enterprise revenue gaps, and the impending market correction."
 author: professor-xai
 categories: ["ai-economy", "market-analysis", "enterprise-ai"]
-image: assets/images/ai-price-war-2026.webp
+image: assets/images/ai-bubble-capex.webp
 featured: true
 last_modified_at: 2026-10-10
 keywords: "ai bubble 2026, generative ai capex roi, hyperscaler gpu debt, ai dot com crash comparison, enterprise llm spending"

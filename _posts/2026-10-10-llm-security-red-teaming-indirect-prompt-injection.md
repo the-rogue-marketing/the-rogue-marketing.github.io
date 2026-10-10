@@ -4,7 +4,7 @@ title: "LLM Security in Production: Defending Against Indirect Prompt Injections
 description: "A comprehensive zero-trust security guide for autonomous LLM applications. Learn how to stop indirect prompt injection, data exfiltration via markdown rendering, and tool privilege escalation."
 author: professor-xai
 categories: ["security", "ai-agents", "cybersecurity"]
-image: assets/images/verification-pipeline.webp
+image: assets/images/llm-security-shield.webp
 featured: true
 last_modified_at: 2026-10-10
 keywords: "llm security 2026, indirect prompt injection defense, agent jailbreak mitigation, prompt injection prevention python, ai red teaming"

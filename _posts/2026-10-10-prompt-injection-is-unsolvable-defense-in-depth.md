@@ -4,7 +4,7 @@ title: "Prompt Injection is Mathematically Unsolvable: Why Defense-in-Depth and 
 description: "Understanding the mathematical impossibility of stopping prompt injections via system prompt instructions. Why containerization, sandboxing, and least privilege are the only true defenses."
 author: professor-xai
 categories: ["security", "llm-vulnerabilities", "cybersecurity"]
-image: assets/images/verification-pipeline.webp
+image: assets/images/llm-security-shield.webp
 featured: true
 last_modified_at: 2026-10-10
 keywords: "prompt injection is unsolvable, why system prompts cant stop jailbreaks, llm sandboxing e2b, defense in depth ai security, indirect injection defense"

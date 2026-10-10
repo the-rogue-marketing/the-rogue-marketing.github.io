@@ -4,7 +4,7 @@ title: "Type-Safe Retries: Programmatically Recovering from LLM Hallucinations a
 description: "How to implement programmatic error-recovery loops with PydanticAI. Automatically feed validation tracebacks back to the LLM to self-heal schema errors."
 author: professor-xai
 categories: [pydantic-ai, python, dev]
-image: assets/images/cheap-ai-agent-tutorial.webp
+image: assets/images/type-safe-retries-pydanticai.webp
 featured: true
 last_modified_at: 2026-10-10
 keywords: "pydanticai validation error retry, self healing llm schema errors, pydantic field validator retry agent, handle llm hallucinations python"

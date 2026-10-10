@@ -4,7 +4,7 @@ title: "FastAPI + PydanticAI: Streaming Partially Validated Structured JSON to R
 description: "Step-by-step developer guide on streaming real-time structured Pydantic objects from FastAPI to React frontends using Server-Sent Events (SSE) and PydanticAI."
 author: professor-xai
 categories: [pydantic-ai, fastapi, python, dev]
-image: assets/images/cheap-ai-agent-tutorial.webp
+image: assets/images/fastapi-streaming-json.webp
 featured: true
 last_modified_at: 2026-10-02
 keywords: "fastapi pydanticai stream json, sse streaming pydantic react, real time structured llm output, pydantic partial validation streaming"

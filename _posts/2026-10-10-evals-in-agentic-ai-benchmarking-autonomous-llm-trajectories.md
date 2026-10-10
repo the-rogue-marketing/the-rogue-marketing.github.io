@@ -4,7 +4,7 @@ title: "Evals in Agentic AI: How to Benchmark, Unit-Test, and Score Autonomous L
 description: "Stop deploying blind agents. The complete engineering guide to testing multi-turn autonomous AI agents, evaluating execution trajectories, tool-calling accuracy, and eliminating LLM-as-a-judge bias."
 author: professor-xai
 categories: ["ai-evals", "agentic-ai", "testing"]
-image: assets/images/cheap-ai-agent-tutorial.webp
+image: assets/images/agentic-evals-benchmark.webp
 featured: true
 last_modified_at: 2026-10-10
 keywords: "evals in agentic ai, evaluating autonomous agents, llm trajectory evaluation, agent benchmarking frameworks, unit testing ai agents"
