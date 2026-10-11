@@ -9,7 +9,7 @@ logo: 'assets/images/logo.webp'
 favicon: 'assets/images/favicon.ico'
 og_image: 'assets/images/logo.webp'
 author: professor-xai
-paginate: 15
+paginate: 12
 disqus: 'demowebsite'
 locale: en_us
 lang: en_us
