@@ -680,3 +680,43 @@ hr { border-color: var(--border-subtle); opacity: 0.5; }
     word-break: break-word;
     overflow-wrap: break-word;
 }
+
+/* ===== Modern Numbered Pagination ===== */
+.pagination-container {
+    margin: 3rem 0;
+    text-align: center;
+}
+.pagination-info {
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+.pagination {
+    gap: 0.35rem;
+}
+.pagination .page-item .page-link {
+    border-radius: 8px !important;
+    border: 1px solid var(--border-subtle, #e2e8f0);
+    color: var(--text-primary, #1e293b);
+    background: var(--bg-secondary, #ffffff);
+    padding: 0.5rem 0.9rem;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+.pagination .page-item .page-link:hover {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+    transform: translateY(-1px);
+}
+.pagination .page-item.active .page-link {
+    background: #0f172a !important;
+    color: #ffffff !important;
+    border-color: #0f172a !important;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+.pagination .page-item.disabled .page-link {
+    opacity: 0.45;
+    pointer-events: none;
+    border-color: transparent;
+}

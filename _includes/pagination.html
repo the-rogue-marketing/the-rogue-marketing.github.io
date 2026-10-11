@@ -1,13 +1,46 @@
-<nav class="pagination" role="pagination">
+<nav class="pagination-container my-5" aria-label="Blog pagination">
+  <div class="pagination-info text-center text-muted mb-3 font-weight-500">
+    Showing Page <strong>{{ paginator.page }}</strong> of <strong>{{ paginator.total_pages }}</strong> ({{ paginator.total_posts }} articles)
+  </div>
+  <ul class="pagination justify-content-center flex-wrap align-items-center mb-0">
     {% if paginator.previous_page %}
+      <li class="page-item">
         {% if paginator.previous_page == 1 %}
-            <a class="newer-posts" href="{{site.baseurl}}/" title="Previous Page">&laquo; Newer</a>
+          <a class="page-link shadow-sm px-3 py-2 font-weight-bold" href="{{ site.baseurl }}/" aria-label="Previous page">« Prev</a>
         {% else %}
-            <a class="newer-posts" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" title="Previous Page">&laquo; Newer </a>
-      {% endif %}
+          <a class="page-link shadow-sm px-3 py-2 font-weight-bold" href="{{ site.baseurl }}/page{{ paginator.previous_page }}/" aria-label="Previous page">« Prev</a>
+        {% endif %}
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <span class="page-link px-3 py-2 text-muted bg-light">« Prev</span>
+      </li>
     {% endif %}
-    <span class="page-number d-none"> &nbsp; &nbsp; Page {{paginator.page}} of {{paginator.total_pages}} &nbsp; &nbsp; </span>
-    {% if paginator.next_page %} 
-        <a class="older-posts" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" title="Next Page">Older &raquo;</a>
-    {% endif %} 
+
+    {% for p in (1..paginator.total_pages) %}
+      {% if p == paginator.page %}
+        <li class="page-item active" aria-current="page">
+          <span class="page-link px-3 py-2 font-weight-bold">{{ p }}</span>
+        </li>
+      {% elsif p == 1 %}
+        <li class="page-item">
+          <a class="page-link shadow-sm px-3 py-2 font-weight-bold" href="{{ site.baseurl }}/">{{ p }}</a>
+        </li>
+      {% else %}
+        <li class="page-item">
+          <a class="page-link shadow-sm px-3 py-2 font-weight-bold" href="{{ site.baseurl }}/page{{ p }}/">{{ p }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <li class="page-item">
+        <a class="page-link shadow-sm px-3 py-2 font-weight-bold" href="{{ site.baseurl }}/page{{ paginator.next_page }}/" aria-label="Next page">Next »</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled">
+        <span class="page-link px-3 py-2 text-muted bg-light">Next »</span>
+      </li>
+    {% endif %}
+  </ul>
 </nav>
