@@ -1,22 +1,36 @@
 ---
 layout: post
-title: "AI System Design Series (Part 5): System-1 Decision Intelligence with TypeSafe AI's Jev for Real-Time Triage and Routing"
-description: "Why calling frontier LLMs for high-throughput decisions is an anti-pattern. How to integrate TypeSafe AI's Jev model for sub-150ms invoice 3-way match triage and healthcare claim denial risk scoring."
+title: 'AI System Design Series (Part 5): System-1 Decision Intelligence with TypeSafe
+  AI''s Jev for Real-Time Triage and Routing'
+description: Why calling frontier LLMs for high-throughput decisions is an anti-pattern.
+  How to integrate TypeSafe AI's Jev model for sub-150ms invoice 3-way match triage
+  and healthcare claim denial risk scoring.
 author: professor-xai
-categories: [system-design, ai-architecture, python, typesafe-ai]
+categories: [System Design & Scalability]
 image: assets/images/ai-system-design-part-5-jev-system-1.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "system 1 decision model, typesafe ai jev, real time claim triage, invoice 3 way match ai, denial risk scoring, low latency ai routing"
+keywords: system 1 decision model, typesafe ai jev, real time claim triage, invoice
+  3 way match ai, denial risk scoring, low latency ai routing
 faq:
-  - question: "Why is using a frontier LLM for invoice and claim routing an anti-pattern?"
-    answer: "Frontier LLMs (like Claude 3.7 or GPT-5) are autoregressive generative models designed for open-ended synthesis. For simple classification and routing, they introduce 1,200 to 2,500 milliseconds of latency and cost $2.50 to $15.00 per million tokens. In high-throughput pipelines processing 50,000 transactions daily, this burns thousands of dollars and creates severe queue backpressure."
-  - question: "How does TypeSafe AI's Jev operate as a System-1 decision model?"
-    answer: "Jev does not generate conversational prose. It accepts an input state and an explicit typed schema (booleans, enums, score ranges) and evaluates the payload in a single forward pass, returning calibrated probabilities in under 150 milliseconds at approximately $0.05 per million tokens."
-  - question: "How does Jev improve 3-way matching in Accounts Payable?"
-    answer: "Jev rapidly evaluates the normalized invoice against the original Purchase Order and warehouse Receiving Report. In under 120ms, it verifies whether price variances fall within tolerance limits, flags suspected duplicate invoice numbers, and routes clean invoices straight to ERP approval with zero human intervention."
+- {question: 'Why is using a frontier LLM for invoice and claim routing an anti-pattern?',
+  answer: 'Frontier LLMs (like Claude 3.7 or GPT-5) are autoregressive generative
+    models designed for open-ended synthesis. For simple classification and routing,
+    they introduce 1,200 to 2,500 milliseconds of latency and cost $2.50 to $15.00
+    per million tokens. In high-throughput pipelines processing 50,000 transactions
+    daily, this burns thousands of dollars and creates severe queue backpressure.'}
+- {question: 'How does TypeSafe AI''s Jev operate as a System-1 decision model?',
+  answer: 'Jev does not generate conversational prose. It accepts an input state and
+    an explicit typed schema (booleans, enums, score ranges) and evaluates the payload
+    in a single forward pass, returning calibrated probabilities in under 150 milliseconds
+    at approximately $0.05 per million tokens.'}
+- {question: 'How does Jev improve 3-way matching in Accounts Payable?', answer: 'Jev
+    rapidly evaluates the normalized invoice against the original Purchase Order and
+    warehouse Receiving Report. In under 120ms, it verifies whether price variances
+    fall within tolerance limits, flags suspected duplicate invoice numbers, and routes
+    clean invoices straight to ERP approval with zero human intervention.'}
+tags: [Gemini, Python, System Design]
 ---
-
 In the previous parts of this series, we built a robust enterprise infrastructure:
 - Part 1: Distributed ingestion using Kafka, Redis Streams, and Gemini 3.8 Flash.
 - Part 2: Canonical Common Data Models using PEPPOL and HL7 FHIR.

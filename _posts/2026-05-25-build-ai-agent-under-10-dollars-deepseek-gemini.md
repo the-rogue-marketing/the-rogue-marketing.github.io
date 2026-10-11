@@ -1,24 +1,33 @@
 ---
 layout: post
-title: "How to Build an AI Agent Under $10/Month Using DeepSeek + Gemini"
-description: "AI agents don't have to be budget killers. Learn how to combine DeepSeek-R1 for cheap reasoning and Gemini Flash-Lite for fast tool use under $10/month."
+title: How to Build an AI Agent Under $10/Month Using DeepSeek + Gemini
+description: AI agents don't have to be budget killers. Learn how to combine DeepSeek-R1
+  for cheap reasoning and Gemini Flash-Lite for fast tool use under $10/month.
 author: professor-xai
-categories: [ai-agents, deepseek, gemini, tutorials, budget-ai]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/cheap-ai-agent-tutorial.webp
 featured: true
 last_modified_at: 2026-05-25
-keywords: "build ai agent cheap, deepseek tutorial, multi model ai agent, cheap reasoning model, gemini agent tool call, micro budget ai development"
+keywords: build ai agent cheap, deepseek tutorial, multi model ai agent, cheap reasoning
+  model, gemini agent tool call, micro budget ai development
 faq:
-  - question: "How can I build an AI agent for under $10 a month?"
-    answer: "By offloading logical reasoning to DeepSeek-R1 ($0.55/1M tokens) and tool execution/structured parsing to Google Gemini 2.5 Flash-Lite ($0.10/1M tokens), you can run a multi-step agent pipeline for fractions of a cent per run."
-  - question: "Why use a multi-model agent design?"
-    answer: "Using different models for different tasks (e.g., DeepSeek for reasoning, Gemini for tool use) optimizes performance while keeping costs low. You avoid paying expensive flagship rates for basic tool execution."
-  - question: "What hosting options are best for a cheap AI agent?"
-    answer: "For a micro-budget, you can deploy your python code to Render or Railway's free/starter tier ($5/month) and connect to a free Supabase instance for long-term database storage."
-  - question: "Is DeepSeek-R1 faster than OpenAI o3?"
-    answer: "DeepSeek-R1 provides comparable reasoning capabilities to o3 but at a fraction of the cost, making it highly competitive for developers building agent planning loops on a budget."
+- {question: 'How can I build an AI agent for under $10 a month?', answer: 'By offloading
+    logical reasoning to DeepSeek-R1 ($0.55/1M tokens) and tool execution/structured
+    parsing to Google Gemini 2.5 Flash-Lite ($0.10/1M tokens), you can run a multi-step
+    agent pipeline for fractions of a cent per run.'}
+- {question: 'Why use a multi-model agent design?', answer: 'Using different models
+    for different tasks (e.g., DeepSeek for reasoning, Gemini for tool use) optimizes
+    performance while keeping costs low. You avoid paying expensive flagship rates
+    for basic tool execution.'}
+- {question: 'What hosting options are best for a cheap AI agent?', answer: 'For a
+    micro-budget, you can deploy your python code to Render or Railway''s free/starter
+    tier ($5/month) and connect to a free Supabase instance for long-term database
+    storage.'}
+- {question: 'Is DeepSeek-R1 faster than OpenAI o3?', answer: 'DeepSeek-R1 provides
+    comparable reasoning capabilities to o3 but at a fraction of the cost, making
+    it highly competitive for developers building agent planning loops on a budget.'}
+tags: [AI APIs, AI Agents, API Pricing, Gemini, OpenAI]
 ---
-
 AI Agents are the defining technology of 2026. However, if your agent runs multiple loops of "thinking," "tool use," and "verifying" using flagship models (like Claude Opus or GPT-4o-Pro), a single task execution can easily cost **$0.50 to $2.00**.
 
 If your agent runs hundreds of tasks daily, your API bill will skyrocket.

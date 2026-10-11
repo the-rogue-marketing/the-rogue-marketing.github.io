@@ -1,22 +1,31 @@
 ---
 layout: post
-title: "Zero-Failure Structured Output: Extracting Complex Tables and Handwritten Receipts with Vision LLMs"
-description: "Master structured extraction from crumpled receipts, skewed invoices, and handwritten notes using Gemini 2.5 Flash multimodal vision and strict Pydantic models."
+title: 'Zero-Failure Structured Output: Extracting Complex Tables and Handwritten
+  Receipts with Vision LLMs'
+description: Master structured extraction from crumpled receipts, skewed invoices,
+  and handwritten notes using Gemini 2.5 Flash multimodal vision and strict Pydantic
+  models.
 author: professor-xai
-categories: [document-ai, pydantic-ai, python]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/gemini-ocr-pydantic-ai.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "extract handwritten text vision llm, complex table extraction pdf python, receipt parsing pydantic ai, zero hallucination structured ocr"
+keywords: extract handwritten text vision llm, complex table extraction pdf python,
+  receipt parsing pydantic ai, zero hallucination structured ocr
 faq:
-  - question: "How do Vision LLMs overcome traditional OCR failures on handwriting?"
-    answer: "Traditional OCR looks at local pixel geometry, failing on irregular cursive or smudged numbers. Multimodal LLMs read global context, understanding that a grocery receipt line item '$3._9' next to 'MILK' is '$3.49'."
-  - question: "How do you handle multi-page PDF tables that split across page breaks?"
-    answer: "Extract page tables as serialized Markdown arrays, then pass them to an aggregator prompt that reconciles continuation rows before final Pydantic model validation."
-  - question: "What temperature setting guarantees zero hallucination on numbers?"
-    answer: "Always set `temperature=0.0`. Combine with strict enum constraints and mathematical validator checks inside Pydantic."
+- {question: 'How do Vision LLMs overcome traditional OCR failures on handwriting?',
+  answer: 'Traditional OCR looks at local pixel geometry, failing on irregular cursive
+    or smudged numbers. Multimodal LLMs read global context, understanding that a
+    grocery receipt line item ''$3._9'' next to ''MILK'' is ''$3.49''.'}
+- {question: 'How do you handle multi-page PDF tables that split across page breaks?',
+  answer: 'Extract page tables as serialized Markdown arrays, then pass them to an
+    aggregator prompt that reconciles continuation rows before final Pydantic model
+    validation.'}
+- {question: 'What temperature setting guarantees zero hallucination on numbers?',
+  answer: Always set `temperature=0.0`. Combine with strict enum constraints and mathematical
+    validator checks inside Pydantic.}
+tags: [OCR & Vision, PydanticAI, Python]
 ---
-
 Real-world enterprise documents are messy: thermal paper receipts with faded ink, crumpled delivery notes, skewed smartphone scans, and multi-column tables with merged header cells.
 
 Here is how to design a **Zero-Failure Document Extraction Pipeline** that handles handwriting and complex tables without hallucinations.

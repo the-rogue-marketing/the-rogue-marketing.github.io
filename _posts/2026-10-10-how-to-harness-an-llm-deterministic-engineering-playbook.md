@@ -1,20 +1,30 @@
 ---
 layout: post
-title: "How to Harness an LLM: The Engineering Playbook for Deterministic Control Over Non-Deterministic Models"
-description: "How senior software engineers force non-deterministic neural networks into reliable, deterministic enterprise state machines using grammar masking, structured outputs, and assertion harnesses."
+title: 'How to Harness an LLM: The Engineering Playbook for Deterministic Control
+  Over Non-Deterministic Models'
+description: How senior software engineers force non-deterministic neural networks
+  into reliable, deterministic enterprise state machines using grammar masking, structured
+  outputs, and assertion harnesses.
 author: professor-xai
-categories: ["ai-engineering", "python", "pydantic"]
+categories: [Developer Engineering & Tools]
 image: assets/images/low-latency-ai-agent-architecture.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "how to harness an llm, deterministic llm engineering, constrained grammar decoding, pydantic structured outputs, control non deterministic ai"
+keywords: how to harness an llm, deterministic llm engineering, constrained grammar
+  decoding, pydantic structured outputs, control non deterministic ai
 faq:
-  - question: "Why is harnessing an LLM difficult?"
-    answer: "LLMs are statistical probability engines, not deterministic state machines. Even at temperature=0, floating-point non-determinism, GPU batching variations, and subtle token shifts can produce unexpected completions."
-  - question: "What is constrained decoding?"
-    answer: "Constrained decoding (or grammar-guided generation) masks invalid token logits at the inference engine level, mathematically guaranteeing that the output adheres strictly to a specified JSON schema or grammar."
-  - question: "What is the difference between prompting and harnessing?"
-    answer: "Prompting asks the model nicely in natural language; harnessing forces the model into compliance using schemas, type checkers, runtime assertion gates, and programmatic retry loops."
+- {question: 'Why is harnessing an LLM difficult?', answer: 'LLMs are statistical
+    probability engines, not deterministic state machines. Even at temperature=0,
+    floating-point non-determinism, GPU batching variations, and subtle token shifts
+    can produce unexpected completions.'}
+- {question: 'What is constrained decoding?', answer: 'Constrained decoding (or grammar-guided
+    generation) masks invalid token logits at the inference engine level, mathematically
+    guaranteeing that the output adheres strictly to a specified JSON schema or grammar.'}
+- {question: 'What is the difference between prompting and harnessing?', answer: 'Prompting
+    asks the model nicely in natural language; harnessing forces the model into compliance
+    using schemas, type checkers, runtime assertion gates, and programmatic retry
+    loops.'}
+tags: [Python]
 ---
 Junior developers believe that controlling an AI model is an exercise in **prompt engineering**—finding the magical sequence of adjectives, emojis, and threats like *"I will tip you $200 if you format this correctly."*
 

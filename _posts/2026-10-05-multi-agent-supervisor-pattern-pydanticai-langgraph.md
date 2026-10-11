@@ -1,22 +1,30 @@
 ---
 layout: post
-title: "Orchestrating Hierarchical Multi-Agent Teams: The Supervisor Pattern in PydanticAI and LangGraph"
-description: "Architect complex multi-agent teams using the Supervisor pattern. Combine LangGraph state machines with type-safe PydanticAI worker agents for enterprise pipelines."
+title: 'Orchestrating Hierarchical Multi-Agent Teams: The Supervisor Pattern in PydanticAI
+  and LangGraph'
+description: Architect complex multi-agent teams using the Supervisor pattern. Combine
+  LangGraph state machines with type-safe PydanticAI worker agents for enterprise
+  pipelines.
 author: professor-xai
-categories: [ai-agents, pydantic-ai, python]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/cheap-ai-agent-tutorial.webp
 featured: true
 last_modified_at: 2026-10-05
-keywords: "supervisor pattern pydanticai, langgraph multi agent hierarchy, autonomous agent orchestration python, type safe multi agent systems"
+keywords: supervisor pattern pydanticai, langgraph multi agent hierarchy, autonomous
+  agent orchestration python, type safe multi agent systems
 faq:
-  - question: "What is the Supervisor multi-agent pattern?"
-    answer: "A hierarchical design where a central Supervisor agent evaluates goals, creates sub-tasks, delegates work to specialized worker agents, reviews outputs, and synthesizes the final response."
-  - question: "Why combine LangGraph with PydanticAI?"
-    answer: "LangGraph provides cyclic state graph orchestration, checkpointing, and human-in-the-loop approval, while PydanticAI guarantees that data passed between nodes is type-safe and validated."
-  - question: "How do you prevent infinite delegation loops in supervisor agents?"
-    answer: "Set an explicit `max_iterations` counter in your state graph. If the loop counter exceeds the limit, force the graph to route to a terminal summarizer node."
+- {question: 'What is the Supervisor multi-agent pattern?', answer: 'A hierarchical
+    design where a central Supervisor agent evaluates goals, creates sub-tasks, delegates
+    work to specialized worker agents, reviews outputs, and synthesizes the final
+    response.'}
+- {question: 'Why combine LangGraph with PydanticAI?', answer: 'LangGraph provides
+    cyclic state graph orchestration, checkpointing, and human-in-the-loop approval,
+    while PydanticAI guarantees that data passed between nodes is type-safe and validated.'}
+- {question: 'How do you prevent infinite delegation loops in supervisor agents?',
+  answer: 'Set an explicit `max_iterations` counter in your state graph. If the loop
+    counter exceeds the limit, force the graph to route to a terminal summarizer node.'}
+tags: [AI Agents, PydanticAI, Python]
 ---
-
 Single-agent prototypes fail when tasked with multi-domain enterprise workflows. An agent asked to simultaneously browse the web, write SQL queries, verify mathematical models, and write marketing copy eventually hallucinates or loses track of its primary objective.
 
 The solution is the **Supervisor Pattern**: a central orchestrator that breaks problems down and delegates to specialized worker agents with dedicated toolsets.

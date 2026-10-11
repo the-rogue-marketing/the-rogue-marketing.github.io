@@ -1,22 +1,34 @@
 ---
 layout: post
-title: "Architecting Modern Agentic AI Assistants — Router, Supervisor & Multi-Agent Design Patterns"
-description: "A comprehensive developer's guide to building production-grade agentic AI assistants. Compare Router, Supervisor, and Choreography multi-agent design patterns with Mermaid flowcharts and type-safe PydanticAI code examples."
+title: Architecting Modern Agentic AI Assistants — Router, Supervisor & Multi-Agent
+  Design Patterns
+description: A comprehensive developer's guide to building production-grade agentic
+  AI assistants. Compare Router, Supervisor, and Choreography multi-agent design patterns
+  with Mermaid flowcharts and type-safe PydanticAI code examples.
 author: professor-xai
-categories: [ai-agents, pydantic-ai, python, dev]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/local-multimodal-llm-architecture.webp
 featured: true
 last_modified_at: 2026-06-08
-keywords: "agentic ai assistant architecture guide, multi-agent design patterns, router pattern ai agents, supervisor pattern llm, pydanticai agent architecture, ai agent memory management"
+keywords: agentic ai assistant architecture guide, multi-agent design patterns, router
+  pattern ai agents, supervisor pattern llm, pydanticai agent architecture, ai agent
+  memory management
 faq:
-  - question: "What is the difference between Router and Supervisor patterns?"
-    answer: "The Router pattern acts as a simple classifier that forwards a query to one specialized agent. The Supervisor pattern coordinates multiple workers, calling them dynamically in sequence or parallel and combining their outputs before returning the final result."
-  - question: "Why is PydanticAI preferred for multi-agent architecture?"
-    answer: "PydanticAI enforces strict typing and validation on agent outputs and tool arguments. This guarantees that messages exchanged between different agents conform to predefined JSON schemas, eliminating runtime errors caused by structural hallucinations."
-  - question: "How do you maintain conversational state across agents?"
-    answer: "Short-term conversational state is typically stored in Redis or local memory and passed in the user message history. Long-term state is persisted in a database (like PostgreSQL or PocketBase) and queried dynamically using Retrieval-Augmented Generation (RAG)."
+- {question: 'What is the difference between Router and Supervisor patterns?', answer: 'The
+    Router pattern acts as a simple classifier that forwards a query to one specialized
+    agent. The Supervisor pattern coordinates multiple workers, calling them dynamically
+    in sequence or parallel and combining their outputs before returning the final
+    result.'}
+- {question: 'Why is PydanticAI preferred for multi-agent architecture?', answer: 'PydanticAI
+    enforces strict typing and validation on agent outputs and tool arguments. This
+    guarantees that messages exchanged between different agents conform to predefined
+    JSON schemas, eliminating runtime errors caused by structural hallucinations.'}
+- {question: 'How do you maintain conversational state across agents?', answer: Short-term
+    conversational state is typically stored in Redis or local memory and passed in
+    the user message history. Long-term state is persisted in a database (like PostgreSQL
+    or PocketBase) and queried dynamically using Retrieval-Augmented Generation (RAG).}
+tags: [AI Agents, DevOps, PydanticAI, Python]
 ---
-
 The landscape of Artificial Intelligence has fundamentally shifted. In 2026, we are moving away from basic Retrieval-Augmented Generation (RAG) chatbots toward **autonomous agentic assistants**. These systems do not just answer questions—they reason, execute tools, manage complex states, and collaborate to solve multi-step problems.
 
 However, moving from a single agent prototype to a production-grade multi-agent system introduces significant architectural challenges. How do you delegate work? How do you prevent infinite loops? How do you guarantee that agents communicate in structured formats?

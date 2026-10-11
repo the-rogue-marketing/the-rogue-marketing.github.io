@@ -1,22 +1,31 @@
 ---
 layout: post
-title: "OpenAI API Updates and Pricing October 2025"
-description: "Complete breakdown of OpenAI API pricing for October 2025 — GPT-5, GPT-4.1, o-series reasoning models, Realtime API, image generation, fine-tuning costs, and built-in tools pricing."
+title: OpenAI API Updates and Pricing October 2025
+description: Complete breakdown of OpenAI API pricing for October 2025 — GPT-5, GPT-4.1,
+  o-series reasoning models, Realtime API, image generation, fine-tuning costs, and
+  built-in tools pricing.
 author: professor-xai
-categories: [openai api, openai pricing, openai updates]
+categories: [AI Models & API Pricing]
 image: assets/images/openai-pricing-update.jpg
 last_modified_at: 2026-06-22
-keywords: "openai api pricing october 2025, gpt-5 api cost, gpt-4.1 pricing, openai realtime api pricing, openai fine-tuning cost, openai reasoning model pricing, gpt-5 nano price"
+keywords: openai api pricing october 2025, gpt-5 api cost, gpt-4.1 pricing, openai
+  realtime api pricing, openai fine-tuning cost, openai reasoning model pricing, gpt-5
+  nano price
 faq:
-  - question: "How much does the OpenAI GPT-5 API cost in October 2025?"
-    answer: "GPT-5 is priced at $1.25 per million input tokens and $10.00 per million output tokens. GPT-5 Mini costs $0.25/$2.00, and GPT-5 Nano is the budget option at $0.05/$0.40 per million tokens."
-  - question: "What is the OpenAI Realtime API and how much does it cost?"
-    answer: "The Realtime API is designed for low-latency conversational experiences like voice assistants. Text costs $4.00/$16.00 per million tokens, while audio costs $32.00/$64.00 per million tokens. A cheaper mini variant is also available."
-  - question: "Can I fine-tune GPT-4.1 models?"
-    answer: "Yes. GPT-4.1 fine-tuning requires a one-time training fee of $25.00 per million tokens, with tuned models available at higher inference rates. GPT-4o-mini fine-tuning is more cost-effective at $3.00 per million training tokens."
+- {question: 'How much does the OpenAI GPT-5 API cost in October 2025?', answer: 'GPT-5
+    is priced at $1.25 per million input tokens and $10.00 per million output tokens.
+    GPT-5 Mini costs $0.25/$2.00, and GPT-5 Nano is the budget option at $0.05/$0.40
+    per million tokens.'}
+- {question: 'What is the OpenAI Realtime API and how much does it cost?', answer: 'The
+    Realtime API is designed for low-latency conversational experiences like voice
+    assistants. Text costs $4.00/$16.00 per million tokens, while audio costs $32.00/$64.00
+    per million tokens. A cheaper mini variant is also available.'}
+- {question: 'Can I fine-tune GPT-4.1 models?', answer: 'Yes. GPT-4.1 fine-tuning
+    requires a one-time training fee of $25.00 per million tokens, with tuned models
+    available at higher inference rates. GPT-4o-mini fine-tuning is more cost-effective
+    at $3.00 per million training tokens.'}
+tags: [AI APIs, API Pricing, OpenAI]
 ---
-
-
 ### A Deep Dive into OpenAI's October 2025 API Pricing & Model Updates**
 
 The AI landscape is evolving at a breakneck pace, and OpenAI's latest 2025 API update marks one of its most significant shifts yet. Moving beyond a one-size-fits-all approach, the release introduces a sprawling family of specialized models, each designed for specific tasks and budgets.

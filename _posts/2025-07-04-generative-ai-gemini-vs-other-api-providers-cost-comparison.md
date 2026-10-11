@@ -2,25 +2,26 @@
 layout: post
 title: 'Gemini API vs OpenAI vs Grok: The Ultimate 2026 Cost Comparison Guide'
 author: professor-xai
-categories:
-- openai
-- grok-api
-- gemini-api
-- ai-pricing
-- cost-comparison
+categories: [AI Models & API Pricing]
 image: assets/images/2.jpeg
-description: Calculate your LLM costs. A side-by-side comparison of Gemini API, OpenAI, and Grok API pricing for business automation. Find the cheapest API in 2026.
-keywords: llm cost comparison 2026, gemini api vs openai pricing, grok api cost, cheapest ai api, business workflow automation, api pricing calculator
+description: Calculate your LLM costs. A side-by-side comparison of Gemini API, OpenAI,
+  and Grok API pricing for business automation. Find the cheapest API in 2026.
+keywords: llm cost comparison 2026, gemini api vs openai pricing, grok api cost, cheapest
+  ai api, business workflow automation, api pricing calculator
 last_modified_at: '2026-05-29'
 faq:
-- question: Which LLM API has the cheapest pricing?
-  answer: Google's Gemini 1.5 Flash (and Gemini 3.5 Flash) is by far the cheapest major LLM API on the market, costing only $0.075 per million input tokens and $0.30 per million output tokens.
-- question: Is Grok API cheaper than OpenAI?
-  answer: Yes, xAI's Grok 4 Fast and Grok 3 Mini models are priced extremely competitively, often matching or beating OpenAI's GPT-4o-mini, especially with xAI's automatic prompt caching enabled.
-- question: What is LLM prompt caching?
-  answer: Prompt caching is an API feature supported by Google, xAI, and Anthropic that allows developers to cache frequently used static prompts (like large context files or system prompts) at a 50% to 90% discount.
+- {question: 'Which LLM API has the cheapest pricing?', answer: 'Google''s Gemini
+    1.5 Flash (and Gemini 3.5 Flash) is by far the cheapest major LLM API on the market,
+    costing only $0.075 per million input tokens and $0.30 per million output tokens.'}
+- {question: 'Is Grok API cheaper than OpenAI?', answer: 'Yes, xAI''s Grok 4 Fast
+    and Grok 3 Mini models are priced extremely competitively, often matching or beating
+    OpenAI''s GPT-4o-mini, especially with xAI''s automatic prompt caching enabled.'}
+- {question: 'What is LLM prompt caching?', answer: 'Prompt caching is an API feature
+    supported by Google, xAI, and Anthropic that allows developers to cache frequently
+    used static prompts (like large context files or system prompts) at a 50% to 90%
+    discount.'}
+tags: [AI APIs, API Pricing, Gemini, Grok xAI, OpenAI]
 ---
-
 In the fast-paced world of artificial intelligence, choosing the right API can make or break your business’s efficiency and budget. [xAI’s Grok AI](https://x.ai/grok), [Google’s Gemini API](https://ai.google.dev), and [OpenAI’s API](https://openai.com) offer powerful tools for automating workflows across industries. This blog post compares their API costs using detailed tables, evaluates their suitability for business use cases, and showcases how [AI Viewz](https://www.aiviewz.com) leverages [Gemini API](https://ai.google.dev) to power tools like [OCR](https://www.aiviewz.com/services/image-to-text), [key information extraction](https://www.aiviewz.com/services/key-information-extraction), [video summarization](https://www.aiviewz.com/services/analyze-video), and [audio transcription](https://www.aiviewz.com/services/transcribe-audio). By understanding pricing and capabilities, businesses can optimize workflows and drive productivity.
 
 ## API Cost Comparison

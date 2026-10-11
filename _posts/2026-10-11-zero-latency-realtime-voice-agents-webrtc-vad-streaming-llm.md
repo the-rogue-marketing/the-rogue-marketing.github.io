@@ -1,23 +1,30 @@
 ---
 layout: post
-title: "Zero-Latency Real-Time Voice Agents: Orchestrating WebRTC, Voice Activity Detection, and Streaming LLM Inference Under 300ms"
-description: "An exhaustive systems engineering guide to building sub-300ms conversational AI voice agents. Learn how to pipeline WebRTC audio frames, Silero VAD, speculative token streaming, and neural text-to-speech without barge-in stutter."
+title: 'Zero-Latency Real-Time Voice Agents: Orchestrating WebRTC, Voice Activity
+  Detection, and Streaming LLM Inference Under 300ms'
+description: An exhaustive systems engineering guide to building sub-300ms conversational
+  AI voice agents. Learn how to pipeline WebRTC audio frames, Silero VAD, speculative
+  token streaming, and neural text-to-speech without barge-in stutter.
 date: 2026-10-11 09:00:00 +0000
 image: assets/images/realtime-voice-architecture.webp
-categories:
-  - ai-engineering
-  - speech-ai
-  - real-time-systems
-keywords: "real time voice agent webrtc, sub 300ms conversational ai, streaming llm tts pipeline, silero vad barge in handling, speech to speech latency budget"
+categories: [AI Agents & Autonomous Systems]
+keywords: real time voice agent webrtc, sub 300ms conversational ai, streaming llm
+  tts pipeline, silero vad barge in handling, speech to speech latency budget
 faqs:
-  - question: "What is the human perception threshold for conversational voice latency?"
-    answer: "Natural human turn-taking latency in conversation averages between 200ms and 300ms. Anything above 450ms feels like an uncomfortable pause or satellite delay, causing users to speak over the assistant."
-  - question: "How do you handle user barge-in without breaking the audio stream?"
-    answer: "Deploy real-time Voice Activity Detection (VAD) on the client/edge WebRTC worker. The instant user speech energy exceeds baseline threshold for >60ms, immediately send a cancellation token to the LLM generation loop, drain the TTS buffer, and silence output playback."
-  - question: "Is WebSockets or WebRTC better for conversational voice AI?"
-    answer: "WebRTC is superior because it uses UDP (SRTP/SCTP) with jitter buffer management, avoiding TCP head-of-line blocking that ruins audio continuity over mobile networks."
+- {question: 'What is the human perception threshold for conversational voice latency?',
+  answer: 'Natural human turn-taking latency in conversation averages between 200ms
+    and 300ms. Anything above 450ms feels like an uncomfortable pause or satellite
+    delay, causing users to speak over the assistant.'}
+- {question: 'How do you handle user barge-in without breaking the audio stream?',
+  answer: 'Deploy real-time Voice Activity Detection (VAD) on the client/edge WebRTC
+    worker. The instant user speech energy exceeds baseline threshold for >60ms, immediately
+    send a cancellation token to the LLM generation loop, drain the TTS buffer, and
+    silence output playback.'}
+- {question: 'Is WebSockets or WebRTC better for conversational voice AI?', answer: 'WebRTC
+    is superior because it uses UDP (SRTP/SCTP) with jitter buffer management, avoiding
+    TCP head-of-line blocking that ruins audio continuity over mobile networks.'}
+tags: [AI Agents]
 ---
-
 Building conversational voice AI that feels genuinely human is an uncompromising game of **latency budgeting**. When two people speak, natural conversational turn-taking happens in roughly **220ms to 280ms**. The moment an AI agent takes longer than 450ms to formulate an audio response, the psychological illusion of conversation shatters, turning the interaction into an awkward walkie-talkie exchange.
 
 In this architecture breakdown, we dissect the complete end-to-end engineering pipeline required to achieve **sub-300ms total glass-to-glass latency** in production voice agents.

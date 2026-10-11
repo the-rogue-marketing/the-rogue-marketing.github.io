@@ -1,22 +1,30 @@
 ---
 layout: post
-title: "OpenAI vs. Anthropic Prompt Caching Architecture: When Does 90% Context Caching Actually Save Money?"
-description: "Architectural and economic deep dive into OpenAI and Anthropic Prompt Caching. Learn cache hit rate formulas, TTL expiration rules, and break-even math."
+title: 'OpenAI vs. Anthropic Prompt Caching Architecture: When Does 90% Context Caching
+  Actually Save Money?'
+description: Architectural and economic deep dive into OpenAI and Anthropic Prompt
+  Caching. Learn cache hit rate formulas, TTL expiration rules, and break-even math.
 author: professor-xai
-categories: [ai-pricing, prompt-engineering, dev]
+categories: [AI Models & API Pricing]
 image: assets/images/cut-ai-api-bill-2026.webp
 featured: true
 last_modified_at: 2026-10-02
-keywords: "openai prompt caching vs anthropic, claude prompt caching discount, llm context caching cost savings, prompt caching cache hit rate"
+keywords: openai prompt caching vs anthropic, claude prompt caching discount, llm
+  context caching cost savings, prompt caching cache hit rate
 faq:
-  - question: "What is the discount rate for cached prompt tokens?"
-    answer: "Anthropic offers a 90% discount on cached tokens (e.g. $0.30/M vs $3.00/M on Claude 3.5 Sonnet). OpenAI provides a 50% discount on cached input tokens for GPT-4o."
-  - question: "What is the cache retention TTL for OpenAI vs Anthropic?"
-    answer: "Anthropic retains cached prompts for 5 minutes (refreshed on each hit). OpenAI automatically caches prompts with 1,024+ tokens for 5 to 10 minutes without explicit client headers."
-  - question: "What is the minimum prompt size required to trigger caching?"
-    answer: "Anthropic requires a minimum of 1,024 tokens for Claude Sonnet/Opus and 2,048 tokens for Claude Haiku. OpenAI automatically checks caching for prompts exceeding 1,024 tokens."
+- {question: 'What is the discount rate for cached prompt tokens?', answer: Anthropic
+    offers a 90% discount on cached tokens (e.g. $0.30/M vs $3.00/M on Claude 3.5
+    Sonnet). OpenAI provides a 50% discount on cached input tokens for GPT-4o.}
+- {question: 'What is the cache retention TTL for OpenAI vs Anthropic?', answer: 'Anthropic
+    retains cached prompts for 5 minutes (refreshed on each hit). OpenAI automatically
+    caches prompts with 1,024+ tokens for 5 to 10 minutes without explicit client
+    headers.'}
+- {question: 'What is the minimum prompt size required to trigger caching?', answer: 'Anthropic
+    requires a minimum of 1,024 tokens for Claude Sonnet/Opus and 2,048 tokens for
+    Claude Haiku. OpenAI automatically checks caching for prompts exceeding 1,024
+    tokens.'}
+tags: [AI APIs, API Pricing, DevOps, OpenAI]
 ---
-
 Both OpenAI and Anthropic market **Prompt Caching** as the ultimate cure for multi-thousand dollar API bills. Anthropic advertises up to **90% cost savings and 85% latency reduction**, while OpenAI offers automated **50% discounts**.
 
 However, in production enterprise deployments, prompt caching can actually **increase costs** if your query frequency, cache invalidation strategy, and token thresholds are miscalculated.

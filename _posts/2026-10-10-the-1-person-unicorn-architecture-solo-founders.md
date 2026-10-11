@@ -1,20 +1,29 @@
 ---
 layout: post
-title: "The 1-Person Unicorn Architecture: How Solo Founders Build $10M+ ARR Software with AI"
-description: "The exact technology stack, autonomous workflows, and operational architectures allowing solo software founders to scale multi-million dollar ARR businesses in 2026."
+title: 'The 1-Person Unicorn Architecture: How Solo Founders Build $10M+ ARR Software
+  with AI'
+description: The exact technology stack, autonomous workflows, and operational architectures
+  allowing solo software founders to scale multi-million dollar ARR businesses in
+  2026.
 author: professor-xai
-categories: ["startups", "indie-hacking", "ai-architecture"]
+categories: [System Design & Scalability]
 image: assets/images/automating-business-with-ai.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "1 person unicorn architecture, solo founder ai stack, indie hacker 10m arr, autonomous business automation, micro saas scaling with agents"
+keywords: 1 person unicorn architecture, solo founder ai stack, indie hacker 10m arr,
+  autonomous business automation, micro saas scaling with agents
 faq:
-  - question: "Can a single person really run a $10M ARR SaaS?"
-    answer: "Yes. By automating customer support with RAG agents, engineering with autonomous CLI tools, and marketing with programmatic publishing engines, a solo founder's operational leverage is unprecedented."
-  - question: "What is the typical tech stack for a solo AI founder?"
-    answer: "TypeScript/Next.js or FastAPI, PostgreSQL (Supabase/Neon), Stripe, Redis for agent queueing, and Claude Code / Antigravity for automated development."
-  - question: "Where do solo founders spend their actual human time?"
-    answer: "Customer discovery, product strategy, system invariants, high-stakes contract negotiations, and reviewing agent-authored PRs."
+- {question: 'Can a single person really run a $10M ARR SaaS?', answer: 'Yes. By automating
+    customer support with RAG agents, engineering with autonomous CLI tools, and marketing
+    with programmatic publishing engines, a solo founder''s operational leverage is
+    unprecedented.'}
+- {question: 'What is the typical tech stack for a solo AI founder?', answer: 'TypeScript/Next.js
+    or FastAPI, PostgreSQL (Supabase/Neon), Stripe, Redis for agent queueing, and
+    Claude Code / Antigravity for automated development.'}
+- {question: 'Where do solo founders spend their actual human time?', answer: 'Customer
+    discovery, product strategy, system invariants, high-stakes contract negotiations,
+    and reviewing agent-authored PRs.'}
+tags: []
 ---
 Sam Altman famously predicted that we will soon see the first **one-person billion-dollar company**.
 

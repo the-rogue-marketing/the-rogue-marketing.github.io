@@ -1,20 +1,29 @@
 ---
 layout: post
-title: "Open-Source Variations of Jev: Self-Hosting System-1 Decision & Classification Models"
-description: "Looking for open-source and self-hosted alternatives to TypeSafe AI's Jev? Explore ModernBERT, DeBERTa-v3, SetFit, and grammar-constrained SLMs (Qwen 2.5 3B / Llama 3.2 1B)."
+title: 'Open-Source Variations of Jev: Self-Hosting System-1 Decision & Classification
+  Models'
+description: Looking for open-source and self-hosted alternatives to TypeSafe AI's
+  Jev? Explore ModernBERT, DeBERTa-v3, SetFit, and grammar-constrained SLMs (Qwen
+  2.5 3B / Llama 3.2 1B).
 author: professor-xai
-categories: ["open-source", "machine-learning", "local-ai"]
+categories: [AI Models & API Pricing]
 image: assets/images/jev-opensource.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "opensource variations of jev, self hosted system 1 models, modernbert classification, setfit few shot, open source decision models, deberta v3 vs jev"
+keywords: opensource variations of jev, self hosted system 1 models, modernbert classification,
+  setfit few shot, open source decision models, deberta v3 vs jev
 faq:
-  - question: "Are there open-source equivalents to Jev?"
-    answer: "Yes. While Jev is proprietary, open-source architectures like ModernBERT, DeBERTa-v3, SetFit (Sentence Transformers), and small models constrained by Outlines or SGLang deliver comparable System-1 decision capabilities."
-  - question: "Why choose an open-source System-1 model over Jev?"
-    answer: "100% on-premise execution, zero cloud API costs, no external network dependencies, complete HIPAA/GDPR data residency compliance, and custom fine-tuning on proprietary company data."
-  - question: "What hardware is required to run open-source System-1 models?"
-    answer: "Extremely minimal hardware. ModernBERT and SetFit run comfortably on commodity x86 CPUs or a $150 GPU at over 200 inferences per second."
+- {question: 'Are there open-source equivalents to Jev?', answer: 'Yes. While Jev
+    is proprietary, open-source architectures like ModernBERT, DeBERTa-v3, SetFit
+    (Sentence Transformers), and small models constrained by Outlines or SGLang deliver
+    comparable System-1 decision capabilities.'}
+- {question: 'Why choose an open-source System-1 model over Jev?', answer: '100% on-premise
+    execution, zero cloud API costs, no external network dependencies, complete HIPAA/GDPR
+    data residency compliance, and custom fine-tuning on proprietary company data.'}
+- {question: 'What hardware is required to run open-source System-1 models?', answer: Extremely
+    minimal hardware. ModernBERT and SetFit run comfortably on commodity x86 CPUs
+    or a $150 GPU at over 200 inferences per second.}
+tags: [AI APIs]
 ---
 While **TypeSafe AI's Jev** has popularized the concept of dedicated System-1 decision models, enterprise organizations with strict data residency requirements (healthcare, defense, banking) often require **100% self-hosted, open-source architectures**.
 

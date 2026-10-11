@@ -1,20 +1,31 @@
 ---
 layout: post
-title: "Optimizing Local Multimodal LLMs — Running Vision-Language Models on CPU and GPU"
+title: Optimizing Local Multimodal LLMs — Running Vision-Language Models on CPU and
+  GPU
 date: 2026-05-21
 last_modified_at: 2026-06-03
 author: professor-xai
-categories: [Generative AI, Local LLMs, Vision AI]
+categories: [AI Models & API Pricing]
 image: assets/images/local-multimodal-llm-architecture.webp
-description: "An engineering guide to running and optimizing local vision-language models (VLMs) on consumer CPU and GPU hardware. Learn quantization, memory offloading, and FastAPI integration."
-keywords: "local vision language models, run vlms locally, llama 3.2 vision gguf, qwen2.5-vl local optimization, ollama vision api python"
+description: An engineering guide to running and optimizing local vision-language
+  models (VLMs) on consumer CPU and GPU hardware. Learn quantization, memory offloading,
+  and FastAPI integration.
+keywords: local vision language models, run vlms locally, llama 3.2 vision gguf, qwen2.5-vl
+  local optimization, ollama vision api python
 faq:
-  - question: "Can I run multimodal LLMs locally on CPU?"
-    answer: "Yes, but with limitations. Quantized models like LLaVA 7B in 4-bit quantization can run on CPU with 8GB RAM, but inference is slow (10-30 seconds per image). For production workloads, a GPU with at least 8GB VRAM is recommended."
-  - question: "What is the best local multimodal LLM for vision tasks?"
-    answer: "LLaVA and CogVLM are the leading open-source vision-language models. For CPU-only setups, LLaVA 7B quantized offers the best speed-quality tradeoff. For GPU setups, CogVLM and InternVL provide near-commercial-grade accuracy."
-  - question: "How much does it cost to run local LLMs vs cloud APIs?"
-    answer: "Local GPU inference costs approximately $0.01-0.05 per 1,000 queries after hardware investment. Cloud APIs like Gemini Flash cost $0.30/1M tokens. Local is cheaper at scale (10,000+ queries/day) but requires upfront hardware investment and maintenance."
+- {question: 'Can I run multimodal LLMs locally on CPU?', answer: 'Yes, but with limitations.
+    Quantized models like LLaVA 7B in 4-bit quantization can run on CPU with 8GB RAM,
+    but inference is slow (10-30 seconds per image). For production workloads, a GPU
+    with at least 8GB VRAM is recommended.'}
+- {question: 'What is the best local multimodal LLM for vision tasks?', answer: 'LLaVA
+    and CogVLM are the leading open-source vision-language models. For CPU-only setups,
+    LLaVA 7B quantized offers the best speed-quality tradeoff. For GPU setups, CogVLM
+    and InternVL provide near-commercial-grade accuracy.'}
+- {question: 'How much does it cost to run local LLMs vs cloud APIs?', answer: 'Local
+    GPU inference costs approximately $0.01-0.05 per 1,000 queries after hardware
+    investment. Cloud APIs like Gemini Flash cost $0.30/1M tokens. Local is cheaper
+    at scale (10,000+ queries/day) but requires upfront hardware investment and maintenance.'}
+tags: [Generative AI, OCR & Vision]
 ---
 The landscape of local artificial intelligence has expanded beyond text. With the release of highly efficient vision-language models (VLMs), developers can now run multimodal applications locally on consumer hardware. Models like Qwen 2.5 VL, Llama 3.2 Vision, and Pixtral 12B can analyze images, perform document OCR, and interpret charts entirely offline.
 

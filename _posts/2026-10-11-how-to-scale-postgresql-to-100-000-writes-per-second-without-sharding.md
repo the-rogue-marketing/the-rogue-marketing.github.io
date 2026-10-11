@@ -1,23 +1,29 @@
 ---
 layout: post
-title: "How to Scale PostgreSQL to 100,000 Writes Per Second Without Sharding"
-description: "An exhaustive systems engineering guide to maxing out single-node PostgreSQL write throughput. Learn unlogged tables, copy-in batching, write-ahead log (WAL) tuning, NVMe striping, and kernel fsync pipelining."
+title: How to Scale PostgreSQL to 100,000 Writes Per Second Without Sharding
+description: An exhaustive systems engineering guide to maxing out single-node PostgreSQL
+  write throughput. Learn unlogged tables, copy-in batching, write-ahead log (WAL)
+  tuning, NVMe striping, and kernel fsync pipelining.
 date: 2026-10-11 12:00:00 +0000
 image: assets/images/postgres-scaling-2026.webp
-categories:
-  - database-engineering
-  - postgresql
-  - systems-architecture
-keywords: "scale postgresql 100k writes per second, postgres write throughput tuning, wal group commit optimization, postgresql without sharding, nvme kernel fsync pipeline"
+categories: [System Design & Scalability]
+keywords: scale postgresql 100k writes per second, postgres write throughput tuning,
+  wal group commit optimization, postgresql without sharding, nvme kernel fsync pipeline
 faqs:
-  - question: "Can a single PostgreSQL instance handle 100,000 writes per second?"
-    answer: "Yes, when architected properly with bulk ingest patterns, deferred constraints, connection pooling, and tuned Write-Ahead Logging (WAL) on enterprise NVMe PCIe 5.0 storage."
-  - question: "Why is sharding often the wrong first choice for write-heavy workloads?"
-    answer: "Sharding introduces distributed transactions (2PC), network hops, re-balancing overhead, cross-shard joins, and massive operational complexity. 95% of applications jump to Citus or CockroachDB before exhausting single-node hardware capabilities."
-  - question: "What is the single biggest bottleneck in high-throughput PostgreSQL writes?"
-    answer: "The Write-Ahead Log (WAL) fsync synchronization. Calling synchronous fsync on individual row INSERTs locks the CPU on storage I/O barriers. Group commit and synchronous_commit configuration shifts this from I/O bound to CPU bound."
+- {question: 'Can a single PostgreSQL instance handle 100,000 writes per second?',
+  answer: 'Yes, when architected properly with bulk ingest patterns, deferred constraints,
+    connection pooling, and tuned Write-Ahead Logging (WAL) on enterprise NVMe PCIe
+    5.0 storage.'}
+- {question: 'Why is sharding often the wrong first choice for write-heavy workloads?',
+  answer: 'Sharding introduces distributed transactions (2PC), network hops, re-balancing
+    overhead, cross-shard joins, and massive operational complexity. 95% of applications
+    jump to Citus or CockroachDB before exhausting single-node hardware capabilities.'}
+- {question: 'What is the single biggest bottleneck in high-throughput PostgreSQL
+    writes?', answer: The Write-Ahead Log (WAL) fsync synchronization. Calling synchronous
+    fsync on individual row INSERTs locks the CPU on storage I/O barriers. Group commit
+    and synchronous_commit configuration shifts this from I/O bound to CPU bound.}
+tags: [PostgreSQL, System Design]
 ---
-
 Before you split your database into a distributed cluster—introducing two-phase commit overhead, distributed deadlocks, and cross-node network latency—you should know this:
 
 **A single optimized PostgreSQL instance on modern hardware can sustain over 100,000 ACID writes per second.**

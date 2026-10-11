@@ -1,22 +1,29 @@
 ---
 layout: post
-title: "Building Zero-Cloud Enterprise Search: Local Hybrid RAG with Ollama, pgvector & BGE-M3 Sparse Embeddings"
-description: "Architect a 100% private, self-hosted Hybrid RAG pipeline combining dense vector search, sparse lexical retrieval (BM25), and cross-encoder reranking."
+title: 'Building Zero-Cloud Enterprise Search: Local Hybrid RAG with Ollama, pgvector
+  & BGE-M3 Sparse Embeddings'
+description: Architect a 100% private, self-hosted Hybrid RAG pipeline combining dense
+  vector search, sparse lexical retrieval (BM25), and cross-encoder reranking.
 author: professor-xai
-categories: [rag, local-llm, python]
+categories: [Enterprise AI & Document Intelligence]
 image: assets/images/flagship-developer-api-showdown.webp
 featured: true
 last_modified_at: 2026-10-06
-keywords: "local hybrid rag ollama pgvector, bge m3 dense sparse embeddings, private self hosted rag, rrf reciprocal rank fusion python"
+keywords: local hybrid rag ollama pgvector, bge m3 dense sparse embeddings, private
+  self hosted rag, rrf reciprocal rank fusion python
 faq:
-  - question: "What is Hybrid RAG and why is dense vector search not enough?"
-    answer: "Dense vector embeddings understand semantic meaning but frequently miss exact part numbers, product SKUs, and proper nouns. Hybrid RAG fuses dense semantic vectors with sparse lexical keyword matching (BM25) to guarantee 100% retrieval recall."
-  - question: "What makes BGE-M3 ideal for local hybrid search?"
-    answer: "BAAI's BGE-M3 model outputs dense vectors, sparse lexical weights, and multi-vector representations simultaneously in a single forward pass across 100+ languages."
-  - question: "Can pgvector handle millions of embeddings locally?"
-    answer: "Yes. With the HNSW (Hierarchical Navigable Small World) index in pgvector, search latency remains sub-10ms for datasets exceeding 1,000,000 document vectors on modest servers."
+- {question: 'What is Hybrid RAG and why is dense vector search not enough?', answer: 'Dense
+    vector embeddings understand semantic meaning but frequently miss exact part numbers,
+    product SKUs, and proper nouns. Hybrid RAG fuses dense semantic vectors with sparse
+    lexical keyword matching (BM25) to guarantee 100% retrieval recall.'}
+- {question: 'What makes BGE-M3 ideal for local hybrid search?', answer: 'BAAI''s
+    BGE-M3 model outputs dense vectors, sparse lexical weights, and multi-vector representations
+    simultaneously in a single forward pass across 100+ languages.'}
+- {question: 'Can pgvector handle millions of embeddings locally?', answer: 'Yes.
+    With the HNSW (Hierarchical Navigable Small World) index in pgvector, search latency
+    remains sub-10ms for datasets exceeding 1,000,000 document vectors on modest servers.'}
+tags: [AI APIs, Python, System Design]
 ---
-
 Sending sensitive proprietary data (internal medical records, source code, financial audits) to public cloud LLM APIs is an immediate compliance violation for many enterprises.
 
 Here is how to build a **production-grade Hybrid Retrieval-Augmented Generation (RAG) engine running 100% locally on your own hardware** using **Ollama, PostgreSQL with pgvector, and BGE-M3 multi-function embeddings**.

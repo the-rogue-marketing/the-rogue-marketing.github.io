@@ -2,27 +2,27 @@
 layout: post
 title: 'Google Gemini API Pricing Explained: Simple Cost Guide (June 2026)'
 author: professor-xai
-categories:
-- gemini
-- ai-api
-- google-ai
-- pricing
-- gemini-3.5
+categories: [AI Models & API Pricing]
 image: assets/images/google-gemini-ai-api-pricing.webp
-description: A complete, beginner-friendly guide to Google Gemini API pricing in 2026. Learn input/output token costs, caching discounts, and free tier options.
-keywords: gemini api pricing, google gemini cost, gemini 1.5 flash price, prompt caching cost, gemini free tier
+description: A complete, beginner-friendly guide to Google Gemini API pricing in 2026.
+  Learn input/output token costs, caching discounts, and free tier options.
+keywords: gemini api pricing, google gemini cost, gemini 1.5 flash price, prompt caching
+  cost, gemini free tier
 last_modified_at: '2026-06-03'
-canonical_url: "https://the-rogue-marketing.github.io/google-gemini-api-pricing-may-2026/"
+canonical_url: https://the-rogue-marketing.github.io/google-gemini-api-pricing-may-2026/
 noindex: true
 faq:
-- question: Is Google Gemini API free?
-  answer: Yes, Google offers a generous free tier for developers in Google AI Studio, which allows up to 15 RPM (requests per minute) and 1M TPM (tokens per minute) for Gemini 1.5 & 2.5 Flash.
-- question: How much does Gemini 1.5 Flash cost?
-  answer: On the pay-as-you-go paid tier, Gemini 1.5 Flash costs $0.075 per million input tokens and $0.30 per million output tokens for prompts under 128k tokens.
-- question: What is Gemini prompt caching discount?
-  answer: For prompts longer than 32k tokens, Gemini prompt caching provides a 50% discount on input tokens, reducing the cost to just $0.0375 per million cached input tokens.
+- {question: 'Is Google Gemini API free?', answer: 'Yes, Google offers a generous
+    free tier for developers in Google AI Studio, which allows up to 15 RPM (requests
+    per minute) and 1M TPM (tokens per minute) for Gemini 1.5 & 2.5 Flash.'}
+- {question: 'How much does Gemini 1.5 Flash cost?', answer: 'On the pay-as-you-go
+    paid tier, Gemini 1.5 Flash costs $0.075 per million input tokens and $0.30 per
+    million output tokens for prompts under 128k tokens.'}
+- {question: 'What is Gemini prompt caching discount?', answer: 'For prompts longer
+    than 32k tokens, Gemini prompt caching provides a 50% discount on input tokens,
+    reducing the cost to just $0.0375 per million cached input tokens.'}
+tags: [AI APIs, API Pricing, Gemini, Google AI]
 ---
-
 Navigating the cost of AI APIs can be confusing. Google's Gemini family has many models, each with its own price tag. This guide breaks down the latest Gemini API pricing in simple terms, so you can pick the right model for your project without breaking the bank.
 
 ### The Big Picture: Choosing Your Model

@@ -1,18 +1,30 @@
 ---
 layout: post
-title: "Event-Driven CQRS for Generative AI: Scaling Asynchronous LLM Workflows with Apache Kafka, Flink, and Redis"
-description: "How to decouple expensive LLM generation from synchronous user requests. Build high-throughput event-driven AI architectures using CQRS, Kafka event streaming, Flink stateful processing, and Redis."
+title: 'Event-Driven CQRS for Generative AI: Scaling Asynchronous LLM Workflows with
+  Apache Kafka, Flink, and Redis'
+description: How to decouple expensive LLM generation from synchronous user requests.
+  Build high-throughput event-driven AI architectures using CQRS, Kafka event streaming,
+  Flink stateful processing, and Redis.
 date: 2026-10-10
-categories: [system-design, event-driven, backend-architecture]
+categories: [System Design & Scalability]
 image: assets/images/rag-pipeline.webp
-keywords: "event driven llm architecture, cqrs generative ai, apache kafka ai workflow, flink stateful token processing, redis event sourcing llm"
+keywords: event driven llm architecture, cqrs generative ai, apache kafka ai workflow,
+  flink stateful token processing, redis event sourcing llm
 faq:
-  - question: "Why should LLM systems use CQRS instead of synchronous REST endpoints?"
-    answer: "LLM operations have high, unpredictable latencies (2s to 60s) and variable token costs. CQRS separates write commands (initiating AI generation jobs) from read queries (polling results or streaming tokens), preventing HTTP connection timeouts and enabling resilient retry queues."
-  - question: "How does Apache Flink help in an event-driven AI pipeline?"
-    answer: "Flink provides stateful stream processing over event logs. It can calculate rolling token consumption budgets, aggregate multi-agent state transitions, and enforce sliding-window rate limits before jobs reach expensive GPU clusters."
-  - question: "What happens during worker crashes in an event-driven AI workflow?"
-    answer: "Because every stage is an immutable Kafka event with consumer group offsets, failed jobs are automatically redelivered to healthy workers with idempotency keys, eliminating duplicate generation and lost queries."
+- {question: 'Why should LLM systems use CQRS instead of synchronous REST endpoints?',
+  answer: 'LLM operations have high, unpredictable latencies (2s to 60s) and variable
+    token costs. CQRS separates write commands (initiating AI generation jobs) from
+    read queries (polling results or streaming tokens), preventing HTTP connection
+    timeouts and enabling resilient retry queues.'}
+- {question: 'How does Apache Flink help in an event-driven AI pipeline?', answer: 'Flink
+    provides stateful stream processing over event logs. It can calculate rolling
+    token consumption budgets, aggregate multi-agent state transitions, and enforce
+    sliding-window rate limits before jobs reach expensive GPU clusters.'}
+- {question: 'What happens during worker crashes in an event-driven AI workflow?',
+  answer: 'Because every stage is an immutable Kafka event with consumer group offsets,
+    failed jobs are automatically redelivered to healthy workers with idempotency
+    keys, eliminating duplicate generation and lost queries.'}
+tags: [System Design]
 ---
 Deploying Large Language Models behind traditional synchronous REST or gRPC request-response cycles is a recipe for production instability. Autoregressive token generation introduces non-deterministic execution times ranging from 800 milliseconds to over 60 seconds, leading to connection timeouts, socket pool exhaustion, and cascading gateway failures under load spikes.
 

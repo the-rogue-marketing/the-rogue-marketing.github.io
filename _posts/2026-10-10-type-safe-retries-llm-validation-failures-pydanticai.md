@@ -1,22 +1,30 @@
 ---
 layout: post
-title: "Type-Safe Retries: Programmatically Recovering from LLM Hallucinations and Schema Errors in PydanticAI"
-description: "How to implement programmatic error-recovery loops with PydanticAI. Automatically feed validation tracebacks back to the LLM to self-heal schema errors."
+title: 'Type-Safe Retries: Programmatically Recovering from LLM Hallucinations and
+  Schema Errors in PydanticAI'
+description: How to implement programmatic error-recovery loops with PydanticAI. Automatically
+  feed validation tracebacks back to the LLM to self-heal schema errors.
 author: professor-xai
-categories: [pydantic-ai, python, dev]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/type-safe-retries-pydanticai.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "pydanticai validation error retry, self healing llm schema errors, pydantic field validator retry agent, handle llm hallucinations python"
+keywords: pydanticai validation error retry, self healing llm schema errors, pydantic
+  field validator retry agent, handle llm hallucinations python
 faq:
-  - question: "What happens when an LLM fails a Pydantic validator in PydanticAI?"
-    answer: "PydanticAI catches the `ValidationError`, serializes the exact field name and error message into the next model prompt turn, and prompts the LLM to correct only the offending field."
-  - question: "How many retries does PydanticAI perform by default?"
-    answer: "PydanticAI defaults to 1 retry, but developers can configure `retries=3` on the agent or individual tools for resilient execution."
-  - question: "Why is self-healing validation superior to regex fallbacks?"
-    answer: "Self-healing allows the LLM to understand why its output violated business rules (e.g. 'Date must be in the future') and reason through the correction rather than breaking your application."
+- {question: 'What happens when an LLM fails a Pydantic validator in PydanticAI?',
+  answer: 'PydanticAI catches the `ValidationError`, serializes the exact field name
+    and error message into the next model prompt turn, and prompts the LLM to correct
+    only the offending field.'}
+- {question: 'How many retries does PydanticAI perform by default?', answer: 'PydanticAI
+    defaults to 1 retry, but developers can configure `retries=3` on the agent or
+    individual tools for resilient execution.'}
+- {question: 'Why is self-healing validation superior to regex fallbacks?', answer: Self-healing
+    allows the LLM to understand why its output violated business rules (e.g. 'Date
+    must be in the future') and reason through the correction rather than breaking
+    your application.}
+tags: [AI APIs, DevOps, PydanticAI, Python]
 ---
-
 Even frontier models occasionally generate invalid outputs: returning an ISO-8601 string where a float was expected, omitting a mandatory nested object, or failing business validation rules.
 
 In traditional frameworks, this triggers a fatal `pydantic.ValidationError` that crashes your API endpoint.

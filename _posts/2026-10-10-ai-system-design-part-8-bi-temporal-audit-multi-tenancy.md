@@ -1,22 +1,37 @@
 ---
 layout: post
-title: "AI System Design Series (Part 8): Bi-Temporal Audit Trails, Multi-Tenancy, and HIPAA/SOC-2 Data Isolation"
-description: "How to engineer immutable regulatory audit trails and cryptographic multi-tenancy. Implementing bi-temporal modeling, Iceberg snapshot time-travel, pgvector Row-Level Security, and model provenance logging."
+title: 'AI System Design Series (Part 8): Bi-Temporal Audit Trails, Multi-Tenancy,
+  and HIPAA/SOC-2 Data Isolation'
+description: How to engineer immutable regulatory audit trails and cryptographic multi-tenancy.
+  Implementing bi-temporal modeling, Iceberg snapshot time-travel, pgvector Row-Level
+  Security, and model provenance logging.
 author: professor-xai
-categories: [system-design, security, multi-tenancy, compliance]
+categories: [System Design & Scalability]
 image: assets/images/ai-system-design-part-8-security-auditability.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "bi temporal data modeling, ai audit trail architecture, hipaa soc 2 ai compliance, pgvector row level security, model provenance tracking, iceberg time travel"
+keywords: bi temporal data modeling, ai audit trail architecture, hipaa soc 2 ai compliance,
+  pgvector row level security, model provenance tracking, iceberg time travel
 faq:
-  - question: "What is bi-temporal data modeling and why is it mandatory for enterprise AI?"
-    answer: "Bi-temporal data modeling tracks two separate timelines for every record: Valid Time (when an event occurred in the real world, such as an invoice issue date) and Transaction Time (when the record was written to the system). This allows auditors to reconstruct exactly what the system knew at any specific point in history, which is legally required under SOX and Medicare guidelines."
-  - question: "How do you enforce multi-tenant isolation in pgvector semantic search?"
-    answer: "You implement PostgreSQL Row-Level Security (RLS) coupled with session-scoped connection variables (e.g., SET LOCAL app.current_tenant_id = 'tenant_123'). This guarantees that vector similarity queries and full-text searches physically cannot retrieve document chunks belonging to other corporate subsidiaries or healthcare clinics."
-  - question: "What constitutes complete AI Model Provenance in an audit trail?"
-    answer: "A complete AI model provenance record captures the cryptographic SHA-256 hash of the input document, the exact foundation model version (e.g. gemini-3.8-flash-001), temperature setting, system prompt template hash, Jev calibrated confidence score, and the exact list of RAG evidence chunk IDs retrieved during execution."
+- {question: 'What is bi-temporal data modeling and why is it mandatory for enterprise
+    AI?', answer: 'Bi-temporal data modeling tracks two separate timelines for every
+    record: Valid Time (when an event occurred in the real world, such as an invoice
+    issue date) and Transaction Time (when the record was written to the system).
+    This allows auditors to reconstruct exactly what the system knew at any specific
+    point in history, which is legally required under SOX and Medicare guidelines.'}
+- {question: 'How do you enforce multi-tenant isolation in pgvector semantic search?',
+  answer: 'You implement PostgreSQL Row-Level Security (RLS) coupled with session-scoped
+    connection variables (e.g., SET LOCAL app.current_tenant_id = ''tenant_123'').
+    This guarantees that vector similarity queries and full-text searches physically
+    cannot retrieve document chunks belonging to other corporate subsidiaries or healthcare
+    clinics.'}
+- {question: 'What constitutes complete AI Model Provenance in an audit trail?', answer: 'A
+    complete AI model provenance record captures the cryptographic SHA-256 hash of
+    the input document, the exact foundation model version (e.g. gemini-3.8-flash-001),
+    temperature setting, system prompt template hash, Jev calibrated confidence score,
+    and the exact list of RAG evidence chunk IDs retrieved during execution.'}
+tags: [AI Agents, OCR & Vision, PydanticAI, Security, System Design]
 ---
-
 In Parts 6 and 7 of this series, we developed the autonomous agent execution layer using PydanticAI and engineered durable human-in-the-loop workflows with an active learning feedback loop.
 
 At this stage, our system extracts documents, verifies them against domain ontologies, routes them via System-1 models, and executes automated transactions.

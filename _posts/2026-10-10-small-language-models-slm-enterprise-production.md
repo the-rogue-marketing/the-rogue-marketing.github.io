@@ -1,20 +1,29 @@
 ---
 layout: post
-title: "Small Language Models (SLMs) in 2026: Why 3B–8B Models Are Crushing Giant LLMs in Enterprise"
-description: "Why Fortune 500 enterprises are ditching 1-trillion parameter frontier models for fine-tuned 3B-8B Small Language Models running on cheap commodity CPUs and edge devices."
+title: 'Small Language Models (SLMs) in 2026: Why 3B–8B Models Are Crushing Giant
+  LLMs in Enterprise'
+description: Why Fortune 500 enterprises are ditching 1-trillion parameter frontier
+  models for fine-tuned 3B-8B Small Language Models running on cheap commodity CPUs
+  and edge devices.
 author: professor-xai
-categories: ["slm", "enterprise-ai", "edge-computing"]
+categories: [Enterprise AI & Document Intelligence]
 image: assets/images/local-cpu-llm-architecture.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "small language models slm 2026, phi-4 enterprise production, edge ai models, fine tuned 8b vs frontier llm, cheap local inference"
+keywords: small language models slm 2026, phi-4 enterprise production, edge ai models,
+  fine tuned 8b vs frontier llm, cheap local inference
 faq:
-  - question: "What is considered a Small Language Model (SLM)?"
-    answer: "Models typically ranging between 1 billion and 8 billion parameters (such as Microsoft Phi-4, Qwen 2.5 7B, and Llama 3.2 3B)."
-  - question: "Can an 8B model outperform GPT-4o?"
-    answer: "On a narrow, domain-specific task (such as extracting medical codes or routing financial invoices) with targeted fine-tuning, an 8B model frequently matches or exceeds giant frontier models at 1/50th the latency and cost."
-  - question: "Can SLMs run on standard CPUs without GPUs?"
-    answer: "Yes. Quantized 3B and 7B models run smoothly on modern Intel/AMD server CPUs at 25-45 tokens per second using llama.cpp and AVX-512 vector extensions."
+- {question: 'What is considered a Small Language Model (SLM)?', answer: 'Models typically
+    ranging between 1 billion and 8 billion parameters (such as Microsoft Phi-4, Qwen
+    2.5 7B, and Llama 3.2 3B).'}
+- {question: 'Can an 8B model outperform GPT-4o?', answer: 'On a narrow, domain-specific
+    task (such as extracting medical codes or routing financial invoices) with targeted
+    fine-tuning, an 8B model frequently matches or exceeds giant frontier models at
+    1/50th the latency and cost.'}
+- {question: 'Can SLMs run on standard CPUs without GPUs?', answer: Yes. Quantized
+    3B and 7B models run smoothly on modern Intel/AMD server CPUs at 25-45 tokens
+    per second using llama.cpp and AVX-512 vector extensions.}
+tags: []
 ---
 For the first three years of the generative AI boom, the prevailing industry dogma was simple: **Bigger is Better.**
 

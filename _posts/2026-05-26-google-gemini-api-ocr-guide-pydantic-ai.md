@@ -1,24 +1,33 @@
 ---
 layout: post
-title: "Google Gemini OCR: The Death of Traditional Document AI? [PydanticAI Guide]"
-description: "Why pay $50 per 1,000 pages for traditional OCR? Learn how to build a 99.6% cheaper invoice and ID document OCR using Google Gemini API and PydanticAI in Python."
+title: 'Google Gemini OCR: The Death of Traditional Document AI? [PydanticAI Guide]'
+description: Why pay $50 per 1,000 pages for traditional OCR? Learn how to build a
+  99.6% cheaper invoice and ID document OCR using Google Gemini API and PydanticAI
+  in Python.
 author: professor-xai
-categories: [gemini, ocr, pydantic-ai, python, pricing]
+categories: [AI Models & API Pricing]
 image: assets/images/gemini-ocr-pydantic-ai.webp
 featured: true
 last_modified_at: 2026-05-26
-keywords: "gemini api ocr, document ai vs gemini, pydantic ai tutorial, invoice ocr python, cheap ocr api, parse passports gemini"
+keywords: gemini api ocr, document ai vs gemini, pydantic ai tutorial, invoice ocr
+  python, cheap ocr api, parse passports gemini
 faq:
-  - question: "Can Google Gemini be used as an OCR?"
-    answer: "Yes. Google Gemini is a natively multimodal model that processes image pixels directly. It can perform high-fidelity structured text and table extraction (OCR) from PDFs, invoices, and IDs."
-  - question: "How much cheaper is Gemini OCR compared to AWS Textract?"
-    answer: "Gemini OCR is up to 99.6% cheaper. While AWS Textract or Azure Document Intelligence cost $15 to $50 per 1,000 pages, Gemini 3.1 Flash-Lite costs just $0.19 per 1,000 pages."
-  - question: "What is PydanticAI?"
-    answer: "PydanticAI is Pydantic's official agent framework in Python. It enforces strict type validation and JSON schema adherence when retrieving structured outputs from LLMs."
-  - question: "Does Gemini OCR support handwritten text?"
-    answer: "Yes. Because Gemini has native vision capabilities, it excels at reading handwritten text, checkboxes, cursive signatures, and complex tabular structures."
+- {question: 'Can Google Gemini be used as an OCR?', answer: 'Yes. Google Gemini is
+    a natively multimodal model that processes image pixels directly. It can perform
+    high-fidelity structured text and table extraction (OCR) from PDFs, invoices,
+    and IDs.'}
+- {question: 'How much cheaper is Gemini OCR compared to AWS Textract?', answer: 'Gemini
+    OCR is up to 99.6% cheaper. While AWS Textract or Azure Document Intelligence
+    cost $15 to $50 per 1,000 pages, Gemini 3.1 Flash-Lite costs just $0.19 per 1,000
+    pages.'}
+- {question: 'What is PydanticAI?', answer: PydanticAI is Pydantic's official agent
+    framework in Python. It enforces strict type validation and JSON schema adherence
+    when retrieving structured outputs from LLMs.}
+- {question: 'Does Gemini OCR support handwritten text?', answer: 'Yes. Because Gemini
+    has native vision capabilities, it excels at reading handwritten text, checkboxes,
+    cursive signatures, and complex tabular structures.'}
+tags: [API Pricing, Gemini, OCR & Vision, PydanticAI, Python]
 ---
-
 For the last decade, enterprise software platforms handling automated document workflows—such as invoices, receipts, tax forms, passports, and utility bills—had to rely on specialized, heavy-duty optical character recognition (OCR) engines. Providers like **AWS Textract**, **Azure AI Document Intelligence**, and **Google Cloud Document AI** ruled the space, charging premium rates for specialized parsing models.
 
 But in 2026, the architecture of document processing has been completely disrupted.

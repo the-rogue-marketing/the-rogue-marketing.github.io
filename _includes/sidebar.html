@@ -22,4 +22,12 @@
             {% endfor %}
         </div>
     </div>
+    <div class="sidebar-section">
+        <h3><span>Top 10 Tags</span></h3>
+        <div class="category-pills">
+            {% for tag in site.data.top_tags %}
+            <a class="category-pill tag-pill" href="{{ site.baseurl }}/tags#{{ tag.slug }}">{{ tag.name }} ({{ tag.count }})</a>
+            {% endfor %}
+        </div>
+    </div>
 </div>

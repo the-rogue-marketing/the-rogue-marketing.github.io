@@ -1,22 +1,30 @@
 ---
 layout: post
-title: "Building Low-Latency Two-Way Voice Agents with Gemini Multimodal Live WebSocket Audio API in Python"
-description: "Complete tutorial on architecting real-time, bidirectional voice assistants using Google's Gemini Multimodal Live WebSocket Audio API with sub-500ms latency."
+title: Building Low-Latency Two-Way Voice Agents with Gemini Multimodal Live WebSocket
+  Audio API in Python
+description: Complete tutorial on architecting real-time, bidirectional voice assistants
+  using Google's Gemini Multimodal Live WebSocket Audio API with sub-500ms latency.
 author: professor-xai
-categories: [gemini-api, audio-ai, python, dev]
+categories: [AI Models & API Pricing]
 image: assets/images/gemini-audio-api-architecture.webp
 featured: true
 last_modified_at: 2026-10-03
-keywords: "gemini multimodal live api python, gemini websocket voice agent, real time bidirectional audio llm, gemini live audio latency"
+keywords: gemini multimodal live api python, gemini websocket voice agent, real time
+  bidirectional audio llm, gemini live audio latency
 faq:
-  - question: "How does Gemini Live API achieve sub-500ms voice latency?"
-    answer: "Unlike traditional STT ➔ LLM ➔ TTS cascades that suffer 2-4 second latency delays, Gemini Live processes raw PCM audio directly in its multimodal neural core, outputting streaming audio tokens natively."
-  - question: "What audio format does Gemini Live WebSocket require?"
-    answer: "Input requires raw 16kHz, 16-bit little-endian mono PCM audio. Output streams at 24kHz PCM audio."
-  - question: "Can Gemini Live handle interruptions (barge-in)?"
-    answer: "Yes. The bidirectional WebSocket protocol includes native barge-in detection. When the user speaks while the model is responding, the server emits an interruption event and halts audio generation immediately."
+- {question: 'How does Gemini Live API achieve sub-500ms voice latency?', answer: 'Unlike
+    traditional STT ➔ LLM ➔ TTS cascades that suffer 2-4 second latency delays, Gemini
+    Live processes raw PCM audio directly in its multimodal neural core, outputting
+    streaming audio tokens natively.'}
+- {question: 'What audio format does Gemini Live WebSocket require?', answer: 'Input
+    requires raw 16kHz, 16-bit little-endian mono PCM audio. Output streams at 24kHz
+    PCM audio.'}
+- {question: 'Can Gemini Live handle interruptions (barge-in)?', answer: 'Yes. The
+    bidirectional WebSocket protocol includes native barge-in detection. When the
+    user speaks while the model is responding, the server emits an interruption event
+    and halts audio generation immediately.'}
+tags: [AI APIs, AI Agents, DevOps, Gemini, OpenAI, Python]
 ---
-
 Traditional AI voice agents rely on a brittle three-step cascade:
 1. **Speech-to-Text (STT)** (e.g. Whisper) ➔ 800ms
 2. **Text LLM Reasoning** (e.g. GPT-4o) ➔ 1200ms

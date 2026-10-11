@@ -1,20 +1,30 @@
 ---
 layout: post
-title: "Google Veo & Lyria API Pricing May 2026: Video Generation & AI Music Complete Cost Guide"
-description: "Complete pricing guide for Google's video and music generation APIs as of May 2026 — Veo 3.1, Veo 3, Veo 2 video generation and Lyria 3 Clip & Pro music generation with real-world cost examples."
+title: 'Google Veo & Lyria API Pricing May 2026: Video Generation & AI Music Complete
+  Cost Guide'
+description: Complete pricing guide for Google's video and music generation APIs as
+  of May 2026 — Veo 3.1, Veo 3, Veo 2 video generation and Lyria 3 Clip & Pro music
+  generation with real-world cost examples.
 author: professor-xai
-categories: [gemini, ai-api, google-ai, pricing, video-generation, music-generation]
+categories: [AI Models & API Pricing]
 image: assets/images/veo-lyria-media-pricing-may-2026.webp
 featured: true
 last_modified_at: 2026-05-17
-keywords: "veo 3.1 pricing, veo 3 api cost, lyria 3 pricing, google ai video generation, google ai music generation, veo api per second cost, lyria 3 pro pricing"
+keywords: veo 3.1 pricing, veo 3 api cost, lyria 3 pricing, google ai video generation,
+  google ai music generation, veo api per second cost, lyria 3 pro pricing
 faq:
-  - question: "How much does Google Veo video generation API cost?"
-    answer: "Google Veo 3 generates videos at $0.35 per second of output. Veo 2 is more affordable at $0.15 per second. Both support text-to-video and image-to-video generation through the Gemini API."
-  - question: "What is Google Lyria music generation API pricing?"
-    answer: "Google Lyria 2 for music and instrumental generation is priced at $0.20 per second of generated audio. It supports text-to-music prompts and can create instrumentals, full songs, and audio effects."
-  - question: "Can I use Veo and Lyria APIs for commercial projects?"
-    answer: "Yes. Both Veo and Lyria APIs are available through Google's paid tier with commercial usage rights. Generated content includes SynthID watermarking for AI content identification."
+- {question: 'How much does Google Veo video generation API cost?', answer: Google
+    Veo 3 generates videos at $0.35 per second of output. Veo 2 is more affordable
+    at $0.15 per second. Both support text-to-video and image-to-video generation
+    through the Gemini API.}
+- {question: 'What is Google Lyria music generation API pricing?', answer: 'Google
+    Lyria 2 for music and instrumental generation is priced at $0.20 per second of
+    generated audio. It supports text-to-music prompts and can create instrumentals,
+    full songs, and audio effects.'}
+- {question: 'Can I use Veo and Lyria APIs for commercial projects?', answer: Yes.
+    Both Veo and Lyria APIs are available through Google's paid tier with commercial
+    usage rights. Generated content includes SynthID watermarking for AI content identification.}
+tags: [AI APIs, API Pricing, Gemini, Google AI]
 ---
 Google's creative AI stack now includes dedicated **video generation** (Veo) and **music generation** (Lyria) APIs. These models can generate cinematic videos with synchronized audio, produce full-length songs, and create 30-second music clips — all through API calls.
 

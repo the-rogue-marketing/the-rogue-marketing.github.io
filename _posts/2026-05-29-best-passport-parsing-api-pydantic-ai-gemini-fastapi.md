@@ -1,20 +1,36 @@
 ---
 layout: post
-title: "Best Passport Parsing API Using Python, Pydantic AI, Gemini 3.5 Flash, LiteLLM & FastAPI with KYC Dashboard in 2026"
-description: "Build a secure, production-grade passport bio-page parsing API for KYC automation using Python, Pydantic AI, Gemini 3.5 Flash, UV, Docker-compose, LiteLLM, FastAPI, and a TypeScript Shadcn UI verification dashboard. Includes MRZ validation and fraud detection."
+title: Best Passport Parsing API Using Python, Pydantic AI, Gemini 3.5 Flash, LiteLLM
+  & FastAPI with KYC Dashboard in 2026
+description: Build a secure, production-grade passport bio-page parsing API for KYC
+  automation using Python, Pydantic AI, Gemini 3.5 Flash, UV, Docker-compose, LiteLLM,
+  FastAPI, and a TypeScript Shadcn UI verification dashboard. Includes MRZ validation
+  and fraud detection.
 author: professor-xai
-categories: [ocr, python, pydantic-ai, fintech]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/passport-parsing-api.webp
 featured: true
 last_modified_at: 2026-05-29
-keywords: "best passport parsing api, passport ocr python gemini, pydantic ai passport parsing, passport verification api, kyc automation api 2026, mrz parser python, identity document ocr, fastapi passport parser, automated kyc verification, passport data extraction"
+keywords: best passport parsing api, passport ocr python gemini, pydantic ai passport
+  parsing, passport verification api, kyc automation api 2026, mrz parser python,
+  identity document ocr, fastapi passport parser, automated kyc verification, passport
+  data extraction
 faq:
-  - question: "How accurate is AI passport parsing compared to traditional OCR?"
-    answer: "Gemini-based passport parsing achieves 97-99% accuracy on the bio-page, including MRZ (Machine Readable Zone) validation. Traditional OCR tools like Tesseract achieve 85-92% on passports due to security features, holograms, and varied fonts that confuse character-level recognition."
-  - question: "Does AI passport parsing include MRZ validation?"
-    answer: "Yes. The PydanticAI schema includes MRZ checksum validation, cross-referencing extracted fields (name, nationality, date of birth, passport number) against the MRZ code to catch extraction errors and detect potential document tampering."
-  - question: "Can this passport parser detect fraudulent documents?"
-    answer: "The system includes basic fraud detection by validating field consistency (MRZ vs visual fields), checking date logic, and flagging anomalies. For advanced fraud detection (pixel analysis, security feature verification), additional forensic analysis layers are recommended."
+- {question: 'How accurate is AI passport parsing compared to traditional OCR?', answer: 'Gemini-based
+    passport parsing achieves 97-99% accuracy on the bio-page, including MRZ (Machine
+    Readable Zone) validation. Traditional OCR tools like Tesseract achieve 85-92%
+    on passports due to security features, holograms, and varied fonts that confuse
+    character-level recognition.'}
+- {question: 'Does AI passport parsing include MRZ validation?', answer: 'Yes. The
+    PydanticAI schema includes MRZ checksum validation, cross-referencing extracted
+    fields (name, nationality, date of birth, passport number) against the MRZ code
+    to catch extraction errors and detect potential document tampering.'}
+- {question: 'Can this passport parser detect fraudulent documents?', answer: 'The
+    system includes basic fraud detection by validating field consistency (MRZ vs
+    visual fields), checking date logic, and flagging anomalies. For advanced fraud
+    detection (pixel analysis, security feature verification), additional forensic
+    analysis layers are recommended.'}
+tags: [AI APIs, Fintech, Gemini, OCR & Vision, PydanticAI, Python]
 ---
 Know Your Customer (KYC) compliance is the backbone of modern fintech, banking, and insurance operations. Every new account opening, loan application, and insurance policy requires **identity document verification** — and at the center of KYC sits the **passport bio-page**: the single most universally accepted identity document worldwide.
 

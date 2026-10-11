@@ -1,22 +1,36 @@
 ---
 layout: post
-title: "AI System Design Series (Part 2): Domain Ontologies and Common Data Models with PEPPOL, HL7 FHIR, and Pydantic"
-description: "Why raw JSON extraction fails in enterprise production. How to architect canonical Common Data Models (CDMs) and semantic ontologies using Pydantic, PEPPOL BIS 3.0 for invoices, and HL7 FHIR for healthcare RCM."
+title: 'AI System Design Series (Part 2): Domain Ontologies and Common Data Models
+  with PEPPOL, HL7 FHIR, and Pydantic'
+description: Why raw JSON extraction fails in enterprise production. How to architect
+  canonical Common Data Models (CDMs) and semantic ontologies using Pydantic, PEPPOL
+  BIS 3.0 for invoices, and HL7 FHIR for healthcare RCM.
 author: professor-xai
-categories: [system-design, data-modeling, python, pydantic]
+categories: [System Design & Scalability]
 image: assets/images/ai-system-design-part-2-ontologies.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "common data model ai, domain ontologies software engineering, peppol ubl pydantic, hl7 fhir claim python, enterprise data architecture, pydantic field validators"
+keywords: common data model ai, domain ontologies software engineering, peppol ubl
+  pydantic, hl7 fhir claim python, enterprise data architecture, pydantic field validators
 faq:
-  - question: "Why is a Common Data Model required between LLM outputs and enterprise databases?"
-    answer: "LLMs generate arbitrary JSON structures that fluctuate across prompts, model updates, and document layouts. Downstream enterprise systems like SAP, NetSuite, Epic, and Cerner require strict relational schemas with precise business invariants. A Common Data Model serves as the stable, canonical contract decoupling volatile AI extraction from rigid core ledgers."
-  - question: "What is the PEPPOL standard for electronic invoicing?"
-    answer: "PEPPOL (Pan-European Public Procurement On-Line) is an international standard based on Universal Business Language (UBL). It specifies mandatory semantic fields, tax subtotal calculations, country-specific VAT categorizations, and legal entity identifiers required for automated cross-border accounting."
-  - question: "How does HL7 FHIR represent healthcare billing claims?"
-    answer: "HL7 FHIR uses standardized resource structures such as Claim, Encounter, Patient, Coverage, and Practitioner. Each resource connects via standardized RESTful references and enforces formal coding ontologies like ICD-10-CM for diagnoses and CPT/HCPCS for medical procedures."
+- {question: 'Why is a Common Data Model required between LLM outputs and enterprise
+    databases?', answer: 'LLMs generate arbitrary JSON structures that fluctuate across
+    prompts, model updates, and document layouts. Downstream enterprise systems like
+    SAP, NetSuite, Epic, and Cerner require strict relational schemas with precise
+    business invariants. A Common Data Model serves as the stable, canonical contract
+    decoupling volatile AI extraction from rigid core ledgers.'}
+- {question: 'What is the PEPPOL standard for electronic invoicing?', answer: 'PEPPOL
+    (Pan-European Public Procurement On-Line) is an international standard based on
+    Universal Business Language (UBL). It specifies mandatory semantic fields, tax
+    subtotal calculations, country-specific VAT categorizations, and legal entity
+    identifiers required for automated cross-border accounting.'}
+- {question: 'How does HL7 FHIR represent healthcare billing claims?', answer: 'HL7
+    FHIR uses standardized resource structures such as Claim, Encounter, Patient,
+    Coverage, and Practitioner. Each resource connects via standardized RESTful references
+    and enforces formal coding ontologies like ICD-10-CM for diagnoses and CPT/HCPCS
+    for medical procedures.'}
+tags: [Gemini, OCR & Vision, PydanticAI, Python, System Design]
 ---
-
 In the first part of this series, we designed the distributed ingestion layer: using Kafka to buffer incoming documents, Redis for SHA-256 idempotency locks, and Gemini 3.8 Flash to extract structured JSON from raw scans in under a second.
 
 However, once you have extracted JSON from an LLM, a dangerous trap awaits.

@@ -1,24 +1,33 @@
 ---
 layout: post
-title: "Building a $5/Month AI Chatbot: Complete Guide with Gemini Flash-Lite"
-description: "Stop spending hundreds on GPT-4 support bots. I'll show you how to build a production chatbot running on Gemini Flash-Lite for less than $5/month. Code inside."
+title: 'Building a $5/Month AI Chatbot: Complete Guide with Gemini Flash-Lite'
+description: Stop spending hundreds on GPT-4 support bots. I'll show you how to build
+  a production chatbot running on Gemini Flash-Lite for less than $5/month. Code inside.
 author: professor-xai
-categories: [gemini, tutorials, ai-chatbot, python, cost-optimization]
+categories: [AI Models & API Pricing]
 image: assets/images/cheap-chatbot-tutorial-2026.webp
 featured: true
 last_modified_at: 2026-05-25
-keywords: "cheap ai chatbot tutorial, gemini flash lite tutorial, reduce chatbot cost, build a support bot, python ai chatbot code"
+keywords: cheap ai chatbot tutorial, gemini flash lite tutorial, reduce chatbot cost,
+  build a support bot, python ai chatbot code
 faq:
-  - question: "How can I build an AI chatbot for under $5 a month?"
-    answer: "By using Google's Gemini 2.5 Flash-Lite or 3.1 Flash-Lite model ($0.10 to $0.25 per million tokens) and implementing prompt caching for your system instructions, you can support thousands of chats for under $5/month."
-  - question: "Is Gemini Flash-Lite smart enough for a customer support bot?"
-    answer: "Yes. For structured tasks like answering FAQs, collecting user contact info, resolving simple shipping issues, and routing tickets, Flash-Lite is highly capable and extremely fast."
-  - question: "How does prompt caching help reduce chatbot costs?"
-    answer: "Prompt caching stores your system rules and customer context in memory. Instead of paying the standard input rate for these instructions on every message, you pay the cached rate, saving up to 90%."
-  - question: "Can I run this chatbot script for free?"
-    answer: "Yes, you can run the code inside Google AI Studio's free tier, which allows up to 1,500 free daily requests, making it free during your development and testing phases."
+- {question: 'How can I build an AI chatbot for under $5 a month?', answer: 'By using
+    Google''s Gemini 2.5 Flash-Lite or 3.1 Flash-Lite model ($0.10 to $0.25 per million
+    tokens) and implementing prompt caching for your system instructions, you can
+    support thousands of chats for under $5/month.'}
+- {question: 'Is Gemini Flash-Lite smart enough for a customer support bot?', answer: 'Yes.
+    For structured tasks like answering FAQs, collecting user contact info, resolving
+    simple shipping issues, and routing tickets, Flash-Lite is highly capable and
+    extremely fast.'}
+- {question: 'How does prompt caching help reduce chatbot costs?', answer: 'Prompt
+    caching stores your system rules and customer context in memory. Instead of paying
+    the standard input rate for these instructions on every message, you pay the cached
+    rate, saving up to 90%.'}
+- {question: 'Can I run this chatbot script for free?', answer: 'Yes, you can run
+    the code inside Google AI Studio''s free tier, which allows up to 1,500 free daily
+    requests, making it free during your development and testing phases.'}
+tags: [Gemini, OpenAI, Python]
 ---
-
 Most developers building customer support or FAQ chatbots immediately reach for OpenAI's flagship models (like GPT-4.1) or Claude Sonnet. However, if your chatbot processes 10,000 messages a month, standard flagship rates can easily run you **$100 to $200 per month**.
 
 If you are a startup founder or a small business owner, that is a significant expense for a basic utility.

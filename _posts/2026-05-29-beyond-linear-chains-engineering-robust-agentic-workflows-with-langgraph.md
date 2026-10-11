@@ -1,20 +1,33 @@
 ---
 layout: post
-title: "Beyond Linear Chains: Engineering Robust Agentic Workflows with LangGraph"
-description: "Stop building fragile, stateless LLM chains. Learn how to implement stateful, cyclic architectures using LangGraph to build self-correcting AI agents capable of production-grade reliability."
+title: 'Beyond Linear Chains: Engineering Robust Agentic Workflows with LangGraph'
+description: Stop building fragile, stateless LLM chains. Learn how to implement stateful,
+  cyclic architectures using LangGraph to build self-correcting AI agents capable
+  of production-grade reliability.
 author: professor-xai
-categories: [python, langgraph, ai-agents, llm-engineering]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/low-latency-ai-agent-architecture.webp
 featured: false
 last_modified_at: 2026-05-29
-keywords: "LangGraph, AI Agents, Agentic Workflows, LLM Orchestration, Python, State Machines, Generative AI Engineering, LangChain"
+keywords: LangGraph, AI Agents, Agentic Workflows, LLM Orchestration, Python, State
+  Machines, Generative AI Engineering, LangChain
 faq:
-  - question: "What is wrong with linear LLM chains for production agents?"
-    answer: "Linear chains are stateless and fragile — if any step fails, the entire chain breaks. They cannot handle conditional logic, retry failed steps, or loop back for clarification. LangGraph solves this with stateful, cyclic graphs that support branching, error recovery, and human-in-the-loop checkpoints."
-  - question: "When should I use LangGraph instead of simple prompt chaining?"
-    answer: "Use LangGraph when your agent needs conditional branching (different paths based on LLM output), retry logic for unreliable tool calls, human approval steps, or parallel execution of independent subtasks. For simple sequential workflows, prompt chaining is sufficient."
-  - question: "How does LangGraph handle agent failures and retries?"
-    answer: "LangGraph maintains a state object that persists across nodes. If a node fails, the graph can route to an error-handling node, retry with modified parameters, or checkpoint the state for human review — all without losing the work completed by previous successful nodes."
+- {question: 'What is wrong with linear LLM chains for production agents?', answer: 'Linear
+    chains are stateless and fragile — if any step fails, the entire chain breaks.
+    They cannot handle conditional logic, retry failed steps, or loop back for clarification.
+    LangGraph solves this with stateful, cyclic graphs that support branching, error
+    recovery, and human-in-the-loop checkpoints.'}
+- {question: 'When should I use LangGraph instead of simple prompt chaining?', answer: 'Use
+    LangGraph when your agent needs conditional branching (different paths based on
+    LLM output), retry logic for unreliable tool calls, human approval steps, or parallel
+    execution of independent subtasks. For simple sequential workflows, prompt chaining
+    is sufficient.'}
+- {question: 'How does LangGraph handle agent failures and retries?', answer: 'LangGraph
+    maintains a state object that persists across nodes. If a node fails, the graph
+    can route to an error-handling node, retry with modified parameters, or checkpoint
+    the state for human review — all without losing the work completed by previous
+    successful nodes.'}
+tags: [AI Agents, Python]
 ---
 ## The Fragility of the Linear Paradigm
 

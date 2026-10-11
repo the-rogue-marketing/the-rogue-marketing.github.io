@@ -1,18 +1,31 @@
 ---
 layout: post
-title: "Speculative Decoding in Production: Cutting LLM Inference Latency by 65% with Medusa, Draft Models, and Tree Attention"
-description: "An exhaustive engineering deep-dive into production speculative decoding. Learn how to pair small draft models with frontier LLMs, leverage Medusa heads, optimize memory bandwidth, and cut p95 token latencies."
+title: 'Speculative Decoding in Production: Cutting LLM Inference Latency by 65% with
+  Medusa, Draft Models, and Tree Attention'
+description: An exhaustive engineering deep-dive into production speculative decoding.
+  Learn how to pair small draft models with frontier LLMs, leverage Medusa heads,
+  optimize memory bandwidth, and cut p95 token latencies.
 date: 2026-10-10
-categories: [ai-infrastructure, system-design, performance]
+categories: [Developer Engineering & Tools]
 image: assets/images/verification-pipeline.webp
-keywords: "speculative decoding production, medusa llm heads, draft model inference latency, speculative sampling vllm, tree attention gpu memory bandwidth"
+keywords: speculative decoding production, medusa llm heads, draft model inference
+  latency, speculative sampling vllm, tree attention gpu memory bandwidth
 faq:
-  - question: "What is speculative decoding in production LLM systems?"
-    answer: "Speculative decoding is an inference acceleration technique where a small, fast draft model generates candidate tokens speculatively, which are then verified in parallel in a single forward pass by the large target model, bypassing sequential autoregressive memory bandwidth bottlenecks."
-  - question: "What is the difference between Medusa heads and draft model speculative decoding?"
-    answer: "Draft model speculative decoding uses a separate small LLM (e.g. 1B parameter model) to propose tokens. Medusa trains multiple lightweight MLP prediction heads directly on top of the target model's final hidden state, eliminating the memory and operational overhead of running a second model."
-  - question: "Does speculative decoding alter output quality or model accuracy?"
-    answer: "No. When using standard rejection sampling or temperature verification, speculative decoding is mathematically lossless; the final output token distribution is identical to running the target model sequentially."
+- {question: 'What is speculative decoding in production LLM systems?', answer: 'Speculative
+    decoding is an inference acceleration technique where a small, fast draft model
+    generates candidate tokens speculatively, which are then verified in parallel
+    in a single forward pass by the large target model, bypassing sequential autoregressive
+    memory bandwidth bottlenecks.'}
+- {question: 'What is the difference between Medusa heads and draft model speculative
+    decoding?', answer: 'Draft model speculative decoding uses a separate small LLM
+    (e.g. 1B parameter model) to propose tokens. Medusa trains multiple lightweight
+    MLP prediction heads directly on top of the target model''s final hidden state,
+    eliminating the memory and operational overhead of running a second model.'}
+- {question: 'Does speculative decoding alter output quality or model accuracy?',
+  answer: 'No. When using standard rejection sampling or temperature verification,
+    speculative decoding is mathematically lossless; the final output token distribution
+    is identical to running the target model sequentially.'}
+tags: [System Design]
 ---
 In enterprise production deployments, autoregressive Large Language Model (LLM) serving is almost always **memory-bandwidth bound**, not compute bound. When generating tokens sequentially, modern GPUs spend upwards of 80% of their clock cycles reading billions of model parameters from High Bandwidth Memory (HBM) into SRAM just to perform single matrix-vector multiplications for one token.
 

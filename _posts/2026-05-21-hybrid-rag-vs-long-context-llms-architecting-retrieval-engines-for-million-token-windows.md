@@ -1,20 +1,31 @@
 ---
 layout: post
-title: "Beyond Vector Search: Hybrid RAG Architectures for Million-Token Context Windows"
-description: "A highly technical, production-grade analysis of hybrid dense/sparse retrieval, Graph RAG, and how to optimize retrieval density in the era of million-token LLMs like Gemini 3.1 Pro."
+title: 'Beyond Vector Search: Hybrid RAG Architectures for Million-Token Context Windows'
+description: A highly technical, production-grade analysis of hybrid dense/sparse
+  retrieval, Graph RAG, and how to optimize retrieval density in the era of million-token
+  LLMs like Gemini 3.1 Pro.
 author: professor-xai
-categories: [ai-api, rag, retrieval, optimization]
+categories: [AI Models & API Pricing]
 image: assets/images/hybrid-rag-vs-long-context.webp
 featured: true
 last_modified_at: 2026-05-21
-keywords: "hybrid rag architecture, long context llm vs rag, graph rag tutorial, needle in a haystack llm 2026, colbert dense retrieval, rag cost optimization gemini"
+keywords: hybrid rag architecture, long context llm vs rag, graph rag tutorial, needle
+  in a haystack llm 2026, colbert dense retrieval, rag cost optimization gemini
 faq:
-  - question: "Should I use RAG or long-context LLMs for my application?"
-    answer: "Use long-context LLMs when your dataset fits within the context window and freshness matters less. Use RAG when you need to search across millions of documents, require real-time updates, or need to minimize token costs. Hybrid approaches combining both often yield the best results."
-  - question: "What is hybrid RAG and when should I use it?"
-    answer: "Hybrid RAG combines vector similarity search with keyword/BM25 search and optionally feeds results into a long-context LLM for final synthesis. Use it when you need high recall across large document collections while maintaining contextual understanding."
-  - question: "How much does it cost to run RAG vs long-context queries?"
-    answer: "RAG with Gemini Flash typically costs $0.01-0.05 per query (small retrieved chunks). Long-context queries with 500K tokens cost $0.50-1.25 per query on Gemini Pro. RAG is 10-50x cheaper but may miss nuanced cross-document relationships."
+- {question: 'Should I use RAG or long-context LLMs for my application?', answer: 'Use
+    long-context LLMs when your dataset fits within the context window and freshness
+    matters less. Use RAG when you need to search across millions of documents, require
+    real-time updates, or need to minimize token costs. Hybrid approaches combining
+    both often yield the best results.'}
+- {question: 'What is hybrid RAG and when should I use it?', answer: Hybrid RAG combines
+    vector similarity search with keyword/BM25 search and optionally feeds results
+    into a long-context LLM for final synthesis. Use it when you need high recall
+    across large document collections while maintaining contextual understanding.}
+- {question: 'How much does it cost to run RAG vs long-context queries?', answer: RAG
+    with Gemini Flash typically costs $0.01-0.05 per query (small retrieved chunks).
+    Long-context queries with 500K tokens cost $0.50-1.25 per query on Gemini Pro.
+    RAG is 10-50x cheaper but may miss nuanced cross-document relationships.}
+tags: [AI APIs, Gemini, Grok xAI, OCR & Vision]
 ---
 With the arrival of Google’s **Gemini 3.1 Pro** and xAI's **Grok 4.20** offering context windows of 1 to 2 million tokens, a common narrative has emerged in the developer community: *\"RAG (Retrieval-Augmented Generation) is dead. Why bother indexing documents when you can dump your entire corpus directly into the model's context?\"*
 

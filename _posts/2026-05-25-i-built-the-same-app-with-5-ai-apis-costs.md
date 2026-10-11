@@ -1,24 +1,31 @@
 ---
 layout: post
-title: "I Built the Same App with 5 Different AI APIs — Here's What Each One Cost Me"
-description: "I built a real-world document parsing SaaS with Google Gemini, OpenAI, Claude, and Grok. Here is the exact cost comparison from 100,000 runs."
+title: I Built the Same App with 5 Different AI APIs — Here's What Each One Cost Me
+description: I built a real-world document parsing SaaS with Google Gemini, OpenAI,
+  Claude, and Grok. Here is the exact cost comparison from 100,000 runs.
 author: professor-xai
-categories: [ai-api, performance, case-study, cost-comparison]
+categories: [AI Models & API Pricing]
 image: assets/images/real-world-api-cost-comparison.webp
 featured: true
 last_modified_at: 2026-05-25
-keywords: "ai api real world cost, which ai api is cheapest for chatbot, document parsing cost, openai vs gemini real cost, compare api bills"
+keywords: ai api real world cost, which ai api is cheapest for chatbot, document parsing
+  cost, openai vs gemini real cost, compare api bills
 faq:
-  - question: "Which AI API costs the least in real-world application pipelines?"
-    answer: "In our real-world testing of 100,000 requests, Google Gemini 2.5 Flash-Lite and OpenAI GPT-4.1 Nano were the cheapest options, costing just $9.00 each for the entire run."
-  - question: "How much does a flagship model cost to run in production?"
-    answer: "Flagship models like Claude Sonnet 4.6 cost significantly more — up to $180.00 per 100K requests in our tests, compared to $31.00 for Gemini 3 Flash."
-  - question: "Did Prompt Caching reduce the cost of the test runs?"
-    answer: "Yes. By placing static system prompts and schema instructions at the beginning of requests, Prompt Caching reduced total input token expenses by over 70%."
-  - question: "Which model offered the best balance of speed, cost, and accuracy?"
-    answer: "Gemini 3 Flash offered the best balance. It had a low error rate on JSON formatting and cost only $31.00 for the entire run, compared to $116.00 for GPT-4.1."
+- {question: 'Which AI API costs the least in real-world application pipelines?',
+  answer: 'In our real-world testing of 100,000 requests, Google Gemini 2.5 Flash-Lite
+    and OpenAI GPT-4.1 Nano were the cheapest options, costing just $9.00 each for
+    the entire run.'}
+- {question: 'How much does a flagship model cost to run in production?', answer: 'Flagship
+    models like Claude Sonnet 4.6 cost significantly more — up to $180.00 per 100K
+    requests in our tests, compared to $31.00 for Gemini 3 Flash.'}
+- {question: 'Did Prompt Caching reduce the cost of the test runs?', answer: 'Yes.
+    By placing static system prompts and schema instructions at the beginning of requests,
+    Prompt Caching reduced total input token expenses by over 70%.'}
+- {question: 'Which model offered the best balance of speed, cost, and accuracy?',
+  answer: 'Gemini 3 Flash offered the best balance. It had a low error rate on JSON
+    formatting and cost only $31.00 for the entire run, compared to $116.00 for GPT-4.1.'}
+tags: [AI APIs, API Pricing, OCR & Vision]
 ---
-
 Most pricing comparisons look only at theoretical charts showing "$ per million tokens." But in production, theoretical rates rarely match your actual bill. Token counts fluctuate, errors cause retries, and formatting schemas consume extra context.
 
 To find the true cost of running AI in production, **I built the exact same document ingestion pipeline using 5 different AI APIs** and ran **100,000 simulation requests** through each.

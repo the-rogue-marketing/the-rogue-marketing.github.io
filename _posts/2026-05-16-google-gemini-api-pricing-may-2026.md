@@ -1,30 +1,47 @@
 ---
 layout: post
-title: "Google Gemini API Pricing June 2026 — Official Per-Million-Token Rates, Free Tier & Calculator"
-description: "Complete Google Gemini API pricing for June 2026. Gemini 3.5 Flash $1.50, 3.1 Pro $2.00, Flash-Lite $0.10 per 1M tokens. Compare costs across 18 models with our free interactive calculator."
+title: Google Gemini API Pricing June 2026 — Official Per-Million-Token Rates, Free
+  Tier & Calculator
+description: Complete Google Gemini API pricing for June 2026. Gemini 3.5 Flash $1.50,
+  3.1 Pro $2.00, Flash-Lite $0.10 per 1M tokens. Compare costs across 18 models with
+  our free interactive calculator.
 author: professor-xai
-categories: [gemini, ai-api, google-ai, pricing, gemini-3]
+categories: [AI Models & API Pricing]
 image: assets/images/gemini-api-pricing-may-2026.webp
 featured: true
 last_modified_at: 2026-06-03
-keywords: "gemini api pricing, gemini 3.1 pro cost, gemini flash pricing, google ai api, gemini api free tier, gemini 3 flash cost per token, gemini 3.5 flash pricing, cheapest gemini model"
+keywords: gemini api pricing, gemini 3.1 pro cost, gemini flash pricing, google ai
+  api, gemini api free tier, gemini 3 flash cost per token, gemini 3.5 flash pricing,
+  cheapest gemini model
 faq:
-  - question: "How much does the Google Gemini API cost per 1 million tokens?"
-    answer: "Gemini API pricing ranges from $0.10/1M input tokens (Gemini 2.5 Flash-Lite) to $2.00/1M (Gemini 3.1 Pro). The most popular model, Gemini 3 Flash, costs $0.50/1M input and $3.00/1M output tokens."
-  - question: "Is there a free tier for Google Gemini API?"
-    answer: "Yes! Flash and Flash-Lite models offer a generous free tier in Google AI Studio for prototyping. As of April 2026, Pro models are no longer available on the free tier. Free access includes reduced daily rate limits."
-  - question: "What is the cheapest Google Gemini model?"
-    answer: "Gemini 2.5 Flash-Lite at $0.10/1M input tokens is the absolute cheapest model in Google's lineup — ideal for ultra-high-volume classification and tagging workloads."
-  - question: "How does Gemini pricing compare to OpenAI and Claude?"
-    answer: "Gemini is generally the most affordable major provider. Gemini 3 Flash ($0.50/$3 per 1M) is much cheaper than GPT-4.1 ($2/$8) or Claude Sonnet 4.6 ($3/$15) while offering comparable quality for most tasks."
-  - question: "What is the new Gemini 3.5 Flash and how much does it cost?"
-    answer: "Gemini 3.5 Flash launched May 19, 2026. It costs $1.50/1M input tokens and $9.00/1M output tokens, positioning it between Flash and Pro in both capability and price."
-  - question: "How does Gemini context caching work and how much does it save?"
-    answer: "Context caching stores frequently used prompts, documents, or system instructions. Cached tokens cost approximately 10% of standard input price — saving up to 90% on repeated context."
-  - question: "Does Google charge more for long context prompts?"
-    answer: "Yes, for Gemini 3.1 Pro and 2.5 Pro, prompts exceeding 200,000 tokens are billed at 2x the standard rate. Flash and Flash-Lite models have flat pricing regardless of context length."
+- {question: 'How much does the Google Gemini API cost per 1 million tokens?', answer: 'Gemini
+    API pricing ranges from $0.10/1M input tokens (Gemini 2.5 Flash-Lite) to $2.00/1M
+    (Gemini 3.1 Pro). The most popular model, Gemini 3 Flash, costs $0.50/1M input
+    and $3.00/1M output tokens.'}
+- {question: 'Is there a free tier for Google Gemini API?', answer: 'Yes! Flash and
+    Flash-Lite models offer a generous free tier in Google AI Studio for prototyping.
+    As of April 2026, Pro models are no longer available on the free tier. Free access
+    includes reduced daily rate limits.'}
+- {question: 'What is the cheapest Google Gemini model?', answer: Gemini 2.5 Flash-Lite
+    at $0.10/1M input tokens is the absolute cheapest model in Google's lineup — ideal
+    for ultra-high-volume classification and tagging workloads.}
+- {question: 'How does Gemini pricing compare to OpenAI and Claude?', answer: Gemini
+    is generally the most affordable major provider. Gemini 3 Flash ($0.50/$3 per
+    1M) is much cheaper than GPT-4.1 ($2/$8) or Claude Sonnet 4.6 ($3/$15) while offering
+    comparable quality for most tasks.}
+- {question: 'What is the new Gemini 3.5 Flash and how much does it cost?', answer: 'Gemini
+    3.5 Flash launched May 19, 2026. It costs $1.50/1M input tokens and $9.00/1M output
+    tokens, positioning it between Flash and Pro in both capability and price.'}
+- {question: 'How does Gemini context caching work and how much does it save?', answer: 'Context
+    caching stores frequently used prompts, documents, or system instructions. Cached
+    tokens cost approximately 10% of standard input price — saving up to 90% on repeated
+    context.'}
+- {question: 'Does Google charge more for long context prompts?', answer: 'Yes, for
+    Gemini 3.1 Pro and 2.5 Pro, prompts exceeding 200,000 tokens are billed at 2x
+    the standard rate. Flash and Flash-Lite models have flat pricing regardless of
+    context length.'}
+tags: [AI APIs, API Pricing, Gemini, Google AI, OCR & Vision]
 ---
-
 Google's Gemini family has expanded significantly in 2026 with the launch of the **Gemini 3.5 Flash** (May 19). Whether you're building a chatbot, processing millions of documents, or creating the next AI-powered app, understanding the pricing is critical to keeping your costs under control.
 
 > 💡 **Calculate your exact costs instantly:** Use our [AI API Pricing Calculator](/ai-api-pricing-calculator/) to compare Gemini against OpenAI, Grok, and Claude for your specific workload — including images, audio, and video.

@@ -1,22 +1,30 @@
 ---
 layout: post
-title: "How Multimodal Tokens are Calculated: A Developer's Guide to Image, Audio, and Video LLM Costs"
-description: "Understand the exact mathematical formulas providers use to bill multimodal inputs: image tiling, audio sampling seconds, and video frame extraction token multipliers."
+title: 'How Multimodal Tokens are Calculated: A Developer''s Guide to Image, Audio,
+  and Video LLM Costs'
+description: 'Understand the exact mathematical formulas providers use to bill multimodal
+  inputs: image tiling, audio sampling seconds, and video frame extraction token multipliers.'
 author: professor-xai
-categories: [ai-pricing, multimodal-ai, dev]
+categories: [AI Models & API Pricing]
 image: assets/images/ai-model-comparison-may-2026.webp
 featured: true
 last_modified_at: 2026-10-06
-keywords: "how multimodal tokens are calculated, image token pricing formula, audio tokens cost openai gemini, video frames token calculator"
+keywords: how multimodal tokens are calculated, image token pricing formula, audio
+  tokens cost openai gemini, video frames token calculator
 faq:
-  - question: "How do OpenAI and Google calculate token costs for images?"
-    answer: "Images are resized into 512x512 tiles. OpenAI charges 85 tokens for low-res and 170 tokens per 512x512 tile in high-res. Gemini bills a flat 258 tokens per image regardless of resolution under standard tiling rules."
-  - question: "How is audio billed in multimodal models?"
-    answer: "Gemini and OpenAI bill audio input by seconds. Audio is encoded at fixed token rates—typically 25 to 32 tokens per second of audio input ($0.002 to $0.004 per minute)."
-  - question: "How is video token cost calculated?"
-    answer: "Videos are sampled as sequences of image frames (typically 1 to 2 frames per second) plus the synchronized audio track. A 60-second video at 1 fps generates 60 image frames (~15,480 tokens) + 1,920 audio tokens."
+- {question: 'How do OpenAI and Google calculate token costs for images?', answer: Images
+    are resized into 512x512 tiles. OpenAI charges 85 tokens for low-res and 170 tokens
+    per 512x512 tile in high-res. Gemini bills a flat 258 tokens per image regardless
+    of resolution under standard tiling rules.}
+- {question: 'How is audio billed in multimodal models?', answer: Gemini and OpenAI
+    bill audio input by seconds. Audio is encoded at fixed token rates—typically 25
+    to 32 tokens per second of audio input ($0.002 to $0.004 per minute).}
+- {question: 'How is video token cost calculated?', answer: 'Videos are sampled as
+    sequences of image frames (typically 1 to 2 frames per second) plus the synchronized
+    audio track. A 60-second video at 1 fps generates 60 image frames (~15,480 tokens)
+    + 1,920 audio tokens.'}
+tags: [API Pricing, DevOps, Gemini, OpenAI]
 ---
-
 When building multimodal AI applications, calculating input costs is significantly more complicated than simply counting words. How many tokens is a 4K image? How is a 2-minute voice note priced? How does a 30-second MP4 video translate into billed tokens?
 
 Here is the exact mathematical breakdown of how **OpenAI, Google Gemini, and Anthropic** meter and price multimodal media.

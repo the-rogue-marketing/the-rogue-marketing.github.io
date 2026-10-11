@@ -1,20 +1,28 @@
 ---
 layout: post
-title: "Do's and Don'ts of AI Coding: The Battle-Tested Guide for Claude Code, Antigravity, and Cursor"
-description: "Practical tactical rules for using modern autonomous coding agents. Avoid context window pollution, file destruction, silent test deletions, and prompt exhaustion."
+title: 'Do''s and Don''ts of AI Coding: The Battle-Tested Guide for Claude Code, Antigravity,
+  and Cursor'
+description: Practical tactical rules for using modern autonomous coding agents. Avoid
+  context window pollution, file destruction, silent test deletions, and prompt exhaustion.
 author: professor-xai
-categories: ["ai-coding", "developer-tools", "best-practices"]
+categories: [Developer Engineering & Tools]
 image: assets/images/ai-coding-agents.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "dos and donts of ai coding, claude code best practices, antigravity ai tips, cursor ai mistakes to avoid, autonomous agent coding rules"
+keywords: dos and donts of ai coding, claude code best practices, antigravity ai tips,
+  cursor ai mistakes to avoid, autonomous agent coding rules
 faq:
-  - question: "What is the biggest mistake developers make with AI coding tools?"
-    answer: "Context window pollution. Stuffing entire massive repositories, node_modules, and unrelated files into the prompt, which dilutes attention and leads to hallucinations."
-  - question: "Why should you avoid letting AI write full-file overwrites?"
-    answer: "Full-file rewrites destroy uncommitted changes, silently strip out edge-case logic or comments, and make git diff reviews unmanageable. Always enforce surgical patch/diff edits."
-  - question: "How should git be used with autonomous coding agents?"
-    answer: "Commit early and commit frequently. Create isolated feature branches before launching agent tasks so you can cleanly `git reset --hard` if the agent hallucinates or goes down a rabbit hole."
+- {question: 'What is the biggest mistake developers make with AI coding tools?',
+  answer: 'Context window pollution. Stuffing entire massive repositories, node_modules,
+    and unrelated files into the prompt, which dilutes attention and leads to hallucinations.'}
+- {question: 'Why should you avoid letting AI write full-file overwrites?', answer: 'Full-file
+    rewrites destroy uncommitted changes, silently strip out edge-case logic or comments,
+    and make git diff reviews unmanageable. Always enforce surgical patch/diff edits.'}
+- {question: 'How should git be used with autonomous coding agents?', answer: Commit
+    early and commit frequently. Create isolated feature branches before launching
+    agent tasks so you can cleanly `git reset --hard` if the agent hallucinates or
+    goes down a rabbit hole.}
+tags: [AI Agents, OpenAI]
 ---
 Autonomous AI coding agents—such as **Claude Code, Antigravity CLI, OpenAI Codex, and Cursor**—have transformed terminal workflows. But in inexperienced hands, these powerful tools can destroy codebases faster than a rogue `rm -rf`.
 

@@ -1,22 +1,40 @@
 ---
 layout: post
-title: "AI System Design Series (Part 9): Regulatory Schema Drift, Dynamic Rule Engines, and Synthetic Backtesting"
-description: "How to insulate enterprise AI pipelines from external regulatory shifts. Engineering decoupled dynamic rule engines for quarterly CMS NCCI updates and building adversarial synthetic test harnesses for CI/CD."
+title: 'AI System Design Series (Part 9): Regulatory Schema Drift, Dynamic Rule Engines,
+  and Synthetic Backtesting'
+description: How to insulate enterprise AI pipelines from external regulatory shifts.
+  Engineering decoupled dynamic rule engines for quarterly CMS NCCI updates and building
+  adversarial synthetic test harnesses for CI/CD.
 author: professor-xai
-categories: [system-design, testing, data-engineering, regulatory-compliance]
+categories: [System Design & Scalability]
 image: assets/images/ai-system-design-part-9-synthetic-testing.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "regulatory schema drift ai, ncci coding edits rule engine, synthetic test data generation, adversarial ai testing, cicd agent evaluation, automated billing backtesting"
+keywords: regulatory schema drift ai, ncci coding edits rule engine, synthetic test
+  data generation, adversarial ai testing, cicd agent evaluation, automated billing
+  backtesting
 faq:
-  - question: "What is Regulatory Schema Drift in document AI systems?"
-    answer: "Regulatory Schema Drift occurs when external statutory bodies (such as the Centers for Medicare & Medicaid Services, the American Medical Association, or state tax authorities) update coding ontologies, billing modifiers, and tax rate tables. If an AI pipeline hardcodes business rules into prompts or source code, these quarterly updates cause immediate production breakage."
-  - question: "How does a decoupled Dynamic Rule Engine prevent codebase redeployment?"
-    answer: "A Dynamic Rule Engine stores regulatory tables (such as NCCI Procedure-to-Procedure edits and VAT jurisdiction schedules) in external relational reference stores with versioned effective date ranges. When agents execute, they query the active rules dynamically via tools, allowing the platform to absorb statutory updates without modifying a single line of application code."
-  - question: "Why is synthetic data generation required for testing healthcare and financial agents?"
-    answer: "Live production documents contain sensitive Protected Health Information (PHI) and confidential corporate financial data that cannot be freely utilized across continuous integration (CI/CD) environments. Synthetic data generators programmatically inject controlled edge cases (such as fuzzed NPI digits and modifier conflicts) to benchmark agent self-healing accuracy before production deployment."
+- {question: 'What is Regulatory Schema Drift in document AI systems?', answer: 'Regulatory
+    Schema Drift occurs when external statutory bodies (such as the Centers for Medicare
+    & Medicaid Services, the American Medical Association, or state tax authorities)
+    update coding ontologies, billing modifiers, and tax rate tables. If an AI pipeline
+    hardcodes business rules into prompts or source code, these quarterly updates
+    cause immediate production breakage.'}
+- {question: 'How does a decoupled Dynamic Rule Engine prevent codebase redeployment?',
+  answer: 'A Dynamic Rule Engine stores regulatory tables (such as NCCI Procedure-to-Procedure
+    edits and VAT jurisdiction schedules) in external relational reference stores
+    with versioned effective date ranges. When agents execute, they query the active
+    rules dynamically via tools, allowing the platform to absorb statutory updates
+    without modifying a single line of application code.'}
+- {question: 'Why is synthetic data generation required for testing healthcare and
+    financial agents?', answer: Live production documents contain sensitive Protected
+    Health Information (PHI) and confidential corporate financial data that cannot
+    be freely utilized across continuous integration (CI/CD) environments. Synthetic
+    data generators programmatically inject controlled edge cases (such as fuzzed
+    NPI digits and modifier conflicts) to benchmark agent self-healing accuracy before
+    production deployment.}
+tags: [System Design]
 ---
-
 In Parts 7 and 8 of this series, we addressed human-in-the-loop exception handling, active learning flywheels, bi-temporal auditability, and multi-tenant isolation.
 
 At this point, our autonomous platform is functioning smoothly in production.

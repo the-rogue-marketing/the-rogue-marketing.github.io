@@ -1,22 +1,28 @@
 ---
 layout: post
-title: "State Management in Stateless Webhooks: Building an Autonomous WhatsApp Commerce Agent with Redis & PydanticAI"
-description: "How to persist conversational session states in stateless webhook microservices using Redis, PostgreSQL, and PydanticAI for WhatsApp & Telegram commerce bots."
+title: 'State Management in Stateless Webhooks: Building an Autonomous WhatsApp Commerce
+  Agent with Redis & PydanticAI'
+description: How to persist conversational session states in stateless webhook microservices
+  using Redis, PostgreSQL, and PydanticAI for WhatsApp & Telegram commerce bots.
 author: professor-xai
-categories: [ai-agents, pydantic-ai, python]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/conversational-commerce.webp
 featured: true
 last_modified_at: 2026-10-03
-keywords: "whatsapp bot state management, pydanticai redis session store, stateless webhook ai agent, conversational commerce python"
+keywords: whatsapp bot state management, pydanticai redis session store, stateless
+  webhook ai agent, conversational commerce python
 faq:
-  - question: "Why do webhooks break traditional AI agent state?"
-    answer: "Webhook platforms (Meta WhatsApp, Twilio, Stripe) send isolated HTTP POST requests per message without shared in-memory state across requests in autoscaled cloud environments."
-  - question: "How does Redis solve conversational state persistence?"
-    answer: "Redis stores conversation history and current shopping cart schemas serialized as JSON under a fast key (e.g. user_phone_number) with configurable TTL expiration."
-  - question: "How do you prevent race conditions when users double-tap WhatsApp messages?"
-    answer: "Use Redis distributed locks (`redlock` or atomic `SETNX`) keyed to the customer phone number while the agent processes the active webhook turn."
+- {question: 'Why do webhooks break traditional AI agent state?', answer: 'Webhook
+    platforms (Meta WhatsApp, Twilio, Stripe) send isolated HTTP POST requests per
+    message without shared in-memory state across requests in autoscaled cloud environments.'}
+- {question: 'How does Redis solve conversational state persistence?', answer: Redis
+    stores conversation history and current shopping cart schemas serialized as JSON
+    under a fast key (e.g. user_phone_number) with configurable TTL expiration.}
+- {question: 'How do you prevent race conditions when users double-tap WhatsApp messages?',
+  answer: Use Redis distributed locks (`redlock` or atomic `SETNX`) keyed to the customer
+    phone number while the agent processes the active webhook turn.}
+tags: [AI Agents, PydanticAI, Python]
 ---
-
 When building conversational AI assistants for **WhatsApp Business, Telegram, or SMS**, your backend receives individual, isolated HTTP POST webhook payloads. In autoscaling environments (AWS ECS, Google Cloud Run, Kubernetes), two successive messages from the same user often land on entirely different server containers.
 
 Without a robust external state layer, your agent forgets the customer's shopping cart, repeats greeting messages, and hallucinates order details.

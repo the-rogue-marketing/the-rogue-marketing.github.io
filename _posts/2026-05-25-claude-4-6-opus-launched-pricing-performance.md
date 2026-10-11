@@ -1,24 +1,30 @@
 ---
 layout: post
-title: "Claude 4.6 Opus Just Launched: Here's How It Stacks Up [2026]"
-description: "Anthropic just dropped Claude 4.6 Opus. I reviewed its benchmarks, evaluated the $5.00/$25.00 API pricing, and compared it to GPT-5.5. Calculator inside."
+title: 'Claude 4.6 Opus Just Launched: Here''s How It Stacks Up [2026]'
+description: Anthropic just dropped Claude 4.6 Opus. I reviewed its benchmarks, evaluated
+  the $5.00/$25.00 API pricing, and compared it to GPT-5.5. Calculator inside.
 author: professor-xai
-categories: [claude, ai-api, pricing, newsjacking, benchmarks]
+categories: [AI Models & API Pricing]
 image: assets/images/claude-4-6-opus-launch.webp
 featured: false
 last_modified_at: 2026-05-25
-keywords: "claude 4.6 pricing, claude opus review, anthropic api cost, claude 4.6 vs gpt-5.5, best coding llm 2026, logic model benchmarks"
+keywords: claude 4.6 pricing, claude opus review, anthropic api cost, claude 4.6 vs
+  gpt-5.5, best coding llm 2026, logic model benchmarks
 faq:
-  - question: "How much does the Claude 4.6 Opus API cost?"
-    answer: "Claude 4.6 Opus is priced at $5.00 per million input tokens and $25.00 per million output tokens, positioning it as a premium model for complex reasoning."
-  - question: "Is Claude 4.6 Opus better than GPT-5.5?"
-    answer: "Yes, Claude 4.6 Opus outperforms GPT-5.5 on multi-file software engineering tasks, logic reasoning benchmarks, and instruction-following consistency."
-  - question: "Does Claude 4.6 Opus support prompt caching?"
-    answer: "Yes, Anthropic supports manual prompt caching on Claude 4.6 Opus, providing up to a 90% discount on inputs for repetitive prompts."
-  - question: "How large is the context window for Claude 4.6 Opus?"
-    answer: "Claude 4.6 Opus features a 1,000,000 token context window, allowing developers to analyze entire codebases or databases."
+- {question: 'How much does the Claude 4.6 Opus API cost?', answer: 'Claude 4.6 Opus
+    is priced at $5.00 per million input tokens and $25.00 per million output tokens,
+    positioning it as a premium model for complex reasoning.'}
+- {question: 'Is Claude 4.6 Opus better than GPT-5.5?', answer: 'Yes, Claude 4.6 Opus
+    outperforms GPT-5.5 on multi-file software engineering tasks, logic reasoning
+    benchmarks, and instruction-following consistency.'}
+- {question: 'Does Claude 4.6 Opus support prompt caching?', answer: 'Yes, Anthropic
+    supports manual prompt caching on Claude 4.6 Opus, providing up to a 90% discount
+    on inputs for repetitive prompts.'}
+- {question: 'How large is the context window for Claude 4.6 Opus?', answer: 'Claude
+    4.6 Opus features a 1,000,000 token context window, allowing developers to analyze
+    entire codebases or databases.'}
+tags: [AI APIs, API Pricing, Claude]
 ---
-
 Anthropic has officially launched its highly anticipated next-generation flagship model: **Claude 4.6 Opus**. 
 
 As the absolute pinnacle of Anthropic's reasoning family, Claude 4.6 Opus is engineered for developers and enterprise architects who cannot afford to compromise on logical precision, software engineering depth, multi-file code workspace integration, and strict metadata consistency.

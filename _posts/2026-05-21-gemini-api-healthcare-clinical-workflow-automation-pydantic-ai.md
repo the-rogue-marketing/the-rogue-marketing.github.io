@@ -1,20 +1,33 @@
 ---
 layout: post
-title: "Clinical Workflow Automation: Building HIPAA-Aligned Systems with Gemini 3.1 Pro, Pydantic AI, and FastAPI"
-description: "A comprehensive, production-grade guide to building clinical SOAP note generators and ICD-11 coding systems using Gemini 3.1 Pro, Pydantic AI, FastAPI, and uv."
+title: 'Clinical Workflow Automation: Building HIPAA-Aligned Systems with Gemini 3.1
+  Pro, Pydantic AI, and FastAPI'
+description: A comprehensive, production-grade guide to building clinical SOAP note
+  generators and ICD-11 coding systems using Gemini 3.1 Pro, Pydantic AI, FastAPI,
+  and uv.
 author: professor-xai
-categories: [ai-api, healthcare, pydantic-ai, fastapi]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/healthcare-clinical-workflow.webp
 featured: true
 last_modified_at: 2026-05-21
-keywords: "healthcare ai automation, gemini api medical soap notes, pydantic ai healthcare tutorial, fastapi icd 11 medical coding, hipaa compliant llm workflow"
+keywords: healthcare ai automation, gemini api medical soap notes, pydantic ai healthcare
+  tutorial, fastapi icd 11 medical coding, hipaa compliant llm workflow
 faq:
-  - question: "How can Gemini API automate clinical workflows?"
-    answer: "Gemini can process clinical notes, extract structured patient data using PydanticAI schemas, automate referral letter generation, and assist in clinical decision support by cross-referencing patient history with medical guidelines — all while maintaining HIPAA compliance on Vertex AI."
-  - question: "Is it safe to use AI for clinical documentation?"
-    answer: "AI-generated clinical documentation must always be reviewed by qualified healthcare professionals before being added to patient records. The AI serves as an assistive tool to reduce administrative burden, not as a replacement for clinical judgment."
-  - question: "What compliance requirements apply to healthcare AI?"
-    answer: "Healthcare AI applications must comply with HIPAA for data protection, require BAAs with cloud providers, implement data encryption at rest and in transit, maintain audit logs, and ensure AI outputs are validated by licensed clinicians before patient-facing use."
+- {question: 'How can Gemini API automate clinical workflows?', answer: 'Gemini can
+    process clinical notes, extract structured patient data using PydanticAI schemas,
+    automate referral letter generation, and assist in clinical decision support by
+    cross-referencing patient history with medical guidelines — all while maintaining
+    HIPAA compliance on Vertex AI.'}
+- {question: 'Is it safe to use AI for clinical documentation?', answer: 'AI-generated
+    clinical documentation must always be reviewed by qualified healthcare professionals
+    before being added to patient records. The AI serves as an assistive tool to reduce
+    administrative burden, not as a replacement for clinical judgment.'}
+- {question: 'What compliance requirements apply to healthcare AI?', answer: 'Healthcare
+    AI applications must comply with HIPAA for data protection, require BAAs with
+    cloud providers, implement data encryption at rest and in transit, maintain audit
+    logs, and ensure AI outputs are validated by licensed clinicians before patient-facing
+    use.'}
+tags: [AI APIs, Gemini, OCR & Vision, PydanticAI]
 ---
 Modern clinical medicine is drowning in administrative tasks. Doctors spend up to two hours on documentation and data entry for every single hour they spend face-to-face with patients. Automating this clinical workflow is one of the most impactful frontiers of **May 2026**.
 

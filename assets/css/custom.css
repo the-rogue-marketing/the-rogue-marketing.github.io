@@ -689,34 +689,97 @@ hr { border-color: var(--border-subtle); opacity: 0.5; }
 .pagination-info {
     font-size: 0.9rem;
     letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
 }
-.pagination {
-    gap: 0.35rem;
+.pagination-container ul.pagination,
+ul.pagination {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 6px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    background: transparent !important;
+}
+.pagination-container ul.pagination li.page-item,
+ul.pagination li.page-item {
+    display: inline-flex !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 .pagination .page-item .page-link {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 38px !important;
+    height: 38px !important;
     border-radius: 8px !important;
-    border: 1px solid var(--border-subtle, #e2e8f0);
-    color: var(--text-primary, #1e293b);
-    background: var(--bg-secondary, #ffffff);
-    padding: 0.5rem 0.9rem;
-    font-size: 0.95rem;
-    transition: all 0.2s ease;
-    text-decoration: none;
+    border: 1px solid var(--border-subtle, #e2e8f0) !important;
+    color: var(--text-primary, #1e293b) !important;
+    background: var(--bg-secondary, #ffffff) !important;
+    padding: 0 12px !important;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
 }
 .pagination .page-item .page-link:hover {
-    background: #0f172a;
-    color: #ffffff;
-    border-color: #0f172a;
-    transform: translateY(-1px);
+    background: #0f172a !important;
+    color: #ffffff !important;
+    border-color: #0f172a !important;
+    transform: translateY(-2px) !important;
 }
 .pagination .page-item.active .page-link {
     background: #0f172a !important;
     color: #ffffff !important;
     border-color: #0f172a !important;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25) !important;
 }
 .pagination .page-item.disabled .page-link {
-    opacity: 0.45;
-    pointer-events: none;
-    border-color: transparent;
+    opacity: 0.45 !important;
+    pointer-events: none !important;
+    border-color: transparent !important;
+}
+
+/* ===== Robust Categories & Top 10 Tags Pills ===== */
+.category-pills {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+}
+.category-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    padding: 5px 12px !important;
+    border-radius: 20px !important;
+    background: var(--bg-secondary, #f8fafc) !important;
+    color: var(--text-primary, #1e293b) !important;
+    border: 1px solid var(--border-subtle, #e2e8f0) !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+}
+.category-pill:hover {
+    background: #0f172a !important;
+    color: #ffffff !important;
+    border-color: #0f172a !important;
+    transform: translateY(-1px) !important;
+    text-decoration: none !important;
+}
+.category-pill.tag-pill {
+    background: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+    color: #334155 !important;
+}
+.category-pill.tag-pill:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border-color: #0284c7 !important;
 }

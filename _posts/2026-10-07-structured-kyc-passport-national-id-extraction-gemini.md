@@ -1,22 +1,30 @@
 ---
 layout: post
-title: "Automated KYC Verification: Extracting Passports & National ID Cards Natively with Gemini Multimodal Vision & Pydantic"
-description: "Build a compliant, automated KYC identity verification pipeline. Extract passport MRZ zones, national ID credentials, and detect fraud natively with Python."
+title: 'Automated KYC Verification: Extracting Passports & National ID Cards Natively
+  with Gemini Multimodal Vision & Pydantic'
+description: Build a compliant, automated KYC identity verification pipeline. Extract
+  passport MRZ zones, national ID credentials, and detect fraud natively with Python.
 author: professor-xai
-categories: [document-ai, pydantic-ai, python]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/best-data-extraction-tools-2026.webp
 featured: true
 last_modified_at: 2026-10-07
-keywords: "kyc passport extraction python, mrz parser gemini ocr, identity document verification api, pydantic id card schema"
+keywords: kyc passport extraction python, mrz parser gemini ocr, identity document
+  verification api, pydantic id card schema
 faq:
-  - question: "Can Gemini read Machine Readable Travel Document (MRTD) MRZ lines accurately?"
-    answer: "Yes. Gemini multimodal vision accurately parses the two-line Type-3 (passports) and three-line Type-1 (ID cards) ICAO Doc 9303 MRZ zones with automated checksum validation."
-  - question: "How do you detect physical document tampering or digital photos of screens?"
-    answer: "Instruct the multimodal vision prompt to inspect specular moiré screen patterns, font edge artifacts, and lighting inconsistencies across the laminated photograph surface."
-  - question: "What latency can you expect for real-time customer onboarding?"
-    answer: "Gemini 2.5 Flash processes a high-res smartphone photo of a passport in under 800ms, providing instant validation feedback on mobile onboarding screens."
+- {question: 'Can Gemini read Machine Readable Travel Document (MRTD) MRZ lines accurately?',
+  answer: Yes. Gemini multimodal vision accurately parses the two-line Type-3 (passports)
+    and three-line Type-1 (ID cards) ICAO Doc 9303 MRZ zones with automated checksum
+    validation.}
+- {question: 'How do you detect physical document tampering or digital photos of screens?',
+  answer: 'Instruct the multimodal vision prompt to inspect specular moiré screen
+    patterns, font edge artifacts, and lighting inconsistencies across the laminated
+    photograph surface.'}
+- {question: 'What latency can you expect for real-time customer onboarding?', answer: 'Gemini
+    2.5 Flash processes a high-res smartphone photo of a passport in under 800ms,
+    providing instant validation feedback on mobile onboarding screens.'}
+tags: [Gemini, PydanticAI, Python]
 ---
-
 Financial onboarding workflows (banks, fintech neo-banks, crypto exchanges) require extracting customer names, passport numbers, dates of birth, and expiry dates from uploaded photos in seconds.
 
 Traditional KYC providers charge **$0.40 to $1.20 per verification check**.

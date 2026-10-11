@@ -1,22 +1,32 @@
 ---
 layout: post
-title: "How to Build a 99% Cheaper Invoice OCR Extraction Engine: Gemini 2.5 Flash vs. AWS Textract"
-description: "Benchmark and build a production invoice OCR pipeline using Gemini 2.5 Flash and PydanticAI. Slashes document processing costs from $50/1k pages to $0.50/1k pages."
+title: 'How to Build a 99% Cheaper Invoice OCR Extraction Engine: Gemini 2.5 Flash
+  vs. AWS Textract'
+description: Benchmark and build a production invoice OCR pipeline using Gemini 2.5
+  Flash and PydanticAI. Slashes document processing costs from $50/1k pages to $0.50/1k
+  pages.
 author: professor-xai
-categories: [ocr, document-ai, gemini-api]
+categories: [AI Models & API Pricing]
 image: assets/images/gemini-ocr-pydantic-ai.webp
 featured: true
 last_modified_at: 2026-10-04
-keywords: "gemini ocr vs aws textract, cheaper invoice parser python, extract invoice data pdf gemini, multimodal document extraction cost"
+keywords: gemini ocr vs aws textract, cheaper invoice parser python, extract invoice
+  data pdf gemini, multimodal document extraction cost
 faq:
-  - question: "How much cheaper is Gemini Flash compared to AWS Textract for invoices?"
-    answer: "AWS Textract AnalyzeExpense charges $50.00 per 1,000 pages. Gemini 2.5 Flash costs approximately $0.45 to $0.65 per 1,000 pages including vision token overhead—over 98.7% cheaper."
-  - question: "Can Gemini OCR handle skewed, low-resolution, or smartphone invoice photos?"
-    answer: "Yes. Because Gemini is a native multimodal transformer trained on full-scene photography, it handles angles, lighting glare, and coffee stains significantly better than legacy rules-based OCR engines."
-  - question: "How do you guarantee valid JSON output from Gemini OCR?"
-    answer: "By pairing Gemini with PydanticAI or native `response_schema` configs, the model is constrained by grammar masks to output strictly valid JSON conforming to your invoice schema."
+- {question: 'How much cheaper is Gemini Flash compared to AWS Textract for invoices?',
+  answer: 'AWS Textract AnalyzeExpense charges $50.00 per 1,000 pages. Gemini 2.5
+    Flash costs approximately $0.45 to $0.65 per 1,000 pages including vision token
+    overhead—over 98.7% cheaper.'}
+- {question: 'Can Gemini OCR handle skewed, low-resolution, or smartphone invoice
+    photos?', answer: 'Yes. Because Gemini is a native multimodal transformer trained
+    on full-scene photography, it handles angles, lighting glare, and coffee stains
+    significantly better than legacy rules-based OCR engines.'}
+- {question: 'How do you guarantee valid JSON output from Gemini OCR?', answer: 'By
+    pairing Gemini with PydanticAI or native `response_schema` configs, the model
+    is constrained by grammar masks to output strictly valid JSON conforming to your
+    invoice schema.'}
+tags: [Gemini, OCR & Vision]
 ---
-
 For over a decade, enterprise document processing pipelines were locked into proprietary OCR suites like **AWS Textract, Google Document AI, and ABBYY FineReader**. For complex invoices and receipts, AWS Textract charges **$50.00 per 1,000 document pages** ($0.05/page).
 
 With modern multimodal LLMs like **Gemini 2.5 Flash**, developers can extract structured financial line-items for **under $0.50 per 1,000 pages**—while achieving higher accuracy on blurry, skewed mobile scans.

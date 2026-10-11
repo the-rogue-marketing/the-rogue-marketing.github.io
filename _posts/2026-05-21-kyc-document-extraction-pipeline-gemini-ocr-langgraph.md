@@ -1,20 +1,32 @@
 ---
 layout: post
-title: "Architecting Multi-Document KYC Pipelines: Gemini OCR and LangGraph"
+title: 'Architecting Multi-Document KYC Pipelines: Gemini OCR and LangGraph'
 date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
-categories: [Generative AI, Workflow Automation, Security]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/kyc-workflow.webp
-description: "A complete developer guide to building a stateful multi-document KYC extraction pipeline. Integrates Gemini vision OCR, LangGraph workflow state machines, and FastAPI."
-keywords: "langgraph document extraction workflow, gemini ocr kyc pipeline, fastapi passport license parser, identity verification agent python, docker-compose uv python"
+description: A complete developer guide to building a stateful multi-document KYC
+  extraction pipeline. Integrates Gemini vision OCR, LangGraph workflow state machines,
+  and FastAPI.
+keywords: langgraph document extraction workflow, gemini ocr kyc pipeline, fastapi
+  passport license parser, identity verification agent python, docker-compose uv python
 faq:
-  - question: "How does AI automate KYC document verification?"
-    answer: "An AI KYC pipeline uses Gemini's multimodal OCR to extract data from identity documents (passports, IDs, utility bills), validates extracted fields against expected formats using PydanticAI schemas, and orchestrates the verification workflow using LangGraph state machines."
-  - question: "What accuracy can AI achieve for KYC document parsing?"
-    answer: "Gemini-based KYC parsers achieve 95-99% accuracy on clean documents. PydanticAI's validation layer catches and auto-corrects common OCR errors like misread characters in passport numbers and dates, pushing effective accuracy above 99% for structured fields."
-  - question: "Is AI KYC processing compliant with financial regulations?"
-    answer: "AI KYC systems must maintain audit trails, implement human-in-the-loop review for flagged documents, encrypt all PII at rest and in transit, and comply with AML/CFT regulations. Deploy on compliant infrastructure like Google Cloud or AWS with appropriate certifications."
+- {question: 'How does AI automate KYC document verification?', answer: 'An AI KYC
+    pipeline uses Gemini''s multimodal OCR to extract data from identity documents
+    (passports, IDs, utility bills), validates extracted fields against expected formats
+    using PydanticAI schemas, and orchestrates the verification workflow using LangGraph
+    state machines.'}
+- {question: 'What accuracy can AI achieve for KYC document parsing?', answer: 'Gemini-based
+    KYC parsers achieve 95-99% accuracy on clean documents. PydanticAI''s validation
+    layer catches and auto-corrects common OCR errors like misread characters in passport
+    numbers and dates, pushing effective accuracy above 99% for structured fields.'}
+- {question: 'Is AI KYC processing compliant with financial regulations?', answer: 'AI
+    KYC systems must maintain audit trails, implement human-in-the-loop review for
+    flagged documents, encrypt all PII at rest and in transit, and comply with AML/CFT
+    regulations. Deploy on compliant infrastructure like Google Cloud or AWS with
+    appropriate certifications.'}
+tags: [Gemini, Generative AI, OCR & Vision, Security]
 ---
 Identity verification (Know Your Customer or KYC) is a critical compliance check in fintech, travel, healthcare, and sharing-economy platforms. Extracting data from identity documents—such as passports and driver's licenses—typically requires chaining multiple complex systems: document classification, specialized OCR, key-value extraction, and custom validation heuristics.
 

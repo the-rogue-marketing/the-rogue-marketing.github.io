@@ -1,20 +1,30 @@
 ---
 layout: post
-title: "System Design in the AI Era: Why Architecture and Invariants Matter More Than Code Syntax"
-description: "Why clean modular architecture, formal invariants, and strict domain boundaries are essential when AI generates the underlying implementation. The definitive guide to AI-native system design."
+title: 'System Design in the AI Era: Why Architecture and Invariants Matter More Than
+  Code Syntax'
+description: Why clean modular architecture, formal invariants, and strict domain
+  boundaries are essential when AI generates the underlying implementation. The definitive
+  guide to AI-native system design.
 author: professor-xai
-categories: ["system-design", "software-engineering", "architecture"]
+categories: [System Design & Scalability]
 image: assets/images/flagship-developer-api-showdown.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "system design in the ai era, software architecture invariants, clean architecture ai generated code, modular domain boundaries, future of software design"
+keywords: system design in the ai era, software architecture invariants, clean architecture
+  ai generated code, modular domain boundaries, future of software design
 faq:
-  - question: "Why is system design more important when AI writes code?"
-    answer: "AI generates code locally without understanding global architectural context. If your system lacks strong modular boundaries and clean interfaces, AI will generate spaghetti code that is impossible to maintain."
-  - question: "What is an architectural invariant?"
-    answer: "An immutable rule that must always hold true in a software system (e.g., 'A financial ledger entry can never be deleted, only offset by a reversal entry')."
-  - question: "How do you design systems for AI maintainability?"
-    answer: "Enforce strict interface contracts (Pydantic/gRPC), keep files modular and under 200 lines, maintain comprehensive automated tests, and isolate side effects behind explicit interfaces."
+- {question: 'Why is system design more important when AI writes code?', answer: 'AI
+    generates code locally without understanding global architectural context. If
+    your system lacks strong modular boundaries and clean interfaces, AI will generate
+    spaghetti code that is impossible to maintain.'}
+- {question: 'What is an architectural invariant?', answer: 'An immutable rule that
+    must always hold true in a software system (e.g., ''A financial ledger entry can
+    never be deleted, only offset by a reversal entry'').'}
+- {question: 'How do you design systems for AI maintainability?', answer: 'Enforce
+    strict interface contracts (Pydantic/gRPC), keep files modular and under 200 lines,
+    maintain comprehensive automated tests, and isolate side effects behind explicit
+    interfaces.'}
+tags: [AI Agents, System Design]
 ---
 In the pre-AI era, bad architecture was constrained by human typing speed. If a developer built a bloated, tangled spaghetti monolith, it took months to write thousands of lines of messy code.
 

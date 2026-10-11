@@ -1,24 +1,32 @@
 ---
 layout: post
-title: "AI API Rate Limits Explained: Why Your App Keeps Failing [And the Fix]"
-description: "Is your AI app throwing 429 Too Many Requests errors? I explained standard rate limit rules for OpenAI, Gemini, and Claude, and how to implement retry queues."
+title: 'AI API Rate Limits Explained: Why Your App Keeps Failing [And the Fix]'
+description: Is your AI app throwing 429 Too Many Requests errors? I explained standard
+  rate limit rules for OpenAI, Gemini, and Claude, and how to implement retry queues.
 author: professor-xai
-categories: [ai-api, error-handling, engineering, developers]
+categories: [Developer Engineering & Tools]
 image: assets/images/ai-api-rate-limit-fixes.webp
 featured: false
 last_modified_at: 2026-05-25
-keywords: "api rate limits openai gemini, ai api throttling fix, 429 error code llm, exponential backoff python, rate limit headers, handle rate limits"
+keywords: api rate limits openai gemini, ai api throttling fix, 429 error code llm,
+  exponential backoff python, rate limit headers, handle rate limits
 faq:
-  - question: "What does HTTP 429 Too Many Requests mean in AI APIs?"
-    answer: "HTTP 429 indicates that your application has exceeded the provider's Rate Limits. These are measured in Requests Per Minute (RPM), Tokens Per Minute (TPM), or Requests Per Day (RPD)."
-  - question: "How do I fix rate limit errors in Python?"
-    answer: "You should implement exponential backoff with jitter in your api call loops, use token bucket queues to throttle outbound requests, or implement fallback model routing."
-  - question: "Which provider offers the highest rate limits?"
-    answer: "Google Gemini offers some of the highest default developer rate limits (up to 4,000 requests per minute on pay-as-you-go tiers). OpenAI and Claude scale rate limits based on usage tiers."
-  - question: "What are rate limit headers?"
-    answer: "AI providers send rate limit metadata headers in HTTP responses (e.g. x-ratelimit-remaining-tokens). You can read these headers to throttle requests dynamically."
+- {question: 'What does HTTP 429 Too Many Requests mean in AI APIs?', answer: 'HTTP
+    429 indicates that your application has exceeded the provider''s Rate Limits.
+    These are measured in Requests Per Minute (RPM), Tokens Per Minute (TPM), or Requests
+    Per Day (RPD).'}
+- {question: 'How do I fix rate limit errors in Python?', answer: 'You should implement
+    exponential backoff with jitter in your api call loops, use token bucket queues
+    to throttle outbound requests, or implement fallback model routing.'}
+- {question: 'Which provider offers the highest rate limits?', answer: 'Google Gemini
+    offers some of the highest default developer rate limits (up to 4,000 requests
+    per minute on pay-as-you-go tiers). OpenAI and Claude scale rate limits based
+    on usage tiers.'}
+- {question: 'What are rate limit headers?', answer: AI providers send rate limit
+    metadata headers in HTTP responses (e.g. x-ratelimit-remaining-tokens). You can
+    read these headers to throttle requests dynamically.}
+tags: [AI APIs, System Design]
 ---
-
 If you have ever scaled an AI-powered SaaS application past a few hundred concurrent users, you have inevitably run into the dreaded wall: **HTTP 429: Too Many Requests**.
 
 Unlike traditional REST databases or microservice APIs where rate limits are single-dimensional (e.g., "100 requests per minute"), Large Language Model (LLM) APIs use a complex, multi-dimensional throttling framework: **Requests Per Minute (RPM)**, **Tokens Per Minute (TPM)**, and occasionally **Requests Per Day (RPD)**.

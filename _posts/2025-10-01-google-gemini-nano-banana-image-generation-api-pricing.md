@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Google Gemini Nano Banana Image Generation Pricing"
+title: Google Gemini Nano Banana Image Generation Pricing
 author: professor-xai
-categories: [gemini-2.5-flash-image-preview,ai-image-generation,google-ai,pricing]
+categories: [AI Models & API Pricing]
 image: assets/images/gemini-nano-banana.webp
 noindex: true
-canonical_url: "https://the-rogue-marketing.github.io/google-nano-banana-imagen-4-image-generation-pricing-may-2026/"
+canonical_url: https://the-rogue-marketing.github.io/google-nano-banana-imagen-4-image-generation-pricing-may-2026/
+tags: [API Pricing, Gemini, Google AI]
 ---
-
 You've heard the buzz. The AI world is abuzz with the latest, most efficient model yet: **Google Gemini 2.5 Flash Image Preview**. And while its text capabilities are impressive, the real headline-grabber is its native image generation, codenamed "Gemini Nano Banana" for its promised speed and flexibility.
 
 We've gotten our hands on an early preview of the pricing sheet, and we're here to break down what it costs to generate those perfect, contextually-aware images.

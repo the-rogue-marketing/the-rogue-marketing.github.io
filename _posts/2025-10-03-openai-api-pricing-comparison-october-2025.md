@@ -2,27 +2,27 @@
 layout: post
 title: 'OpenAI API Pricing 2026: Complete Guide to GPT-4o, GPT-5.5 & Realtime Costs'
 author: professor-xai
-categories:
-- openai
-- openai-api
-- ai-pricing
-- gpt-5
-- realtime-api
+categories: [AI Models & API Pricing]
 image: assets/images/openai-api-pricing.jpg
-description: Stop overpaying for OpenAI APIs. Check our complete, updated May 2026 breakdown of GPT-4o, GPT-5.5, Realtime audio, and DALL-E 4 pricing.
-keywords: openai api pricing 2026, gpt-4o cost, gpt-5.5 pricing, openai realtime api price, openai audio api cost
+description: Stop overpaying for OpenAI APIs. Check our complete, updated May 2026
+  breakdown of GPT-4o, GPT-5.5, Realtime audio, and DALL-E 4 pricing.
+keywords: openai api pricing 2026, gpt-4o cost, gpt-5.5 pricing, openai realtime api
+  price, openai audio api cost
 last_modified_at: '2026-05-29'
-canonical_url: "https://the-rogue-marketing.github.io/openai-api-pricing-may-2026/"
+canonical_url: https://the-rogue-marketing.github.io/openai-api-pricing-may-2026/
 noindex: true
 faq:
-- question: How much does GPT-4o API cost?
-  answer: GPT-4o API costs $2.50 per million input tokens and $10.00 per million output tokens. This paid rate is a 50% reduction from its launch pricing.
-- question: Does OpenAI support prompt caching?
-  answer: Yes, OpenAI offers automatic prompt caching for prompts longer than 1,024 tokens, providing a 50% discount on cached input tokens.
-- question: What is the cost of OpenAI Realtime API?
-  answer: The Realtime Audio API costs $5.00 per million input tokens and $20.00 per million output tokens for audio-to-audio modalities.
+- {question: 'How much does GPT-4o API cost?', answer: GPT-4o API costs $2.50 per
+    million input tokens and $10.00 per million output tokens. This paid rate is a
+    50% reduction from its launch pricing.}
+- {question: 'Does OpenAI support prompt caching?', answer: 'Yes, OpenAI offers automatic
+    prompt caching for prompts longer than 1,024 tokens, providing a 50% discount
+    on cached input tokens.'}
+- {question: 'What is the cost of OpenAI Realtime API?', answer: The Realtime Audio
+    API costs $5.00 per million input tokens and $20.00 per million output tokens
+    for audio-to-audio modalities.}
+tags: [AI APIs, AI Agents, API Pricing, OpenAI]
 ---
-
 # OpenAI API Pricing Update: May 2026 Overview
 
 *May 2026*

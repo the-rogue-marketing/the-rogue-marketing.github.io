@@ -1,22 +1,39 @@
 ---
 layout: post
-title: "AI System Design Series (Part 7): Human-in-the-Loop Orchestration and the Active Learning Flywheel"
-description: "How to engineer durable human review workflows and continuous learning feedback loops. Using Temporal Signals to pause execution and dynamic few-shot exemplar stores to eliminate recurring AI errors."
+title: 'AI System Design Series (Part 7): Human-in-the-Loop Orchestration and the
+  Active Learning Flywheel'
+description: How to engineer durable human review workflows and continuous learning
+  feedback loops. Using Temporal Signals to pause execution and dynamic few-shot exemplar
+  stores to eliminate recurring AI errors.
 author: professor-xai
-categories: [system-design, human-in-the-loop, active-learning, python]
+categories: [System Design & Scalability]
 image: assets/images/ai-system-design-part-7-human-in-the-loop.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "human in the loop ai, active learning flywheel, temporal workflow signals, dynamic few shot prompt hydration, hitl enterprise architecture, exception management ai"
+keywords: human in the loop ai, active learning flywheel, temporal workflow signals,
+  dynamic few shot prompt hydration, hitl enterprise architecture, exception management
+  ai
 faq:
-  - question: "Why is a Human-in-the-Loop (HITL) pattern mandatory in enterprise financial and healthcare AI?"
-    answer: "In regulated environments, full autonomy carries severe financial and legal liabilities. Invoices exceeding specific monetary thresholds (e.g. $10,000), new vendor bank accounts, and high-complexity clinical denial appeals require human sign-off for statutory compliance (SOX, HIPAA, Medicare guidelines). HITL guarantees that edge cases and low-confidence predictions receive certified human verification."
-  - question: "How does Temporal handle long-running human review pauses without consuming server resources?"
-    answer: "Temporal uses event-driven durable execution. When a workflow reaches a human approval gate, it registers a workflow wait condition and suspends execution. Zero CPU or database connections are consumed while waiting. When the human reviewer submits their decision via a web dashboard, the backend dispatches a Temporal Signal, resuming the workflow immediately."
-  - question: "What is the Active Learning Flywheel in document AI?"
-    answer: "When a human reviewer corrects an AI prediction (such as changing a tax code or replacing an ICD-10 modifier), that correction is transformed into a structured exemplar pair and embedded into a vector store. On future runs, the extraction agent dynamically retrieves relevant historical human corrections to avoid repeating the mistake."
+- {question: 'Why is a Human-in-the-Loop (HITL) pattern mandatory in enterprise financial
+    and healthcare AI?', answer: 'In regulated environments, full autonomy carries
+    severe financial and legal liabilities. Invoices exceeding specific monetary thresholds
+    (e.g. $10,000), new vendor bank accounts, and high-complexity clinical denial
+    appeals require human sign-off for statutory compliance (SOX, HIPAA, Medicare
+    guidelines). HITL guarantees that edge cases and low-confidence predictions receive
+    certified human verification.'}
+- {question: 'How does Temporal handle long-running human review pauses without consuming
+    server resources?', answer: 'Temporal uses event-driven durable execution. When
+    a workflow reaches a human approval gate, it registers a workflow wait condition
+    and suspends execution. Zero CPU or database connections are consumed while waiting.
+    When the human reviewer submits their decision via a web dashboard, the backend
+    dispatches a Temporal Signal, resuming the workflow immediately.'}
+- {question: 'What is the Active Learning Flywheel in document AI?', answer: 'When
+    a human reviewer corrects an AI prediction (such as changing a tax code or replacing
+    an ICD-10 modifier), that correction is transformed into a structured exemplar
+    pair and embedded into a vector store. On future runs, the extraction agent dynamically
+    retrieves relevant historical human corrections to avoid repeating the mistake.'}
+tags: [AI Agents, Gemini, OCR & Vision, PydanticAI, Python, System Design]
 ---
-
 In the first six parts of this series, we designed an end-to-end autonomous document processing platform: from distributed Kafka ingestion and Gemini 3.8 Flash extraction to Apache Iceberg lakehouses, hybrid search, Jev System-1 triage, and PydanticAI agents.
 
 On paper, this system appears capable of running an entire enterprise without human intervention.

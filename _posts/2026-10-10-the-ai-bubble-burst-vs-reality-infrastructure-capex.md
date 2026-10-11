@@ -1,20 +1,31 @@
 ---
 layout: post
-title: "The AI Bubble: $600 Billion in GPU Capex vs. Real Revenue — Are We Facing a 1999 Dot-Com Reckoning?"
-description: "An exhaustive financial and engineering autopsy of the 2026 AI infrastructure bubble. Analyzing hyperscaler capex, token depreciation, enterprise revenue gaps, and the impending market correction."
+title: 'The AI Bubble: $600 Billion in GPU Capex vs. Real Revenue — Are We Facing
+  a 1999 Dot-Com Reckoning?'
+description: An exhaustive financial and engineering autopsy of the 2026 AI infrastructure
+  bubble. Analyzing hyperscaler capex, token depreciation, enterprise revenue gaps,
+  and the impending market correction.
 author: professor-xai
-categories: ["ai-economy", "market-analysis", "enterprise-ai"]
+categories: [Enterprise AI & Document Intelligence]
 image: assets/images/ai-bubble-capex.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "ai bubble 2026, generative ai capex roi, hyperscaler gpu debt, ai dot com crash comparison, enterprise llm spending"
+keywords: ai bubble 2026, generative ai capex roi, hyperscaler gpu debt, ai dot com
+  crash comparison, enterprise llm spending
 faq:
-  - question: "Is there an AI bubble in 2026?"
-    answer: "Yes, in the infrastructure capex layer. Over $600B has been invested into data centers, power grids, and GPU clusters, while end-user software revenue from generative AI currently monetizes at roughly a fraction of that depreciation rate."
-  - question: "What happens when the AI bubble pops?"
-    answer: "Commoditization accelerates. Inference prices crater toward electricity costs, superficial wrapper startups disappear, and surviving enterprise platforms absorb the subsidized compute at deep discounts."
-  - question: "Which AI companies are actually profitable?"
-    answer: "Semiconductor infrastructure providers, hyperscalers with diversified cloud workloads, and verticalized workflows that replace high-cost labor (e.g. compliance, legal, medical coding) rather than generic chat interfaces."
+- {question: 'Is there an AI bubble in 2026?', answer: 'Yes, in the infrastructure
+    capex layer. Over $600B has been invested into data centers, power grids, and
+    GPU clusters, while end-user software revenue from generative AI currently monetizes
+    at roughly a fraction of that depreciation rate.'}
+- {question: 'What happens when the AI bubble pops?', answer: 'Commoditization accelerates.
+    Inference prices crater toward electricity costs, superficial wrapper startups
+    disappear, and surviving enterprise platforms absorb the subsidized compute at
+    deep discounts.'}
+- {question: 'Which AI companies are actually profitable?', answer: 'Semiconductor
+    infrastructure providers, hyperscalers with diversified cloud workloads, and verticalized
+    workflows that replace high-cost labor (e.g. compliance, legal, medical coding)
+    rather than generic chat interfaces.'}
+tags: [AI APIs]
 ---
 The tech industry is currently navigating the most aggressive capital expenditure cycle since the transatlantic fiber buildout of the late 1990s. Hyperscalers—Microsoft, Google, Meta, and Amazon—have directed upwards of **$600 billion** toward data center construction, nuclear power contracts, and AI accelerator clusters.
 

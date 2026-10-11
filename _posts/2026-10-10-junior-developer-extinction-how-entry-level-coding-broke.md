@@ -1,20 +1,30 @@
 ---
 layout: post
-title: "The Junior Developer Extinction: Why the Entry-Level Coding Ladder Broke (and How to Fix It)"
-description: "An honest, data-driven look at the collapse of junior developer hiring in 2026. How AI eliminated routine entry-level coding tasks, and how aspiring engineers can still break in."
+title: 'The Junior Developer Extinction: Why the Entry-Level Coding Ladder Broke (and
+  How to Fix It)'
+description: An honest, data-driven look at the collapse of junior developer hiring
+  in 2026. How AI eliminated routine entry-level coding tasks, and how aspiring engineers
+  can still break in.
 author: professor-xai
-categories: ["career", "software-engineering", "tech-industry"]
+categories: [AI Strategy & Tech Economics]
 image: assets/images/cheap-llm-apis-2026.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "junior developer extinction, entry level coding jobs 2026, software engineer internship collapse, how to get a coding job with ai, computer science career future"
+keywords: junior developer extinction, entry level coding jobs 2026, software engineer
+  internship collapse, how to get a coding job with ai, computer science career future
 faq:
-  - question: "Are computer science degrees obsolete?"
-    answer: "No, but degrees that only teach basic coding syntax without deep systems programming, distributed systems, and real-world architecture are failing to prepare graduates for the current job market."
-  - question: "How can a junior developer stand out in 2026?"
-    answer: "Build and ship real, production-grade applications that have paying users, demonstrate mastery of testing/evals, show proficiency in open-source contributions, and prove systems architecture skills."
-  - question: "Will junior engineering roles ever return?"
-    answer: "Not in their historical form. The future 'entry-level' engineer starts at what was previously considered mid-level responsibility: reviewing agent PRs, writing tests, and managing integrations."
+- {question: 'Are computer science degrees obsolete?', answer: 'No, but degrees that
+    only teach basic coding syntax without deep systems programming, distributed systems,
+    and real-world architecture are failing to prepare graduates for the current job
+    market.'}
+- {question: 'How can a junior developer stand out in 2026?', answer: 'Build and ship
+    real, production-grade applications that have paying users, demonstrate mastery
+    of testing/evals, show proficiency in open-source contributions, and prove systems
+    architecture skills.'}
+- {question: 'Will junior engineering roles ever return?', answer: 'Not in their historical
+    form. The future ''entry-level'' engineer starts at what was previously considered
+    mid-level responsibility: reviewing agent PRs, writing tests, and managing integrations.'}
+tags: []
 ---
 For decades, the tech industry operated on a sacred apprenticeship model:
 **Companies hired green junior engineers who wrote simple code at a net-negative productivity rate for 12 months, in exchange for developing them into productive senior architects.**

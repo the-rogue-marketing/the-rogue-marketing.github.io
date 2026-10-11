@@ -1,28 +1,41 @@
 ---
 layout: post
-title: "OpenAI API Pricing June 2026 — GPT-5.5, GPT-4.1, o3 Per-Million-Token Costs & Calculator"
-description: "Official OpenAI API pricing for June 2026. GPT-4.1 Nano from $0.10/1M, GPT-4.1 at $2/1M, GPT-5.5 Pro at $5/1M tokens. Includes Batch API 50% discounts, prompt caching, and free cost calculator."
+title: OpenAI API Pricing June 2026 — GPT-5.5, GPT-4.1, o3 Per-Million-Token Costs
+  & Calculator
+description: Official OpenAI API pricing for June 2026. GPT-4.1 Nano from $0.10/1M,
+  GPT-4.1 at $2/1M, GPT-5.5 Pro at $5/1M tokens. Includes Batch API 50% discounts,
+  prompt caching, and free cost calculator.
 author: professor-xai
-categories: [openai, ai-api, gpt-5, pricing, ai-agents, reasoning-models]
+categories: [AI Models & API Pricing]
 image: assets/images/openai-api-pricing-may-2026.webp
 featured: false
 last_modified_at: 2026-06-03
-keywords: "openai api pricing 2026, gpt-4.1 cost, o3 pricing, gpt-5.5 api cost, openai batch api, openai reasoning model pricing, cheapest openai model"
+keywords: openai api pricing 2026, gpt-4.1 cost, o3 pricing, gpt-5.5 api cost, openai
+  batch api, openai reasoning model pricing, cheapest openai model
 faq:
-  - question: "How much does the OpenAI API cost in 2026?"
-    answer: "OpenAI API pricing ranges from $0.10/1M input tokens (GPT-4.1 Nano) to $20/1M input tokens (o3-Pro). The most popular model, GPT-4.1, costs $2/1M input and $8/1M output tokens."
-  - question: "What is the cheapest OpenAI model?"
-    answer: "GPT-4.1 Nano at $0.10/1M input tokens is OpenAI's cheapest model. It's 20x cheaper than GPT-4.1 and surprisingly capable for classification, tagging, and simple content generation."
-  - question: "Is there a free tier for OpenAI API?"
-    answer: "OpenAI does not offer a permanent free tier like Google's Gemini, but new accounts receive starter credits. The Batch API provides 50% savings, and Prompt Caching can reduce input costs by up to 90%."
-  - question: "How much does GPT-5.5 cost?"
-    answer: "GPT-5.5 Pro costs approximately $5/1M input tokens and $30/1M output tokens. GPT-5.5 Instant is more affordable at around $2.50/$15 per 1M tokens."
-  - question: "How does OpenAI pricing compare to Google Gemini?"
-    answer: "OpenAI is generally more expensive. GPT-4.1 costs $2/$8 per 1M tokens vs Gemini 3 Flash at $0.50/$3. However, GPT-4.1 Nano ($0.10/$0.40) is comparable to Gemini 2.5 Flash-Lite ($0.10/$0.40)."
-  - question: "What is the OpenAI Batch API and how much does it save?"
-    answer: "The Batch API lets you run tasks asynchronously with 24-hour turnaround at 50% off standard pricing. It's perfect for data processing, nightly reports, and batch content generation."
+- {question: 'How much does the OpenAI API cost in 2026?', answer: 'OpenAI API pricing
+    ranges from $0.10/1M input tokens (GPT-4.1 Nano) to $20/1M input tokens (o3-Pro).
+    The most popular model, GPT-4.1, costs $2/1M input and $8/1M output tokens.'}
+- {question: 'What is the cheapest OpenAI model?', answer: 'GPT-4.1 Nano at $0.10/1M
+    input tokens is OpenAI''s cheapest model. It''s 20x cheaper than GPT-4.1 and surprisingly
+    capable for classification, tagging, and simple content generation.'}
+- {question: 'Is there a free tier for OpenAI API?', answer: 'OpenAI does not offer
+    a permanent free tier like Google''s Gemini, but new accounts receive starter
+    credits. The Batch API provides 50% savings, and Prompt Caching can reduce input
+    costs by up to 90%.'}
+- {question: 'How much does GPT-5.5 cost?', answer: GPT-5.5 Pro costs approximately
+    $5/1M input tokens and $30/1M output tokens. GPT-5.5 Instant is more affordable
+    at around $2.50/$15 per 1M tokens.}
+- {question: 'How does OpenAI pricing compare to Google Gemini?', answer: 'OpenAI
+    is generally more expensive. GPT-4.1 costs $2/$8 per 1M tokens vs Gemini 3 Flash
+    at $0.50/$3. However, GPT-4.1 Nano ($0.10/$0.40) is comparable to Gemini 2.5 Flash-Lite
+    ($0.10/$0.40).'}
+- {question: 'What is the OpenAI Batch API and how much does it save?', answer: 'The
+    Batch API lets you run tasks asynchronously with 24-hour turnaround at 50% off
+    standard pricing. It''s perfect for data processing, nightly reports, and batch
+    content generation.'}
+tags: [AI APIs, AI Agents, API Pricing, Gemini, Grok xAI, OpenAI]
 ---
-
 OpenAI's model lineup has evolved dramatically in 2026. From the cost-efficient **GPT-4.1 Nano** to the frontier **GPT-5.5 Pro**, there's now a model for every budget and use case. This guide breaks down all current API pricing as of **May 2026**.
 
 > 💡 **Calculate your exact costs:** Use our [AI API Pricing Calculator](/ai-api-pricing-calculator/) to compare OpenAI against Gemini, Grok, and Claude for your specific workload.

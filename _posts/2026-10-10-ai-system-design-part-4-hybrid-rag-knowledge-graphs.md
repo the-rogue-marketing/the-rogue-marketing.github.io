@@ -1,22 +1,39 @@
 ---
 layout: post
-title: "AI System Design Series (Part 4): Hybrid Semantic Search and Knowledge Graph RAG for Enterprise Contracts and Payer Policies"
-description: "How to engineer zero-hallucination retrieval systems for complex compliance documents. Combining dense pgvector HNSW search, sparse BM25 keyword matching, Reciprocal Rank Fusion, and Knowledge Graphs across Invoices and Healthcare RCM."
+title: 'AI System Design Series (Part 4): Hybrid Semantic Search and Knowledge Graph
+  RAG for Enterprise Contracts and Payer Policies'
+description: How to engineer zero-hallucination retrieval systems for complex compliance
+  documents. Combining dense pgvector HNSW search, sparse BM25 keyword matching, Reciprocal
+  Rank Fusion, and Knowledge Graphs across Invoices and Healthcare RCM.
 author: professor-xai
-categories: [system-design, rag, search, vector-database]
+categories: [System Design & Scalability]
 image: assets/images/ai-system-design-part-4-hybrid-rag.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "hybrid search pgvector, bm25 reciprocal rank fusion, knowledge graph rag, payer coverage policy retrieval, contract matching rag, enterprise rag architecture"
+keywords: hybrid search pgvector, bm25 reciprocal rank fusion, knowledge graph rag,
+  payer coverage policy retrieval, contract matching rag, enterprise rag architecture
 faq:
-  - question: "Why does pure vector semantic search fail on enterprise contracts and billing codes?"
-    answer: "Pure vector search relies on cosine similarity in dense embedding space. While it excels at understanding broad semantic intent, it frequently misses exact alpha-numeric strings such as part numbers (SKU-8819A), contractual section references (§ 14.2), and 5-digit CPT codes (e.g., 99213 vs 99214). Hybrid search combines dense vectors with sparse BM25 indexing to guarantee both conceptual understanding and exact keyword precision."
-  - question: "What is Reciprocal Rank Fusion (RRF) and why is it superior to score normalization?"
-    answer: "Dense cosine scores and sparse BM25 scores operate on entirely different mathematical distributions, making direct score addition or weighting fragile. Reciprocal Rank Fusion ranks results purely by their relative ordinal position in each search list using the formula 1 / (60 + rank), ensuring robust, calibrated ranking without manual tuning."
-  - question: "How do Knowledge Graphs complement RAG in healthcare and financial applications?"
-    answer: "Knowledge Graphs capture explicit, deterministic relationships between business entities (e.g., Procedure X requires Prior Authorization only when paired with Diagnosis Y for Payer Z). RAG retrieves the text evidence, while the Knowledge Graph enforces the non-negotiable structural constraints that prevent multi-hop hallucinations."
+- {question: 'Why does pure vector semantic search fail on enterprise contracts and
+    billing codes?', answer: 'Pure vector search relies on cosine similarity in dense
+    embedding space. While it excels at understanding broad semantic intent, it frequently
+    misses exact alpha-numeric strings such as part numbers (SKU-8819A), contractual
+    section references (§ 14.2), and 5-digit CPT codes (e.g., 99213 vs 99214). Hybrid
+    search combines dense vectors with sparse BM25 indexing to guarantee both conceptual
+    understanding and exact keyword precision.'}
+- {question: 'What is Reciprocal Rank Fusion (RRF) and why is it superior to score
+    normalization?', answer: 'Dense cosine scores and sparse BM25 scores operate on
+    entirely different mathematical distributions, making direct score addition or
+    weighting fragile. Reciprocal Rank Fusion ranks results purely by their relative
+    ordinal position in each search list using the formula 1 / (60 + rank), ensuring
+    robust, calibrated ranking without manual tuning.'}
+- {question: 'How do Knowledge Graphs complement RAG in healthcare and financial applications?',
+  answer: 'Knowledge Graphs capture explicit, deterministic relationships between
+    business entities (e.g., Procedure X requires Prior Authorization only when paired
+    with Diagnosis Y for Payer Z). RAG retrieves the text evidence, while the Knowledge
+    Graph enforces the non-negotiable structural constraints that prevent multi-hop
+    hallucinations.'}
+tags: [OCR & Vision, System Design]
 ---
-
 In Part 2 and Part 3 of this series, we normalized our incoming document streams into canonical Common Data Models (PEPPOL Invoices and HL7 FHIR Claims) and persisted them within an Apache Iceberg lakehouse orchestrated by Temporal workflows.
 
 Now we arrive at the core intelligence challenge: Contextual Verification.

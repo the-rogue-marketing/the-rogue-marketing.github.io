@@ -1,20 +1,29 @@
 ---
 layout: post
-title: "Real-World Use Cases of Jev: How Enterprises Deploy System-1 Decision Intelligence in Production"
-description: "Discover high-ROI enterprise use cases for TypeSafe AI's Jev model: sub-150ms ticket triage, real-time prompt injection firewalls, autonomous agent tool routing, and automated compliance scoring."
+title: 'Real-World Use Cases of Jev: How Enterprises Deploy System-1 Decision Intelligence
+  in Production'
+description: 'Discover high-ROI enterprise use cases for TypeSafe AI''s Jev model:
+  sub-150ms ticket triage, real-time prompt injection firewalls, autonomous agent
+  tool routing, and automated compliance scoring.'
 author: professor-xai
-categories: ["enterprise-ai", "ai-architecture", "case-studies"]
+categories: [System Design & Scalability]
 image: assets/images/jev-use-cases.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "use cases of jev, system 1 ai use cases, typesafe ai jev production examples, automated ticket triage jev, prompt injection firewall jev"
+keywords: use cases of jev, system 1 ai use cases, typesafe ai jev production examples,
+  automated ticket triage jev, prompt injection firewall jev
 faq:
-  - question: "What makes Jev ideal for real-time edge applications?"
-    answer: "Its sub-150ms response latency and deterministic output structure. Unlike chat models that stream variable-length text, Jev returns fixed-schema decision payloads instantaneously."
-  - question: "Can Jev replace customer support chatbots?"
-    answer: "No. Jev is not designed to chat with customers. It acts behind the scenes as the brain that routes the ticket, tags urgency, checks policy, and chooses which tool or agent should respond."
-  - question: "How does Jev save enterprise cloud costs?"
-    answer: "By resolving high-volume classification, filtering, and validation tasks for a fraction of a cent per turn, eliminating the need to invoke expensive frontier LLMs for non-generative decisions."
+- {question: 'What makes Jev ideal for real-time edge applications?', answer: 'Its
+    sub-150ms response latency and deterministic output structure. Unlike chat models
+    that stream variable-length text, Jev returns fixed-schema decision payloads instantaneously.'}
+- {question: 'Can Jev replace customer support chatbots?', answer: 'No. Jev is not
+    designed to chat with customers. It acts behind the scenes as the brain that routes
+    the ticket, tags urgency, checks policy, and chooses which tool or agent should
+    respond.'}
+- {question: 'How does Jev save enterprise cloud costs?', answer: 'By resolving high-volume
+    classification, filtering, and validation tasks for a fraction of a cent per turn,
+    eliminating the need to invoke expensive frontier LLMs for non-generative decisions.'}
+tags: [OpenAI]
 ---
 In cognitive psychology, Daniel Kahneman established the distinction between:
 - **System 1 (Fast, Instinctive, Reflexive)**: Immediate pattern recognition and split-second classification.

@@ -1,20 +1,31 @@
 ---
 layout: post
-title: "Building an AI Lab Test Booking Assistant: Pydantic AI, Gemini, FastAPI, and shadcn-ui"
+title: 'Building an AI Lab Test Booking Assistant: Pydantic AI, Gemini, FastAPI, and
+  shadcn-ui'
 date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
-categories: [Generative AI, Healthcare, Full-Stack]
+categories: [Enterprise AI & Document Intelligence]
 image: assets/images/lab-test-booking-assistant.webp
-description: "A comprehensive developer tutorial on building an automated AI-driven Lab Test Booking Assistant. Features Pydantic AI agentic tools, FastAPI, uv, multi-stage Docker builds, and a high-fidelity shadcn-styled frontend."
-keywords: "pydantic ai healthcare agent, gemini lab test assistant, fastapi medical booking agent, shadcn ui tailwind cdn html, docker-compose uv python"
+description: A comprehensive developer tutorial on building an automated AI-driven
+  Lab Test Booking Assistant. Features Pydantic AI agentic tools, FastAPI, uv, multi-stage
+  Docker builds, and a high-fidelity shadcn-styled frontend.
+keywords: pydantic ai healthcare agent, gemini lab test assistant, fastapi medical
+  booking agent, shadcn ui tailwind cdn html, docker-compose uv python
 faq:
-  - question: "How do I build an AI-powered booking assistant?"
-    answer: "Use PydanticAI for structured intent extraction (test type, date, location), FastAPI for the REST API backend, and a Shadcn UI TypeScript frontend. The AI agent interprets natural language requests and maps them to available booking slots."
-  - question: "What AI model is best for a booking chatbot?"
-    answer: "Google Gemini 3.5 Flash offers the best cost-to-performance ratio for booking assistants. It handles natural language understanding, slot extraction, and conversational context at $0.30/1M input tokens."
-  - question: "Can this architecture handle real healthcare lab bookings?"
-    answer: "Yes, but healthcare applications require HIPAA compliance. Deploy on Google Cloud with a BAA, use Vertex AI for the LLM endpoint, and ensure no PHI is stored in conversation logs without proper encryption and access controls."
+- {question: 'How do I build an AI-powered booking assistant?', answer: 'Use PydanticAI
+    for structured intent extraction (test type, date, location), FastAPI for the
+    REST API backend, and a Shadcn UI TypeScript frontend. The AI agent interprets
+    natural language requests and maps them to available booking slots.'}
+- {question: 'What AI model is best for a booking chatbot?', answer: 'Google Gemini
+    3.5 Flash offers the best cost-to-performance ratio for booking assistants. It
+    handles natural language understanding, slot extraction, and conversational context
+    at $0.30/1M input tokens.'}
+- {question: 'Can this architecture handle real healthcare lab bookings?', answer: 'Yes,
+    but healthcare applications require HIPAA compliance. Deploy on Google Cloud with
+    a BAA, use Vertex AI for the LLM endpoint, and ensure no PHI is stored in conversation
+    logs without proper encryption and access controls.'}
+tags: [AI APIs, Full-Stack, Gemini, Generative AI, PydanticAI]
 ---
 The administrative workload in modern healthcare systems remains one of the largest friction points for both providers and patients. Booking a clinical lab test—whether a routine Complete Blood Count (CBC) or a complex thyroid panel—typically requires navigating rigid portals, matching symptoms or doctor prescriptions to correct diagnostic panels, and manually sorting through calendar slots.
 

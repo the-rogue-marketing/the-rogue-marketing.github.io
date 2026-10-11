@@ -1,0 +1,30 @@
+- name: AI APIs
+  slug: ai-apis
+  count: 71
+- name: Gemini
+  slug: gemini
+  count: 55
+- name: API Pricing
+  slug: api-pricing
+  count: 42
+- name: Python
+  slug: python
+  count: 42
+- name: AI Agents
+  slug: ai-agents
+  count: 34
+- name: PydanticAI
+  slug: pydanticai
+  count: 33
+- name: OCR & Vision
+  slug: ocr-vision
+  count: 30
+- name: OpenAI
+  slug: openai
+  count: 29
+- name: System Design
+  slug: system-design
+  count: 25
+- name: DevOps
+  slug: devops
+  count: 15

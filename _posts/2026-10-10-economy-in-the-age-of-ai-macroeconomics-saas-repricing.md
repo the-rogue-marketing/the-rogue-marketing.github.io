@@ -1,20 +1,30 @@
 ---
 layout: post
-title: "The Economy in the Age of AI: GPU Capex, SaaS Multiples Collapse, and the Rise of the 1-Person Unicorn"
-description: "How artificial intelligence is rewriting macroeconomic fundamentals: the death of per-seat SaaS pricing, the collapse of middle-tier IT services, and how solo engineers build $10M ARR enterprises."
+title: 'The Economy in the Age of AI: GPU Capex, SaaS Multiples Collapse, and the
+  Rise of the 1-Person Unicorn'
+description: 'How artificial intelligence is rewriting macroeconomic fundamentals:
+  the death of per-seat SaaS pricing, the collapse of middle-tier IT services, and
+  how solo engineers build $10M ARR enterprises.'
 author: professor-xai
-categories: ["macroeconomics", "ai-business", "tech-trends"]
+categories: [AI Strategy & Tech Economics]
 image: assets/images/automating-business-with-ai.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "economy in the age of ai, saas pricing collapse ai, one person unicorn, ai macroeconomics 2026, enterprise tech multiples"
+keywords: economy in the age of ai, saas pricing collapse ai, one person unicorn,
+  ai macroeconomics 2026, enterprise tech multiples
 faq:
-  - question: "Why is traditional SaaS per-seat pricing dying?"
-    answer: "Per-seat billing incentivizes software companies to sell licenses to human workers. As AI agents execute workflows autonomously, headcounts decrease, destroying per-seat revenue for legacy SaaS platforms."
-  - question: "What pricing model is replacing per-seat SaaS?"
-    answer: "Outcome-based and usage-based pricing: charging per resolved customer ticket, per completed legal audit, or per closed sales qualified lead rather than monthly active users."
-  - question: "Is a 1-person billion-dollar startup realistic?"
-    answer: "A 1-person $10M–$50M ARR company is already reality; reaching a $1B valuation with under 5 employees will happen in high-leverage domains (algorithmic trading, programmatic media, API utilities) powered by autonomous agent swarms."
+- {question: 'Why is traditional SaaS per-seat pricing dying?', answer: 'Per-seat
+    billing incentivizes software companies to sell licenses to human workers. As
+    AI agents execute workflows autonomously, headcounts decrease, destroying per-seat
+    revenue for legacy SaaS platforms.'}
+- {question: 'What pricing model is replacing per-seat SaaS?', answer: 'Outcome-based
+    and usage-based pricing: charging per resolved customer ticket, per completed
+    legal audit, or per closed sales qualified lead rather than monthly active users.'}
+- {question: 'Is a 1-person billion-dollar startup realistic?', answer: 'A 1-person
+    $10M–$50M ARR company is already reality; reaching a $1B valuation with under
+    5 employees will happen in high-leverage domains (algorithmic trading, programmatic
+    media, API utilities) powered by autonomous agent swarms.'}
+tags: []
 ---
 The modern economy was constructed on a predictable formula for knowledge work:
 **Hire $N$ knowledge workers $\times$ Buy $N$ software licenses $\times$ Pay hourly wages $\rightarrow$ Generate revenue.**

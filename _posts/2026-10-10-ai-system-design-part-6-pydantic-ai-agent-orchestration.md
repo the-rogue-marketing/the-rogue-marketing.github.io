@@ -1,22 +1,37 @@
 ---
 layout: post
-title: "AI System Design Series (Part 6): Autonomous Agent Orchestration with PydanticAI for ERP and EHR Mutations"
-description: "How to engineer type-safe, autonomous multi-turn agents that safely interact with mission-critical systems. Implementing PydanticAI for automated GL allocation in SAP/NetSuite and claim scrubbing in Epic/Cerner."
+title: 'AI System Design Series (Part 6): Autonomous Agent Orchestration with PydanticAI
+  for ERP and EHR Mutations'
+description: How to engineer type-safe, autonomous multi-turn agents that safely interact
+  with mission-critical systems. Implementing PydanticAI for automated GL allocation
+  in SAP/NetSuite and claim scrubbing in Epic/Cerner.
 author: professor-xai
-categories: [system-design, pydantic-ai, ai-agents, python]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/ai-system-design-part-6-pydantic-ai-agents.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "pydantic-ai agents, autonomous erp agent, rcm claim scrubbing agent, type safe tool calling, modelretry self healing, enterprise ai agents"
+keywords: pydantic-ai agents, autonomous erp agent, rcm claim scrubbing agent, type
+  safe tool calling, modelretry self healing, enterprise ai agents
 faq:
-  - question: "Why is PydanticAI superior to general agent frameworks for enterprise mutations?"
-    answer: "General agent frameworks often rely on unstructured string outputs and loosely typed JSON parsing. PydanticAI enforces strict, compile-time and runtime type safety using Pydantic schemas for tool arguments, dependency injection via RunContext, and structured return values. If an agent attempts to invoke a tool with malformed arguments, the framework automatically catches the error and prompts the model to self-heal using ModelRetry."
-  - question: "What is the ModelRetry pattern in PydanticAI?"
-    answer: "ModelRetry allows a validator or tool to raise an explicit exception that is fed directly back into the LLM's conversational scratchpad during the current execution turn. The model reads the exact error traceback and adjusts its parameters without crashing the server or failing the workflow."
-  - question: "How do you guarantee idempotency when an agent mutates external ERP or EHR systems?"
-    answer: "Every mutating tool must require a deterministic idempotency key derived from the document's SHA-256 hash and workflow ID. Before executing an external HTTP POST or database insert, the tool verifies whether the transaction has already succeeded, returning the existing transaction ID if repeated."
+- {question: 'Why is PydanticAI superior to general agent frameworks for enterprise
+    mutations?', answer: 'General agent frameworks often rely on unstructured string
+    outputs and loosely typed JSON parsing. PydanticAI enforces strict, compile-time
+    and runtime type safety using Pydantic schemas for tool arguments, dependency
+    injection via RunContext, and structured return values. If an agent attempts to
+    invoke a tool with malformed arguments, the framework automatically catches the
+    error and prompts the model to self-heal using ModelRetry.'}
+- {question: 'What is the ModelRetry pattern in PydanticAI?', answer: ModelRetry allows
+    a validator or tool to raise an explicit exception that is fed directly back into
+    the LLM's conversational scratchpad during the current execution turn. The model
+    reads the exact error traceback and adjusts its parameters without crashing the
+    server or failing the workflow.}
+- {question: 'How do you guarantee idempotency when an agent mutates external ERP
+    or EHR systems?', answer: 'Every mutating tool must require a deterministic idempotency
+    key derived from the document''s SHA-256 hash and workflow ID. Before executing
+    an external HTTP POST or database insert, the tool verifies whether the transaction
+    has already succeeded, returning the existing transaction ID if repeated.'}
+tags: [AI APIs, AI Agents, PydanticAI, Python, System Design]
 ---
-
 In Part 4 and Part 5 of this series, we equipped our architecture with high-precision contextual search (Hybrid pgvector and Knowledge Graphs) and rapid System-1 decision routing (TypeSafe AI's Jev).
 
 When an invoice matches its purchase order perfectly, or a medical claim is 100% clean, Jev routes it straight to automated settlement in under 120 milliseconds.

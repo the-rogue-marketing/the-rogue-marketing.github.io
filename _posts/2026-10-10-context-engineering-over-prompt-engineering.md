@@ -1,20 +1,29 @@
 ---
 layout: post
-title: "Context Engineering Over Prompt Engineering: The Evolution of LLM Control in 2026"
-description: "Why prompt engineering is dead and context engineering is the essential discipline. How to curate, prune, compress, and hydrate dynamic context windows for maximum reasoning accuracy."
+title: 'Context Engineering Over Prompt Engineering: The Evolution of LLM Control
+  in 2026'
+description: Why prompt engineering is dead and context engineering is the essential
+  discipline. How to curate, prune, compress, and hydrate dynamic context windows
+  for maximum reasoning accuracy.
 author: professor-xai
-categories: ["context-engineering", "prompt-engineering", "ai-architecture"]
+categories: [System Design & Scalability]
 image: assets/images/pydantic-ai-vision-docker-architecture.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "context engineering vs prompt engineering, dynamic context hydration, llm prompt pruning, context compression techniques, senior ai engineer skills"
+keywords: context engineering vs prompt engineering, dynamic context hydration, llm
+  prompt pruning, context compression techniques, senior ai engineer skills
 faq:
-  - question: "What is context engineering?"
-    answer: "Context engineering is the systematic software discipline of selecting, ranking, structuring, pruning, and compressing dynamic context fed into an LLM's attention window at runtime."
-  - question: "Why did prompt engineering become obsolete?"
-    answer: "Prompt engineering relied on static natural language tricks. Modern models are smart enough to understand plain instructions, but their output quality is bounded by the relevance, cleanliness, and structure of the surrounding context."
-  - question: "What are the primary techniques in context engineering?"
-    answer: "Dynamic context hydration, semantic chunk pruning, structured markdown framing, schema distillation, and KV-cache alignment."
+- {question: 'What is context engineering?', answer: 'Context engineering is the systematic
+    software discipline of selecting, ranking, structuring, pruning, and compressing
+    dynamic context fed into an LLM''s attention window at runtime.'}
+- {question: 'Why did prompt engineering become obsolete?', answer: 'Prompt engineering
+    relied on static natural language tricks. Modern models are smart enough to understand
+    plain instructions, but their output quality is bounded by the relevance, cleanliness,
+    and structure of the surrounding context.'}
+- {question: 'What are the primary techniques in context engineering?', answer: 'Dynamic
+    context hydration, semantic chunk pruning, structured markdown framing, schema
+    distillation, and KV-cache alignment.'}
+tags: []
 ---
 The term **'Prompt Engineering'** had a brief, glamorous reign. In 2023, people genuinely believed that knowing how to write *"Think step by step"* was a lucrative lifelong career.
 

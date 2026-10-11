@@ -1,22 +1,39 @@
 ---
 layout: post
-title: "AI System Design Series (Part 1): Distributed Ingestion and Multimodal Extraction with Gemini 3.8 Flash, Kafka, and Redis Streams"
-description: "Building production ingestion pipelines for complex enterprise documents. How to decouple ingestion with Kafka, manage backpressure with Redis Streams, and extract structured data using Gemini 3.8 Flash across Accounts Payable and Healthcare RCM."
+title: 'AI System Design Series (Part 1): Distributed Ingestion and Multimodal Extraction
+  with Gemini 3.8 Flash, Kafka, and Redis Streams'
+description: Building production ingestion pipelines for complex enterprise documents.
+  How to decouple ingestion with Kafka, manage backpressure with Redis Streams, and
+  extract structured data using Gemini 3.8 Flash across Accounts Payable and Healthcare
+  RCM.
 author: professor-xai
-categories: [system-design, ai-architecture, python, gemini-api]
+categories: [AI Models & API Pricing]
 image: assets/images/ai-system-design-part-1-ingestion.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "ai system design ingestion, gemini 3.8 flash multimodal, kafka ai document processing, redis streams worker queue, enterprise rcm ingestion, invoice ocr pipeline"
+keywords: ai system design ingestion, gemini 3.8 flash multimodal, kafka ai document
+  processing, redis streams worker queue, enterprise rcm ingestion, invoice ocr pipeline
 faq:
-  - question: "Why decouple document ingestion from LLM extraction using Kafka or Redis Streams?"
-    answer: "LLM extraction introduces variable latency ranging from 800 milliseconds to several seconds per document. If you process documents synchronously inside your HTTP request handler, spikes in traffic will saturate web server workers, cause gateway timeouts, and drop incoming webhooks. A message broker provides backpressure buffering and guaranteed delivery."
-  - question: "How does Gemini 3.8 Flash handle multi-page scanned documents compared to legacy OCR?"
-    answer: "Legacy optical character recognition pipelines require separating image preprocessing, text bounding box detection, layout analysis, and text extraction into multiple fragile stages. Gemini 3.8 Flash natively consumes image tokens directly, understanding spatial relationships, multi-column tables, and handwritten annotations in a single unified forward pass."
-  - question: "How do you prevent duplicate document processing in high-throughput distributed pipelines?"
-    answer: "Generate a deterministic SHA-256 hash of the normalized file binary at ingestion time. Store this hash in Redis with an atomic SETNX operation before enqueuing the document to Kafka. If another worker or client uploads the identical file within your deduplication window, the request is recognized immediately."
+- {question: 'Why decouple document ingestion from LLM extraction using Kafka or Redis
+    Streams?', answer: 'LLM extraction introduces variable latency ranging from 800
+    milliseconds to several seconds per document. If you process documents synchronously
+    inside your HTTP request handler, spikes in traffic will saturate web server workers,
+    cause gateway timeouts, and drop incoming webhooks. A message broker provides
+    backpressure buffering and guaranteed delivery.'}
+- {question: 'How does Gemini 3.8 Flash handle multi-page scanned documents compared
+    to legacy OCR?', answer: 'Legacy optical character recognition pipelines require
+    separating image preprocessing, text bounding box detection, layout analysis,
+    and text extraction into multiple fragile stages. Gemini 3.8 Flash natively consumes
+    image tokens directly, understanding spatial relationships, multi-column tables,
+    and handwritten annotations in a single unified forward pass.'}
+- {question: 'How do you prevent duplicate document processing in high-throughput
+    distributed pipelines?', answer: 'Generate a deterministic SHA-256 hash of the
+    normalized file binary at ingestion time. Store this hash in Redis with an atomic
+    SETNX operation before enqueuing the document to Kafka. If another worker or client
+    uploads the identical file within your deduplication window, the request is recognized
+    immediately.'}
+tags: [AI APIs, Gemini, OCR & Vision, Python, System Design]
 ---
-
 Most tutorials on building document AI systems present a trivial architecture. They show a basic FastAPI endpoint that receives a PDF, immediately calls an LLM API, parses the response, and writes it to a database. 
 
 If you deploy that pattern to production in an enterprise processing hundreds of thousands of documents every month, your system will fail within the first week.

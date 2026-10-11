@@ -1,20 +1,31 @@
 ---
 layout: post
-title: "Agentic Financial Compliance: SEC Filing Audits with Gemini 3.1 Pro, Pydantic AI, and FastAPI"
-description: "A comprehensive developer guide to building automated fintech compliance auditing engines and SEC filing parsers using Gemini 3.1 Pro, Pydantic AI, and FastAPI."
+title: 'Agentic Financial Compliance: SEC Filing Audits with Gemini 3.1 Pro, Pydantic
+  AI, and FastAPI'
+description: A comprehensive developer guide to building automated fintech compliance
+  auditing engines and SEC filing parsers using Gemini 3.1 Pro, Pydantic AI, and FastAPI.
 author: professor-xai
-categories: [ai-api, fintech, pydantic-ai, fastapi]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/gemini-api-usecases.webp
 featured: true
 last_modified_at: 2026-05-21
-keywords: "fintech ai compliance agent, pydantic ai fintech tutorial, sec filings analysis gemini api, automated credit risk llm, fastapi fintech microservices"
+keywords: fintech ai compliance agent, pydantic ai fintech tutorial, sec filings analysis
+  gemini api, automated credit risk llm, fastapi fintech microservices
 faq:
-  - question: "How can AI agents automate fintech compliance auditing?"
-    answer: "PydanticAI agents can extract structured data from financial documents, cross-reference against regulatory requirements, flag compliance violations, and generate audit reports. The type-safe schema validation ensures zero hallucination in critical financial data extraction."
-  - question: "Is Gemini API suitable for regulated financial applications?"
-    answer: "Yes, when deployed through Vertex AI with proper security controls. Google Cloud offers SOC 2, GDPR, and financial services compliance certifications. A signed BAA and private networking ensure data stays within compliant boundaries."
-  - question: "What is the cost of running AI compliance audits at scale?"
-    answer: "Using Gemini 3.5 Flash at $0.30/1M tokens, processing 1,000 financial documents per day (avg 20K tokens each) costs approximately $180/month — significantly cheaper than manual compliance review which can cost $50-100+ per document."
+- {question: 'How can AI agents automate fintech compliance auditing?', answer: 'PydanticAI
+    agents can extract structured data from financial documents, cross-reference against
+    regulatory requirements, flag compliance violations, and generate audit reports.
+    The type-safe schema validation ensures zero hallucination in critical financial
+    data extraction.'}
+- {question: 'Is Gemini API suitable for regulated financial applications?', answer: 'Yes,
+    when deployed through Vertex AI with proper security controls. Google Cloud offers
+    SOC 2, GDPR, and financial services compliance certifications. A signed BAA and
+    private networking ensure data stays within compliant boundaries.'}
+- {question: 'What is the cost of running AI compliance audits at scale?', answer: 'Using
+    Gemini 3.5 Flash at $0.30/1M tokens, processing 1,000 financial documents per
+    day (avg 20K tokens each) costs approximately $180/month — significantly cheaper
+    than manual compliance review which can cost $50-100+ per document.'}
+tags: [AI APIs, AI Agents, Fintech, Gemini, OCR & Vision, PydanticAI]
 ---
 In the financial technology sector, compliance is a multi-billion dollar bottleneck. Financial institutions are required to continuously scan thousands of pages of complex documents—including SEC Form 10-K filings, Know Your Customer (KYC) records, internal audits, and credit risk histories—to identify regulatory breaches, operational vulnerabilities, and liability disclosures.
 

@@ -1,22 +1,28 @@
 ---
 layout: post
-title: "Kinetic Video Typography with Python: Generating Word-Level Animated Subtitles using Whisper & Pillow"
-description: "How to extract word-level timestamps from OpenAI Whisper and render animated, dynamic color-highlighted subtitles on vertical videos using Python and Pillow."
+title: 'Kinetic Video Typography with Python: Generating Word-Level Animated Subtitles
+  using Whisper & Pillow'
+description: How to extract word-level timestamps from OpenAI Whisper and render animated,
+  dynamic color-highlighted subtitles on vertical videos using Python and Pillow.
 author: professor-xai
-categories: [video-ai, python, dev]
+categories: [Developer Engineering & Tools]
 image: assets/images/conversational-commerce.webp
 featured: true
 last_modified_at: 2026-10-05
-keywords: "whisper word level timestamps, animated subtitles python ffmpeg, kinetic typography shorts, karaoke subtitles python"
+keywords: whisper word level timestamps, animated subtitles python ffmpeg, kinetic
+  typography shorts, karaoke subtitles python
 faq:
-  - question: "How do you extract word timestamps from Whisper?"
-    answer: "Call `whisper.transcribe(audio, word_timestamps=True)` or use `faster-whisper` with CTC alignment to retrieve exact start and end millisecond timestamps per word."
-  - question: "Why is word-by-word highlight typography so important on TikTok and Reels?"
-    answer: "Eye-tracking telemetry proves dynamic subtitle highlights boost 3-second viewer retention by over 45%, preventing users from swiping away."
-  - question: "How do you prevent subtitle text collision with phone scrub bars?"
-    answer: "Place subtitle overlays strictly between Y=1250 and Y=1550 on the 1080x1920 canvas, safely above mobile UI icons and progress bars."
+- {question: 'How do you extract word timestamps from Whisper?', answer: 'Call `whisper.transcribe(audio,
+    word_timestamps=True)` or use `faster-whisper` with CTC alignment to retrieve
+    exact start and end millisecond timestamps per word.'}
+- {question: 'Why is word-by-word highlight typography so important on TikTok and
+    Reels?', answer: 'Eye-tracking telemetry proves dynamic subtitle highlights boost
+    3-second viewer retention by over 45%, preventing users from swiping away.'}
+- {question: 'How do you prevent subtitle text collision with phone scrub bars?',
+  answer: 'Place subtitle overlays strictly between Y=1250 and Y=1550 on the 1080x1920
+    canvas, safely above mobile UI icons and progress bars.'}
+tags: [DevOps, Python]
 ---
-
 On TikTok, YouTube Shorts, and Instagram Reels, viewers scroll with sound muted over 60% of the time. The difference between a video that drops off in 2 seconds and one that goes viral is **kinetic, word-by-word karaoke-style animated captions**.
 
 Here is how to extract **word-level millisecond timestamps** with **Whisper** and burn animated typography frames onto videos with Python.

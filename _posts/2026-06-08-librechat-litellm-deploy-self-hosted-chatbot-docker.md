@@ -1,22 +1,32 @@
 ---
 layout: post
-title: "LibreChat + LiteLLM: How to Deploy a Self-Hosted, Privacy-First Enterprise Chatbot on Docker"
-description: "A complete, step-by-step developer tutorial to self-hosting a privacy-first enterprise chatbot interface on Docker. Learn to deploy LibreChat and route it through a LiteLLM proxy gateway with MongoDB."
+title: 'LibreChat + LiteLLM: How to Deploy a Self-Hosted, Privacy-First Enterprise
+  Chatbot on Docker'
+description: A complete, step-by-step developer tutorial to self-hosting a privacy-first
+  enterprise chatbot interface on Docker. Learn to deploy LibreChat and route it through
+  a LiteLLM proxy gateway with MongoDB.
 author: professor-xai
-categories: [devops, docker, self-hosting, local-llms]
+categories: [Enterprise AI & Document Intelligence]
 image: assets/images/local-cpu-llm-architecture.webp
 featured: true
 last_modified_at: 2026-06-08
-keywords: "deploy self hosted chatbot docker, self host librechat, litellm docker compose tutorial, enterprise chatbot open source, host local llm gateway"
+keywords: deploy self hosted chatbot docker, self host librechat, litellm docker compose
+  tutorial, enterprise chatbot open source, host local llm gateway
 faq:
-  - question: "Why should I use LiteLLM between LibreChat and my models?"
-    answer: "LiteLLM acts as a unified translation proxy. Instead of configuring raw keys and custom endpoints for every provider (Ollama, vLLM, OpenAI, Gemini) in LibreChat, you route everything through LiteLLM's OpenAI-compatible endpoint. It handles automatic failover, load balancing, and token-based usage tracking."
-  - question: "Does LibreChat store conversation histories locally?"
-    answer: "Yes, LibreChat uses a MongoDB database instance in Docker to securely store and index conversation histories, user accounts, custom presets, and file attachments locally."
-  - question: "Can I run this entire stack completely offline?"
-    answer: "Absolutely. If you configure LiteLLM to point to local model servers like Ollama or vLLM running in the same network, the entire system operates completely offline without transmitting any data to external servers."
+- {question: 'Why should I use LiteLLM between LibreChat and my models?', answer: 'LiteLLM
+    acts as a unified translation proxy. Instead of configuring raw keys and custom
+    endpoints for every provider (Ollama, vLLM, OpenAI, Gemini) in LibreChat, you
+    route everything through LiteLLM''s OpenAI-compatible endpoint. It handles automatic
+    failover, load balancing, and token-based usage tracking.'}
+- {question: 'Does LibreChat store conversation histories locally?', answer: 'Yes,
+    LibreChat uses a MongoDB database instance in Docker to securely store and index
+    conversation histories, user accounts, custom presets, and file attachments locally.'}
+- {question: 'Can I run this entire stack completely offline?', answer: 'Absolutely.
+    If you configure LiteLLM to point to local model servers like Ollama or vLLM running
+    in the same network, the entire system operates completely offline without transmitting
+    any data to external servers.'}
+tags: [AI APIs, DevOps]
 ---
-
 Data privacy is the single biggest hurdle for companies looking to adopt generative AI assistants. Sending proprietary code, financial records, or customer data to commercial APIs exposes organizations to severe data leakage risks and compliance violations.
 
 The solution is **self-hosting**. By deploying an open-source chatbot interface and routing traffic through a local API gateway, you can create a private, secure, enterprise-grade ChatGPT alternative. 

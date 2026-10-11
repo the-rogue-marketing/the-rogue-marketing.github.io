@@ -1,24 +1,30 @@
 ---
 layout: post
-title: "OpenAI Just Dropped Prices Again: Breaking Down the GPT-5.5 Updates [2026]"
-description: "OpenAI announced a major price cut across all API models, including GPT-5.5. I analyzed the price cuts and what it means for SaaS startup margins."
+title: 'OpenAI Just Dropped Prices Again: Breaking Down the GPT-5.5 Updates [2026]'
+description: OpenAI announced a major price cut across all API models, including GPT-5.5.
+  I analyzed the price cuts and what it means for SaaS startup margins.
 author: professor-xai
-categories: [openai, pricing, newsjacking, cost-optimization]
+categories: [AI Models & API Pricing]
 image: assets/images/openai-price-drop-gpt5-5.webp
 featured: false
 last_modified_at: 2026-05-25
-keywords: "openai price drop 2026, gpt 5.5 pricing update, cheap openai api, gpt-5.5 vs gpt-4o cost, reduce openai API cost"
+keywords: openai price drop 2026, gpt 5.5 pricing update, cheap openai api, gpt-5.5
+  vs gpt-4o cost, reduce openai API cost
 faq:
-  - question: "Did OpenAI drop API prices in 2026?"
-    answer: "Yes, OpenAI announced up to 50% price cuts on GPT-5.5 inputs and output tokens, along with significant rate limit increases for enterprise developer tiers."
-  - question: "How much does the new GPT-5.5 API cost?"
-    answer: "GPT-5.5 now costs $5.00 per million input tokens and $15.00 per million output tokens, down from its initial launch price of $10.00/$30.00."
-  - question: "Is GPT-5.5 cheaper than Claude Sonnet?"
-    answer: "No. GPT-5.5 is priced at $5.00/$15.00, which is higher than Claude Sonnet 4.6 ($3.00/$15.00) on inputs, but matches Claude on output token prices."
-  - question: "Can I use the Batch API with GPT-5.5?"
-    answer: "Yes, the OpenAI Batch API supports GPT-5.5 at a flat 50% discount, lowering the effective price to $2.50 per million input tokens."
+- {question: 'Did OpenAI drop API prices in 2026?', answer: 'Yes, OpenAI announced
+    up to 50% price cuts on GPT-5.5 inputs and output tokens, along with significant
+    rate limit increases for enterprise developer tiers.'}
+- {question: 'How much does the new GPT-5.5 API cost?', answer: 'GPT-5.5 now costs
+    $5.00 per million input tokens and $15.00 per million output tokens, down from
+    its initial launch price of $10.00/$30.00.'}
+- {question: 'Is GPT-5.5 cheaper than Claude Sonnet?', answer: 'No. GPT-5.5 is priced
+    at $5.00/$15.00, which is higher than Claude Sonnet 4.6 ($3.00/$15.00) on inputs,
+    but matches Claude on output token prices.'}
+- {question: 'Can I use the Batch API with GPT-5.5?', answer: 'Yes, the OpenAI Batch
+    API supports GPT-5.5 at a flat 50% discount, lowering the effective price to $2.50
+    per million input tokens.'}
+tags: [AI APIs, API Pricing, Gemini, Grok xAI, OpenAI]
 ---
-
 The AI API price wars show no signs of stopping. In a surprise update, OpenAI announced a **major price cut** across their entire API lineup, including their newly released flagship model, **GPT-5.5**.
 
 This price cut is a direct response to aggressive pricing from Google's Gemini 3.5 Flash/Pro and xAI's Grok 4.3 flagship models, both of which have been eating into OpenAI's developer market share. The price of intelligence is racing to zero, and developers are the ultimate winners.

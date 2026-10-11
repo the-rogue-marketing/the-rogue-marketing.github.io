@@ -1,22 +1,29 @@
 ---
 layout: post
-title: "Gemini Pro API for OCR & Document Intelligence: Best & Cheapest OCR (2026)"
-description: "Looking for the best OCR API in 2026? Read why Google Gemini Pro beats AWS Textract, Azure, Mindee, and NanoNets on cost, speed, and accuracy."
+title: 'Gemini Pro API for OCR & Document Intelligence: Best & Cheapest OCR (2026)'
+description: Looking for the best OCR API in 2026? Read why Google Gemini Pro beats
+  AWS Textract, Azure, Mindee, and NanoNets on cost, speed, and accuracy.
 author: professor-xai
-categories: [gemini-3.5-pro, document-ai, google-ai, pricing, gemini ocr api]
+categories: [AI Models & API Pricing]
 image: assets/images/gemini-ocr-api.jpg
-keywords: "gemini ocr api, best ocr api 2026, cheapest ocr api, document intelligence, aws textract vs gemini, mindee ocr, nanonets pricing"
+keywords: gemini ocr api, best ocr api 2026, cheapest ocr api, document intelligence,
+  aws textract vs gemini, mindee ocr, nanonets pricing
 last_modified_at: 2026-05-29
 faq:
-  - question: "Is Google Gemini API good for OCR?"
-    answer: "Yes, Google Gemini Pro and Flash models are excellent for OCR. Because they are native multimodal LLMs, they can parse text, tables, and document structures directly from images without requiring separate OCR engines."
-  - question: "How much does Gemini OCR API cost?"
-    answer: "Using Gemini 1.5 Flash, the cost is approximately $0.075 per million input tokens, which translates to about $0.15 to $0.50 per 1,000 pages depending on text density. This is 60% to 90% cheaper than traditional OCR services like AWS Textract or Microsoft Azure."
-  - question: "Does Gemini OCR API support tables and handwriting?"
-    answer: "Yes, Gemini is highly proficient at handwriting recognition and table extraction. By prompting the model to return data in JSON format, developers can directly extract structured table data without complex post-processing."
+- {question: 'Is Google Gemini API good for OCR?', answer: 'Yes, Google Gemini Pro
+    and Flash models are excellent for OCR. Because they are native multimodal LLMs,
+    they can parse text, tables, and document structures directly from images without
+    requiring separate OCR engines.'}
+- {question: 'How much does Gemini OCR API cost?', answer: 'Using Gemini 1.5 Flash,
+    the cost is approximately $0.075 per million input tokens, which translates to
+    about $0.15 to $0.50 per 1,000 pages depending on text density. This is 60% to
+    90% cheaper than traditional OCR services like AWS Textract or Microsoft Azure.'}
+- {question: 'Does Gemini OCR API support tables and handwriting?', answer: 'Yes,
+    Gemini is highly proficient at handwriting recognition and table extraction. By
+    prompting the model to return data in JSON format, developers can directly extract
+    structured table data without complex post-processing.'}
+tags: [AI APIs, API Pricing, Gemini, Google AI, OCR & Vision]
 ---
-
-
 ### OCR API Showdown 2026: Comparing Mindee, NanoNets, Azure, AWS, Google Vision & Why Gemini Wins on Cost
 
 

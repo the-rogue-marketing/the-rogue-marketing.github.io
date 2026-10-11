@@ -1,24 +1,30 @@
 ---
 layout: post
-title: "Google's New Gemini 3.5 Flash: Is It Worth the Upgrade? [Cost Analysis]"
-description: "Google just launched Gemini 3.5 Flash. I performed a full cost analysis, benchmark study, and review to see if you should upgrade. Calculator inside."
+title: 'Google''s New Gemini 3.5 Flash: Is It Worth the Upgrade? [Cost Analysis]'
+description: Google just launched Gemini 3.5 Flash. I performed a full cost analysis,
+  benchmark study, and review to see if you should upgrade. Calculator inside.
 author: professor-xai
-categories: [gemini, ai-api, pricing, newsjacking, benchmarks]
+categories: [AI Models & API Pricing]
 image: assets/images/gemini-3-5-flash-review.webp
 featured: true
 last_modified_at: 2026-05-25
-keywords: "gemini 3.5 flash review, gemini 3.5 vs 3.1, gemini 3.5 flash pricing, cheap ai model 2026, google ai studio upgrade, model benchmarks"
+keywords: gemini 3.5 flash review, gemini 3.5 vs 3.1, gemini 3.5 flash pricing, cheap
+  ai model 2026, google ai studio upgrade, model benchmarks
 faq:
-  - question: "How much does Gemini 3.5 Flash cost?"
-    answer: "Gemini 3.5 Flash costs $0.50 per million input tokens and $3.00 per million output tokens, matching the competitive pricing structure of Gemini 3 Flash."
-  - question: "What is the context window for Gemini 3.5 Flash?"
-    answer: "Gemini 3.5 Flash retains the massive 1,000,000 token context window, allowing developers to process books, code repos, and media libraries in a single call."
-  - question: "How does Gemini 3.5 Flash compare to Gemini 3.1 Flash?"
-    answer: "Gemini 3.5 Flash offers 15-20% higher reasoning speeds, improved tool calling accuracy, and better instruction adherence on structured JSON schemas."
-  - question: "Is there a free tier for Gemini 3.5 Flash?"
-    answer: "Yes. Google AI Studio offers a rate-limited free tier for Gemini 3.5 Flash for prototyping and developer testing."
+- {question: 'How much does Gemini 3.5 Flash cost?', answer: 'Gemini 3.5 Flash costs
+    $0.50 per million input tokens and $3.00 per million output tokens, matching the
+    competitive pricing structure of Gemini 3 Flash.'}
+- {question: 'What is the context window for Gemini 3.5 Flash?', answer: 'Gemini 3.5
+    Flash retains the massive 1,000,000 token context window, allowing developers
+    to process books, code repos, and media libraries in a single call.'}
+- {question: 'How does Gemini 3.5 Flash compare to Gemini 3.1 Flash?', answer: 'Gemini
+    3.5 Flash offers 15-20% higher reasoning speeds, improved tool calling accuracy,
+    and better instruction adherence on structured JSON schemas.'}
+- {question: 'Is there a free tier for Gemini 3.5 Flash?', answer: Yes. Google AI
+    Studio offers a rate-limited free tier for Gemini 3.5 Flash for prototyping and
+    developer testing.}
+tags: [AI APIs, API Pricing, Gemini, OpenAI]
 ---
-
 Google's release of the **Gemini 3.5 Flash** model has sent shockwaves through the lightweight LLM market. Positioned to compete directly with OpenAI's GPT-4.1 Nano and Anthropic's Claude Haiku 4.5, Gemini 3.5 Flash promises flagship reasoning speeds, native multimodality, and high-fidelity logical execution at high-speed rates.
 
 But is it worth migrating your production codebases from Gemini 3.1 Flash or the legacy 3 Flash? Is the performance jump significant enough to justify the price premium over legacy budget models?

@@ -1,20 +1,30 @@
 ---
 layout: post
-title: "LLM Security in Production: Defending Against Indirect Prompt Injections, Jailbreaks, and Agent Hijacking"
-description: "A comprehensive zero-trust security guide for autonomous LLM applications. Learn how to stop indirect prompt injection, data exfiltration via markdown rendering, and tool privilege escalation."
+title: 'LLM Security in Production: Defending Against Indirect Prompt Injections,
+  Jailbreaks, and Agent Hijacking'
+description: A comprehensive zero-trust security guide for autonomous LLM applications.
+  Learn how to stop indirect prompt injection, data exfiltration via markdown rendering,
+  and tool privilege escalation.
 author: professor-xai
-categories: ["security", "ai-agents", "cybersecurity"]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/llm-security-shield.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "llm security 2026, indirect prompt injection defense, agent jailbreak mitigation, prompt injection prevention python, ai red teaming"
+keywords: llm security 2026, indirect prompt injection defense, agent jailbreak mitigation,
+  prompt injection prevention python, ai red teaming
 faq:
-  - question: "What is an indirect prompt injection?"
-    answer: "Indirect prompt injection occurs when an LLM consumes untrusted external data (such as emails, scraped web pages, or customer tickets) that contains malicious instructions designed to hijack the model's instructions and execute unauthorized actions."
-  - question: "Can system prompts prevent prompt injections?"
-    answer: "No. System prompts are treated as context tokens alongside user inputs. LLMs cannot mathematically distinguish between 'trusted instructions' and 'untrusted data' within the same attention window."
-  - question: "What is the only reliable defense against LLM agent hijacking?"
-    answer: "Strict architectural isolation: least-privilege tool execution, dual-LLM verifier boundaries (Quarantine LLM pattern), deterministic schemas, and sandboxed execution environments."
+- {question: 'What is an indirect prompt injection?', answer: 'Indirect prompt injection
+    occurs when an LLM consumes untrusted external data (such as emails, scraped web
+    pages, or customer tickets) that contains malicious instructions designed to hijack
+    the model''s instructions and execute unauthorized actions.'}
+- {question: 'Can system prompts prevent prompt injections?', answer: No. System prompts
+    are treated as context tokens alongside user inputs. LLMs cannot mathematically
+    distinguish between 'trusted instructions' and 'untrusted data' within the same
+    attention window.}
+- {question: 'What is the only reliable defense against LLM agent hijacking?', answer: 'Strict
+    architectural isolation: least-privilege tool execution, dual-LLM verifier boundaries
+    (Quarantine LLM pattern), deterministic schemas, and sandboxed execution environments.'}
+tags: [AI APIs, AI Agents, Security, System Design]
 ---
 As autonomous AI agents are granted access to live email inboxes, production databases, Slack channels, and code repositories, **Prompt Injection has transitioned from an academic curiosity to an enterprise existential threat**.
 

@@ -1,20 +1,27 @@
 ---
 layout: post
-title: "Autonomous AI Agent Failures: Why 80% of Multi-Agent Deployments Crash in Production"
-description: "A forensic examination of multi-agent architectures that fail in production: cascading error propagation, infinite looping, context pollution, and tool collision."
+title: 'Autonomous AI Agent Failures: Why 80% of Multi-Agent Deployments Crash in
+  Production'
+description: 'A forensic examination of multi-agent architectures that fail in production:
+  cascading error propagation, infinite looping, context pollution, and tool collision.'
 author: professor-xai
-categories: ["agentic-ai", "architecture", "debugging"]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/programmatic-video-engine.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "why ai agents fail in production, multi agent cascading errors, langgraph infinite loops, agentic workflow crashes, production ai postmortem"
+keywords: why ai agents fail in production, multi agent cascading errors, langgraph
+  infinite loops, agentic workflow crashes, production ai postmortem
 faq:
-  - question: "Why do multi-agent systems fail in production?"
-    answer: "Cascading errors: when Agent A makes a minor assumption, Agent B takes it as factual ground truth, and Agent C executes an irreversible action based on compound hallucinations."
-  - question: "What is tool collision in agentic systems?"
-    answer: "Tool collision occurs when an agent possesses multiple tools with overlapping descriptions, causing the model to pick unpredictably or oscillate between contradictory functions."
-  - question: "How do you stop agents from looping infinitely?"
-    answer: "Implement strict recursion depth limits, cycle-detection graphs, token burn budgets, and deterministic human-in-the-loop checkpoints."
+- {question: 'Why do multi-agent systems fail in production?', answer: 'Cascading
+    errors: when Agent A makes a minor assumption, Agent B takes it as factual ground
+    truth, and Agent C executes an irreversible action based on compound hallucinations.'}
+- {question: 'What is tool collision in agentic systems?', answer: 'Tool collision
+    occurs when an agent possesses multiple tools with overlapping descriptions, causing
+    the model to pick unpredictably or oscillate between contradictory functions.'}
+- {question: 'How do you stop agents from looping infinitely?', answer: 'Implement
+    strict recursion depth limits, cycle-detection graphs, token burn budgets, and
+    deterministic human-in-the-loop checkpoints.'}
+tags: [AI Agents, System Design]
 ---
 In promotional YouTube demos, multi-agent frameworks look like magic:
 *"Agent A writes the code, Agent B reviews the code, Agent C runs the tests, and Agent D deploys to production!"*

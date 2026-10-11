@@ -1,22 +1,30 @@
 ---
 layout: post
-title: "How to Slash LLM API Costs by 90% in Multi-Tenant B2B SaaS: Tenant Metering, Semantic Caching & Model Cascades"
-description: "A software architect's guide to reducing AI model expenses in SaaS applications. Implement semantic caching, tiered model routing, and token quotas."
+title: 'How to Slash LLM API Costs by 90% in Multi-Tenant B2B SaaS: Tenant Metering,
+  Semantic Caching & Model Cascades'
+description: A software architect's guide to reducing AI model expenses in SaaS applications.
+  Implement semantic caching, tiered model routing, and token quotas.
 author: professor-xai
-categories: [ai-pricing, saas, dev]
+categories: [AI Models & API Pricing]
 image: assets/images/cut-ai-api-bill-2026.webp
 featured: true
 last_modified_at: 2026-10-07
-keywords: "cut llm api costs multi tenant saas, semantic caching redis gptcache, model cascading router python, tenant token quotas saas"
+keywords: cut llm api costs multi tenant saas, semantic caching redis gptcache, model
+  cascading router python, tenant token quotas saas
 faq:
-  - question: "What is a Model Cascade architecture?"
-    answer: "A routing strategy where incoming queries are first evaluated by a fast, ultra-cheap model (e.g. Gemini 2.5 Flash-Lite or GPT-4o-mini). Only queries flagged as highly complex are escalated to expensive frontier models (GPT-4o or Claude 3.5 Sonnet)."
-  - question: "How does Semantic Caching differ from exact-match caching?"
-    answer: "Exact-match caching requires identical strings. Semantic caching computes vector embeddings of incoming prompts. If a new prompt has >0.94 cosine similarity to a previously cached query, the cached response is returned immediately with 0 LLM cost."
-  - question: "How do you enforce tenant-level API token quotas in Python?"
-    answer: "Track token usage dynamically in Redis using rolling token-bucket or sliding-window algorithms keyed by `tenant_id`."
+- {question: 'What is a Model Cascade architecture?', answer: 'A routing strategy
+    where incoming queries are first evaluated by a fast, ultra-cheap model (e.g.
+    Gemini 2.5 Flash-Lite or GPT-4o-mini). Only queries flagged as highly complex
+    are escalated to expensive frontier models (GPT-4o or Claude 3.5 Sonnet).'}
+- {question: 'How does Semantic Caching differ from exact-match caching?', answer: 'Exact-match
+    caching requires identical strings. Semantic caching computes vector embeddings
+    of incoming prompts. If a new prompt has >0.94 cosine similarity to a previously
+    cached query, the cached response is returned immediately with 0 LLM cost.'}
+- {question: 'How do you enforce tenant-level API token quotas in Python?', answer: Track
+    token usage dynamically in Redis using rolling token-bucket or sliding-window
+    algorithms keyed by `tenant_id`.}
+tags: [AI APIs, API Pricing, DevOps]
 ---
-
 When B2B SaaS companies introduce generative AI features, their infrastructure expenses often skyrocket. Unchecked customer loops, repetitive inquiries, and routing simple tasks to $15/M frontier models can quickly destroy gross margins.
 
 Here is the three-pillar architecture top software teams use to **slash multi-tenant LLM expenses by 90%**.

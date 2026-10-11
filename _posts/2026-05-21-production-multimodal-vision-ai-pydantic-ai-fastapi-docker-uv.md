@@ -1,20 +1,32 @@
 ---
 layout: post
-title: "Production Multimodal Vision AI with Pydantic AI, FastAPI, Docker, and uv"
+title: Production Multimodal Vision AI with Pydantic AI, FastAPI, Docker, and uv
 date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
-categories: [Generative AI, Vision AI, DevOps]
+categories: [Developer Engineering & Tools]
 image: assets/images/pydantic-ai-vision-docker-architecture.webp
-description: "A step-by-step engineering guide to building a production-grade multimodal vision application using Pydantic AI structured agents, FastAPI, Docker multi-stage builds, and the uv package manager."
-keywords: "pydantic ai vision llm, multimodal ai fastapi docker, pydantic ai image analysis, uv python docker best practices, structured vision extraction"
+description: A step-by-step engineering guide to building a production-grade multimodal
+  vision application using Pydantic AI structured agents, FastAPI, Docker multi-stage
+  builds, and the uv package manager.
+keywords: pydantic ai vision llm, multimodal ai fastapi docker, pydantic ai image
+  analysis, uv python docker best practices, structured vision extraction
 faq:
-  - question: "How do I deploy a multimodal AI API to production?"
-    answer: "Build a FastAPI application with PydanticAI for structured vision processing, containerize with Docker using multi-stage builds with UV for fast dependency resolution, and deploy behind a reverse proxy. Use health checks and structured logging for production monitoring."
-  - question: "What is UV and why use it for Python AI projects?"
-    answer: "UV (by Astral) is an extremely fast Python package manager that replaces pip. It resolves and installs dependencies 10-100x faster, creates reproducible lockfiles, and handles virtual environments automatically — critical for Docker builds where install speed affects CI/CD pipeline times."
-  - question: "How do I handle image uploads in a FastAPI AI endpoint?"
-    answer: "Accept images via multipart form upload or base64-encoded JSON, validate file type and size, convert to bytes, and pass directly to PydanticAI's multimodal agent. Gemini processes images natively at 258 tokens per tile without separate preprocessing."
+- {question: 'How do I deploy a multimodal AI API to production?', answer: 'Build
+    a FastAPI application with PydanticAI for structured vision processing, containerize
+    with Docker using multi-stage builds with UV for fast dependency resolution, and
+    deploy behind a reverse proxy. Use health checks and structured logging for production
+    monitoring.'}
+- {question: 'What is UV and why use it for Python AI projects?', answer: 'UV (by
+    Astral) is an extremely fast Python package manager that replaces pip. It resolves
+    and installs dependencies 10-100x faster, creates reproducible lockfiles, and
+    handles virtual environments automatically — critical for Docker builds where
+    install speed affects CI/CD pipeline times.'}
+- {question: 'How do I handle image uploads in a FastAPI AI endpoint?', answer: 'Accept
+    images via multipart form upload or base64-encoded JSON, validate file type and
+    size, convert to bytes, and pass directly to PydanticAI''s multimodal agent. Gemini
+    processes images natively at 258 tokens per tile without separate preprocessing.'}
+tags: [AI APIs, DevOps, Generative AI, OCR & Vision, PydanticAI]
 ---
 Building AI applications that understand images is one of the most commercially valuable capabilities available to developers today. Document parsing, product cataloging, medical imaging triage, and security monitoring all rely on vision-language models (VLMs) to extract structured data from visual inputs.
 

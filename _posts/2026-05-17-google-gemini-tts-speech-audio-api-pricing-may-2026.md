@@ -1,32 +1,40 @@
 ---
 layout: post
-title: 'Google Gemini TTS & Speech API Pricing June 2026 — Gemini 3.1 Flash, 3.5 Pro TTS & Live API Costs'
-description: 'Complete Gemini TTS pricing for June 2026. Gemini 3.5 Flash TTS at $6/1M output tokens, 3.1 Flash TTS at $20/1M, Live API at $1/1M input. 32x cheaper than OpenAI Realtime. Free cost calculator.'
+title: Google Gemini TTS & Speech API Pricing June 2026 — Gemini 3.1 Flash, 3.5 Pro
+  TTS & Live API Costs
+description: Complete Gemini TTS pricing for June 2026. Gemini 3.5 Flash TTS at $6/1M
+  output tokens, 3.1 Flash TTS at $20/1M, Live API at $1/1M input. 32x cheaper than
+  OpenAI Realtime. Free cost calculator.
 author: professor-xai
-categories:
-- gemini
-- ai-api
-- google-ai
-- pricing
-- text-to-speech
-- speech-ai
+categories: [AI Models & API Pricing]
 image: assets/images/gemini-tts-speech-pricing-may-2026.webp
 featured: false
 last_modified_at: '2026-06-03'
-keywords: gemini tts pricing, gemini text to speech cost, google ai speech api, gemini 3.1 flash tts, gemini live api pricing, google stt pricing, chirp speech to text, audio api pricing
+keywords: gemini tts pricing, gemini text to speech cost, google ai speech api, gemini
+  3.1 flash tts, gemini live api pricing, google stt pricing, chirp speech to text,
+  audio api pricing
 faq:
-- question: How much does Gemini's Text-to-Speech (TTS) cost?
-  answer: Gemini 3.5 Flash TTS costs $0.15/1M input text tokens and $6.00/1M output audio tokens (approx. $0.09 per 10 minutes of audio). Gemini 3.1 Flash TTS costs $1.00/1M input and $20.00/1M output tokens (approx. $0.31 per 10 minutes).
-- question: How many tokens are used per second of audio output?
-  answer: For Gemini TTS and Live API models, audio output corresponds to a rate of 25 tokens per second. This means 1 million output tokens yields approximately 11 hours of audio.
-- question: What is the cheapest way to generate text-to-speech using Google APIs?
-  answer: Gemini 3.5 Flash TTS is the cheapest option at $6.00 per million output audio tokens. Additionally, the Batch API offers a 50% discount, bringing the cost down to $3.00/1M.
-- question: How much does the Gemini Live API cost?
-  answer: The real-time bidirectional Gemini Live API costs $1.00/1M input tokens (both text and audio) and $20.00/1M output tokens for audio outputs ($6.00/1M for text outputs).
-- question: How does Gemini Audio transcription compare to Google Cloud Speech-to-Text?
-  answer: Traditional Google Cloud STT (Chirp) costs $0.016 per minute. Gemini Audio Understanding is billed at standard Flash rates ($0.50/$3.00 per 1M tokens), which can be much cheaper for short summaries or Q&A.
+- {question: 'How much does Gemini''s Text-to-Speech (TTS) cost?', answer: Gemini
+    3.5 Flash TTS costs $0.15/1M input text tokens and $6.00/1M output audio tokens
+    (approx. $0.09 per 10 minutes of audio). Gemini 3.1 Flash TTS costs $1.00/1M input
+    and $20.00/1M output tokens (approx. $0.31 per 10 minutes).}
+- {question: 'How many tokens are used per second of audio output?', answer: 'For
+    Gemini TTS and Live API models, audio output corresponds to a rate of 25 tokens
+    per second. This means 1 million output tokens yields approximately 11 hours of
+    audio.'}
+- {question: 'What is the cheapest way to generate text-to-speech using Google APIs?',
+  answer: 'Gemini 3.5 Flash TTS is the cheapest option at $6.00 per million output
+    audio tokens. Additionally, the Batch API offers a 50% discount, bringing the
+    cost down to $3.00/1M.'}
+- {question: 'How much does the Gemini Live API cost?', answer: The real-time bidirectional
+    Gemini Live API costs $1.00/1M input tokens (both text and audio) and $20.00/1M
+    output tokens for audio outputs ($6.00/1M for text outputs).}
+- {question: 'How does Gemini Audio transcription compare to Google Cloud Speech-to-Text?',
+  answer: 'Traditional Google Cloud STT (Chirp) costs $0.016 per minute. Gemini Audio
+    Understanding is billed at standard Flash rates ($0.50/$3.00 per 1M tokens), which
+    can be much cheaper for short summaries or Q&A.'}
+tags: [AI APIs, API Pricing, Gemini, Google AI]
 ---
-
 Google now offers voice and speech capabilities through **multiple distinct services**, each with its own specialized API architecture and cost calculation method. 
 
 For developers building real-time voice assistants, automated podcast narration pipelines, high-volume customer service routing, or offline video transcription engines, navigating these models is critical to keeping bills under control.

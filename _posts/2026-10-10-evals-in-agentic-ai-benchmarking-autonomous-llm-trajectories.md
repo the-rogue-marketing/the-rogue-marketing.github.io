@@ -1,20 +1,30 @@
 ---
 layout: post
-title: "Evals in Agentic AI: How to Benchmark, Unit-Test, and Score Autonomous LLM Trajectories"
-description: "Stop deploying blind agents. The complete engineering guide to testing multi-turn autonomous AI agents, evaluating execution trajectories, tool-calling accuracy, and eliminating LLM-as-a-judge bias."
+title: 'Evals in Agentic AI: How to Benchmark, Unit-Test, and Score Autonomous LLM
+  Trajectories'
+description: Stop deploying blind agents. The complete engineering guide to testing
+  multi-turn autonomous AI agents, evaluating execution trajectories, tool-calling
+  accuracy, and eliminating LLM-as-a-judge bias.
 author: professor-xai
-categories: ["ai-evals", "agentic-ai", "testing"]
+categories: [AI Models & API Pricing]
 image: assets/images/agentic-evals-benchmark.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "evals in agentic ai, evaluating autonomous agents, llm trajectory evaluation, agent benchmarking frameworks, unit testing ai agents"
+keywords: evals in agentic ai, evaluating autonomous agents, llm trajectory evaluation,
+  agent benchmarking frameworks, unit testing ai agents
 faq:
-  - question: "Why are agent evals harder than standard LLM evals?"
-    answer: "Standard evals test a single input-to-output text pair. Agent evals test multi-turn stateful trajectories: which tools were called, in what order, with what parameters, and how the agent recovered from failures."
-  - question: "What is an agent trajectory?"
-    answer: "An agent trajectory is the chronological sequence of thoughts, tool selections, argument payloads, environment responses, and intermediate state transitions that an agent takes to achieve a goal."
-  - question: "How do you eliminate LLM-as-a-Judge bias?"
-    answer: "Anchor evaluations in deterministic ground-truth checks (DB state asserts, return code verifications, exact mock inspections) and use structured criteria rubrics with calibrated multi-model juries."
+- {question: 'Why are agent evals harder than standard LLM evals?', answer: 'Standard
+    evals test a single input-to-output text pair. Agent evals test multi-turn stateful
+    trajectories: which tools were called, in what order, with what parameters, and
+    how the agent recovered from failures.'}
+- {question: 'What is an agent trajectory?', answer: 'An agent trajectory is the chronological
+    sequence of thoughts, tool selections, argument payloads, environment responses,
+    and intermediate state transitions that an agent takes to achieve a goal.'}
+- {question: 'How do you eliminate LLM-as-a-Judge bias?', answer: 'Anchor evaluations
+    in deterministic ground-truth checks (DB state asserts, return code verifications,
+    exact mock inspections) and use structured criteria rubrics with calibrated multi-model
+    juries.'}
+tags: [AI Agents]
 ---
 If you are testing your AI agent by opening a terminal, typing three prompts, and saying *"Looks pretty good to me,"* you do not have an engineering pipeline—**you have a casino**.
 

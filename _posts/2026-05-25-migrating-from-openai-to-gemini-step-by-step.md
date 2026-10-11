@@ -1,24 +1,30 @@
 ---
 layout: post
-title: "Migrating from OpenAI to Gemini: Step-by-Step Guide (Save 70% on API Costs)"
-description: "How to migrate your production app from OpenAI to Gemini with just 2 lines of code using Google's OpenAI-compatible endpoint. Save up to 70% on tokens."
+title: 'Migrating from OpenAI to Gemini: Step-by-Step Guide (Save 70% on API Costs)'
+description: How to migrate your production app from OpenAI to Gemini with just 2
+  lines of code using Google's OpenAI-compatible endpoint. Save up to 70% on tokens.
 author: professor-xai
-categories: [gemini, openai, migration, tutorials, cost-optimization]
+categories: [AI Models & API Pricing]
 image: assets/images/openai-to-gemini-migration.webp
 featured: true
 last_modified_at: 2026-05-25
-keywords: "switch from openai to gemini, openai alternative cheaper, migrate openai to gemini, gemini openai compatibility, save api cost"
+keywords: switch from openai to gemini, openai alternative cheaper, migrate openai
+  to gemini, gemini openai compatibility, save api cost
 faq:
-  - question: "How do I switch from OpenAI to Gemini?"
-    answer: "You can migrate using Google's OpenAI-compatible endpoint. Change your OpenAI client base URL to https://generativelanguage.googleapis.com/v1beta/openai/ and use your Gemini API key."
-  - question: "Is Google's API compatible with the OpenAI library?"
-    answer: "Yes. Google supports standard OpenAI client schemas, meaning you do not need to rewrite your prompt handling or payload parsing scripts to transition to Gemini."
-  - question: "Which Gemini model replaces GPT-4o?"
-    answer: "Gemini 3 Flash replaces GPT-4o for speed and standard tasks (saving 75% on input tokens), while Gemini 3.1 Pro replaces GPT-4o/o3-mini for complex reasoning."
-  - question: "Does the OpenAI-compatible endpoint support prompt caching?"
-    answer: "Yes. Google's endpoint automatically supports standard prompt caching logic for system messages and history prefixes that match the requirements."
+- {question: 'How do I switch from OpenAI to Gemini?', answer: 'You can migrate using
+    Google''s OpenAI-compatible endpoint. Change your OpenAI client base URL to https://generativelanguage.googleapis.com/v1beta/openai/
+    and use your Gemini API key.'}
+- {question: 'Is Google''s API compatible with the OpenAI library?', answer: 'Yes.
+    Google supports standard OpenAI client schemas, meaning you do not need to rewrite
+    your prompt handling or payload parsing scripts to transition to Gemini.'}
+- {question: 'Which Gemini model replaces GPT-4o?', answer: 'Gemini 3 Flash replaces
+    GPT-4o for speed and standard tasks (saving 75% on input tokens), while Gemini
+    3.1 Pro replaces GPT-4o/o3-mini for complex reasoning.'}
+- {question: 'Does the OpenAI-compatible endpoint support prompt caching?', answer: Yes.
+    Google's endpoint automatically supports standard prompt caching logic for system
+    messages and history prefixes that match the requirements.}
+tags: [AI APIs, API Pricing, Gemini, OpenAI]
 ---
-
 If your SaaS application is scaling and your OpenAI bill is creeping into the thousands of dollars, it is time to look at alternatives. 
 
 By migrating from OpenAI to Google Gemini, you can immediately reduce your token expenses:

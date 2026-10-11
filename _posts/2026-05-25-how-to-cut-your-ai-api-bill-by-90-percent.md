@@ -1,24 +1,32 @@
 ---
 layout: post
-title: "How to Cut Your AI API Bill by 90% (Prompt Caching + Batch API Guide)"
-description: "Why pay full price for AI APIs? I'll show you how to combine Prompt Caching and Batch APIs to slash up to 90% off OpenAI, Gemini, and Claude costs."
+title: How to Cut Your AI API Bill by 90% (Prompt Caching + Batch API Guide)
+description: Why pay full price for AI APIs? I'll show you how to combine Prompt Caching
+  and Batch APIs to slash up to 90% off OpenAI, Gemini, and Claude costs.
 author: professor-xai
-categories: [ai-api, cost-optimization, gemini, openai, claude, developers]
+categories: [AI Models & API Pricing]
 image: assets/images/cut-ai-api-bill-2026.webp
 featured: true
 last_modified_at: 2026-05-25
-keywords: "reduce ai api cost, prompt caching tutorial, batch api openai, gemini context caching, claude prompt caching, cheap llm api guide"
+keywords: reduce ai api cost, prompt caching tutorial, batch api openai, gemini context
+  caching, claude prompt caching, cheap llm api guide
 faq:
-  - question: "What is LLM Prompt Caching?"
-    answer: "Prompt Caching is an API feature that stores frequently used prompts, instructions, or documents in memory. When you send a matching request, the provider uses the cached version, charging you up to 90% less for input tokens."
-  - question: "How much does the Batch API save?"
-    answer: "Most providers (including OpenAI, Google, and xAI) offer a 50% discount on standard token prices if you submit your tasks in batches and allow up to 24 hours for completion."
-  - question: "Can I combine Prompt Caching and the Batch API?"
-    answer: "Yes! Some providers allow you to benefit from both caching and batch pricing on the same requests, lowering your total API bill by over 95% compared to standard real-time pricing."
-  - question: "Which models support Prompt Caching?"
-    answer: "Prompt Caching is supported on OpenAI (GPT-4.1, GPT-5.5), Google Gemini (Pro, Flash, Flash-Lite), Anthropic Claude (Opus, Sonnet, Haiku), and xAI Grok (all models)."
+- {question: 'What is LLM Prompt Caching?', answer: 'Prompt Caching is an API feature
+    that stores frequently used prompts, instructions, or documents in memory. When
+    you send a matching request, the provider uses the cached version, charging you
+    up to 90% less for input tokens.'}
+- {question: 'How much does the Batch API save?', answer: 'Most providers (including
+    OpenAI, Google, and xAI) offer a 50% discount on standard token prices if you
+    submit your tasks in batches and allow up to 24 hours for completion.'}
+- {question: 'Can I combine Prompt Caching and the Batch API?', answer: 'Yes! Some
+    providers allow you to benefit from both caching and batch pricing on the same
+    requests, lowering your total API bill by over 95% compared to standard real-time
+    pricing.'}
+- {question: 'Which models support Prompt Caching?', answer: 'Prompt Caching is supported
+    on OpenAI (GPT-4.1, GPT-5.5), Google Gemini (Pro, Flash, Flash-Lite), Anthropic
+    Claude (Opus, Sonnet, Haiku), and xAI Grok (all models).'}
+tags: [AI APIs, API Pricing, Claude, Gemini, OpenAI]
 ---
-
 For developers building production AI apps in 2026, API costs are often the single largest expense. However, many developers are still paying the "real-time tax" on every single request.
 
 By implementing two core optimization strategies — **Prompt Caching** and **Batch APIs** — you can reduce your AI API bills by **50% to 90%** overnight.

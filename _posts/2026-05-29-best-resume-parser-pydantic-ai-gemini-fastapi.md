@@ -1,20 +1,34 @@
 ---
 layout: post
-title: "Best Resume Parser Using Python, Pydantic AI, Gemini 3.5 Flash, LiteLLM & FastAPI with Shadcn Dashboard in 2026"
-description: "Build a production-grade AI resume parser API using Python, Pydantic AI, Gemini 3.5 Flash, UV, Docker-compose, LiteLLM, FastAPI and a TypeScript Shadcn UI candidate tracking dashboard. Complete code, schemas, and deployment guide."
+title: Best Resume Parser Using Python, Pydantic AI, Gemini 3.5 Flash, LiteLLM & FastAPI
+  with Shadcn Dashboard in 2026
+description: Build a production-grade AI resume parser API using Python, Pydantic
+  AI, Gemini 3.5 Flash, UV, Docker-compose, LiteLLM, FastAPI and a TypeScript Shadcn
+  UI candidate tracking dashboard. Complete code, schemas, and deployment guide.
 author: professor-xai
-categories: [ocr, python, pydantic-ai]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/resume-parser-dashboard.webp
 featured: true
 last_modified_at: 2026-05-29
-keywords: "best resume parser api 2026, ai resume parser python, pydantic ai resume parsing, gemini resume parser, resume parsing api, fastapi resume parser, shadcn dashboard resume, automated resume screening, resume data extraction python, cv parser api"
+keywords: best resume parser api 2026, ai resume parser python, pydantic ai resume
+  parsing, gemini resume parser, resume parsing api, fastapi resume parser, shadcn
+  dashboard resume, automated resume screening, resume data extraction python, cv
+  parser api
 faq:
-  - question: "What data can an AI resume parser extract?"
-    answer: "A PydanticAI resume parser extracts contact information, work experience (company, title, dates, responsibilities), education, skills, certifications, languages, and projects into structured JSON. The type-safe schema ensures consistent output regardless of resume format or layout."
-  - question: "How does AI resume parsing compare to traditional parsers?"
-    answer: "AI-powered parsers (Gemini + PydanticAI) achieve 90-95% accuracy across all resume formats, including creative layouts, multi-column designs, and non-standard formats. Traditional rule-based parsers achieve 70-80% and fail on unconventional layouts."
-  - question: "Can I use this resume parser for high-volume recruitment?"
-    answer: "Yes. Using Gemini 3.5 Flash-Lite, parsing 10,000 resumes per day costs approximately $5-10 in API fees. The FastAPI backend handles concurrent requests, and the Shadcn dashboard provides a UI for recruiters to review and manage parsed candidates."
+- {question: 'What data can an AI resume parser extract?', answer: 'A PydanticAI resume
+    parser extracts contact information, work experience (company, title, dates, responsibilities),
+    education, skills, certifications, languages, and projects into structured JSON.
+    The type-safe schema ensures consistent output regardless of resume format or
+    layout.'}
+- {question: 'How does AI resume parsing compare to traditional parsers?', answer: 'AI-powered
+    parsers (Gemini + PydanticAI) achieve 90-95% accuracy across all resume formats,
+    including creative layouts, multi-column designs, and non-standard formats. Traditional
+    rule-based parsers achieve 70-80% and fail on unconventional layouts.'}
+- {question: 'Can I use this resume parser for high-volume recruitment?', answer: 'Yes.
+    Using Gemini 3.5 Flash-Lite, parsing 10,000 resumes per day costs approximately
+    $5-10 in API fees. The FastAPI backend handles concurrent requests, and the Shadcn
+    dashboard provides a UI for recruiters to review and manage parsed candidates.'}
+tags: [AI APIs, Gemini, OCR & Vision, PydanticAI, Python]
 ---
 Recruiting teams process thousands of resumes monthly, yet most **resume parsing APIs** in 2026 still rely on brittle regex patterns and template matching. A two-column creative resume from Canva? Broken. A LaTeX-formatted academic CV? Misaligned. A PDF with embedded fonts and graphics? Fields scattered across wrong categories.
 

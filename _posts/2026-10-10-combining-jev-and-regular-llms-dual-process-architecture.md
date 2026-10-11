@@ -1,20 +1,29 @@
 ---
 layout: post
-title: "The Dual-Process AI Stack: Combining Jev (System 1) and Frontier LLMs (System 2) for Scalable Production"
-description: "How leading engineering teams combine TypeSafe AI's Jev with frontier reasoning LLMs to cut API bills by 85%, reduce latency by 80%, and eliminate agent cascading errors."
+title: 'The Dual-Process AI Stack: Combining Jev (System 1) and Frontier LLMs (System
+  2) for Scalable Production'
+description: How leading engineering teams combine TypeSafe AI's Jev with frontier
+  reasoning LLMs to cut API bills by 85%, reduce latency by 80%, and eliminate agent
+  cascading errors.
 author: professor-xai
-categories: ["ai-architecture", "system-design", "cost-optimization"]
+categories: [AI Models & API Pricing]
 image: assets/images/jev-dual-process.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "combining jev and llm, dual process ai architecture, system 1 system 2 ai stack, cut llm costs with jev, jev router claude sonnet cascade"
+keywords: combining jev and llm, dual process ai architecture, system 1 system 2 ai
+  stack, cut llm costs with jev, jev router claude sonnet cascade
 faq:
-  - question: "What is the Dual-Process AI architecture?"
-    answer: "An engineering design pattern where a fast, low-cost System-1 decision model (Jev) handles 80-90% of requests (filtering, routing, classification), escalating only complex reasoning tasks to a high-cost System-2 frontier LLM (Claude, GPT, DeepSeek)."
-  - question: "How much money does the Jev + LLM cascade save?"
-    answer: "Between 70% and 90% in cloud API expenses, because 80%+ of incoming queries are simple determinations that do not require multi-billion parameter token generation."
-  - question: "How does this pattern improve user latency?"
-    answer: "Simple queries, FAQs, and routing checks resolve in under 150ms through Jev instead of waiting 1.5–3.0 seconds for a full generative model completion."
+- {question: 'What is the Dual-Process AI architecture?', answer: 'An engineering
+    design pattern where a fast, low-cost System-1 decision model (Jev) handles 80-90%
+    of requests (filtering, routing, classification), escalating only complex reasoning
+    tasks to a high-cost System-2 frontier LLM (Claude, GPT, DeepSeek).'}
+- {question: 'How much money does the Jev + LLM cascade save?', answer: 'Between 70%
+    and 90% in cloud API expenses, because 80%+ of incoming queries are simple determinations
+    that do not require multi-billion parameter token generation.'}
+- {question: 'How does this pattern improve user latency?', answer: 'Simple queries,
+    FAQs, and routing checks resolve in under 150ms through Jev instead of waiting
+    1.5–3.0 seconds for a full generative model completion.'}
+tags: [OpenAI, System Design]
 ---
 In enterprise production, one of the most common architectural mistakes is using a **sledgehammer to hang a picture frame**.
 

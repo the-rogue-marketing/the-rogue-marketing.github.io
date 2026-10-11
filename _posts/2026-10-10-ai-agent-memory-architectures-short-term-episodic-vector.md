@@ -1,20 +1,26 @@
 ---
 layout: post
-title: "AI Agent Memory Architectures: Short-Term, Episodic, and Vector State in Production"
-description: "How to design production memory systems for autonomous LLM agents: working context, episodic historical memory, semantic vector stores, and hierarchical compaction."
+title: 'AI Agent Memory Architectures: Short-Term, Episodic, and Vector State in Production'
+description: 'How to design production memory systems for autonomous LLM agents: working
+  context, episodic historical memory, semantic vector stores, and hierarchical compaction.'
 author: professor-xai
-categories: ["agentic-ai", "memory", "rag"]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/conversational-commerce.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "ai agent memory architectures, episodic memory llm, working context vs long term memory, mem0 zep production review, agent state management"
+keywords: ai agent memory architectures, episodic memory llm, working context vs long
+  term memory, mem0 zep production review, agent state management
 faq:
-  - question: "Why is standard chat history not enough for agent memory?"
-    answer: "Appending raw chat messages quickly exhausts the context window, introduces noisy historical distractions, and inflates API costs exponentially on every turn."
-  - question: "What is episodic memory in AI agents?"
-    answer: "Episodic memory captures discrete historical events, user preferences, and task outcomes structured as clean relational facts rather than conversational text."
-  - question: "How do you prevent memory hallucination?"
-    answer: "Store memories in structured key-value schemas with deterministic validation, and allow users to inspect and delete stored memories."
+- {question: 'Why is standard chat history not enough for agent memory?', answer: 'Appending
+    raw chat messages quickly exhausts the context window, introduces noisy historical
+    distractions, and inflates API costs exponentially on every turn.'}
+- {question: 'What is episodic memory in AI agents?', answer: 'Episodic memory captures
+    discrete historical events, user preferences, and task outcomes structured as
+    clean relational facts rather than conversational text.'}
+- {question: 'How do you prevent memory hallucination?', answer: 'Store memories in
+    structured key-value schemas with deterministic validation, and allow users to
+    inspect and delete stored memories.'}
+tags: [AI Agents, API Pricing]
 ---
 An agent without persistent memory is afflicted with permanent amnesia. Every user turn restarts the universe from scratch.
 

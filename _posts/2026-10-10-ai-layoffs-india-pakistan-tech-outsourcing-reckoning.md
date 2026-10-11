@@ -1,20 +1,34 @@
 ---
 layout: post
-title: "The South Asian IT Reckoning: How AI Automation is Fueling Massive Layoffs Across India and Pakistan"
-description: "An investigative report on the structural disruption impacting the $250B+ tech outsourcing sectors in India and Pakistan. Analyzing IT service freezes, freelance market collapse, and the survival playbook for developers."
+title: 'The South Asian IT Reckoning: How AI Automation is Fueling Massive Layoffs
+  Across India and Pakistan'
+description: An investigative report on the structural disruption impacting the $250B+
+  tech outsourcing sectors in India and Pakistan. Analyzing IT service freezes, freelance
+  market collapse, and the survival playbook for developers.
 author: professor-xai
-categories: ["tech-layoffs", "south-asia-tech", "labor-market", "career"]
+categories: [AI Strategy & Tech Economics]
 image: assets/images/south-asia-ai-layoffs.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "ai layoffs india pakistan, indian it sector hiring freeze, freelance collapse upwork fiverr ai, tcs infosys ai reduction, software engineer jobs pakistan 2026"
+keywords: ai layoffs india pakistan, indian it sector hiring freeze, freelance collapse
+  upwork fiverr ai, tcs infosys ai reduction, software engineer jobs pakistan 2026
 faq:
-  - question: "Why is AI causing layoffs in India's IT service companies?"
-    answer: "India's major IT firms (TCS, Infosys, Wipro, HCL) built business models on billing Western clients for human hours of routine coding, maintenance, and manual QA. Autonomous AI coding agents now complete these routine tasks in minutes, causing Western clients to downsize or terminate staff-augmentation contracts."
-  - question: "How is Pakistan's software and freelance economy affected?"
-    answer: "Pakistan's $3B+ software export sector heavily relies on entry-level web development, WordPress, manual QA, and freelance marketplaces (Upwork, Fiverr). Generative AI and automated CLI coding agents have commoditized these entry-level tasks, slashing hourly freelance rates and junior hiring."
-  - question: "What skills must developers in India and Pakistan learn to survive?"
-    answer: "Developers must pivot away from generic boilerplate coding and master AI systems engineering: autonomous agent orchestration (PydanticAI, LangGraph), local model fine-tuning (LoRA), systems programming (Rust/Go), and production evaluation pipelines."
+- {question: 'Why is AI causing layoffs in India''s IT service companies?', answer: 'India''s
+    major IT firms (TCS, Infosys, Wipro, HCL) built business models on billing Western
+    clients for human hours of routine coding, maintenance, and manual QA. Autonomous
+    AI coding agents now complete these routine tasks in minutes, causing Western
+    clients to downsize or terminate staff-augmentation contracts.'}
+- {question: 'How is Pakistan''s software and freelance economy affected?', answer: 'Pakistan''s
+    $3B+ software export sector heavily relies on entry-level web development, WordPress,
+    manual QA, and freelance marketplaces (Upwork, Fiverr). Generative AI and automated
+    CLI coding agents have commoditized these entry-level tasks, slashing hourly freelance
+    rates and junior hiring.'}
+- {question: 'What skills must developers in India and Pakistan learn to survive?',
+  answer: 'Developers must pivot away from generic boilerplate coding and master AI
+    systems engineering: autonomous agent orchestration (PydanticAI, LangGraph), local
+    model fine-tuning (LoRA), systems programming (Rust/Go), and production evaluation
+    pipelines.'}
+tags: [AI APIs]
 ---
 For three decades, South Asia was celebrated as the **backbone of global information technology**.
 

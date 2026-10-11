@@ -1,20 +1,31 @@
 ---
 layout: post
-title: "How to Use Jev Using typesafe_sdk and pydantic_ai with an OpenRouter API Key: The Complete Developer Guide"
-description: "Step-by-step tutorial on implementing TypeSafe AI's Jev model using both typesafe_sdk and pydantic_ai via OpenRouter. Learn configuration, structured schema definitions, and calibrated probability handling."
+title: 'How to Use Jev Using typesafe_sdk and pydantic_ai with an OpenRouter API Key:
+  The Complete Developer Guide'
+description: Step-by-step tutorial on implementing TypeSafe AI's Jev model using both
+  typesafe_sdk and pydantic_ai via OpenRouter. Learn configuration, structured schema
+  definitions, and calibrated probability handling.
 author: professor-xai
-categories: ["ai-engineering", "pydantic-ai", "python"]
+categories: [AI Agents & Autonomous Systems]
 image: assets/images/jev-typesafe-sdk.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "how to use jev typesafe_sdk, jev pydantic_ai openrouter, typesafe ai jev python tutorial, jev model openrouter api key, system 1 decision model"
+keywords: how to use jev typesafe_sdk, jev pydantic_ai openrouter, typesafe ai jev
+  python tutorial, jev model openrouter api key, system 1 decision model
 faq:
-  - question: "What is Jev and how does it differ from traditional LLMs?"
-    answer: "Jev is a specialized System-1 decision model built by TypeSafe AI. Rather than generating conversational prose, Jev evaluates input data against strongly typed questions (booleans, enums, scores) and returns calibrated probability distributions in under 150ms."
-  - question: "Can you use Jev through OpenRouter?"
-    answer: "Yes. OpenRouter hosts Jev models (such as `typesafe/jev-latest` and `typesafe/jev-1.13`), allowing developers to query Jev using their standard OpenRouter API key and OpenAI-compatible client libraries."
-  - question: "How does Jev integrate with PydanticAI?"
-    answer: "PydanticAI natively integrates with Jev through the `TypeSafeModel` adapter or by configuring OpenRouter as the underlying provider with an explicit structured result schema."
+- {question: 'What is Jev and how does it differ from traditional LLMs?', answer: 'Jev
+    is a specialized System-1 decision model built by TypeSafe AI. Rather than generating
+    conversational prose, Jev evaluates input data against strongly typed questions
+    (booleans, enums, scores) and returns calibrated probability distributions in
+    under 150ms.'}
+- {question: 'Can you use Jev through OpenRouter?', answer: 'Yes. OpenRouter hosts
+    Jev models (such as `typesafe/jev-latest` and `typesafe/jev-1.13`), allowing developers
+    to query Jev using their standard OpenRouter API key and OpenAI-compatible client
+    libraries.'}
+- {question: 'How does Jev integrate with PydanticAI?', answer: PydanticAI natively
+    integrates with Jev through the `TypeSafeModel` adapter or by configuring OpenRouter
+    as the underlying provider with an explicit structured result schema.}
+tags: [AI APIs, PydanticAI, Python]
 ---
 In late 2026, **TypeSafe AI** introduced **Jev**, pioneering a new class of models known as **Decision Models (System One AI)**.
 

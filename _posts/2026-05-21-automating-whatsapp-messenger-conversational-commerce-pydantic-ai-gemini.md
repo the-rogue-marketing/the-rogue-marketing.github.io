@@ -1,20 +1,32 @@
 ---
 layout: post
-title: "Automating WhatsApp and Messenger Conversational Commerce with Pydantic AI and Gemini"
+title: Automating WhatsApp and Messenger Conversational Commerce with Pydantic AI
+  and Gemini
 date: 2026-05-21
 last_modified_at: 2026-05-21
 author: professor-xai
-categories: [Generative AI, Conversational Commerce, Full-Stack]
+categories: [Developer Engineering & Tools]
 image: assets/images/conversational-commerce.webp
-description: "A complete developer guide to building a conversational e-commerce and food ordering system for WhatsApp and Messenger using Pydantic AI, Gemini API, and FastAPI webhook architectures."
-keywords: "whatsapp ordering bot gemini, conversational commerce pydantic ai, fastapi whatsapp cloud api webhook, ai restaurant booking system python, docker-compose uv python"
+description: A complete developer guide to building a conversational e-commerce and
+  food ordering system for WhatsApp and Messenger using Pydantic AI, Gemini API, and
+  FastAPI webhook architectures.
+keywords: whatsapp ordering bot gemini, conversational commerce pydantic ai, fastapi
+  whatsapp cloud api webhook, ai restaurant booking system python, docker-compose
+  uv python
 faq:
-  - question: "How do I build a WhatsApp chatbot with AI?"
-    answer: "Use the Meta Business API (Cloud API) for WhatsApp message handling, PydanticAI for structured response generation with type-safe schemas, and Google Gemini as the LLM backend. The webhook-based architecture processes incoming messages and generates context-aware replies."
-  - question: "Can PydanticAI handle stateful WhatsApp conversations?"
-    answer: "Yes. PydanticAI's RunContext and dependency injection system allows you to maintain conversation state across webhook calls. Use Redis or PostgreSQL to persist session data between stateless webhook invocations."
-  - question: "What does it cost to run an AI WhatsApp business bot?"
-    answer: "Using Gemini 2.5 Flash-Lite at $0.10/1M tokens, a bot handling 10,000 conversations per day costs approximately $3-5/month in API fees. WhatsApp Cloud API itself is free for the first 1,000 conversations per month."
+- {question: 'How do I build a WhatsApp chatbot with AI?', answer: 'Use the Meta Business
+    API (Cloud API) for WhatsApp message handling, PydanticAI for structured response
+    generation with type-safe schemas, and Google Gemini as the LLM backend. The webhook-based
+    architecture processes incoming messages and generates context-aware replies.'}
+- {question: 'Can PydanticAI handle stateful WhatsApp conversations?', answer: Yes.
+    PydanticAI's RunContext and dependency injection system allows you to maintain
+    conversation state across webhook calls. Use Redis or PostgreSQL to persist session
+    data between stateless webhook invocations.}
+- {question: 'What does it cost to run an AI WhatsApp business bot?', answer: 'Using
+    Gemini 2.5 Flash-Lite at $0.10/1M tokens, a bot handling 10,000 conversations
+    per day costs approximately $3-5/month in API fees. WhatsApp Cloud API itself
+    is free for the first 1,000 conversations per month.'}
+tags: [Full-Stack, Gemini, Generative AI, PydanticAI]
 ---
 Conversational commerce has shifted from a novel customer touchpoint to a core transactional engine. Globally, billions of users interact with businesses daily on messaging platforms like WhatsApp and Facebook Messenger. 
 

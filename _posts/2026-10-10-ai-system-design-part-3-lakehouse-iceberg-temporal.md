@@ -1,22 +1,37 @@
 ---
 layout: post
-title: "AI System Design Series (Part 3): The Medallion Data Lakehouse, Apache Iceberg, and Temporal DAG Workflows"
-description: "How to engineer durable data pipelines for unstructured AI document workloads. Structuring Bronze, Silver, and Gold layers with Apache Iceberg, and orchestrating resilient DAGs using Temporal."
+title: 'AI System Design Series (Part 3): The Medallion Data Lakehouse, Apache Iceberg,
+  and Temporal DAG Workflows'
+description: How to engineer durable data pipelines for unstructured AI document workloads.
+  Structuring Bronze, Silver, and Gold layers with Apache Iceberg, and orchestrating
+  resilient DAGs using Temporal.
 author: professor-xai
-categories: [system-design, data-engineering, python, temporal]
+categories: [System Design & Scalability]
 image: assets/images/ai-system-design-part-3-lakehouse.webp
 featured: true
 last_modified_at: 2026-10-10
-keywords: "medallion architecture ai, apache iceberg python, temporal workflow document processing, dag orchestration enterprise, data lakehouse parquet, durable execution temporal"
+keywords: medallion architecture ai, apache iceberg python, temporal workflow document
+  processing, dag orchestration enterprise, data lakehouse parquet, durable execution
+  temporal
 faq:
-  - question: "Why use the Medallion Architecture for document AI systems?"
-    answer: "The Medallion Architecture separates storage into Bronze (immutable raw files and initial LLM extractions), Silver (validated, standardized Common Data Models), and Gold (aggregated business marts). This separation prevents analytical queries from degrading transactional extraction, and allows reprocessing historical documents whenever downstream business logic evolves."
-  - question: "Why choose Apache Iceberg over standard Parquet files on S3?"
-    answer: "Raw Parquet files lack ACID transactions, table-level concurrency control, and schema evolution. Apache Iceberg provides transactional snapshot isolation, hidden partitioning, and historical time-travel queries, which are essential for regulatory compliance and audit trails."
-  - question: "How does Temporal differ from Celery or Airflow for document orchestration?"
-    answer: "Airflow is designed for scheduled batch ETL, and Celery is stateless task-based without durable state tracking. Temporal provides durable execution: workflows can sleep for days awaiting human approval or retry transient API failures without losing local variable state or holding open database connections."
+- {question: 'Why use the Medallion Architecture for document AI systems?', answer: 'The
+    Medallion Architecture separates storage into Bronze (immutable raw files and
+    initial LLM extractions), Silver (validated, standardized Common Data Models),
+    and Gold (aggregated business marts). This separation prevents analytical queries
+    from degrading transactional extraction, and allows reprocessing historical documents
+    whenever downstream business logic evolves.'}
+- {question: 'Why choose Apache Iceberg over standard Parquet files on S3?', answer: 'Raw
+    Parquet files lack ACID transactions, table-level concurrency control, and schema
+    evolution. Apache Iceberg provides transactional snapshot isolation, hidden partitioning,
+    and historical time-travel queries, which are essential for regulatory compliance
+    and audit trails.'}
+- {question: 'How does Temporal differ from Celery or Airflow for document orchestration?',
+  answer: 'Airflow is designed for scheduled batch ETL, and Celery is stateless task-based
+    without durable state tracking. Temporal provides durable execution: workflows
+    can sleep for days awaiting human approval or retry transient API failures without
+    losing local variable state or holding open database connections.'}
+tags: [Gemini, OCR & Vision, PydanticAI, Python, System Design]
 ---
-
 In Part 1 and Part 2 of this series, we solved two major technical challenges:
 1. Distributed document ingestion using Kafka and Gemini 3.8 Flash.
 2. Canonical semantic modeling using Pydantic, PEPPOL BIS 3.0 for financial invoices, and HL7 FHIR for healthcare claims.

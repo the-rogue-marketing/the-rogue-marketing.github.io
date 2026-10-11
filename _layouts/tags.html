@@ -1,0 +1,31 @@
+---
+title: "Tags"
+layout: default
+permalink: "/tags.html"
+---
+<div class="container py-4">
+  <header class="mb-5">
+    <h1 class="font-weight-bold serif-font">Top Topics & Tags</h1>
+    <p class="lead text-muted">Browse in-depth technical guides, pricing breakdowns, and tutorials filtered by topic.</p>
+  </header>
+
+  {% for tag in site.data.top_tags %}
+  <section class="mb-5" id="{{ tag.slug }}">
+    <div class="d-flex align-items-center justify-content-between pb-2 mb-4 border-bottom">
+      <h2 class="h4 font-weight-bold mb-0">
+        🏷️ {{ tag.name }} <span class="badge badge-secondary badge-pill ml-2">{{ tag.count }} articles</span>
+      </h2>
+      <a href="#top" class="small text-muted text-decoration-none">Back to top ↑</a>
+    </div>
+    <div class="row">
+      {% for post in site.posts %}
+        {% if post.tags contains tag.name %}
+        <div class="col-md-4 mb-4">
+          {% include postbox.html %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+</div>

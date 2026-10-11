@@ -1,24 +1,31 @@
 ---
 layout: post
-title: "Gemini 3.5 Pro & 2.5 API Vision Prompts — Bounding Boxes, Advanced OCR & Use Cases"
-description: "Advanced developer guide with copy-paste prompts and Python code for Gemini 3.5 Pro and Gemini 2.5 API image analysis, layout parsing, bounding box coordinates, and OCR."
+title: Gemini 3.5 Pro & 2.5 API Vision Prompts — Bounding Boxes, Advanced OCR & Use
+  Cases
+description: Advanced developer guide with copy-paste prompts and Python code for
+  Gemini 3.5 Pro and Gemini 2.5 API image analysis, layout parsing, bounding box coordinates,
+  and OCR.
 author: professor-xai
-categories:
-- gemini-3.5-pro
-- gemini-ai
-- gemini-api
+categories: [AI Models & API Pricing]
 image: assets/images/1.jpeg
-keywords: gemini 3.5 pro vision, gemini image analysis prompts, multimodal ocr code, object detection gemini, vision model tutorial
+keywords: gemini 3.5 pro vision, gemini image analysis prompts, multimodal ocr code,
+  object detection gemini, vision model tutorial
 last_modified_at: '2026-06-03'
 faq:
-- question: What is Gemini 3.5 Pro context window for images?
-  answer: Gemini 3.5 Pro features a massive context window of 1 million tokens, allowing developers to upload multiple high-resolution images or complete PDF documents simultaneously for visual analysis.
-- question: Can Gemini 3.5 Pro extract text layout and bounding boxes?
-  answer: Yes, Gemini 3.5 Pro can return normalized coordinates (typically from 0 to 1000) for bounding boxes of detected objects, segments, or paragraphs of text inside an image, providing structured layout parsing.
-- question: How do you disable thinking for Gemini OCR?
-  answer: Google recommends disabling thinking (setting thinking_budget=0 in the API configuration) for deterministic text extraction and OCR tasks to achieve higher layout parsing accuracy and reduce latency.
+- {question: 'What is Gemini 3.5 Pro context window for images?', answer: 'Gemini
+    3.5 Pro features a massive context window of 1 million tokens, allowing developers
+    to upload multiple high-resolution images or complete PDF documents simultaneously
+    for visual analysis.'}
+- {question: 'Can Gemini 3.5 Pro extract text layout and bounding boxes?', answer: 'Yes,
+    Gemini 3.5 Pro can return normalized coordinates (typically from 0 to 1000) for
+    bounding boxes of detected objects, segments, or paragraphs of text inside an
+    image, providing structured layout parsing.'}
+- {question: 'How do you disable thinking for Gemini OCR?', answer: Google recommends
+    disabling thinking (setting thinking_budget=0 in the API configuration) for deterministic
+    text extraction and OCR tasks to achieve higher layout parsing accuracy and reduce
+    latency.}
+tags: [AI APIs, Gemini, OCR & Vision]
 ---
-
 The Gemini 3.5 Pro API, with its native multimodal processing and 1-million-token context window, excels at analyzing images for a variety of applications, including invoice OCR. Below are key use cases for image analysis with tailored prompts to help developers leverage the API effectively, powered by services like [AI Viewz Image-to-Text](https://www.aiviewz.com/services/image-to-text) and [AI Viewz Key Information Extraction](https://www.aiviewz.com/services/key-information-extraction). These examples demonstrate the model’s ability to process images alongside text, enabling tasks like object detection, image captioning, accessibility improvements, and invoice processing. Each prompt is designed to be used in [Google AI Studio](https://ai.google.dev/gemini-api/docs) or programmatically via the [Gemini API](https://ai.google.dev/gemini-api/docs) or [Vertex AI](https://cloud.google.com/vertex-ai).
 
 ## Use Cases and Prompts

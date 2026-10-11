@@ -1,24 +1,32 @@
 ---
 layout: post
-title: "AI API Free Tiers Compared: How Much Can You Build for $0? [2026]"
-description: "Who says AI development has to be expensive? I compared the free tiers and promotional credits of Gemini, OpenAI, Grok, and Claude. Calculator inside."
+title: 'AI API Free Tiers Compared: How Much Can You Build for $0? [2026]'
+description: Who says AI development has to be expensive? I compared the free tiers
+  and promotional credits of Gemini, OpenAI, Grok, and Claude. Calculator inside.
 author: professor-xai
-categories: [ai-api, free-credits, gemini, openai, grok, claude]
+categories: [AI Models & API Pricing]
 image: assets/images/ai-api-free-tiers-2026.webp
 featured: true
 last_modified_at: 2026-05-25
-keywords: "free ai api, gemini free tier vs openai free, free llm credits, grok api free credits, build ai for free, startup ai credits"
+keywords: free ai api, gemini free tier vs openai free, free llm credits, grok api
+  free credits, build ai for free, startup ai credits
 faq:
-  - question: "Which AI API has the best free tier?"
-    answer: "Google Gemini (via Google AI Studio) offers the best permanent free tier, providing free access to Gemini Flash and Flash-Lite models with daily request limits. xAI Grok offers the best promotional tier with up to $175/month in free credits."
-  - question: "Does OpenAI offer a free API tier?"
-    answer: "No. OpenAI does not have a permanent free tier for their API. New accounts receive a one-time credit of $5 to $18, but once exhausted, you must pay standard pay-as-you-go rates."
-  - question: "How can I get free Grok API credits?"
-    answer: "xAI offers up to $175 per month in free credits for developers who enroll in their data-sharing program inside the xAI developer console settings."
-  - question: "Are there rate limits on the Gemini free tier?"
-    answer: "Yes. The Gemini free tier in Google AI Studio has request-per-minute (RPM) and request-per-day (RPD) limits, and Google may use your prompts/responses to train their models. Paid accounts remove these limits."
+- {question: 'Which AI API has the best free tier?', answer: 'Google Gemini (via Google
+    AI Studio) offers the best permanent free tier, providing free access to Gemini
+    Flash and Flash-Lite models with daily request limits. xAI Grok offers the best
+    promotional tier with up to $175/month in free credits.'}
+- {question: 'Does OpenAI offer a free API tier?', answer: 'No. OpenAI does not have
+    a permanent free tier for their API. New accounts receive a one-time credit of
+    $5 to $18, but once exhausted, you must pay standard pay-as-you-go rates.'}
+- {question: 'How can I get free Grok API credits?', answer: xAI offers up to $175
+    per month in free credits for developers who enroll in their data-sharing program
+    inside the xAI developer console settings.}
+- {question: 'Are there rate limits on the Gemini free tier?', answer: 'Yes. The Gemini
+    free tier in Google AI Studio has request-per-minute (RPM) and request-per-day
+    (RPD) limits, and Google may use your prompts/responses to train their models.
+    Paid accounts remove these limits.'}
+tags: [AI APIs, API Pricing, Claude, Gemini, Grok xAI, OpenAI]
 ---
-
 If you are a student, indie hacker, or startup founder bootstrapping a new project, spending hundreds of dollars on API costs during the prototyping phase is a major barrier. 
 
 Fortunately, you don't have to. Several major AI providers offer generous free tiers and promotional credit pools that let you build, test, and even launch full applications without ever inputting a credit card.
