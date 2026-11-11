@@ -329,3 +329,4 @@ By offloading evaluation assertions to **TypeSafe Jev**:
 3. **Flakiness disappears**: Constrained logits guarantee stable, type-safe outputs without judge drift.
 
 Deterministic evaluation is the missing link between experimental AI prototypes and enterprise-grade software reliability.
+
